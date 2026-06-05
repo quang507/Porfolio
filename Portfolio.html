@@ -1391,9 +1391,21 @@
         ctx.shadowBlur = 0;
         ctx.globalCompositeOperation = 'source-over';
 
-        // framing pose detection
+        // framing pose detection — both hands "L" AND placed at diagonal corners
+        // forming a real rectangle (the classic photographer frame, not palms-to-cam)
         const framers = handData.filter(h => h.lShape);
-        const framing = handData.length >= 2 && framers.length >= 2;
+        let framing = false;
+        if (handData.length >= 2 && framers.length >= 2) {
+            const diagX = Math.abs(framers[0].cx - framers[1].cx);
+            const diagY = Math.abs(framers[0].cy - framers[1].cy);
+            const pts = [framers[0].thumb, framers[0].index, framers[1].thumb, framers[1].index];
+            const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+            const boxW = Math.max(...xs) - Math.min(...xs);
+            const boxH = Math.max(...ys) - Math.min(...ys);
+            // hands diagonal + box big enough on both axes
+            framing = diagX > W * 0.14 && diagY > H * 0.10 &&
+                      boxW > W * 0.18 && boxH > H * 0.14;
+        }
 
         // neoglass colored pane between two hands (when not framing)
         if (handData.length >= 2 && !framing) {
