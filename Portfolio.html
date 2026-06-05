@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lê Bá Duy Quang - Graphic Designer & Photographer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* ===== HERO MEDIAPIPE SECTION ===== */
+        #hero-interactive {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scaleX(-1);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #hero-video.ready {
+            opacity: 1;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(-1);
+        }
+
+        .hero-ui {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 60px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .hero-hint {
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-size: 1.1em;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: opacity 0.5s;
+        }
+
+        .hero-hint span {
+            display: block;
+            font-size: 0.82em;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .hero-status {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 0.9em;
+            backdrop-filter: blur(6px);
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #f44;
+            animation: blink 1s infinite;
+        }
+
+        .status-dot.active {
+            background: #4f4;
+            animation: none;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.55);
+            font-size: 0.85em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            animation: fadeUpDown 2s infinite;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid rgba(255,255,255,0.5);
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            transform: rotate(45deg);
+        }
+
+        @keyframes fadeUpDown {
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 0.9; transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ===== ORIGINAL HEADER ===== */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .gallery-placeholder span {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        .gallery-placeholder p {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-icon {
+            font-size: 4em;
+            color: #667eea;
+            opacity: 0.2;
+            line-height: 0;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .author-position {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .rating {
+            font-size: 1.2em;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 18px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            min-width: 500px;
+            min-height: 400px;
+        }
+
+        .lightbox-placeholder span {
+            font-size: 8em;
+            margin-bottom: 20px;
+        }
+
+        .lightbox-placeholder p {
+            font-size: 2em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+        }
+
+        .lightbox-thumbnails {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            max-width: 90%;
+            overflow-x: auto;
+            padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+
+        .lightbox-thumbnails::-webkit-scrollbar { height: 6px; }
+        .lightbox-thumbnails::-webkit-scrollbar-track { background: transparent; }
+        .lightbox-thumbnails::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .thumbnail:hover { opacity: 0.8; }
+
+        .thumbnail.active {
+            opacity: 1;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-placeholder {
+                min-width: 300px;
+                min-height: 300px;
+                padding: 50px;
+            }
+            .lightbox-placeholder span { font-size: 5em; }
+            .lightbox-placeholder p { font-size: 1.3em; }
+            .lightbox-close, .lightbox-nav { width: 45px; height: 45px; font-size: 35px; }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .profile-box h3 { margin-bottom: 15px; font-size: 1.5em; }
+        .profile-box p { margin: 10px 0; line-height: 1.8; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-category h3 { color: #667eea; margin-bottom: 15px; font-size: 1.3em; }
+        .skill-category ul { list-style: none; }
+
+        .skill-category li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .skill-category li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .experience-timeline { margin-top: 30px; }
+
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover { transform: translateX(10px); }
+        .timeline-item h3 { color: #764ba2; margin-bottom: 10px; }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 50px;
+        }
+
+        .cta-section h2 { color: white; }
+        .cta-section h2::after { background: white; }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .about-content { grid-template-columns: 1fr; }
+            section { padding: 30px 20px; }
+            nav ul { gap: 15px; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form { padding: 25px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HERO INTERACTIVE (SECTION 1) ===== -->
+    <section id="hero-interactive">
+        <video id="hero-video" autoplay playsinline muted></video>
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero-ui">
+            <div class="hero-status">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Đang khởi động camera...</span>
+            </div>
+
+            <div class="hero-hint" id="heroHint">
+                ✋ Giơ cả hai tay lên để tạo hiệu ứng
+                <span>Move both hands — hold them apart like in the picture</span>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ORIGINAL HEADER (SECTION 2) ===== -->
+    <header>
+        <h1>Lê Bá Duy Quang</h1>
+        <div class="subtitle">Graphic Designer | Photographer | Creative Specialist</div>
+        <div class="contact-info">
+            📅 30/05/1996 | 💼 5+ Năm Kinh Nghiệm
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Về Tôi</a></li>
+            <li><a href="#skills">Kỹ Năng</a></li>
+            <li><a href="#experience">Kinh Nghiệm</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>Về Tôi</h2>
+            <div class="about-content">
+                <div class="profile-box">
+                    <h3>Thông Tin</h3>
+                    <p><strong>Họ Tên:</strong><br>Lê Bá Duy Quang</p>
+                    <p><strong>Ngày Sinh:</strong><br>30/05/1996</p>
+                    <p><strong>Kinh Nghiệm:</strong><br>5+ Năm</p>
+                    <p><strong>Chuyên Môn:</strong><br>Design & Photography</p>
+                </div>
+                <div>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Xin chào! Tôi là Duy Quang, một nhà thiết kế đồ họa và nhiếp ảnh gia với hơn 5 năm kinh nghiệm
+                        trong lĩnh vực sáng tạo. Tôi chuyên về thiết kế đồ họa, in ấn, chụp ảnh studio và sản phẩm.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                        Với sự thành thạo các công cụ chuyên nghiệp như Adobe Photoshop, Illustrator, cùng với kiến thức
+                        về phần mềm 3D, video editing và các công cụ AI hiện đại, tôi luôn sẵn sàng mang đến những giải
+                        pháp sáng tạo và hiệu quả cho mọi dự án.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                        Tôi cũng có kiến thức về coding, giúp tôi tối ưu hóa quy trình làm việc và tạo ra những sản phẩm
+                        thiết kế có tính ứng dụng cao trong thời đại số.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Kỹ Năng Chuyên Môn</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🎨 Thiết Kế Đồ Họa</h3>
+                    <ul>
+                        <li>Adobe Photoshop (Thành thạo)</li>
+                        <li>Adobe Illustrator (Thành thạo)</li>
+                        <li>Thiết kế ấn phẩm in ấn</li>
+                        <li>Thiết kế bao bì</li>
+                        <li>Branding & Identity</li>
+                        <li>Layout & Typography</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>📸 Nhiếp Ảnh</h3>
+                    <ul>
+                        <li>Chụp ảnh Studio</li>
+                        <li>Chụp ảnh Sản phẩm</li>
+                        <li>Lighting & Composition</li>
+                        <li>Photo Retouching</li>
+                        <li>Product Photography</li>
+                        <li>Commercial Photography</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🎬 Video & 3D</h3>
+                    <ul>
+                        <li>Video Editing</li>
+                        <li>Motion Graphics</li>
+                        <li>Phần mềm 3D</li>
+                        <li>3D Modeling cơ bản</li>
+                        <li>Animation cơ bản</li>
+                        <li>Post-production</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🤖 AI & Coding</h3>
+                    <ul>
+                        <li>AI Tools cho thiết kế</li>
+                        <li>Midjourney / Stable Diffusion</li>
+                        <li>ChatGPT / Claude AI</li>
+                        <li>Coding cơ bản</li>
+                        <li>Automation Scripts</li>
+                        <li>Workflow Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Kinh Nghiệm Làm Việc</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Thiết Kế Đồ Họa & In Ấn</h3>
+                    <p><strong>5+ Năm Kinh Nghiệm</strong></p>
+                    <p>Thiết kế và triển khai các dự án in ấn chuyên nghiệp bao gồm brochure, catalog, poster, bao bì
+                        sản phẩm. Làm việc trực tiếp với các nhà in và khách hàng để đảm bảo chất lượng sản phẩm cuối
+                        cùng đạt tiêu chuẩn cao nhất.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Nhiếp Ảnh Studio & Sản Phẩm</h3>
+                    <p><strong>5+ Năm Kinh Nghiệm</strong></p>
+                    <p>Chuyên chụp ảnh studio với hệ thống đèn chuyên nghiệp, chụp ảnh sản phẩm cho thương mại điện tử
+                        và catalog. Thành thạo trong việc setup ánh sáng, composition và post-production để tạo ra những
+                        hình ảnh chất lượng cao.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Ứng Dụng Công Nghệ Mới</h3>
+                    <p><strong>Liên tục cập nhật</strong></p>
+                    <p>Nghiên cứu và áp dụng các công cụ AI, automation và coding vào quy trình thiết kế để tối ưu hóa
+                        năng suất và chất lượng công việc. Sử dụng AI tools để tăng tốc độ sáng tạo và khám phá những ý
+                        tưởng mới.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Portfolio Gallery</h2>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="graphic">Thiết Kế</button>
+                <button class="filter-btn" data-filter="photo">Nhiếp Ảnh</button>
+                <button class="filter-btn" data-filter="3d">3D & Video</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="graphic" data-title="Thiết kế Brochure" data-icon="🎨"
+                    data-images='["https://via.placeholder.com/800x600/667eea/ffffff?text=Brochure+1", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Brochure+2", "https://via.placeholder.com/800x600/667eea/ffffff?text=Brochure+3", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Brochure+4"]'>
+                    <div class="gallery-placeholder">
+                        <span>🎨</span>
+                        <p>Thiết kế Brochure</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">4 ảnh</small>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="graphic" data-title="Thiết kế Bao Bì" data-icon="📦"
+                    data-images='["IMG_1538.jpg", "IMG_1634.jpg", "IMG_2041.jpg", "IMG_6046.jpg", "Ha.jpg"]'>
+                    <div class="gallery-placeholder">
+                        <span>📦</span>
+                        <p>Thiết kế Bao Bì</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">5 ảnh</small>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="photo" data-title="Product Photography" data-icon="📸"
+                    data-images='["https://via.placeholder.com/800x600/667eea/ffffff?text=Product+Photo+1", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Product+Photo+2", "https://via.placeholder.com/800x600/667eea/ffffff?text=Product+Photo+3", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Product+Photo+4"]'>
+                    <div class="gallery-placeholder">
+                        <span>📸</span>
+                        <p>Product Photography</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">4 ảnh</small>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="photo" data-title="Studio Portrait" data-icon="🏢"
+                    data-images='["https://via.placeholder.com/800x600/667eea/ffffff?text=Studio+Portrait+1", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Studio+Portrait+2", "https://via.placeholder.com/800x600/667eea/ffffff?text=Studio+Portrait+3", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Studio+Portrait+4", "https://via.placeholder.com/800x600/667eea/ffffff?text=Studio+Portrait+5"]'>
+                    <div class="gallery-placeholder">
+                        <span>🏢</span>
+                        <p>Studio Portrait</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">5 ảnh</small>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="graphic" data-title="Brand Identity" data-icon="🎭"
+                    data-images='["https://via.placeholder.com/800x600/667eea/ffffff?text=Brand+Identity+1", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Brand+Identity+2", "https://via.placeholder.com/800x600/667eea/ffffff?text=Brand+Identity+3", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Brand+Identity+4", "https://via.placeholder.com/800x600/667eea/ffffff?text=Brand+Identity+5"]'>
+                    <div class="gallery-placeholder">
+                        <span>🎭</span>
+                        <p>Brand Identity</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">5 ảnh</small>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="photo" data-title="E-commerce Photos" data-icon="🛍️"
+                    data-images='["https://via.placeholder.com/800x600/667eea/ffffff?text=Ecommerce+Photo+1", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Ecommerce+Photo+2", "https://via.placeholder.com/800x600/667eea/ffffff?text=Ecommerce+Photo+3", "https://via.placeholder.com/800x600/764ba2/ffffff?text=Ecommerce+Photo+4"]'>
+                    <div class="gallery-placeholder">
+                        <span>🛍️</span>
+                        <p>E-commerce Photos</p>
+                        <small style="font-size: 0.8em; opacity: 0.8; margin-top: 5px;">4 ảnh</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</span>
+            <span class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</span>
+            <div class="lightbox-content" id="lightboxContent"></div>
+            <div class="lightbox-info" id="lightboxInfo"></div>
+            <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+        </div>
+
+        <section class="cta-section" id="contact">
+            <h2>Liên Hệ Với Tôi</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                Bạn có dự án cần thiết kế hoặc chụp ảnh chuyên nghiệp?<br>
+                Hãy để lại thông tin, tôi sẽ liên hệ lại sớm nhất!
+            </p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Họ và tên *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email *" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Số điện thoại *" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" required>
+                            <option value="">Chọn dịch vụ *</option>
+                            <option value="graphic">Thiết Kế Đồ Họa</option>
+                            <option value="print">In Ấn</option>
+                            <option value="photo">Chụp Ảnh</option>
+                            <option value="video">Video/3D</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Mô tả dự án của bạn *" required></textarea>
+                </div>
+                <button type="submit" class="btn">Gửi Tin Nhắn</button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lê Bá Duy Quang. All rights reserved.</p>
+        <p>Graphic Designer | Photographer | Creative Specialist</p>
+    </footer>
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+    <script>
+    // ===== MEDIAPIPE HAND PORTAL EFFECT =====
+    (function () {
+        const video = document.getElementById('hero-video');
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+
+        let frameCount = 0;
+        let noiseOffset = 0;
+
+        // Offscreen noise canvas for performance
+        const noiseCanvas = document.createElement('canvas');
+        noiseCanvas.width = 256;
+        noiseCanvas.height = 256;
+        const noiseCtx = noiseCanvas.getContext('2d');
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Generate animated colorful glitch noise
+        function generateNoise(t) {
+            const imgData = noiseCtx.createImageData(256, 256);
+            const d = imgData.data;
+            for (let i = 0; i < d.length; i += 4) {
+                const px = (i / 4) % 256;
+                const py = Math.floor((i / 4) / 256);
+                // Color zones: top=blue, mid=green/yellow glitch, bottom=halftone dots
+                const zone = py / 256;
+                const noise = Math.random();
+
+                if (zone < 0.28) {
+                    // Top zone: metallic blue with subtle shimmer
+                    const b = 180 + Math.random() * 60;
+                    d[i]     = 20 + noise * 30;
+                    d[i + 1] = 80 + noise * 40;
+                    d[i + 2] = b;
+                    d[i + 3] = 220 + noise * 35;
+                } else if (zone < 0.65) {
+                    // Mid zone: glitchy colorful pixels (green, yellow, cyan, white scatter)
+                    const r = Math.random();
+                    if (r < 0.35) {
+                        // bright green pixels
+                        d[i]     = 30 + noise * 80;
+                        d[i + 1] = 160 + noise * 90;
+                        d[i + 2] = 60 + noise * 60;
+                        d[i + 3] = 200 + noise * 55;
+                    } else if (r < 0.55) {
+                        // yellow/warm pixels
+                        d[i]     = 200 + noise * 55;
+                        d[i + 1] = 180 + noise * 60;
+                        d[i + 2] = 20 + noise * 40;
+                        d[i + 3] = 200 + noise * 55;
+                    } else if (r < 0.70) {
+                        // white highlight pixels
+                        const v = 200 + noise * 55;
+                        d[i] = v; d[i + 1] = v; d[i + 2] = v;
+                        d[i + 3] = 200 + noise * 55;
+                    } else if (r < 0.82) {
+                        // blue scatter
+                        d[i]     = 30 + noise * 50;
+                        d[i + 1] = 100 + noise * 80;
+                        d[i + 2] = 220 + noise * 35;
+                        d[i + 3] = 200 + noise * 55;
+                    } else {
+                        // dark gaps
+                        d[i] = 10; d[i + 1] = 30; d[i + 2] = 20;
+                        d[i + 3] = 120 + noise * 80;
+                    }
+                } else {
+                    // Bottom zone: white base with red halftone dots
+                    const dotSpacing = 12;
+                    const dx = px % dotSpacing - dotSpacing / 2;
+                    const dy = py % dotSpacing - dotSpacing / 2;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const dotRadius = 3.5 + Math.sin(t * 0.05 + px * 0.1) * 0.8;
+                    if (dist < dotRadius) {
+                        // red dot
+                        d[i]     = 200 + noise * 55;
+                        d[i + 1] = 20 + noise * 30;
+                        d[i + 2] = 20 + noise * 30;
+                        d[i + 3] = 230 + noise * 25;
+                    } else {
+                        // white background
+                        const v = 240 + noise * 15;
+                        d[i] = v; d[i + 1] = v; d[i + 2] = v;
+                        d[i + 3] = 200 + noise * 30;
+                    }
+                }
+            }
+            noiseCtx.putImageData(imgData, 0, 0);
+        }
+
+        // Draw the portal crystal between hands
+        function drawPortal(handA, handB, t) {
+            const W = canvas.width;
+            const H = canvas.height;
+
+            // Mirror x because video is mirrored
+            function mp(lm) {
+                return { x: lm.x * W, y: lm.y * H };
+            }
+
+            // Key landmarks: wrist=0, index_mcp=5, pinky_mcp=17, middle_tip=12
+            const wA = mp(handA[0]);
+            const wB = mp(handB[0]);
+            const imcpA = mp(handA[5]);
+            const imcpB = mp(handB[5]);
+            const pmcpA = mp(handA[17]);
+            const pmcpB = mp(handB[17]);
+            const mtipA = mp(handA[12]);
+            const mtipB = mp(handB[12]);
+
+            // Build the 6 face-corners of a prism between both hands
+            // Top face: connect fingertips
+            const TL = mtipA;
+            const TR = mtipB;
+            // Bottom face: connect wrists
+            const BL = wA;
+            const BR = wB;
+            // Upper-mid edge
+            const ML = imcpA;
+            const MR = imcpB;
+
+            const depth = 28; // extrusion offset for top face
+            const ang = Math.atan2(TR.y - TL.y, TR.x - TL.x) - Math.PI / 2;
+            const dx = Math.cos(ang) * depth;
+            const dy = Math.sin(ang) * depth;
+
+            // Top face (blue solid)
+            const TLb = { x: TL.x + dx, y: TL.y + dy };
+            const TRb = { x: TR.x + dx, y: TR.y + dy };
+            const MLb = { x: ML.x + dx * 0.6, y: ML.y + dy * 0.6 };
+            const MRb = { x: MR.x + dx * 0.6, y: MR.y + dy * 0.6 };
+
+            generateNoise(t);
+
+            ctx.save();
+
+            // === FRONT FACE with noise texture ===
+            ctx.beginPath();
+            ctx.moveTo(TL.x, TL.y);
+            ctx.lineTo(TR.x, TR.y);
+            ctx.lineTo(BR.x, BR.y);
+            ctx.lineTo(BL.x, BL.y);
+            ctx.closePath();
+            ctx.clip();
+
+            // Fill with animated noise texture stretched to face bounds
+            const faceMinX = Math.min(TL.x, TR.x, BL.x, BR.x);
+            const faceMinY = Math.min(TL.y, TR.y, BL.y, BR.y);
+            const faceW = Math.max(TL.x, TR.x, BL.x, BR.x) - faceMinX;
+            const faceH = Math.max(TL.y, TR.y, BL.y, BR.y) - faceMinY;
+
+            ctx.drawImage(noiseCanvas, faceMinX, faceMinY, faceW, faceH);
+
+            // Light scan line shimmer
+            const scanGrad = ctx.createLinearGradient(faceMinX, faceMinY, faceMinX, faceMinY + faceH);
+            const scanY = (Math.sin(t * 0.04) * 0.5 + 0.5);
+            scanGrad.addColorStop(Math.max(0, scanY - 0.08), 'rgba(255,255,255,0)');
+            scanGrad.addColorStop(scanY, 'rgba(255,255,255,0.18)');
+            scanGrad.addColorStop(Math.min(1, scanY + 0.08), 'rgba(255,255,255,0)');
+            ctx.fillStyle = scanGrad;
+            ctx.fillRect(faceMinX, faceMinY, faceW, faceH);
+
+            ctx.restore();
+
+            // === TOP FACE (blue metallic) ===
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(TL.x, TL.y);
+            ctx.lineTo(TR.x, TR.y);
+            ctx.lineTo(TRb.x, TRb.y);
+            ctx.lineTo(TLb.x, TLb.y);
+            ctx.closePath();
+
+            const topGrad = ctx.createLinearGradient(TL.x, TL.y, TLb.x, TLb.y);
+            topGrad.addColorStop(0, 'rgba(30, 100, 220, 0.95)');
+            topGrad.addColorStop(0.4, 'rgba(60, 140, 255, 0.9)');
+            topGrad.addColorStop(1, 'rgba(10, 60, 160, 0.85)');
+            ctx.fillStyle = topGrad;
+            ctx.fill();
+
+            // top face edge shimmer
+            ctx.strokeStyle = 'rgba(150, 200, 255, 0.8)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+
+            // === RIGHT SIDE FACE (darker blue) ===
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(TR.x, TR.y);
+            ctx.lineTo(TRb.x, TRb.y);
+            ctx.lineTo(MRb.x, MRb.y);
+            ctx.lineTo(MR.x, MR.y);
+            ctx.closePath();
+            const rightGrad = ctx.createLinearGradient(TR.x, 0, TRb.x, 0);
+            rightGrad.addColorStop(0, 'rgba(20, 70, 180, 0.7)');
+            rightGrad.addColorStop(1, 'rgba(10, 40, 120, 0.6)');
+            ctx.fillStyle = rightGrad;
+            ctx.fill();
+            ctx.restore();
+
+            // === LEFT SIDE FACE ===
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(TL.x, TL.y);
+            ctx.lineTo(TLb.x, TLb.y);
+            ctx.lineTo(MLb.x, MLb.y);
+            ctx.lineTo(ML.x, ML.y);
+            ctx.closePath();
+            const leftGrad = ctx.createLinearGradient(TL.x, 0, TLb.x, 0);
+            leftGrad.addColorStop(0, 'rgba(20, 70, 180, 0.55)');
+            leftGrad.addColorStop(1, 'rgba(10, 40, 120, 0.45)');
+            ctx.fillStyle = leftGrad;
+            ctx.fill();
+            ctx.restore();
+
+            // === EDGE GLOW LINES ===
+            ctx.save();
+            const edges = [
+                [TL, TR], [TR, BR], [BR, BL], [BL, TL],
+                [TL, TLb], [TR, TRb], [TLb, TRb],
+            ];
+            edges.forEach(([a, b]) => {
+                const glowColor = `hsla(${210 + Math.sin(t * 0.03) * 30}, 90%, 70%, 0.55)`;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.strokeStyle = glowColor;
+                ctx.lineWidth = 1.5;
+                ctx.shadowColor = 'rgba(100, 180, 255, 0.8)';
+                ctx.shadowBlur = 8;
+                ctx.stroke();
+            });
+            ctx.restore();
+
+            // === HAND LANDMARK DOTS (subtle) ===
+            [handA, handB].forEach(hand => {
+                hand.forEach((lm, i) => {
+                    const p = mp(lm);
+                    const isKey = [0, 4, 8, 12, 16, 20].includes(i);
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, isKey ? 5 : 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = isKey
+                        ? `hsla(${190 + i * 8}, 90%, 70%, 0.85)`
+                        : 'rgba(150, 210, 255, 0.4)';
+                    ctx.shadowColor = 'rgba(100, 200, 255, 0.9)';
+                    ctx.shadowBlur = isKey ? 12 : 4;
+                    ctx.fill();
+                });
+            });
+
+            // Connection lines between hand tips
+            const pairsA = [0, 4, 8, 12, 16, 20];
+            pairsA.forEach(i => {
+                const a = mp(handA[i]);
+                const b = mp(handB[i]);
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.strokeStyle = `hsla(${180 + i * 15}, 85%, 65%, 0.25)`;
+                ctx.lineWidth = 1;
+                ctx.shadowBlur = 0;
+                ctx.stroke();
+            });
+        }
+
+        // Hands model
+        const hands = new Hands({
+            locateFile: (file) =>
+                `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+        });
+
+        hands.setOptions({
+            maxNumHands: 2,
+            modelComplexity: 1,
+            minDetectionConfidence: 0.7,
+            minTrackingConfidence: 0.6
+        });
+
+        hands.onResults((results) => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            frameCount++;
+            noiseOffset += 1;
+
+            const multiLandmarks = results.multiHandLandmarks || [];
+
+            if (multiLandmarks.length >= 2) {
+                statusDot.classList.add('active');
+                statusText.textContent = '✋ Cả hai tay đã được nhận diện';
+                drawPortal(multiLandmarks[0], multiLandmarks[1], frameCount);
+            } else if (multiLandmarks.length === 1) {
+                statusDot.classList.remove('active');
+                statusText.textContent = 'Giơ tay còn lại lên...';
+                // Draw single hand dots
+                const hand = multiLandmarks[0];
+                const W = canvas.width, H = canvas.height;
+                hand.forEach((lm, i) => {
+                    const isKey = [0, 4, 8, 12, 16, 20].includes(i);
+                    ctx.beginPath();
+                    ctx.arc(lm.x * W, lm.y * H, isKey ? 6 : 3, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${190 + i * 8}, 90%, 70%, 0.85)`;
+                    ctx.shadowColor = 'rgba(100, 200, 255, 0.9)';
+                    ctx.shadowBlur = isKey ? 14 : 5;
+                    ctx.fill();
+                });
+            } else {
+                statusDot.classList.remove('active');
+                statusText.textContent = 'Đưa tay vào khung hình...';
+            }
+        });
+
+        // Start camera
+        const camera = new Camera(video, {
+            onFrame: async () => {
+                await hands.send({ image: video });
+            },
+            width: 1280,
+            height: 720
+        });
+
+        camera.start().then(() => {
+            video.classList.add('ready');
+            statusText.textContent = 'Đưa tay vào khung hình...';
+        }).catch(err => {
+            statusText.textContent = 'Không thể truy cập camera';
+            console.error(err);
+        });
+    })();
+
+    // ===== GALLERY & LIGHTBOX =====
+    let currentGalleryItem = null;
+    let currentAlbumImages = [];
+    let currentImageIndex = 0;
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filterValue = btn.getAttribute('data-filter');
+            galleryItems.forEach(item => {
+                item.style.display =
+                    filterValue === 'all' || item.getAttribute('data-category') === filterValue
+                        ? 'block' : 'none';
+            });
+        });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightboxContent');
+    const lightboxInfo = document.getElementById('lightboxInfo');
+    const lightboxThumbnails = document.getElementById('lightboxThumbnails');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            currentGalleryItem = item;
+            const imagesJson = item.getAttribute('data-images');
+            currentAlbumImages = imagesJson ? JSON.parse(imagesJson) : [];
+            currentImageIndex = 0;
+            openLightbox();
+        });
+    });
+
+    function openLightbox() {
+        const title = currentGalleryItem.getAttribute('data-title');
+        const icon = currentGalleryItem.getAttribute('data-icon');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (currentAlbumImages.length > 0) {
+            displayImage(currentImageIndex);
+            displayThumbnails();
+        } else {
+            lightboxContent.innerHTML = `<div class="lightbox-placeholder"><span>${icon}</span><p>${title}</p></div>`;
+            lightboxInfo.textContent = title;
+            lightboxThumbnails.innerHTML = '';
+        }
+    }
+
+    function displayImage(index) {
+        const title = currentGalleryItem.getAttribute('data-title');
+        lightboxContent.innerHTML = `<img src="${currentAlbumImages[index]}" alt="${title}" class="lightbox-image">`;
+        lightboxInfo.textContent = `${index + 1} / ${currentAlbumImages.length} - ${title}`;
+        updateActiveThumbnail(index);
+    }
+
+    function displayThumbnails() {
+        lightboxThumbnails.innerHTML = '';
+        currentAlbumImages.forEach((src, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = src;
+            thumb.className = 'thumbnail';
+            if (index === currentImageIndex) thumb.classList.add('active');
+            thumb.addEventListener('click', () => { currentImageIndex = index; displayImage(index); });
+            lightboxThumbnails.appendChild(thumb);
+        });
+    }
+
+    function updateActiveThumbnail(index) {
+        lightboxThumbnails.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+            if (i === index) thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function showPrevImage() {
+        if (!currentAlbumImages.length) return;
+        currentImageIndex = (currentImageIndex - 1 + currentAlbumImages.length) % currentAlbumImages.length;
+        displayImage(currentImageIndex);
+    }
+
+    function showNextImage() {
+        if (!currentAlbumImages.length) return;
+        currentImageIndex = (currentImageIndex + 1) % currentAlbumImages.length;
+        displayImage(currentImageIndex);
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrevImage);
+    lightboxNext.addEventListener('click', showNextImage);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'ArrowRight') showNextImage();
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        formMessage.className = 'form-message success';
+        formMessage.textContent = `Cảm ơn ${name}! Tin nhắn đã được gửi thành công. Tôi sẽ liên hệ lại sớm nhất.`;
+        contactForm.reset();
+        setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    </script>
+
+</body>
+</html>
