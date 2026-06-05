@@ -818,7 +818,7 @@
     </div>
 
     <div class="cam-bottom">
-        <div class="cam-hint">✋ &nbsp; Raise both hands to activate the portal effect</div>
+        <div class="cam-hint">✋ Move to push the stars &nbsp;·&nbsp; ✊ Pinch to gather, release to burst</div>
         <div class="cam-scroll">Scroll ↓</div>
     </div>
 </section>
@@ -1086,152 +1086,205 @@
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
 <script>
-// ===== MEDIAPIPE PORTAL =====
+// ===== MEDIAPIPE PARTICLE GALAXY =====
 (function () {
     const video = document.getElementById('hero-video');
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
     const sdot = document.getElementById('sdot');
     const stext = document.getElementById('stext');
-    let frame = 0;
-
-    function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-    resize(); window.addEventListener('resize', resize);
 
     const PALETTE = ['#a78bfa','#60a5fa','#34d399','#f472b6','#fbbf24'];
+    const RGB = [[167,139,250],[96,165,250],[52,211,153],[244,114,182],[251,191,36]];
 
-    function drawPortal(hA, hB, t) {
-        const W = canvas.width, H = canvas.height;
-        const m = lm => ({ x: lm.x * W, y: lm.y * H });
-        const wA=m(hA[0]), wB=m(hB[0]);
-        const TL=m(hA[12]), TR=m(hB[12]);
-        const BL=wA, BR=wB;
-        const depth=32;
-        const ang = Math.atan2(TR.y-TL.y, TR.x-TL.x) - Math.PI/2;
-        const dx = Math.cos(ang)*depth, dy = Math.sin(ang)*depth;
-        const TLb={x:TL.x+dx,y:TL.y+dy}, TRb={x:TR.x+dx,y:TR.y+dy};
+    let W = 0, H = 0, particles = [];
 
-        // === FRONT FACE — glass gradient ===
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(TL.x,TL.y); ctx.lineTo(TR.x,TR.y);
-        ctx.lineTo(BR.x,BR.y); ctx.lineTo(BL.x,BL.y);
-        ctx.closePath();
-
-        const faceGrad = ctx.createLinearGradient(TL.x, TL.y, BL.x, BL.y);
-        faceGrad.addColorStop(0, 'rgba(167,139,250,0.25)');
-        faceGrad.addColorStop(0.5, 'rgba(96,165,250,0.15)');
-        faceGrad.addColorStop(1, 'rgba(52,211,153,0.12)');
-        ctx.fillStyle = faceGrad;
-        ctx.fill();
-
-        // animated color sweep
-        ctx.save();
-        ctx.clip();
-        const sweepProgress = (Math.sin(t * 0.025) + 1) / 2;
-        const fMinX=Math.min(TL.x,TR.x,BL.x,BR.x), fMaxX=Math.max(TL.x,TR.x,BL.x,BR.x);
-        const sweepX = fMinX + sweepProgress * (fMaxX - fMinX);
-        const swGrad = ctx.createLinearGradient(sweepX-60, 0, sweepX+60, 0);
-        swGrad.addColorStop(0,'rgba(167,139,250,0)');
-        swGrad.addColorStop(0.5,'rgba(167,139,250,0.22)');
-        swGrad.addColorStop(1,'rgba(167,139,250,0)');
-        ctx.fillStyle = swGrad;
-        const fMinY=Math.min(TL.y,TR.y,BL.y,BR.y), fMaxY=Math.max(TL.y,TR.y,BL.y,BR.y);
-        ctx.fillRect(fMinX, fMinY, fMaxX-fMinX, fMaxY-fMinY);
-        ctx.restore();
-
-        // glass border
-        ctx.strokeStyle = 'rgba(167,139,250,0.5)';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ctx.restore();
-
-        // === TOP FACE — glass blue ===
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(TL.x,TL.y); ctx.lineTo(TR.x,TR.y);
-        ctx.lineTo(TRb.x,TRb.y); ctx.lineTo(TLb.x,TLb.y);
-        ctx.closePath();
-        const topG = ctx.createLinearGradient(TL.x,TL.y,TLb.x,TLb.y);
-        topG.addColorStop(0,'rgba(96,165,250,0.45)');
-        topG.addColorStop(1,'rgba(59,130,246,0.25)');
-        ctx.fillStyle = topG; ctx.fill();
-        ctx.strokeStyle = 'rgba(96,165,250,0.6)'; ctx.lineWidth=1.5; ctx.stroke();
-        ctx.restore();
-
-        // === GLOW EDGES ===
-        ctx.save();
-        [[TL,TR],[TR,BR],[BR,BL],[BL,TL],[TL,TLb],[TR,TRb],[TLb,TRb]].forEach(([a,b],i)=>{
-            const hue = (200 + i*20 + t*0.5) % 360;
-            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-            ctx.strokeStyle = `hsla(${hue},80%,75%,0.55)`;
-            ctx.lineWidth = 1.5;
-            ctx.shadowColor = `hsla(${hue},80%,75%,0.8)`;
-            ctx.shadowBlur = 12;
-            ctx.stroke();
-        });
-        ctx.restore();
-
-        // === LANDMARK DOTS ===
-        ctx.save();
-        [hA,hB].forEach((hand,hi)=>{
-            hand.forEach((lm,i)=>{
-                const p = m(lm);
-                const isKey = [0,4,8,12,16,20].includes(i);
-                if(!isKey && i%3!==0) return;
-                const col = PALETTE[(hi*3+Math.floor(i/4))%PALETTE.length];
-                ctx.beginPath(); ctx.arc(p.x, p.y, isKey?6:3, 0, Math.PI*2);
-                ctx.fillStyle = col;
-                ctx.shadowColor = col; ctx.shadowBlur = isKey?16:8;
-                ctx.fill();
+    function seed() {
+        const count = Math.min(440, Math.round((W * H) / 5200));
+        particles = [];
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * W, y: Math.random() * H,
+                hx: Math.random() * W, hy: Math.random() * H,   // home
+                vx: 0, vy: 0,
+                px: 0, py: 0,
+                c: i % PALETTE.length,
+                r: 1 + Math.random() * 2.2,
+                seed: Math.random() * 6.283
             });
-        });
-        ctx.restore();
-
-        // === DASHED CONNECTOR LINES ===
-        ctx.save();
-        [0,4,8,12,16,20].forEach((i,idx)=>{
-            const a=m(hA[i]), b=m(hB[i]);
-            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-            ctx.strokeStyle = `${PALETTE[idx%PALETTE.length]}44`;
-            ctx.lineWidth = 1; ctx.setLineDash([4,6]); ctx.shadowBlur=0; ctx.stroke();
-        });
-        ctx.setLineDash([]);
-        ctx.restore();
+        }
     }
+    function resize() {
+        canvas.width = W = canvas.offsetWidth;
+        canvas.height = H = canvas.offsetHeight;
+        seed();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Latest hand data, updated by MediaPipe; render loop reads it
+    let handData = [];
+    function handFromLandmarks(lm) {
+        const ids = [0, 5, 9, 13, 17];
+        let cx = 0, cy = 0;
+        ids.forEach(i => { cx += lm[i].x; cy += lm[i].y; });
+        cx = (cx / ids.length) * W; cy = (cy / ids.length) * H;
+        const thumb = { x: lm[4].x * W, y: lm[4].y * H };
+        const index = { x: lm[8].x * W, y: lm[8].y * H };
+        const pinchDist = Math.hypot(thumb.x - index.x, thumb.y - index.y);
+        // hand scale = wrist(0) to middle_mcp(9)
+        const scale = Math.hypot((lm[0].x - lm[9].x) * W, (lm[0].y - lm[9].y) * H) || 1;
+        const pinching = pinchDist < scale * 0.55;
+        return {
+            cx, cy, pinching,
+            px: (thumb.x + index.x) / 2,
+            py: (thumb.y + index.y) / 2,
+            scale,
+            lm
+        };
+    }
+
+    let frame = 0;
+    let heroVisible = true;
+
+    // ---- Physics constants ----
+    const REPEL_R = 190, ATTRACT_R = 300, DAMP = 0.9, SPRING = 0.004;
+
+    function updateParticles() {
+        for (const p of particles) {
+            p.px = p.x; p.py = p.y;
+            // weak spring back to home → keeps field evenly spread
+            p.vx += (p.hx - p.x) * SPRING;
+            p.vy += (p.hy - p.y) * SPRING;
+            // ambient drift so the galaxy always breathes
+            p.vx += Math.cos(frame * 0.012 + p.seed) * 0.06;
+            p.vy += Math.sin(frame * 0.012 + p.seed * 1.7) * 0.06;
+
+            for (const h of handData) {
+                const dx = p.x - h.cx, dy = p.y - h.cy;
+                const d = Math.hypot(dx, dy) || 0.001;
+                if (h.pinching) {
+                    // attract toward pinch point + swirl → forms orb
+                    const ax = h.px - p.x, ay = h.py - p.y;
+                    const ad = Math.hypot(ax, ay) || 0.001;
+                    if (ad < ATTRACT_R) {
+                        const f = (1 - ad / ATTRACT_R) * 1.2;
+                        p.vx += (ax / ad) * f;
+                        p.vy += (ay / ad) * f;
+                        // tangential swirl
+                        p.vx += (-ay / ad) * f * 0.9;
+                        p.vy += (ax / ad) * f * 0.9;
+                    }
+                } else if (d < REPEL_R) {
+                    // open hand pushes particles away
+                    const f = (1 - d / REPEL_R) * 6;
+                    p.vx += (dx / d) * f;
+                    p.vy += (dy / d) * f;
+                }
+            }
+            p.vx *= DAMP; p.vy *= DAMP;
+            p.x += p.vx; p.y += p.vy;
+        }
+    }
+
+    function render() {
+        if (!heroVisible) { requestAnimationFrame(render); return; }
+        frame++;
+        ctx.clearRect(0, 0, W, H);
+
+        if (W && H && particles.length) updateParticles();
+
+        // connection lines between nearby particles (spatial-cheap: stride sampling)
+        ctx.globalCompositeOperation = 'lighter';
+        for (let i = 0; i < particles.length; i += 2) {
+            const a = particles[i];
+            for (let j = i + 2; j < Math.min(i + 24, particles.length); j += 2) {
+                const b = particles[j];
+                const dx = a.x - b.x, dy = a.y - b.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < 6400) {
+                    const al = (1 - d2 / 6400) * 0.18;
+                    const c = RGB[a.c];
+                    ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${al})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+                }
+            }
+        }
+
+        // particles with motion-trail + glow
+        for (const p of particles) {
+            const c = RGB[p.c];
+            const spd = Math.hypot(p.vx, p.vy);
+            // trail
+            if (spd > 1.5) {
+                ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},0.4)`;
+                ctx.lineWidth = p.r;
+                ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke();
+            }
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r + Math.min(spd * 0.15, 2), 0, Math.PI * 2);
+            ctx.fillStyle = PALETTE[p.c];
+            ctx.shadowColor = PALETTE[p.c];
+            ctx.shadowBlur = 8 + Math.min(spd, 12);
+            ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+        ctx.globalCompositeOperation = 'source-over';
+
+        // hand indicators
+        for (const h of handData) {
+            if (h.pinching) {
+                // glowing core at pinch point
+                const g = ctx.createRadialGradient(h.px, h.py, 0, h.px, h.py, 60);
+                g.addColorStop(0, 'rgba(167,139,250,0.55)');
+                g.addColorStop(1, 'rgba(167,139,250,0)');
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.arc(h.px, h.py, 60, 0, Math.PI * 2); ctx.fill();
+            } else {
+                // faint repel ring at palm
+                ctx.strokeStyle = 'rgba(167,139,250,0.18)';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath(); ctx.arc(h.cx, h.cy, REPEL_R, 0, Math.PI * 2); ctx.stroke();
+            }
+            // light hand skeleton
+            ctx.fillStyle = 'rgba(200,210,255,0.6)';
+            for (const i of [0, 4, 8, 12, 16, 20]) {
+                ctx.beginPath(); ctx.arc(h.lm[i].x * W, h.lm[i].y * H, 3, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+
+        requestAnimationFrame(render);
+    }
+    render();
 
     const hands = new Hands({ locateFile: f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}` });
     hands.setOptions({ maxNumHands:2, modelComplexity:1, minDetectionConfidence:0.7, minTrackingConfidence:0.6 });
     hands.onResults(res => {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        frame++;
         const ml = res.multiHandLandmarks || [];
-        if (ml.length >= 2) {
-            sdot.classList.add('on'); stext.textContent='Both hands detected';
-            drawPortal(ml[0], ml[1], frame);
-        } else if (ml.length === 1) {
-            sdot.classList.remove('on'); stext.textContent='Raise the other hand...';
-            const W=canvas.width, H=canvas.height;
-            const CONN=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]];
-            ctx.save();
-            CONN.forEach(([a,b])=>{
-                ctx.beginPath(); ctx.moveTo(ml[0][a].x*W,ml[0][a].y*H); ctx.lineTo(ml[0][b].x*W,ml[0][b].y*H);
-                ctx.strokeStyle='rgba(167,139,250,0.4)'; ctx.lineWidth=2; ctx.stroke();
-            });
-            ml[0].forEach((lm,i)=>{
-                const isKey=[0,4,8,12,16,20].includes(i);
-                const col=PALETTE[Math.floor(i/4)%PALETTE.length];
-                ctx.beginPath(); ctx.arc(lm.x*W,lm.y*H,isKey?7:3.5,0,Math.PI*2);
-                ctx.fillStyle=col; ctx.shadowColor=col; ctx.shadowBlur=isKey?18:8; ctx.fill();
-            });
-            ctx.restore();
-        } else {
-            sdot.classList.remove('on'); stext.textContent='Raise hands to camera...';
-        }
+        const prev = handData;
+        handData = ml.map(handFromLandmarks);
+
+        // burst on pinch-release
+        handData.forEach((h, i) => {
+            const was = prev[i];
+            if (was && was.pinching && !h.pinching) {
+                for (const p of particles) {
+                    const dx = p.x - was.px, dy = p.y - was.py, d = Math.hypot(dx, dy) || 0.001;
+                    if (d < ATTRACT_R) {
+                        const f = (1 - d / ATTRACT_R) * 26;
+                        p.vx += (dx / d) * f; p.vy += (dy / d) * f;
+                    }
+                }
+            }
+        });
+
+        if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Raise a hand to disturb the galaxy...'; }
+        else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = '✊ Pinch — gathering... release to burst'; }
+        else { sdot.classList.add('on'); stext.textContent = '✋ Move to push · pinch to gather'; }
     });
 
     // Pause hand processing when hero is scrolled out of view (saves CPU/battery)
-    let heroVisible = true;
     const heroEl = document.getElementById('hero-cam');
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; },
@@ -1239,24 +1292,10 @@
     }
 
     // Graceful fallback animation when no camera is available
+    // No separate loop needed — the galaxy render() already animates ambiently.
     function startFallback(msg) {
         stext.textContent = msg;
         sdot.style.display = 'none';
-        let f = 0;
-        (function loop() {
-            f++;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
-            for (let i = 0; i < 5; i++) {
-                const a = f*0.01 + i*Math.PI*2/5;
-                const r = 120 + Math.sin(f*0.02 + i)*40;
-                const x = cx + Math.cos(a)*r, y = cy + Math.sin(a)*r*0.6;
-                ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI*2);
-                ctx.fillStyle = PALETTE[i];
-                ctx.shadowColor = PALETTE[i]; ctx.shadowBlur = 22; ctx.fill();
-            }
-            requestAnimationFrame(loop);
-        })();
     }
 
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
