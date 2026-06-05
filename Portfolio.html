@@ -875,7 +875,7 @@
     </div>
 
     <div class="cam-bottom">
-        <div class="cam-hint">✋ Push stars &nbsp;·&nbsp; ✊ Pinch to gather &nbsp;·&nbsp; 🖼️ Two index fingers = frame → open Works</div>
+        <div class="cam-hint">✋ Push stars &nbsp;·&nbsp; ✊ Pinch to gather &nbsp;·&nbsp; 🤳 Thumbs + index = rectangle → open Works</div>
         <div class="cam-scroll">Scroll ↓</div>
     </div>
 </section>
@@ -1206,10 +1206,14 @@
             Math.hypot(lm[tip].x - wr.x, lm[tip].y - wr.y) >
             Math.hypot(lm[pip].x - wr.x, lm[pip].y - wr.y) * 1.06;
         const idxUp = ext(8, 6), midUp = ext(12, 10), rngUp = ext(16, 14), pkyUp = ext(20, 18);
-        // "L" framing pose: index extended, middle/ring/pinky curled
-        const lShape = idxUp && !midUp && !rngUp && !pkyUp;
+        // thumb extended outward (tip far from index base)
+        const thumbOut = Math.hypot(lm[4].x - lm[5].x, lm[4].y - lm[5].y) * 1 > 0 &&
+            Math.hypot((lm[4].x - lm[5].x) * W, (lm[4].y - lm[5].y) * H) > scale * 0.75;
+        // "L" pose for the rectangle gesture: thumb + index out, others curled
+        const lShape = idxUp && thumbOut && !midUp && !rngUp && !pkyUp;
         return {
             cx, cy, pinching, lShape,
+            thumb, index,
             px: (thumb.x + index.x) / 2,
             py: (thumb.y + index.y) / 2,
             scale,
@@ -1221,6 +1225,85 @@
     let heroVisible = true;
     let frameHold = 0, frameCool = 0;   // "framing" gesture state
     const FRAME_TARGET = 48;            // frames to hold (~0.8s)
+
+    // ---- Hand skeleton connections ----
+    const HAND_CONN = [
+        [0,1],[1,2],[2,3],[3,4],          // thumb
+        [0,5],[5,6],[6,7],[7,8],          // index
+        [5,9],[9,10],[10,11],[11,12],     // middle
+        [9,13],[13,14],[14,15],[15,16],   // ring
+        [13,17],[17,18],[18,19],[19,20],  // pinky
+        [0,17]                            // palm base
+    ];
+
+    function drawSkeleton(h) {
+        const lm = h.lm;
+        ctx.save();
+        // bones
+        ctx.strokeStyle = 'rgba(180,200,255,0.55)';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = 'rgba(120,170,255,0.7)';
+        ctx.shadowBlur = 6;
+        for (const [a, b] of HAND_CONN) {
+            ctx.beginPath();
+            ctx.moveTo(lm[a].x * W, lm[a].y * H);
+            ctx.lineTo(lm[b].x * W, lm[b].y * H);
+            ctx.stroke();
+        }
+        // joints
+        for (let i = 0; i < lm.length; i++) {
+            const isTip = [4, 8, 12, 16, 20].includes(i);
+            ctx.beginPath();
+            ctx.arc(lm[i].x * W, lm[i].y * H, isTip ? 5 : 3, 0, Math.PI * 2);
+            ctx.fillStyle = isTip ? '#a78bfa' : 'rgba(220,230,255,0.85)';
+            ctx.shadowColor = isTip ? '#a78bfa' : 'rgba(150,190,255,0.8)';
+            ctx.shadowBlur = isTip ? 12 : 5;
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+
+    // Neoglass colored pane between the two hands
+    function drawGlassPortal(hA, hB, t) {
+        const m = (h, i) => ({ x: h.lm[i].x * W, y: h.lm[i].y * H });
+        // quad: index tips on top, wrists on bottom
+        const TL = m(hA, 8), TR = m(hB, 8), BR = m(hB, 0), BL = m(hA, 0);
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(TL.x, TL.y); ctx.lineTo(TR.x, TR.y);
+        ctx.lineTo(BR.x, BR.y); ctx.lineTo(BL.x, BL.y);
+        ctx.closePath();
+
+        const g = ctx.createLinearGradient(TL.x, TL.y, BR.x, BR.y);
+        g.addColorStop(0, 'rgba(167,139,250,0.22)');
+        g.addColorStop(0.5, 'rgba(96,165,250,0.16)');
+        g.addColorStop(1, 'rgba(52,211,153,0.14)');
+        ctx.fillStyle = g;
+        ctx.fill();
+
+        // animated sweep
+        ctx.save();
+        ctx.clip();
+        const xs = [TL.x, TR.x, BR.x, BL.x], ys = [TL.y, TR.y, BR.y, BL.y];
+        const minX = Math.min(...xs), maxX = Math.max(...xs);
+        const minY = Math.min(...ys), maxY = Math.max(...ys);
+        const sweepX = minX + ((Math.sin(t * 0.03) + 1) / 2) * (maxX - minX);
+        const sg = ctx.createLinearGradient(sweepX - 70, 0, sweepX + 70, 0);
+        sg.addColorStop(0, 'rgba(255,255,255,0)');
+        sg.addColorStop(0.5, 'rgba(255,255,255,0.18)');
+        sg.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = sg;
+        ctx.fillRect(minX, minY, maxX - minX, maxY - minY);
+        ctx.restore();
+
+        // glowing border
+        ctx.strokeStyle = 'rgba(167,139,250,0.55)';
+        ctx.lineWidth = 1.8;
+        ctx.shadowColor = 'rgba(167,139,250,0.7)';
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+        ctx.restore();
+    }
 
     // ---- Physics constants ----
     const REPEL_R = 190, ATTRACT_R = 300, DAMP = 0.9, SPRING = 0.004;
@@ -1307,37 +1390,40 @@
         ctx.shadowBlur = 0;
         ctx.globalCompositeOperation = 'source-over';
 
-        // hand indicators
+        // framing pose detection
+        const framers = handData.filter(h => h.lShape);
+        const framing = handData.length >= 2 && framers.length >= 2;
+
+        // neoglass colored pane between two hands (when not framing)
+        if (handData.length >= 2 && !framing) {
+            drawGlassPortal(handData[0], handData[1], frame);
+        }
+
+        // hand indicators + full skeleton
         for (const h of handData) {
             if (h.pinching) {
-                // glowing core at pinch point
                 const g = ctx.createRadialGradient(h.px, h.py, 0, h.px, h.py, 60);
                 g.addColorStop(0, 'rgba(167,139,250,0.55)');
                 g.addColorStop(1, 'rgba(167,139,250,0)');
                 ctx.fillStyle = g;
                 ctx.beginPath(); ctx.arc(h.px, h.py, 60, 0, Math.PI * 2); ctx.fill();
-            } else {
-                // faint repel ring at palm
-                ctx.strokeStyle = 'rgba(167,139,250,0.18)';
+            } else if (!framing) {
+                ctx.strokeStyle = 'rgba(167,139,250,0.15)';
                 ctx.lineWidth = 1.5;
                 ctx.beginPath(); ctx.arc(h.cx, h.cy, REPEL_R, 0, Math.PI * 2); ctx.stroke();
             }
-            // light hand skeleton
-            ctx.fillStyle = 'rgba(200,210,255,0.6)';
-            for (const i of [0, 4, 8, 12, 16, 20]) {
-                ctx.beginPath(); ctx.arc(h.lm[i].x * W, h.lm[i].y * H, 3, 0, Math.PI * 2); ctx.fill();
-            }
+            drawSkeleton(h);
         }
 
-        // ---- "FRAME" GESTURE: two L-hands frame a rectangle → go to Recent Work ----
+        // ---- RECTANGLE GESTURE: both hands (thumb+index) frame a box → go to Recent Work ----
         if (frameCool > 0) frameCool--;
-        const framers = handData.filter(h => h.lShape);
-        if (frameCool === 0 && handData.length >= 2 && framers.length >= 2) {
+        if (frameCool === 0 && framing) {
             frameHold++;
-            const a = { x: framers[0].lm[8].x * W, y: framers[0].lm[8].y * H };
-            const b = { x: framers[1].lm[8].x * W, y: framers[1].lm[8].y * H };
-            const rx = Math.min(a.x, b.x), ry = Math.min(a.y, b.y);
-            const rw = Math.abs(a.x - b.x), rh = Math.abs(a.y - b.y);
+            // rectangle = bounding box of the 4 fingertips (thumbs + indexes)
+            const pts = [framers[0].thumb, framers[0].index, framers[1].thumb, framers[1].index];
+            const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+            const rx = Math.min(...xs), ry = Math.min(...ys);
+            const rw = Math.max(...xs) - rx, rh = Math.max(...ys) - ry;
             const prog = Math.min(frameHold / FRAME_TARGET, 1);
 
             // glowing frame rectangle
