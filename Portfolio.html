@@ -388,47 +388,104 @@
             color: var(--accent);
             box-shadow: 0 0 20px rgba(139,92,246,0.2);
         }
+        /* bento grid: 4 cols, featured cards span more */
         .works-grid {
-            display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px;
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap:14px;
         }
         .work-card {
-            aspect-ratio:4/3;
+            grid-column: span 1; grid-row: span 1;
             border-radius: 20px;
             overflow:hidden;
             position:relative;
             cursor:pointer;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(16px);
-            transition: all 0.35s;
+            transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
         }
+        .work-card.feature { grid-column: span 2; grid-row: span 2; }
+        .work-card.wide    { grid-column: span 2; }
+        .work-card.tall    { grid-row: span 2; }
         .work-card:hover {
-            border-color: rgba(167,139,250,0.4);
-            box-shadow: 0 20px 60px rgba(139,92,246,0.2);
-            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(167,139,250,0.45);
+            box-shadow: 0 24px 70px rgba(139,92,246,0.25);
+            z-index: 5;
         }
         .work-card-img {
             position:absolute; inset:0;
             width:100%; height:100%;
             object-fit:cover;
-            opacity:0.55;
-            transition: opacity 0.35s, transform 0.5s;
+            opacity:0.5;
+            transition: opacity 0.5s, transform 0.7s cubic-bezier(0.16,1,0.3,1);
         }
-        .work-card:hover .work-card-img { opacity:0.75; transform:scale(1.05); }
+        .work-card:hover .work-card-img { opacity:0.92; transform:scale(1.08); }
         .work-card-overlay {
             position:absolute; inset:0;
-            background: linear-gradient(to top, rgba(6,6,26,0.85) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(6,6,26,0.92) 0%, rgba(6,6,26,0.25) 45%, transparent 75%);
+            transition: background 0.4s;
         }
+        /* diagonal sheen sweep on hover */
+        .work-card::after {
+            content:''; position:absolute; top:0; left:-120%;
+            width:60%; height:100%;
+            background: linear-gradient(115deg, transparent, rgba(255,255,255,0.18), transparent);
+            transform: skewX(-18deg);
+            transition: left 0.7s cubic-bezier(0.16,1,0.3,1);
+            z-index:3; pointer-events:none;
+        }
+        .work-card:hover::after { left:160%; }
+        /* index number */
+        .work-index {
+            position:absolute; top:16px; left:18px; z-index:4;
+            font-family:var(--mono); font-size:0.7em; font-weight:700;
+            color: rgba(255,255,255,0.55); letter-spacing:0.05em;
+            transition: color 0.3s;
+        }
+        .work-card:hover .work-index { color: var(--accent); }
         .work-card-body {
             position:absolute; bottom:0; left:0; right:0;
-            padding: 20px 22px; z-index:2;
+            padding: 22px; z-index:4;
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
         }
         .work-cat {
             font-family:var(--mono); font-size:0.62em;
             letter-spacing:0.12em; text-transform:uppercase;
-            color: var(--accent); margin-bottom:4px;
+            color: var(--accent); margin-bottom:5px;
         }
-        .work-title { font-size:0.98em; font-weight:600; color:#fff; }
+        .work-title { font-size:1.02em; font-weight:600; color:#fff; line-height:1.2; }
+        .work-card.feature .work-title { font-size:1.5em; }
+        .work-cta {
+            display:inline-flex; align-items:center; gap:7px;
+            margin-top:0; max-height:0; overflow:hidden; opacity:0;
+            font-family:var(--mono); font-size:0.66em; letter-spacing:0.08em;
+            text-transform:uppercase; color:#fff;
+            transition: max-height 0.4s, opacity 0.4s, margin-top 0.4s;
+        }
+        .work-card:hover .work-cta { max-height:30px; opacity:1; margin-top:12px; }
+        .work-cta svg { transition: transform 0.3s; }
+        .work-card:hover .work-cta svg { transform: translateX(4px); }
+        /* flash when opened via the frame gesture */
+        #works.flash { animation: worksFlash 0.9s ease; }
+        @keyframes worksFlash {
+            0%   { box-shadow: inset 0 0 0 0 rgba(167,139,250,0); }
+            25%  { box-shadow: inset 0 0 120px 0 rgba(167,139,250,0.35); }
+            100% { box-shadow: inset 0 0 0 0 rgba(167,139,250,0); }
+        }
+        /* count badge in section label area */
+        .works-count {
+            font-family:var(--mono); font-size:0.8em;
+            color: var(--muted); margin-left:auto;
+        }
+        .works-count b { color: var(--accent); font-weight:700; }
+
+        @media (max-width:900px) {
+            .works-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+            .work-card.feature { grid-column: span 2; grid-row: span 2; }
+            .work-card.wide { grid-column: span 2; }
+        }
 
         /* ===== LIGHTBOX ===== */
         .lightbox {
@@ -818,7 +875,7 @@
     </div>
 
     <div class="cam-bottom">
-        <div class="cam-hint">✋ Move to push the stars &nbsp;·&nbsp; ✊ Pinch to gather, release to burst</div>
+        <div class="cam-hint">✋ Push stars &nbsp;·&nbsp; ✊ Pinch to gather &nbsp;·&nbsp; 🖼️ Two index fingers = frame → open Works</div>
         <div class="cam-scroll">Scroll ↓</div>
     </div>
 </section>
@@ -920,7 +977,7 @@
 
 <!-- ===== 5. WORKS ===== -->
 <section id="works">
-    <div class="sec-label">Recent work</div>
+    <div class="sec-label">Recent work <span class="works-count"><b>08</b> selected projects</span></div>
     <div class="works-filters">
         <button class="wf-btn active" data-filter="all">All</button>
         <button class="wf-btn" data-filter="graphic">Graphic</button>
@@ -928,53 +985,61 @@
         <button class="wf-btn" data-filter="3d">3D & Video</button>
     </div>
     <div class="works-grid">
-        <div class="work-card" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
+        <div class="work-card feature" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
             data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
+            <span class="work-index">01</span>
             <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Packaging Design</div></div>
+            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Packaging Design</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
         <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
             data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
+            <span class="work-index">02</span>
             <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Brochure & Print</div></div>
+            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Brochure & Print</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
         <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
             data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
+            <span class="work-index">03</span>
             <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Branding</div><div class="work-title">Brand Identity</div></div>
+            <div class="work-card-body"><div class="work-cat">Branding</div><div class="work-title">Brand Identity</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="work-card" data-cat="photo" data-title="Product Photography" data-icon="📸"
+        <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
             data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
+            <span class="work-index">04</span>
             <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Product Photography</div></div>
+            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Product Photography</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="work-card" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
+        <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
             data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
+            <span class="work-index">05</span>
             <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Studio & Portrait</div></div>
+            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Studio & Portrait</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="work-card" data-cat="photo" data-title="Social Media Content" data-icon="📱"
+        <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
             data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
+            <span class="work-index">06</span>
             <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Social Media Content</div></div>
+            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Social Media Content</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="work-card" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
+        <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
             data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
+            <span class="work-index">07</span>
             <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Farm & Nature</div></div>
+            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Farm & Nature</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="work-card" data-cat="3d" data-title="3D Tile Murals" data-icon="🏺"
+        <div class="work-card wide" data-cat="3d" data-title="3D Tile Murals" data-icon="🏺"
             data-images='["media/packaging-1.jpg"]'>
+            <span class="work-index">08</span>
             <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
             <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">3D Design</div><div class="work-title">3D Tile Murals</div></div>
+            <div class="work-card-body"><div class="work-cat">3D Design</div><div class="work-title">3D Tile Murals</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
     </div>
 </section>
@@ -1135,8 +1200,16 @@
         // hand scale = wrist(0) to middle_mcp(9)
         const scale = Math.hypot((lm[0].x - lm[9].x) * W, (lm[0].y - lm[9].y) * H) || 1;
         const pinching = pinchDist < scale * 0.55;
+        // finger extended = tip farther from wrist than its pip joint
+        const wr = lm[0];
+        const ext = (tip, pip) =>
+            Math.hypot(lm[tip].x - wr.x, lm[tip].y - wr.y) >
+            Math.hypot(lm[pip].x - wr.x, lm[pip].y - wr.y) * 1.06;
+        const idxUp = ext(8, 6), midUp = ext(12, 10), rngUp = ext(16, 14), pkyUp = ext(20, 18);
+        // "L" framing pose: index extended, middle/ring/pinky curled
+        const lShape = idxUp && !midUp && !rngUp && !pkyUp;
         return {
-            cx, cy, pinching,
+            cx, cy, pinching, lShape,
             px: (thumb.x + index.x) / 2,
             py: (thumb.y + index.y) / 2,
             scale,
@@ -1146,6 +1219,8 @@
 
     let frame = 0;
     let heroVisible = true;
+    let frameHold = 0, frameCool = 0;   // "framing" gesture state
+    const FRAME_TARGET = 48;            // frames to hold (~0.8s)
 
     // ---- Physics constants ----
     const REPEL_R = 190, ATTRACT_R = 300, DAMP = 0.9, SPRING = 0.004;
@@ -1252,6 +1327,62 @@
             for (const i of [0, 4, 8, 12, 16, 20]) {
                 ctx.beginPath(); ctx.arc(h.lm[i].x * W, h.lm[i].y * H, 3, 0, Math.PI * 2); ctx.fill();
             }
+        }
+
+        // ---- "FRAME" GESTURE: two L-hands frame a rectangle → go to Recent Work ----
+        if (frameCool > 0) frameCool--;
+        const framers = handData.filter(h => h.lShape);
+        if (frameCool === 0 && handData.length >= 2 && framers.length >= 2) {
+            frameHold++;
+            const a = { x: framers[0].lm[8].x * W, y: framers[0].lm[8].y * H };
+            const b = { x: framers[1].lm[8].x * W, y: framers[1].lm[8].y * H };
+            const rx = Math.min(a.x, b.x), ry = Math.min(a.y, b.y);
+            const rw = Math.abs(a.x - b.x), rh = Math.abs(a.y - b.y);
+            const prog = Math.min(frameHold / FRAME_TARGET, 1);
+
+            // glowing frame rectangle
+            ctx.save();
+            ctx.strokeStyle = `rgba(167,139,250,${0.5 + prog * 0.5})`;
+            ctx.lineWidth = 2.5;
+            ctx.shadowColor = 'rgba(167,139,250,0.9)';
+            ctx.shadowBlur = 18;
+            ctx.strokeRect(rx, ry, rw, rh);
+            // corner ticks
+            const t = 22;
+            ctx.lineWidth = 4;
+            [[rx, ry, 1, 1], [rx + rw, ry, -1, 1], [rx, ry + rh, 1, -1], [rx + rw, ry + rh, -1, -1]]
+              .forEach(([cxp, cyp, sx, sy]) => {
+                ctx.beginPath();
+                ctx.moveTo(cxp, cyp + sy * t); ctx.lineTo(cxp, cyp); ctx.lineTo(cxp + sx * t, cyp);
+                ctx.stroke();
+              });
+            // progress bar along top
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+            ctx.lineWidth = 3;
+            ctx.beginPath(); ctx.moveTo(rx, ry - 12); ctx.lineTo(rx + rw, ry - 12); ctx.stroke();
+            ctx.strokeStyle = '#a78bfa';
+            ctx.beginPath(); ctx.moveTo(rx, ry - 12); ctx.lineTo(rx + rw * prog, ry - 12); ctx.stroke();
+            // label (drawn un-mirrored)
+            ctx.scale(-1, 1);
+            ctx.fillStyle = '#fff';
+            ctx.font = '600 15px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(prog < 1 ? 'Hold the frame…' : 'Opening Recent Work',
+                         -(rx + rw / 2), ry + rh + 28);
+            ctx.restore();
+
+            sdot.classList.add('on');
+            stext.textContent = '🖼️ Framing — hold to open Recent Work';
+
+            if (prog >= 1) {
+                frameHold = 0; frameCool = 150;
+                document.getElementById('works').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('works').classList.add('flash');
+                setTimeout(() => document.getElementById('works').classList.remove('flash'), 900);
+            }
+        } else if (frameHold > 0) {
+            frameHold = Math.max(0, frameHold - 3);
         }
 
         requestAnimationFrame(render);
