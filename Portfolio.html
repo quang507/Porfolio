@@ -1147,8 +1147,8 @@
 </footer>
 
 <!-- MediaPipe -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
 <script>
 // ===== MEDIAPIPE PARTICLE GALAXY =====
@@ -1165,7 +1165,7 @@
     let W = 0, H = 0, particles = [];
 
     function seed() {
-        const count = Math.min(440, Math.round((W * H) / 5200));
+        const count = Math.min(340, Math.round((W * H) / 7600));
         particles = [];
         for (let i = 0; i < count; i++) {
             particles.push({
@@ -1488,32 +1488,6 @@
     }
     render();
 
-    const hands = new Hands({ locateFile: f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}` });
-    hands.setOptions({ maxNumHands:2, modelComplexity:1, minDetectionConfidence:0.7, minTrackingConfidence:0.6 });
-    hands.onResults(res => {
-        const ml = res.multiHandLandmarks || [];
-        const prev = handData;
-        handData = ml.map(handFromLandmarks);
-
-        // burst on pinch-release
-        handData.forEach((h, i) => {
-            const was = prev[i];
-            if (was && was.pinching && !h.pinching) {
-                for (const p of particles) {
-                    const dx = p.x - was.px, dy = p.y - was.py, d = Math.hypot(dx, dy) || 0.001;
-                    if (d < ATTRACT_R) {
-                        const f = (1 - d / ATTRACT_R) * 26;
-                        p.vx += (dx / d) * f; p.vy += (dy / d) * f;
-                    }
-                }
-            }
-        });
-
-        if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Raise a hand to disturb the galaxy...'; }
-        else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = '✊ Pinch — gathering... release to burst'; }
-        else { sdot.classList.add('on'); stext.textContent = '✋ Move to push · pinch to gather'; }
-    });
-
     // Pause hand processing when hero is scrolled out of view (saves CPU/battery)
     const heroEl = document.getElementById('hero-cam');
     if ('IntersectionObserver' in window) {
@@ -1521,25 +1495,58 @@
             { threshold: 0.05 }).observe(heroEl);
     }
 
-    // Graceful fallback animation when no camera is available
-    // No separate loop needed — the galaxy render() already animates ambiently.
     function startFallback(msg) {
         stext.textContent = msg;
         sdot.style.display = 'none';
     }
 
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        startFallback('Camera not available here — open via https:// to enable');
-        return;
+    // Heavy MediaPipe (≈10MB WASM + model) is initialised AFTER first paint,
+    // so the page loads & becomes interactive without competing for the main thread.
+    function initHands() {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            startFallback('Camera not available here — open via https:// to enable');
+            return;
+        }
+        stext.textContent = 'Loading camera…';
+        const hands = new Hands({ locateFile: f => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}` });
+        hands.setOptions({ maxNumHands: 2, modelComplexity: 1, minDetectionConfidence: 0.7, minTrackingConfidence: 0.6 });
+        hands.onResults(res => {
+            const ml = res.multiHandLandmarks || [];
+            const prev = handData;
+            handData = ml.map(handFromLandmarks);
+            // burst on pinch-release
+            handData.forEach((h, i) => {
+                const was = prev[i];
+                if (was && was.pinching && !h.pinching) {
+                    for (const p of particles) {
+                        const dx = p.x - was.px, dy = p.y - was.py, d = Math.hypot(dx, dy) || 0.001;
+                        if (d < ATTRACT_R) {
+                            const f = (1 - d / ATTRACT_R) * 26;
+                            p.vx += (dx / d) * f; p.vy += (dy / d) * f;
+                        }
+                    }
+                }
+            });
+            if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Raise a hand to disturb the galaxy...'; }
+            else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = '✊ Pinch — gathering... release to burst'; }
+            else { sdot.classList.add('on'); stext.textContent = '✋ Move to push · pinch to gather'; }
+        });
+
+        const cam = new Camera(video, {
+            onFrame: async () => { if (heroVisible) await hands.send({ image: video }); },
+            width: 960, height: 540
+        });
+        cam.start()
+           .then(() => { video.classList.add('ready'); stext.textContent = 'Raise hands to camera...'; })
+           .catch(() => { startFallback('Camera access denied — interactive demo paused'); });
     }
 
-    const cam = new Camera(video, {
-        onFrame: async () => { if (heroVisible) await hands.send({ image: video }); },
-        width: 1280, height: 720
-    });
-    cam.start()
-       .then(() => { video.classList.add('ready'); stext.textContent = 'Raise hands to camera...'; })
-       .catch(() => { startFallback('Camera access denied — interactive demo paused'); });
+    function scheduleInit() {
+        if ('requestIdleCallback' in window) requestIdleCallback(initHands, { timeout: 2000 });
+        else setTimeout(initHands, 800);
+    }
+    if (document.readyState === 'complete') scheduleInit();
+    else window.addEventListener('load', scheduleInit);
 })();
 
 // ===== WORKS FILTER =====
