@@ -1205,12 +1205,13 @@
         const ext = (tip, pip) =>
             Math.hypot(lm[tip].x - wr.x, lm[tip].y - wr.y) >
             Math.hypot(lm[pip].x - wr.x, lm[pip].y - wr.y) * 1.06;
-        const idxUp = ext(8, 6), midUp = ext(12, 10), rngUp = ext(16, 14), pkyUp = ext(20, 18);
+        const idxUp = ext(8, 6), midUp = ext(12, 10);
         // thumb extended outward (tip far from index base)
-        const thumbOut = Math.hypot(lm[4].x - lm[5].x, lm[4].y - lm[5].y) * 1 > 0 &&
-            Math.hypot((lm[4].x - lm[5].x) * W, (lm[4].y - lm[5].y) * H) > scale * 0.75;
-        // "L" pose for the rectangle gesture: thumb + index out, others curled
-        const lShape = idxUp && thumbOut && !midUp && !rngUp && !pkyUp;
+        const thumbOut =
+            Math.hypot((lm[4].x - lm[5].x) * W, (lm[4].y - lm[5].y) * H) > scale * 0.5;
+        // "L" pose for the rectangle gesture: thumb + index out, middle curled
+        // (middle-curled is the key thing that separates a frame from an open palm)
+        const lShape = idxUp && thumbOut && !midUp;
         return {
             cx, cy, pinching, lShape,
             thumb, index,
