@@ -31,12 +31,12 @@
             overflow-x: hidden;
         }
 
-        /* ===== MEDIAPIPE HERO ===== */
+        /* ===== NEOBRUTALISM CAM HERO ===== */
         #hero-cam {
             position: relative;
             width: 100%;
             height: 100vh;
-            background: #000;
+            background: #f5f0e8;
             overflow: hidden;
         }
         #hero-video {
@@ -46,108 +46,167 @@
             object-fit: cover;
             transform: scaleX(-1);
             opacity: 0;
-            transition: opacity 0.6s;
+            transition: opacity 0.5s;
+            filter: grayscale(30%) contrast(1.05);
         }
-        #hero-video.ready { opacity: 1; }
+        #hero-video.ready { opacity: 0.82; }
         #hero-canvas {
             position: absolute;
             inset: 0;
             width: 100%; height: 100%;
             transform: scaleX(-1);
         }
-        .cam-overlay {
+
+        /* grid overlay */
+        .nb-grid {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(12,12,12,0.2) 0%, transparent 30%, transparent 70%, rgba(12,12,12,0.8) 100%);
+            z-index: 4;
             pointer-events: none;
-            z-index: 5;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.07) 1px, transparent 1px);
+            background-size: 48px 48px;
         }
-        .cam-ui {
+
+        /* big label top-left */
+        .nb-label-tl {
             position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 56px;
-            z-index: 10;
-            pointer-events: none;
-        }
-        .cam-hint {
-            font-family: var(--mono);
-            font-size: 0.78em;
-            color: rgba(255,255,255,0.55);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-        .cam-status {
-            position: absolute;
-            top: 24px;
-            right: 28px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            top: 28px; left: 28px;
+            z-index: 20;
+            background: #FFE03A;
+            border: 3px solid #000;
+            box-shadow: 5px 5px 0 #000;
+            padding: 10px 20px;
             font-family: var(--mono);
             font-size: 0.72em;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.1em;
-        }
-        .sdot {
-            width: 7px; height: 7px;
-            border-radius: 50%;
-            background: #f44;
-            animation: blink 1s infinite;
-        }
-        .sdot.on { background: #4d4; animation: none; }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
-
-        .cam-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
-            z-index: 10;
-        }
-        .cam-title-main {
-            font-size: clamp(3.5rem, 10vw, 9rem);
             font-weight: 700;
-            line-height: 0.9;
-            letter-spacing: -0.03em;
-            color: rgba(255,255,255,0.12);
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            mix-blend-mode: overlay;
+            color: #000;
         }
 
-        .scroll-cue {
+        /* status badge top-right */
+        .nb-status {
             position: absolute;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 28px; right: 28px;
+            z-index: 20;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            padding: 9px 18px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            z-index: 10;
-            animation: nudge 2.2s ease-in-out infinite;
-        }
-        .scroll-cue span {
+            gap: 10px;
             font-family: var(--mono);
             font-size: 0.68em;
-            color: rgba(255,255,255,0.35);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #000;
+        }
+        .sdot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #ff3333;
+            border: 2px solid #000;
+            animation: blink 0.9s infinite;
+            flex-shrink: 0;
+        }
+        .sdot.on { background: #00cc55; animation: none; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.1} }
+
+        /* center big title */
+        .nb-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            pointer-events: none;
+        }
+        .nb-center-text {
+            font-size: clamp(5rem, 16vw, 14rem);
+            font-weight: 700;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 3px rgba(0,0,0,0.18);
+        }
+
+        /* bottom hint bar */
+        .nb-bottom {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            z-index: 20;
+            background: #FFE03A;
+            border-top: 3px solid #000;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .nb-hint {
+            font-family: var(--mono);
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #000;
+        }
+        .nb-scroll {
+            font-family: var(--mono);
+            font-size: 0.68em;
+            font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-        }
-        .scroll-line {
-            width: 1px;
-            height: 36px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: nudge 2s ease-in-out infinite;
         }
         @keyframes nudge {
-            0%,100%{transform:translateX(-50%) translateY(0)}
-            50%{transform:translateX(-50%) translateY(8px)}
+            0%,100%{transform:translateY(0)}
+            50%{transform:translateY(5px)}
         }
+
+        /* decorative corner boxes */
+        .nb-corner {
+            position: absolute;
+            z-index: 15;
+            pointer-events: none;
+        }
+        .nb-corner-bl {
+            bottom: 68px; left: 28px;
+            background: #ff4747;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            padding: 10px 16px;
+            font-family: var(--mono);
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #000;
+        }
+        .nb-corner-br {
+            bottom: 68px; right: 28px;
+            background: #3a7fff;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            padding: 10px 16px;
+            font-family: var(--mono);
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+        }
+
+        .scroll-cue { display: none; }
 
         /* ===== NAV ===== */
         nav {
@@ -705,24 +764,25 @@
 <section id="hero-cam">
     <video id="hero-video" autoplay playsinline muted></video>
     <canvas id="hero-canvas"></canvas>
-    <div class="cam-overlay"></div>
+    <div class="nb-grid"></div>
 
-    <div class="cam-title">
-        <div class="cam-title-main">QUANG.</div>
+    <div class="nb-center">
+        <div class="nb-center-text">QUANG.</div>
     </div>
 
-    <div class="cam-status">
+    <div class="nb-label-tl">✦ Interactive</div>
+
+    <div class="nb-status">
         <div class="sdot" id="sdot"></div>
         <span id="stext">Starting camera...</span>
     </div>
 
-    <div class="cam-ui">
-        <div class="cam-hint">✋ &nbsp; Raise both hands to activate the effect</div>
-    </div>
+    <div class="nb-corner nb-corner-bl">✋ Raise both hands</div>
+    <div class="nb-corner nb-corner-br">Saigon © 2026</div>
 
-    <div class="scroll-cue">
-        <div class="scroll-line"></div>
-        <span>Scroll</span>
+    <div class="nb-bottom">
+        <div class="nb-hint">✦ &nbsp; Hold both hands up — create the portal effect</div>
+        <div class="nb-scroll">Scroll ↓</div>
     </div>
 </section>
 
@@ -1075,32 +1135,8 @@
     noiseC.width = 256; noiseC.height = 256;
     const noiseX = noiseC.getContext('2d');
 
-    function buildNoise(t) {
-        const id = noiseX.createImageData(256, 256);
-        const d = id.data;
-        for (let i = 0; i < d.length; i += 4) {
-            const px = (i / 4) % 256;
-            const py = Math.floor((i / 4) / 256);
-            const z = py / 256;
-            const n = Math.random();
-            if (z < 0.28) {
-                d[i]=20+n*30; d[i+1]=80+n*40; d[i+2]=180+n*60; d[i+3]=220+n*35;
-            } else if (z < 0.65) {
-                const r = Math.random();
-                if (r < 0.35) { d[i]=30+n*80; d[i+1]=160+n*90; d[i+2]=60+n*60; d[i+3]=210; }
-                else if (r < 0.55) { d[i]=200+n*55; d[i+1]=180+n*60; d[i+2]=20+n*40; d[i+3]=210; }
-                else if (r < 0.70) { const v=200+n*55; d[i]=v; d[i+1]=v; d[i+2]=v; d[i+3]=210; }
-                else if (r < 0.82) { d[i]=30+n*50; d[i+1]=100+n*80; d[i+2]=220+n*35; d[i+3]=210; }
-                else { d[i]=10; d[i+1]=30; d[i+2]=20; d[i+3]=120+n*80; }
-            } else {
-                const ds=12, dx=px%ds-ds/2, dy=py%ds-ds/2, dist=Math.sqrt(dx*dx+dy*dy);
-                const dr=3.5+Math.sin(t*0.05+px*0.1)*0.8;
-                if (dist<dr) { d[i]=210+n*45; d[i+1]=20+n*30; d[i+2]=20+n*30; d[i+3]=235; }
-                else { const v=238+n*17; d[i]=v; d[i+1]=v; d[i+2]=v; d[i+3]=200; }
-            }
-        }
-        noiseX.putImageData(id, 0, 0);
-    }
+    // Neobrutalism color palette
+    const NB_COLORS = ['#FFE03A','#FF4747','#3A7FFF','#00CC55','#FF8C00','#fff'];
 
     function drawPortal(hA, hB, t) {
         const W = canvas.width, H = canvas.height;
@@ -1108,67 +1144,125 @@
         const wA=m(hA[0]), wB=m(hB[0]);
         const TL=m(hA[12]), TR=m(hB[12]);
         const BL=wA, BR=wB;
-        const depth=30, ang=Math.atan2(TR.y-TL.y,TR.x-TL.x)-Math.PI/2;
+        const depth=36, ang=Math.atan2(TR.y-TL.y,TR.x-TL.x)-Math.PI/2;
         const dx=Math.cos(ang)*depth, dy=Math.sin(ang)*depth;
         const TLb={x:TL.x+dx,y:TL.y+dy}, TRb={x:TR.x+dx,y:TR.y+dy};
 
-        buildNoise(t);
+        // Hard shadow offset
+        const SX=6, SY=6;
 
-        // Front face
+        // === SHADOW (black offset) ===
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(TL.x+SX,TL.y+SY); ctx.lineTo(TR.x+SX,TR.y+SY);
+        ctx.lineTo(BR.x+SX,BR.y+SY); ctx.lineTo(BL.x+SX,BL.y+SY);
+        ctx.closePath();
+        ctx.fillStyle='rgba(0,0,0,0.55)';
+        ctx.fill();
+        ctx.restore();
+
+        // === FRONT FACE — flat yellow fill ===
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(TL.x,TL.y); ctx.lineTo(TR.x,TR.y);
         ctx.lineTo(BR.x,BR.y); ctx.lineTo(BL.x,BL.y);
-        ctx.closePath(); ctx.clip();
-        const mx=Math.min(TL.x,TR.x,BL.x,BR.x), my=Math.min(TL.y,TR.y,BL.y,BR.y);
-        const mw=Math.max(TL.x,TR.x,BL.x,BR.x)-mx, mh=Math.max(TL.y,TR.y,BL.y,BR.y)-my;
-        ctx.drawImage(noiseC, mx, my, mw, mh);
-        const sg=ctx.createLinearGradient(mx,my,mx,my+mh);
-        const sy=(Math.sin(t*0.04)*0.5+0.5);
-        sg.addColorStop(Math.max(0,sy-0.08),'rgba(255,255,255,0)');
-        sg.addColorStop(sy,'rgba(255,255,255,0.16)');
-        sg.addColorStop(Math.min(1,sy+0.08),'rgba(255,255,255,0)');
-        ctx.fillStyle=sg; ctx.fillRect(mx,my,mw,mh);
+        ctx.closePath();
+        ctx.fillStyle='#FFE03A';
+        ctx.fill();
+
+        // Scanline stripes inside face
+        ctx.save();
+        ctx.clip();
+        const stripeH = 10;
+        const faceMinY=Math.min(TL.y,TR.y,BL.y,BR.y);
+        const faceMaxY=Math.max(TL.y,TR.y,BL.y,BR.y);
+        const faceMinX=Math.min(TL.x,TR.x,BL.x,BR.x);
+        const faceMaxX=Math.max(TL.x,TR.x,BL.x,BR.x);
+        for(let sy=faceMinY; sy<faceMaxY; sy+=stripeH*2) {
+            ctx.fillStyle='rgba(0,0,0,0.07)';
+            ctx.fillRect(faceMinX, sy+stripeH, faceMaxX-faceMinX, stripeH);
+        }
+        // animated color block sweep
+        const sweepX = faceMinX + ((t*3)%(faceMaxX-faceMinX+80));
+        ctx.fillStyle='rgba(255,71,71,0.28)';
+        ctx.fillRect(sweepX-30, faceMinY, 30, faceMaxY-faceMinY);
         ctx.restore();
 
-        // Top face
+        // thick black border
+        ctx.strokeStyle='#000';
+        ctx.lineWidth=4;
+        ctx.stroke();
+        ctx.restore();
+
+        // === TOP FACE — flat blue ===
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(TL.x,TL.y); ctx.lineTo(TR.x,TR.y);
         ctx.lineTo(TRb.x,TRb.y); ctx.lineTo(TLb.x,TLb.y);
         ctx.closePath();
-        const tg=ctx.createLinearGradient(TL.x,TL.y,TLb.x,TLb.y);
-        tg.addColorStop(0,'rgba(30,100,220,0.95)');
-        tg.addColorStop(0.5,'rgba(60,140,255,0.9)');
-        tg.addColorStop(1,'rgba(10,60,160,0.85)');
-        ctx.fillStyle=tg; ctx.fill();
-        ctx.strokeStyle='rgba(140,190,255,0.7)'; ctx.lineWidth=1.5; ctx.stroke();
+        ctx.fillStyle='#3A7FFF';
+        ctx.fill();
+        ctx.strokeStyle='#000'; ctx.lineWidth=4; ctx.stroke();
         ctx.restore();
 
-        // Edge glow
+        // === RIGHT SIDE — flat red ===
         ctx.save();
-        [[TL,TR],[TR,BR],[BR,BL],[BL,TL],[TL,TLb],[TR,TRb],[TLb,TRb]].forEach(([a,b])=>{
-            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-            ctx.strokeStyle=`hsla(${210+Math.sin(t*0.03)*30},90%,70%,0.5)`;
-            ctx.lineWidth=1.5; ctx.shadowColor='rgba(100,180,255,0.7)'; ctx.shadowBlur=8; ctx.stroke();
-        });
+        ctx.beginPath();
+        ctx.moveTo(TR.x,TR.y); ctx.lineTo(TRb.x,TRb.y);
+        ctx.lineTo(m(hB[5]).x,m(hB[5]).y+dx*0.3);
+        ctx.closePath();
+        ctx.fillStyle='#FF4747';
+        ctx.fill();
+        ctx.strokeStyle='#000'; ctx.lineWidth=3; ctx.stroke();
         ctx.restore();
 
-        // Dots
+        // === LANDMARK DOTS — filled circles with black border ===
         ctx.save();
-        [hA,hB].forEach(hand=>{
+        [hA,hB].forEach((hand,hi)=>{
             hand.forEach((lm,i)=>{
-                const p=m(lm); const ik=[0,4,8,12,16,20].includes(i);
-                ctx.beginPath(); ctx.arc(p.x,p.y,ik?5:2.5,0,Math.PI*2);
-                ctx.fillStyle=ik?`hsla(${190+i*8},90%,70%,0.85)`:'rgba(150,210,255,0.4)';
-                ctx.shadowColor='rgba(100,200,255,0.9)'; ctx.shadowBlur=ik?12:4; ctx.fill();
+                const p=m(lm);
+                const isKey=[0,4,8,12,16,20].includes(i);
+                if(!isKey && Math.random()>0.5) return; // skip some minor dots
+                const r = isKey ? 8 : 4;
+                const col = NB_COLORS[(hi*3+Math.floor(i/4))%NB_COLORS.length];
+                ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2);
+                ctx.fillStyle=col; ctx.fill();
+                ctx.strokeStyle='#000'; ctx.lineWidth=2.5; ctx.stroke();
             });
         });
+        ctx.restore();
+
+        // === CONNECTOR LINES — thick black ===
+        ctx.save();
         [0,4,8,12,16,20].forEach(i=>{
-            const a=m(hA[i]),b=m(hB[i]);
+            const a=m(hA[i]), b=m(hB[i]);
             ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-            ctx.strokeStyle=`hsla(${180+i*15},85%,65%,0.2)`; ctx.lineWidth=1; ctx.shadowBlur=0; ctx.stroke();
+            ctx.strokeStyle='rgba(0,0,0,0.35)';
+            ctx.lineWidth=2;
+            ctx.setLineDash([6,6]);
+            ctx.stroke();
         });
+        ctx.setLineDash([]);
+        ctx.restore();
+
+        // === LABEL TAG on the shape ===
+        ctx.save();
+        const midX=(TL.x+TR.x)/2, midY=(TL.y+TR.y)/2+20;
+        const tag='PORTAL';
+        ctx.font='bold 13px monospace';
+        const tw=ctx.measureText(tag).width;
+        const tp=8;
+        // shadow
+        ctx.fillStyle='#000';
+        ctx.fillRect(midX-tw/2-tp+4, midY-18+4, tw+tp*2, 26);
+        // box
+        ctx.fillStyle='#FFE03A';
+        ctx.fillRect(midX-tw/2-tp, midY-18, tw+tp*2, 26);
+        ctx.strokeStyle='#000'; ctx.lineWidth=2.5;
+        ctx.strokeRect(midX-tw/2-tp, midY-18, tw+tp*2, 26);
+        ctx.fillStyle='#000';
+        ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillText(tag, midX, midY-5);
         ctx.restore();
     }
 
@@ -1183,12 +1277,25 @@
             drawPortal(ml[0], ml[1], frame);
         } else if (ml.length === 1) {
             sdot.classList.remove('on'); stext.textContent='Raise the other hand...';
-            const W=canvas.width,H=canvas.height;
+            const W=canvas.width, H=canvas.height;
+            // skeleton lines
+            const CONNECTIONS=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],[0,9],[9,10],[10,11],[11,12],[0,13],[13,14],[14,15],[15,16],[0,17],[17,18],[18,19],[19,20]];
+            ctx.save();
+            ctx.strokeStyle='#000'; ctx.lineWidth=3;
+            CONNECTIONS.forEach(([a,b])=>{
+                ctx.beginPath();
+                ctx.moveTo(ml[0][a].x*W, ml[0][a].y*H);
+                ctx.lineTo(ml[0][b].x*W, ml[0][b].y*H);
+                ctx.stroke();
+            });
+            ctx.restore();
             ml[0].forEach((lm,i)=>{
                 const ik=[0,4,8,12,16,20].includes(i);
-                ctx.beginPath(); ctx.arc(lm.x*W,lm.y*H,ik?6:3,0,Math.PI*2);
-                ctx.fillStyle=`hsla(${190+i*8},90%,70%,0.85)`;
-                ctx.shadowColor='rgba(100,200,255,0.9)'; ctx.shadowBlur=ik?14:5; ctx.fill();
+                const r = ik?9:5;
+                const col = NB_COLORS[Math.floor(i/4)%NB_COLORS.length];
+                ctx.beginPath(); ctx.arc(lm.x*W, lm.y*H, r, 0, Math.PI*2);
+                ctx.fillStyle=col; ctx.fill();
+                ctx.strokeStyle='#000'; ctx.lineWidth=2.5; ctx.stroke();
             });
         } else {
             sdot.classList.remove('on'); stext.textContent='Raise hands to camera...';
