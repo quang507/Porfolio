@@ -1068,7 +1068,7 @@
                 <div class="ci-value">Saigon (Ho Chi Minh City), Vietnam</div>
             </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgobvrnl" method="POST">
             <div class="cf-row">
                 <div class="cf-group">
                     <label class="cf-label">Name</label>
@@ -1368,14 +1368,38 @@ document.getElementById('lbNext').addEventListener('click',()=>{ if(!curImgs.len
 document.addEventListener('keydown',e=>{ if(!document.getElementById('lightbox').classList.contains('active'))return; if(e.key==='Escape')closeLB(); if(e.key==='ArrowLeft'&&curImgs.length){curIdx=(curIdx-1+curImgs.length)%curImgs.length;showImg(curIdx);} if(e.key==='ArrowRight'&&curImgs.length){curIdx=(curIdx+1)%curImgs.length;showImg(curIdx);} });
 
 // ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', e => {
+document.getElementById('contactForm').addEventListener('submit', async e => {
     e.preventDefault();
+    const form = e.target;
     const name = document.getElementById('cfName').value;
     const fb = document.getElementById('cfFeedback');
-    fb.className = 'cf-msg ok';
-    fb.textContent = `Thanks ${name}! Message sent — I'll get back to you soon.`;
-    e.target.reset();
-    setTimeout(() => { fb.className = 'cf-msg'; }, 6000);
+    const btn = form.querySelector('.cf-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+        const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            fb.className = 'cf-msg ok';
+            fb.textContent = `Thanks ${name}! Message sent — I'll get back to you soon.`;
+            form.reset();
+        } else {
+            fb.className = 'cf-msg ok';
+            fb.style.background = 'rgba(255,71,71,0.15)';
+            fb.style.borderColor = 'rgba(255,71,71,0.3)';
+            fb.style.color = '#ff6b6b';
+            fb.textContent = 'Something went wrong. Please email me directly.';
+        }
+    } catch {
+        fb.className = 'cf-msg ok';
+        fb.textContent = 'Network error. Please try again.';
+    }
+    btn.textContent = 'Send message';
+    btn.disabled = false;
+    setTimeout(() => { fb.className = 'cf-msg'; fb.style = ''; }, 6000);
 });
 
 // ===== SMOOTH NAV =====
