@@ -142,7 +142,9 @@
             padding:14px 26px; background:var(--accent); color:#fff;
             border-top:4px solid #0a0a0a;
         }
-        .cam-hint { font-family:var(--mono); font-size:0.72em; font-weight:700; letter-spacing:0.04em; }
+        .cam-hint { font-family:var(--mono); font-size:0.72em; font-weight:700; letter-spacing:0.04em; display:flex; flex-wrap:wrap; gap:28px; }
+        .cam-hint span { position:relative; }
+        .cam-hint span + span::before { content:''; position:absolute; left:-15px; top:50%; width:6px; height:6px; transform:translateY(-50%) rotate(45deg); background:var(--yellow); }
         .cam-scroll { font-family:var(--mono); font-size:0.68em; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; animation:nudge 2s ease-in-out infinite; }
         @keyframes nudge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
 
@@ -410,7 +412,7 @@
             font-family:var(--mono); font-weight:700; font-size:1.1em; text-transform:uppercase;
             letter-spacing:0.06em; padding:0 26px;
         }
-        .ticker-track span::after { content:'✦'; color:var(--accent2); margin-left:26px; }
+        .ticker-track span::after { content:'/'; color:var(--accent2); margin-left:26px; }
         @keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
         /* ===== MOTION HELPERS ===== */
@@ -487,16 +489,20 @@
         <div class="cam-big">QUANG.</div>
     </div>
 
-    <div class="cam-badge">✦ Interactive</div>
+    <div class="cam-badge">Tương tác</div>
 
     <div class="cam-status">
         <div class="sdot" id="sdot"></div>
-        <span id="stext">Starting camera...</span>
+        <span id="stext">Đang khởi động camera</span>
     </div>
 
     <div class="cam-bottom">
-        <div class="cam-hint">✋ Push stars &nbsp;·&nbsp; ✊ Pinch to gather &nbsp;·&nbsp; 🤳 Thumbs + index = rectangle → open Works</div>
-        <div class="cam-scroll">Scroll ↓</div>
+        <div class="cam-hint">
+            <span>Đưa tay để đẩy hạt sáng</span>
+            <span>Chụm ngón tay để gom lại</span>
+            <span>Ghép hai tay thành khung chữ nhật để mở phần dự án</span>
+        </div>
+        <div class="cam-scroll">Cuộn xuống</div>
     </div>
 </section>
 
@@ -1090,12 +1096,12 @@
             ctx.fillStyle = '#ffd23f';
             ctx.font = '800 16px Inter, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText(prog < 1 ? 'Hold the frame…' : 'Opening Recent Work',
+            ctx.fillText(prog < 1 ? 'Giữ khung hình' : 'Đang mở dự án',
                          -(rx + rw / 2), ry + rh + 28);
             ctx.restore();
 
             sdot.classList.add('on');
-            stext.textContent = '🖼️ Framing — hold to open Recent Work';
+            stext.textContent = 'Giữ khung hình để mở phần dự án';
 
             if (prog >= 1) {
                 frameHold = 0; frameCool = 150;
@@ -1127,10 +1133,10 @@
     // so the page loads & becomes interactive without competing for the main thread.
     function initHands() {
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            startFallback('Camera not available here — open via https:// to enable');
+            startFallback('Camera không khả dụng, hãy mở bằng https');
             return;
         }
-        stext.textContent = 'Loading camera…';
+        stext.textContent = 'Đang tải camera';
         const hands = new Hands({ locateFile: f => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}` });
         hands.setOptions({ maxNumHands: 2, modelComplexity: 1, minDetectionConfidence: 0.7, minTrackingConfidence: 0.6 });
         hands.onResults(res => {
@@ -1150,9 +1156,9 @@
                     }
                 }
             });
-            if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Raise a hand to disturb the galaxy...'; }
-            else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = '✊ Pinch — gathering... release to burst'; }
-            else { sdot.classList.add('on'); stext.textContent = '✋ Move to push · pinch to gather'; }
+            if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Đưa tay vào để khuấy dải sao'; }
+            else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = 'Đang gom hạt, mở tay để bung ra'; }
+            else { sdot.classList.add('on'); stext.textContent = 'Di chuyển tay để đẩy, chụm ngón để gom'; }
         });
 
         const cam = new Camera(video, {
@@ -1160,8 +1166,8 @@
             width: 960, height: 540
         });
         cam.start()
-           .then(() => { video.classList.add('ready'); stext.textContent = 'Raise hands to camera...'; })
-           .catch(() => { startFallback('Camera access denied — interactive demo paused'); });
+           .then(() => { video.classList.add('ready'); stext.textContent = 'Đưa tay vào khung hình'; })
+           .catch(() => { startFallback('Camera bị từ chối, tạm dừng tương tác'); });
     }
 
     function scheduleInit() {
