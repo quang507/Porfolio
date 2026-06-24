@@ -1205,6 +1205,189 @@ footer {
     }
 }
 
+/* ==========================================================================
+   DEV REPOS & TERMINAL SECTION
+   ========================================================================== */
+.dev-repos-section {
+    padding: 100px 80px;
+    background: #07080c;
+    border-top: var(--bd-thick);
+    position: relative;
+    background-image: radial-gradient(rgba(0, 255, 157, 0.015) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+}
+.dev-sec-title-box {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.dev-sec-title {
+    font-family: var(--mono);
+    font-size: 2.2em;
+    font-weight: 900;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.15);
+}
+.dev-terminal-status {
+    font-family: var(--mono);
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+.dev-terminal-status span {
+    color: var(--green);
+    font-weight: 700;
+}
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+}
+.repo-card {
+    background: var(--bg-card);
+    border: var(--bd-thick);
+    box-shadow: var(--sh);
+    padding: 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.repo-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--green);
+    border-color: var(--green);
+}
+.repo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.repo-title {
+    font-family: var(--mono);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.repo-title:hover {
+    color: var(--green);
+}
+.repo-badge {
+    font-family: var(--mono);
+    font-size: 0.65em;
+    font-weight: 700;
+    padding: 3px 8px;
+    border: 1.5px solid var(--text-muted);
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+.repo-badge.active {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(0, 255, 157, 0.05);
+}
+.repo-badge.local {
+    border-color: var(--yellow);
+    color: var(--yellow);
+    background: rgba(255, 210, 63, 0.05);
+}
+.repo-badge.dev {
+    border-color: var(--purple);
+    color: var(--purple);
+    background: rgba(183, 110, 255, 0.05);
+}
+.repo-desc {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+.repo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 22px;
+}
+.repo-tags span {
+    font-family: var(--mono);
+    font-size: 0.62em;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--green);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    padding: 3px 8px;
+}
+.repo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.06);
+    padding-top: 18px;
+    margin-top: auto;
+}
+.repo-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 0.72em;
+    color: var(--text-muted);
+}
+.repo-lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+}
+.repo-lang-dot.python { background: #3572A5; }
+.repo-lang-dot.js { background: #f1e05a; }
+.repo-lang-dot.dart { background: #00B4AB; }
+.repo-link {
+    font-family: var(--mono);
+    font-size: 0.72em;
+    font-weight: 700;
+    color: var(--green);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s, transform 0.15s;
+}
+.repo-link:hover {
+    color: var(--coral);
+    transform: translateX(2px);
+}
+
+@media (max-width: 1024px) {
+    .dev-repos-section {
+        padding: 80px 40px;
+    }
+}
+@media (max-width: 768px) {
+    .dev-repos-section {
+        padding: 60px 20px;
+    }
+    .dev-sec-title {
+        font-size: 1.6em;
+    }
+    .repo-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
 /* Utility to disable custom cursor on touch devices */
 @media (hover: none) or (pointer: coarse) {
     * {

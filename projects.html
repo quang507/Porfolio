@@ -34,217 +34,367 @@
 </nav>
 
 <div class="section-wrap">
+ 
+     <!-- PROJECTS GALLERY (CREATIVE WORKS) -->
+     <section id="works">
+         <!-- Decoration Glyphs -->
+         <div class="crosshair" style="top: 70px; right: 100px;">+</div>
+         <div class="sticker" style="top: 40px; left: 100px; transform: rotate(1deg); background: var(--purple); color: #fff;">CREATIVE PORTFOLIO</div>
+ 
+         <div class="works-filters" style="margin-top: 20px;">
+             <button class="wf-btn active" data-filter="all">Tất cả Thiết kế</button>
+             <button class="wf-btn" data-filter="web">UX/UI & Website</button>
+             <button class="wf-btn" data-filter="graphic">Thiết kế đồ họa</button>
+             <button class="wf-btn" data-filter="photo">Nhiếp ảnh & Video</button>
+         </div>
+         
+         <div class="works-grid">
+             
+             <!-- Project 01: Landing Page Villa Ny'ah -->
+             <div class="work-card feature" data-cat="web" data-title="Landing Page Villa Ny'ah" data-icon="🌐"
+                  data-images='["media/nyah-landing-1.jpg","media/nyah-landing-2.jpg"]'
+                  onclick="window.open('https://polite-hamster-cf3510.netlify.app/','_blank'); event.stopPropagation();">
+                 <span class="work-index">01</span>
+                 <img class="work-card-img" src="media/nyah-landing-1.jpg" alt="Villa Ny'ah Landing Page" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">UX/UI & Web Development // 2025</div>
+                     <div class="work-title">Landing Page Villa Ny'ah</div>
+                     <p class="work-desc-text">Thiết kế UX/UI và phát triển giao diện Landing Page giới thiệu khu biệt thự cao cấp Villa Ny'ah. Tối ưu hóa trải nghiệm người dùng và tốc độ tải trang trên mọi thiết bị. Click để xem website trực tiếp.</p>
+                     <div class="work-cta">Xem Website <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 02: Chụp ảnh Bất động sản Villa Ny'ah -->
+             <div class="work-card" data-cat="photo" data-title="Chụp ảnh Bất động sản Villa Ny'ah" data-icon="📸"
+                  data-images='["media/nyah-photo-1.jpg","media/nyah-photo-2.jpg","media/nyah-photo-3.jpg"]'>
+                 <span class="work-index">02</span>
+                 <img class="work-card-img" src="media/nyah-photo-1.jpg" alt="Chụp ảnh Bất động sản Villa Ny'ah" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Photography // 2025</div>
+                     <div class="work-title">Chụp ảnh Villa Ny'ah</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 03: Sản xuất Social Post Villa Ny'ah -->
+             <div class="work-card" data-cat="graphic" data-title="Social Post Villa Ny'ah" data-icon="🎨"
+                  data-images='["media/nyah-social-1.jpg","media/nyah-social-2.jpg"]'>
+                 <span class="work-index">03</span>
+                 <img class="work-card-img" src="media/nyah-social-1.jpg" alt="Social Post Villa Ny'ah" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Graphic Design // 2025</div>
+                     <div class="work-title">Social Post Villa Ny'ah</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 04: Video Marketing Villa Ny'ah -->
+             <div class="work-card" data-cat="photo" data-title="Video Marketing Villa Ny'ah" data-icon="🎥"
+                  data-images='["media/nyah-video.mp4"]'>
+                 <span class="work-index">04</span>
+                 <img class="work-card-img" src="media/nyah-video-thumb.jpg" alt="Video Marketing Villa Ny'ah" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Video Production // 2025</div>
+                     <div class="work-title">Video Marketing Villa Ny'ah</div>
+                     <div class="work-cta">Xem Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 05: Packaging Design -->
+             <div class="work-card" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
+                  data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
+                 <span class="work-index">05</span>
+                 <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Graphic Design // 2024</div>
+                     <div class="work-title">Packaging Design</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 06: Brochure & Print -->
+             <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
+                  data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
+                 <span class="work-index">06</span>
+                 <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Graphic Design // 2023</div>
+                     <div class="work-title">Brochure & Print</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 07: Brand Identity -->
+             <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
+                  data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
+                 <span class="work-index">07</span>
+                 <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Branding // 2023</div>
+                     <div class="work-title">Brand Identity</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 08: Product Photography -->
+             <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
+                  data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
+                 <span class="work-index">08</span>
+                 <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Photography // 2024</div>
+                     <div class="work-title">Product Photography</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 09: Studio & Portrait -->
+             <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
+                  data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
+                 <span class="work-index">09</span>
+                 <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Photography // 2022</div>
+                     <div class="work-title">Studio & Portrait</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 10: Social Media Content -->
+             <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
+                  data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
+                 <span class="work-index">10</span>
+                 <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Photography // 2024</div>
+                     <div class="work-title">Social Media Content</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 11: Farm & Nature -->
+             <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
+                  data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
+                 <span class="work-index">11</span>
+                 <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">Photography // 2023</div>
+                     <div class="work-title">Farm & Nature</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+ 
+             <!-- Project 12: 3D Tile Murals -->
+             <div class="work-card wide" data-cat="photo" data-title="3D Tile Murals" data-icon="🏺"
+                  data-images='["media/packaging-1.jpg"]'>
+                 <span class="work-index">12</span>
+                 <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
+                 <div class="work-card-overlay"></div>
+                 <div class="work-card-body">
+                     <div class="work-cat">3D Design & Video // 2022</div>
+                     <div class="work-title">3D Tile Murals</div>
+                     <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                 </div>
+             </div>
+             
+         </div>
+     </section>
+ 
+     <!-- DEV REPOS & AUTOMATION TOOLS -->
+     <section class="dev-repos-section" id="dev-repos">
+         <div class="dev-sec-title-box">
+             <h2 class="dev-sec-title">// REPOSITORIES & AI SYSTEMS</h2>
+             <div class="dev-terminal-status">System: <span>CONNECTED</span> // Repos: 5</div>
+         </div>
+         
+         <div class="repo-grid">
+             <!-- Repo 1: NhaDat-chatbot -->
+             <div class="repo-card tech-dots">
+                 <div class="repo-header">
+                     <a href="https://github.com/quang507/NhaDat-chatbot" target="_blank" class="repo-title">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                         quang507/NhaDat-chatbot
+                     </a>
+                     <span class="repo-badge active">GitHub</span>
+                 </div>
+                 <p class="repo-desc">Hệ thống chatbot thông minh tư vấn pháp lý đất đai & định giá bất động sản tại Việt Nam. Tích hợp RAG Pipeline, cào dữ liệu tự động và tìm kiếm ngữ nghĩa vector.</p>
+                 <div class="repo-tags">
+                     <span>Python</span>
+                     <span>LangChain</span>
+                     <span>ChromaDB</span>
+                     <span>LLM API</span>
+                 </div>
+                 <div class="repo-footer">
+                     <div class="repo-lang"><span class="repo-lang-dot python"></span>Python</div>
+                     <a href="https://github.com/quang507/NhaDat-chatbot" target="_blank" class="repo-link">Xem code <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                 </div>
+             </div>
+ 
+             <!-- Repo 2: Finding-picture -->
+             <div class="repo-card tech-dots">
+                 <div class="repo-header">
+                     <a href="https://github.com/quang507/Finding-picture" target="_blank" class="repo-title">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                         quang507/Finding-picture
+                     </a>
+                     <span class="repo-badge active">GitHub</span>
+                 </div>
+                 <p class="repo-desc">Công cụ hỗ trợ tìm kiếm, phân tích và quản lý các tệp hình ảnh thông minh (Image search & management tool). Nhận diện và lọc trùng lặp hàng vạn tệp ảnh cực kỳ nhanh chóng.</p>
+                 <div class="repo-tags">
+                     <span>Python</span>
+                     <span>Image Hash</span>
+                     <span>Duplicate Finder</span>
+                 </div>
+                 <div class="repo-footer">
+                     <div class="repo-lang"><span class="repo-lang-dot python"></span>Python</div>
+                     <a href="https://github.com/quang507/Finding-picture" target="_blank" class="repo-link">Xem code <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                 </div>
+             </div>
+ 
+             <!-- Repo 3: Facebook Auto-Poster -->
+             <div class="repo-card tech-dots">
+                 <div class="repo-header">
+                     <span class="repo-title">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M12 8v8M8 12h8"/></svg>
+                         Facebook Auto-Poster
+                     </span>
+                     <span class="repo-badge local">Active / Local</span>
+                 </div>
+                 <p class="repo-desc">Hệ thống hỗ trợ tự động hóa việc lên lịch, tối ưu nội dung và tự động đăng bài hàng loạt lên nhiều group và fanpage Facebook mà không bị checkpoint.</p>
+                 <div class="repo-tags">
+                     <span>Python</span>
+                     <span>Selenium</span>
+                     <span>FB Graph API</span>
+                 </div>
+                 <div class="repo-footer">
+                     <div class="repo-lang"><span class="repo-lang-dot python"></span>Python</div>
+                     <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted);">// Private Tool</span>
+                 </div>
+             </div>
+ 
+             <!-- Repo 4: Bulk Video Creator -->
+             <div class="repo-card tech-dots">
+                 <div class="repo-header">
+                     <span class="repo-title">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M12 8v8M8 12h8"/></svg>
+                         Bulk Video Creator
+                     </span>
+                     <span class="repo-badge local">Active / Local</span>
+                 </div>
+                 <p class="repo-desc">Hệ thống tự động hóa sản xuất video ngắn hàng loạt (Shorts, Reels, TikTok) từ kịch bản hoặc kho tư liệu ảnh có sẵn. Tự động ghép tiếng, chèn phụ đề và hiệu ứng động.</p>
+                 <div class="repo-tags">
+                     <span>JS / Node.js</span>
+                     <span>FFmpeg</span>
+                     <span>OpenCV</span>
+                 </div>
+                 <div class="repo-footer">
+                     <div class="repo-lang"><span class="repo-lang-dot js"></span>JavaScript</div>
+                     <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted);">// Private Tool</span>
+                 </div>
+             </div>
+ 
+             <!-- Repo 5: Sign Language Learning App -->
+             <div class="repo-card tech-dots">
+                 <div class="repo-header">
+                     <span class="repo-title">
+                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M12 8v8M8 12h8"/></svg>
+                         Sign Language App
+                     </span>
+                     <span class="repo-badge dev">In Dev</span>
+                 </div>
+                 <p class="repo-desc">Ứng dụng hỗ trợ học ngôn ngữ ký hiệu dành cho người câm điếc. Tích hợp AI camera nhận dạng cử chỉ bàn tay thời gian thực và cử chỉ cơ thể chuyển đổi thành chữ viết/giọng nói.</p>
+                 <div class="repo-tags">
+                     <span>Flutter</span>
+                     <span>Dart</span>
+                     <span>MediaPipe</span>
+                     <span>TensorFlow</span>
+                 </div>
+                 <div class="repo-footer">
+                     <div class="repo-lang"><span class="repo-lang-dot dart"></span>Dart / Flutter</div>
+                     <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted);">// Prototype Phase</span>
+                 </div>
+             </div>
+         </div>
+     </section>
+ 
+     <!-- Lightbox -->
+     <div class="lightbox" id="lightbox">
+         <span class="lb-close" id="lbClose">&times;</span>
+         <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
+         <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
+         <div class="lb-inner" id="lbInner"></div>
+         <div class="lb-info" id="lbInfo"></div>
+         <div class="lb-thumbs" id="lbThumbs"></div>
+     </div>
+ 
+ </div><!-- end section-wrap -->
+ 
+ <!-- FOOTER -->
+ <footer>
+     <div class="footer-copy">© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+     <div class="footer-right">Designed & built in Saigon — Cyber Dark Style</div>
+ </footer>
+ 
+ <script>
+ // ===== WORKS FILTER =====
+ document.querySelectorAll('.wf-btn').forEach(btn=>{
+     btn.addEventListener('click',()=>{
+         document.querySelectorAll('.wf-btn').forEach(b=>b.classList.remove('active'));
+         btn.classList.add('active');
+         const f=btn.dataset.filter;
+         document.querySelectorAll('.work-card').forEach(c=>{
+             c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
+         });
+     });
+ });
+ 
+ // ===== LIGHTBOX =====
+ let curItem=null,curImgs=[],curIdx=0;
+ document.querySelectorAll('.work-card').forEach(card=>{
+     // Landing Page Villa Ny'ah leads directly to Netlify, do not open lightbox on card click
+     if(card.dataset.title === "Landing Page Villa Ny'ah") return;
+     
+     card.addEventListener('click',()=>{
+         curItem=card; curImgs=JSON.parse(card.dataset.images||'[]'); curIdx=0; openLB();
+     });
+ });
+ 
+ function openLB(){
+     document.getElementById('lightbox').classList.add('active');
+     document.body.style.overflow='hidden';
+     if(curImgs.length){ showImg(0); buildThumbs(); }
+     else{
+         document.getElementById('lbInner').innerHTML=`<div class="lb-placeholder"><div class="lb-icon">${curItem.dataset.icon||'🖼️'}</div><div class="lb-ptitle">${curItem.dataset.title}</div></div>`;
+         document.getElementById('lbInfo').textContent=curItem.dataset.title;
+         document.getElementById('lbThumbs').innerHTML='';
+     }
+ }
+ function showImg(i){
+     const path = curImgs[i];
+     // Dynamic media handler: supports both images and video playback (.mp4)
+     if(path.toLowerCase().endsWith('.mp4') || path.toLowerCase().endsWith('.webm')) {
+         document.getElementById('lbInner').innerHTML=`<video src="${path}" class="lb-img" controls autoplay loop style="max-height: 75vh; width: 100%; display: block; margin: 0 auto; background: #000; outline: none;"></video>`;
+     } else {
+         document.getElementById('lbInner').innerHTML=`<img src="${path}" class="lb-img" alt="${curItem.dataset.title}">`;
+     }
+     document.getElementById('lbInfo').textContent=`${i+1} / ${curImgs.length}  —  ${curItem.dataset.title}`;
+     document.querySelectorAll('.lb-thumb').forEach((t,j)=>{
+         t.classList.toggle('active',j===i);
+         if(j===i)t.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+     });
+ }
 
-    <!-- PROJECTS GALLERY -->
-    <section id="works">
-        <!-- Decoration Glyphs -->
-        <div class="crosshair" style="top: 70px; right: 100px;">+</div>
-        <div class="sticker" style="top: 40px; left: 100px; transform: rotate(1deg); background: var(--green); color: var(--ink);">SELECTED WORKS & REPOS</div>
-
-        <div class="works-filters" style="margin-top: 20px;">
-            <button class="wf-btn active" data-filter="all">Tất cả</button>
-            <button class="wf-btn" data-filter="ai-code">AI & Lập trình</button>
-            <button class="wf-btn" data-filter="graphic">Thiết kế đồ họa</button>
-            <button class="wf-btn" data-filter="photo">Nhiếp ảnh & Video</button>
-        </div>
-        
-        <div class="works-grid">
-            
-            <!-- FEATURED PROJECT 01: NhaDat Chatbot (Vibe Code) -->
-            <div class="work-card feature" data-cat="ai-code" data-title="NhaDat Chatbot (AI Assistant)" data-icon="🤖"
-                 data-images='["media/product-1.jpg","media/product-2.jpg"]'
-                 onclick="window.open('https://github.com/quang507/NhaDat-chatbot','_blank'); event.stopPropagation();">
-                <span class="work-index">01</span>
-                
-                <div class="chatbot-visual-bg">
-                    <div style="font-size: 2.2em; font-weight:900; color:#ffd23f; margin-bottom:10px;">🤖 NhaDat-chatbot</div>
-                    <div style="font-size:0.85em; line-height:1.5; color:#e2e8f0; margin-bottom:16px; font-family:var(--mono);">
-                        Hệ thống chatbot thông minh tư vấn pháp lý đất đai & định giá bất động sản. 
-                        Tích hợp RAG Pipeline, cào dữ liệu tự động và tìm kiếm ngữ nghĩa vector.
-                    </div>
-                    <div style="display:flex; flex-wrap:wrap; gap:6px;">
-                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">Python</span>
-                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">LangChain</span>
-                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">ChromaDB</span>
-                    </div>
-                </div>
-                
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">AI & Software Development</div>
-                    <div class="work-title">NhaDat AI Chatbot</div>
-                    <p class="work-desc-text">Hệ thống xử lý hỏi đáp pháp luật đất đai và định giá bằng RAG (Retrieval-Augmented Generation). Click để xem code trên Github.</p>
-                    <div class="work-cta">Xem Github <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 02: Packaging Design -->
-            <div class="work-card" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
-                 data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
-                <span class="work-index">02</span>
-                <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Graphic Design</div>
-                    <div class="work-title">Packaging Design</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 03: Brochure & Print -->
-            <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
-                 data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
-                <span class="work-index">03</span>
-                <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Graphic Design</div>
-                    <div class="work-title">Brochure & Print</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 04: Brand Identity -->
-            <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
-                 data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
-                <span class="work-index">04</span>
-                <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Branding</div>
-                    <div class="work-title">Brand Identity</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 05: Product Photography -->
-            <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
-                 data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
-                <span class="work-index">05</span>
-                <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Photography</div>
-                    <div class="work-title">Product Photography</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 06: Studio & Portrait -->
-            <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
-                 data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
-                <span class="work-index">06</span>
-                <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Photography</div>
-                    <div class="work-title">Studio & Portrait</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 07: Social Media Content -->
-            <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
-                 data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
-                <span class="work-index">07</span>
-                <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Photography</div>
-                    <div class="work-title">Social Media Content</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 08: Farm & Nature -->
-            <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
-                 data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
-                <span class="work-index">08</span>
-                <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">Photography</div>
-                    <div class="work-title">Farm & Nature</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-
-            <!-- Project 09: 3D Tile Murals -->
-            <div class="work-card wide" data-cat="photo" data-title="3D Tile Murals" data-icon="🏺"
-                 data-images='["media/packaging-1.jpg"]'>
-                <span class="work-index">09</span>
-                <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
-                <div class="work-card-overlay"></div>
-                <div class="work-card-body">
-                    <div class="work-cat">3D Design & Video</div>
-                    <div class="work-title">3D Tile Murals</div>
-                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="lb-close" id="lbClose">&times;</span>
-        <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
-        <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
-        <div class="lb-inner" id="lbInner"></div>
-        <div class="lb-info" id="lbInfo"></div>
-        <div class="lb-thumbs" id="lbThumbs"></div>
-    </div>
-
-</div><!-- end section-wrap -->
-
-<!-- FOOTER -->
-<footer>
-    <div class="footer-copy">© 2026 Lê Bá Duy Quang. All rights reserved.</div>
-    <div class="footer-right">Designed & built in Saigon — Cyber Dark Style</div>
-</footer>
-
-<script>
-// ===== WORKS FILTER =====
-document.querySelectorAll('.wf-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        document.querySelectorAll('.wf-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const f=btn.dataset.filter;
-        document.querySelectorAll('.work-card').forEach(c=>{
-            c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
-        });
-    });
-});
-
-// ===== LIGHTBOX =====
-let curItem=null,curImgs=[],curIdx=0;
-document.querySelectorAll('.work-card').forEach(card=>{
-    // If card leads to Github direct, do not open lightbox
-    if(card.classList.contains('feature') && card.dataset.cat === 'ai-code') return;
-    
-    card.addEventListener('click',()=>{
-        curItem=card; curImgs=JSON.parse(card.dataset.images||'[]'); curIdx=0; openLB();
-    });
-});
-
-function openLB(){
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow='hidden';
-    if(curImgs.length){ showImg(0); buildThumbs(); }
-    else{
-        document.getElementById('lbInner').innerHTML=`<div class="lb-placeholder"><div class="lb-icon">${curItem.dataset.icon||'🖼️'}</div><div class="lb-ptitle">${curItem.dataset.title}</div></div>`;
-        document.getElementById('lbInfo').textContent=curItem.dataset.title;
-        document.getElementById('lbThumbs').innerHTML='';
-    }
-}
-function showImg(i){
-    document.getElementById('lbInner').innerHTML=`<img src="${curImgs[i]}" class="lb-img" alt="${curItem.dataset.title}">`;
-    document.getElementById('lbInfo').textContent=`${i+1} / ${curImgs.length}  —  ${curItem.dataset.title}`;
-    document.querySelectorAll('.lb-thumb').forEach((t,j)=>{
-        t.classList.toggle('active',j===i);
-        if(j===i)t.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-    });
-}
 function buildThumbs(){
     const c=document.getElementById('lbThumbs'); c.innerHTML='';
     curImgs.forEach((src,i)=>{
