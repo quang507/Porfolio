@@ -3,465 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quang Le Ba Duy — UX/UI Designer & Creative Specialist</title>
-    <meta name="description" content="Portfolio of Lê Bá Duy Quang — UX/UI Designer, Graphic Designer & Photographer based in Saigon, Vietnam. 5+ years of visual craft in print, brand and photography.">
+    <title>Lê Bá Duy Quang — Creative Specialist & AI Developer</title>
+    <meta name="description" content="Portfolio of Lê Bá Duy Quang — UI/UX Designer, Graphic Designer, Photographer & AI Developer based in Saigon, Vietnam. 5+ years of visual craft & programming.">
     <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#06061a">
+    <meta name="theme-color" content="#0d0e15">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Quang Le Ba Duy — UX/UI Designer & Creative Specialist">
-    <meta property="og:description" content="UX/UI Designer, Graphic Designer & Photographer based in Saigon. Clear, considered digital products backed by 5+ years of visual craft.">
+    <meta property="og:title" content="Lê Bá Duy Quang — Creative Specialist & AI Developer">
+    <meta property="og:description" content="UI/UX Designer, Graphic Designer, Photographer & AI Developer based in Saigon. Visual craft combined with AI solutions and coding.">
     <meta property="og:image" content="media/product-1.jpg">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="vi_VN">
     <meta name="twitter:card" content="summary_large_image">
     <!-- Favicon (inline SVG, no extra request) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2306061a'/><text x='50' y='70' font-size='62' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23a78bfa'>Q</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230d0e15'/><text x='50' y='70' font-size='62' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23ffde4d'>Q</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
-        /* ===================  NEOBRUTALISM SYSTEM  =================== */
+        /* =================== IMPECCABLE NEOBRUTALISM SYSTEM =================== */
         :root {
-            --bg: #f3eee1;
-            --bg2: #ffe14d;          /* yellow band */
-            --panel: #ffffff;
-            --text: #0a0a0a;
-            --muted: #565248;
-            --accent: #6b4efe;       /* electric violet */
-            --accent2: #ff5a3c;      /* red-orange */
-            --accent3: #15c06e;      /* green */
-            --blue: #3d6bff;
-            --pink: #ff5fa2;
+            --bg: #faf7f2;
+            --bg-grid: rgba(13, 14, 21, 0.045);
+            --ink: #0d0e15;
             --yellow: #ffd23f;
-            --ink: #0a0a0a;
-            --bd: 3px solid #0a0a0a;
-            --bd-thick: 4px solid #0a0a0a;
-            --sh: 6px 6px 0 #0a0a0a;
-            --sh-sm: 4px 4px 0 #0a0a0a;
-            --sh-lg: 10px 10px 0 #0a0a0a;
-            /* legacy aliases kept so inline var() refs still resolve */
-            --glass: #ffffff;
-            --glass-border: #0a0a0a;
-            --glass-border-bright: #0a0a0a;
-            --font: 'Inter', sans-serif;
+            --purple: #6366f1;
+            --coral: #ff5a3c;
+            --green: #10b981;
+            --blue: #2563eb;
+            --pink: #ec4899;
+            --panel: #ffffff;
+            
+            --bd: 3px solid #0d0e15;
+            --bd-thick: 4.5px solid #0d0e15;
+            --sh-sm: 4px 4px 0 #0d0e15;
+            --sh: 8px 8px 0 #0d0e15;
+            --sh-lg: 12px 12px 0 #0d0e15;
+            
+            --font: 'Outfit', sans-serif;
             --mono: 'Space Mono', monospace;
         }
+
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
+        
         body {
             font-family: var(--font);
             background: var(--bg);
-            color: var(--text);
-            line-height: 1.55;
+            color: var(--ink);
+            line-height: 1.6;
             overflow-x: hidden;
             background-image:
-                linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(var(--bg-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
-        ::selection { background: var(--accent); color:#fff; }
+        ::selection { background: var(--purple); color:#fff; }
 
-        /* hide soft gradient blobs (not neobrutalism) */
-        .blob-wrap { display:none !important; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg); border-left: var(--bd); }
+        ::-webkit-scrollbar-thumb { background: var(--ink); border: 2px solid var(--bg); }
 
-        /* ===== CUSTOM CURSOR (hard square) ===== */
+        /* Custom Cursor */
         * { cursor: none !important; }
         .cursor { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; }
         .cursor-dot {
-            width:6px; height:6px; background:#0a0a0a; border-radius:50%;
+            width:8px; height:8px; background:var(--ink); border-radius:50%;
             transform: translate(-50%,-50%);
-            transition: width .15s, height .15s, opacity .2s;
+            transition: width .1s, height .1s;
         }
         .cursor-ring {
             position:fixed; top:0; left:0; pointer-events:none; z-index:9998;
-            width:18px; height:18px; background:transparent; border-radius:50%;
-            border:1.5px solid #0a0a0a;
+            width:24px; height:24px; background:transparent; border-radius:50%;
+            border:2px solid var(--ink);
             transform: translate(-50%,-50%);
-            transition: width .25s, height .25s, background .25s, opacity .3s;
+            transition: width .2s, height .2s, background .2s;
         }
-        .cursor-ring.hovering { width:30px; height:30px; background:rgba(107,78,254,0.15); }
-        .cursor-ring.clicking { width:12px; height:12px; background:var(--accent2); }
+        .cursor-ring.hovering { width:40px; height:40px; background:rgba(99, 102, 241, 0.15); border-color: var(--purple); }
+        .cursor-ring.clicking { width:16px; height:16px; background:var(--coral); border-color: var(--ink); }
 
-        /* ===== SCROLL PROGRESS ===== */
+        /* Scroll Progress */
         #progress-bar {
             position:fixed; top:0; left:0; right:0; height:6px; z-index:9997;
-            background: var(--accent2);
-            border-bottom:3px solid #0a0a0a;
+            background: var(--coral);
+            border-bottom: 2.5px solid var(--ink);
             transform-origin:left; transform:scaleX(0);
         }
 
-        /* ===== CAM HERO ===== */
-        #hero-cam {
-            position:relative; width:100%; height:100vh;
-            background:#0a0a0a; overflow:hidden; z-index:1;
-            border-bottom:6px solid #0a0a0a;
-        }
-        #hero-video {
-            position:absolute; inset:0; width:100%; height:100%;
-            object-fit:cover; transform:scaleX(-1);
-            opacity:0; transition:opacity .6s;
-            filter: grayscale(100%) contrast(1.25) brightness(0.55);
-        }
-        #hero-video.ready { opacity:0.85; }
-        #hero-canvas { position:absolute; inset:0; width:100%; height:100%; transform:scaleX(-1); }
-        .cam-vignette {
-            position:absolute; inset:0; pointer-events:none; z-index:4;
-            background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.7) 100%);
-            mix-blend-mode:multiply;
-        }
-        .cam-badge {
-            position:absolute; top:26px; left:26px; z-index:20;
-            background: var(--yellow); color:#0a0a0a;
-            border:var(--bd); box-shadow:var(--sh-sm);
-            padding:10px 18px; font-family:var(--mono); font-weight:700;
-            font-size:0.72em; letter-spacing:0.1em; text-transform:uppercase;
-            transform: rotate(-3deg);
-        }
-        .cam-status {
-            position:absolute; top:26px; right:26px; z-index:20;
-            display:flex; align-items:center; gap:10px;
-            background:#fff; color:#0a0a0a; border:var(--bd); box-shadow:var(--sh-sm);
-            padding:9px 16px; font-family:var(--mono); font-weight:700;
-            font-size:0.66em; letter-spacing:0.08em; text-transform:uppercase;
-            transform: rotate(2deg);
-        }
-        .sdot { width:11px; height:11px; background:#ff3b30; border:2px solid #0a0a0a; animation:blink .9s infinite; flex-shrink:0; }
-        .sdot.on { background:var(--accent3); animation:none; }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.12} }
-        .cam-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; text-align:center; pointer-events:none; }
-        .cam-big {
-            font-size: clamp(4rem,15vw,13rem); font-weight:800; line-height:.85;
-            letter-spacing:-0.04em; text-transform:uppercase; color:transparent;
-            -webkit-text-stroke:3px rgba(255,255,255,0.55);
-        }
-        .cam-bottom {
-            position:absolute; bottom:0; left:0; right:0; z-index:20;
-            display:flex; align-items:center; justify-content:space-between; gap:16px;
-            padding:14px 26px; background:var(--accent); color:#fff;
-            border-top:4px solid #0a0a0a;
-        }
-        .cam-hint { font-family:var(--mono); font-size:0.72em; font-weight:700; letter-spacing:0.04em; display:flex; flex-wrap:wrap; gap:28px; }
-        .cam-hint span { position:relative; }
-        .cam-hint span + span::before { content:''; position:absolute; left:-15px; top:50%; width:6px; height:6px; transform:translateY(-50%) rotate(45deg); background:var(--yellow); }
-        .cam-scroll { font-family:var(--mono); font-size:0.68em; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; animation:nudge 2s ease-in-out infinite; }
-        @keyframes nudge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
-
-        /* ===== NAV ===== */
+        /* ===== NAVIGATION ===== */
         nav {
-            position:sticky; top:0; z-index:200; height:64px;
+            position:sticky; top:0; z-index:200; height:76px;
             display:flex; align-items:center; justify-content:space-between;
-            padding:0 40px; background:var(--yellow);
-            border-bottom:4px solid #0a0a0a;
+            padding:0 60px; background:var(--bg);
+            border-bottom: var(--bd-thick);
             transition: transform .4s cubic-bezier(.16,1,.3,1);
         }
         nav.hidden { transform:translateY(-100%); }
         .nav-logo {
-            font-size:1.3em; font-weight:800; color:#0a0a0a; text-decoration:none;
-            background:#fff; border:var(--bd); box-shadow:var(--sh-sm);
-            padding:4px 14px; transform:rotate(-2deg);
+            font-size:1.6em; font-weight:900; color:var(--ink); text-decoration:none;
+            background:var(--yellow); border:var(--bd); box-shadow:var(--sh-sm);
+            padding:6px 20px; transform:rotate(-1.5deg);
+            transition: transform 0.2s;
         }
-        .nav-links { list-style:none; display:flex; gap:8px; }
+        .nav-logo:hover { transform: rotate(0deg) scale(1.05); }
+        .nav-links { list-style:none; display:flex; gap:12px; }
         .nav-links a {
-            font-family:var(--mono); font-size:0.74em; font-weight:700;
-            letter-spacing:0.06em; text-transform:uppercase; color:#0a0a0a; text-decoration:none;
-            padding:7px 14px; border:2px solid transparent; transition:all .15s;
+            font-family:var(--mono); font-size:0.8em; font-weight:700;
+            letter-spacing:0.06em; text-transform:uppercase; color:var(--ink); text-decoration:none;
+            padding:10px 18px; border:2.5px solid transparent; transition:all .15s;
         }
-        .nav-links a:hover { background:#0a0a0a; color:var(--yellow); border-color:#0a0a0a; box-shadow:3px 3px 0 var(--accent2); }
+        .nav-links a:hover, .nav-links a.active {
+            background:var(--ink); color:var(--yellow); border-color:var(--ink);
+            box-shadow: 4px 4px 0 var(--coral);
+            transform: translate(-2px, -2px);
+        }
 
-        /* ===== SECTION SHELL ===== */
-        .section-wrap { position:relative; z-index:1; }
-        section { padding:96px 48px; position:relative; border-bottom:4px solid #0a0a0a; }
-        #about { background:var(--bg); }
-        #services { background:var(--blue); }
-        #works { background:var(--bg); }
-        #experience { background:var(--pink); }
-        #contact { background:var(--accent3); }
-        .glass-divider { display:none; }   /* sections carry their own borders now */
-
+        /* ===== SECTION GENERALS ===== */
+        section { padding:120px 60px; position:relative; border-bottom:var(--bd-thick); }
         .sec-label {
             display:inline-flex; align-items:center; gap:12px;
-            font-family:var(--mono); font-size:0.72em; font-weight:700;
-            letter-spacing:0.1em; text-transform:uppercase; color:#0a0a0a;
+            font-family:var(--mono); font-size:0.75em; font-weight:700;
+            letter-spacing:0.1em; text-transform:uppercase; color:var(--ink);
             background:var(--yellow); border:var(--bd); box-shadow:var(--sh-sm);
-            padding:8px 16px; margin-bottom:48px; transform:rotate(-1.5deg);
+            padding:10px 20px; margin-bottom:60px; transform:rotate(-2deg);
         }
-        #services .sec-label, #contact .sec-label { background:#fff; }
-        #experience .sec-label { background:var(--yellow); }
-        .works-count { font-family:var(--mono); font-size:0.92em; color:#0a0a0a; }
-        .works-count b { color:var(--accent2); }
 
-        /* ===== MAIN HERO ===== */
+        /* ===== BREAK THE GRID UTILITIES ===== */
+        .tilt-left { transform: rotate(-1.5deg) !important; }
+        .tilt-right { transform: rotate(1.2deg) !important; }
+        .overlap-badge {
+            position: absolute; z-index: 10;
+            background: var(--ink); color: #fff;
+            padding: 8px 16px; font-family: var(--mono);
+            font-size: 0.75em; font-weight: 700; border: var(--bd);
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO SECTION (HOME) ===== */
         #hero {
             min-height:92vh; display:flex; flex-direction:column; justify-content:center;
-            padding:110px 48px 70px; background:var(--bg2); border-bottom:4px solid #0a0a0a;
+            padding:140px 60px 90px; background:var(--purple);
+            background-image: 
+                radial-gradient(var(--ink) 20%, transparent 20%),
+                radial-gradient(var(--ink) 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            position: relative;
         }
-        .hero-eyebrow {
-            display:inline-block; align-self:flex-start;
-            font-family:var(--mono); font-size:0.74em; font-weight:700;
-            letter-spacing:0.08em; text-transform:uppercase; color:#fff;
-            background:#0a0a0a; padding:8px 16px; margin-bottom:26px; transform:rotate(-1deg);
+        .hero-sticker {
+            position: absolute; top: 60px; right: 80px;
+            background: var(--yellow); color: var(--ink);
+            font-family: var(--mono); font-weight: 700; font-size: 0.8em;
+            padding: 12px 24px; border: var(--bd-thick);
+            box-shadow: var(--sh); transform: rotate(5deg);
+            z-index: 10; text-transform: uppercase;
         }
-        .hero-name { font-size:clamp(4rem,15vw,12rem); font-weight:800; line-height:.82; letter-spacing:-0.05em; text-transform:uppercase; }
-        .hero-name .port { display:block; color:#0a0a0a; }
-        .hero-name .folio { display:block; color:transparent; -webkit-text-stroke:3px #0a0a0a; }
-        #hero:hover .hero-name .port { transform:translateX(8px); transition:transform .3s; }
-        #hero:hover .hero-name .folio { color:var(--accent2); -webkit-text-stroke-color:#0a0a0a; transition:color .3s; }
-        .hero-divider { height:4px; background:#0a0a0a; margin:42px 0; }
-        .hero-bottom { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:28px; }
-        .hero-intro {
-            max-width:540px; font-size:1.05em; color:#0a0a0a; line-height:1.7;
-            background:#fff; border:var(--bd); box-shadow:var(--sh); padding:22px 24px;
+        .hero-name-container { position: relative; margin-bottom: 20px; }
+        .hero-name { 
+            font-size:clamp(3.8rem,16vw,11rem); font-weight:900; line-height:.82; 
+            letter-spacing:-0.05em; text-transform:uppercase; color: var(--ink);
         }
-        .hero-intro strong { background:var(--yellow); padding:0 4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
-        .hero-cta {
+        .hero-name .creative { display:block; text-shadow: 4px 4px 0 var(--yellow); }
+        .hero-name .specialist { 
+            display:block; color:transparent; 
+            -webkit-text-stroke:3px var(--ink); 
+            text-shadow: none;
+        }
+        
+        .hero-card {
+            background:#fff; border:var(--bd-thick); box-shadow:var(--sh-lg); 
+            padding:36px; max-width:680px; margin-top: 30px;
+            position: relative; transform: rotate(-1.5deg);
+            transition: transform 0.3s ease;
+        }
+        .hero-card:hover { transform: rotate(0deg); }
+        .hero-bio { font-size:1.15em; font-weight: 500; color:var(--ink); line-height:1.7; margin-bottom: 24px; }
+        .hero-bio strong { background:var(--yellow); padding:2px 8px; border: 2px solid var(--ink); }
+        
+        .hero-ctas { display:flex; flex-wrap:wrap; gap:16px; }
+        .btn-neo {
             display:inline-flex; align-items:center; gap:10px; white-space:nowrap;
-            background:var(--accent2); color:#fff; text-decoration:none;
-            font-weight:700; font-size:0.95em; padding:18px 30px;
-            border:var(--bd); box-shadow:var(--sh);
-            transition: transform .12s, box-shadow .12s;
+            background:var(--coral); color:#fff; text-decoration:none;
+            font-weight:800; font-size:0.9em; padding:16px 28px;
+            border:var(--bd); box-shadow:var(--sh-sm);
+            font-family: var(--mono); text-transform: uppercase;
+            transition: transform .1s, box-shadow .1s;
         }
-        .hero-cta:hover { transform:translate(-3px,-3px); box-shadow:9px 9px 0 #0a0a0a; }
-        .hero-cta:active { transform:translate(3px,3px); box-shadow:2px 2px 0 #0a0a0a; }
-        .hero-cta svg { transition:transform .2s; }
-        .hero-cta:hover svg { transform:translateX(4px); }
+        .btn-neo:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
+        .btn-neo:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
+        .btn-neo.secondary { background: #fff; color: var(--ink); }
+        .btn-neo.secondary:hover { background: var(--yellow); }
+        .btn-neo.zalo { background: #0068ff; color: #fff; }
+        .btn-neo.zalo:hover { background: #0056d6; }
 
-        /* ===== ABOUT ===== */
-        #about .about-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:56px; align-items:start; }
-        .about-heading {
-            font-size:clamp(2.6rem,5.5vw,4.6rem); font-weight:800; line-height:1; letter-spacing:-0.03em;
-            text-transform:uppercase; background:var(--yellow); border:var(--bd-thick); box-shadow:var(--sh-lg);
-            padding:24px 26px; transform:rotate(-2deg); display:inline-block;
+        /* ===== TICKER ===== */
+        .ticker {
+            background:var(--ink); color:var(--yellow); overflow:hidden; white-space:nowrap;
+            border-bottom:var(--bd-thick); padding:16px 0; position:relative; z-index:50;
         }
-        .about-heading em { font-style:normal; color:var(--accent2); }
-        .about-bio { font-size:1.05em; color:#0a0a0a; line-height:1.75; margin-bottom:22px; }
-        .about-bio strong { background:#fff; border:2px solid #0a0a0a; padding:0 5px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
-        .about-meta { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:30px; }
-        .meta-card { background:#fff; border:var(--bd); box-shadow:var(--sh-sm); padding:14px 18px; transition:transform .12s, box-shadow .12s; }
-        .meta-card:nth-child(even){ transform:rotate(1deg); }
-        .meta-card:nth-child(odd){ transform:rotate(-1deg); }
-        .meta-card:hover { transform:rotate(0) translate(-2px,-2px); box-shadow:6px 6px 0 var(--accent); }
-        .meta-label { font-family:var(--mono); font-size:0.62em; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent2); margin-bottom:4px; }
-        .meta-value { font-size:0.9em; color:#0a0a0a; font-weight:500; }
+        .ticker-track { display:inline-block; animation:tickerScroll 25s linear infinite; }
+        .ticker-track span {
+            font-family:var(--mono); font-weight:700; font-size:1.2em; text-transform:uppercase;
+            letter-spacing:0.06em; padding:0 30px;
+        }
+        .ticker-track span::after { content:'/'; color:var(--coral); margin-left:30px; }
+        @keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-        /* ===== SERVICES ===== */
-        #services .sec-label { color:#0a0a0a; }
-        .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+        /* ===== ABOUT & EXPERIENCE ===== */
+        #about { background: var(--bg); }
+        .about-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        
+        .about-heading-box {
+            background: var(--yellow); border: var(--bd-thick); box-shadow: var(--sh);
+            padding: 30px; transform: rotate(-2.5deg); margin-bottom: 40px;
+            position: relative;
+        }
+        .about-heading { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; line-height: 1.05; }
+        .about-heading em { font-style: normal; color: var(--coral); }
+        
+        .about-bio-text { font-size: 1.1em; line-height: 1.75; margin-bottom: 24px; color: var(--ink); }
+        .about-bio-text strong { background: #fff; border: 2px solid var(--ink); padding: 2px 6px; }
+        
+        .about-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .meta-card { 
+            background: #fff; border: var(--bd); box-shadow: var(--sh-sm); 
+            padding: 16px; position: relative; transition: transform 0.2s;
+        }
+        .meta-card:nth-child(odd) { transform: rotate(-1.2deg); }
+        .meta-card:nth-child(even) { transform: rotate(1.5deg); }
+        .meta-card:hover { transform: scale(1.03) rotate(0deg); }
+        .meta-card-label { font-family: var(--mono); font-size: 0.65em; font-weight: 700; color: var(--coral); text-transform: uppercase; margin-bottom: 4px; }
+        .meta-card-value { font-size: 0.95em; font-weight: 600; }
+
+        /* Experience Timeline (Broken Grid style) */
+        .exp-heading-box { margin-bottom: 30px; font-family: var(--mono); font-size: 1.4em; font-weight: 800; text-transform: uppercase; }
+        .exp-list { display: flex; flex-direction: column; gap: 28px; }
+        .exp-item {
+            background: #fff; border: var(--bd-thick); box-shadow: var(--sh);
+            padding: 28px; position: relative; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .exp-item:nth-child(odd) { transform: rotate(-1.5deg) translateX(-10px); }
+        .exp-item:nth-child(even) { transform: rotate(1.2deg) translateX(10px); }
+        .exp-item:hover { transform: rotate(0deg) translate(-4px, -4px); box-shadow: 12px 12px 0 var(--ink); }
+        
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+        .exp-period { font-family: var(--mono); font-size: 0.75em; font-weight: 700; background: var(--ink); color: #fff; padding: 4px 10px; }
+        .exp-company { font-weight: 800; font-size: 0.95em; color: var(--coral); text-transform: uppercase; }
+        .exp-role { font-size: 1.2em; font-weight: 900; text-transform: uppercase; margin-top: 4px; }
+        .exp-desc { font-size: 0.9em; color: #444; line-height: 1.6; }
+
+        /* ===== SERVICES (WHAT I DO) ===== */
+        #services { background: var(--green); }
+        #services .sec-label { background: #fff; }
+        .services-layout { display: flex; flex-direction: column; gap: 40px; }
+        
+        /* Grid with 4 standard cards */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 24px; 
+        }
+        
         .service-card {
-            background:#fff; border:var(--bd-thick); box-shadow:var(--sh); padding:30px 26px;
-            transition: transform .12s, box-shadow .12s;
+            background: #fff; border: var(--bd-thick); box-shadow: var(--sh);
+            padding: 34px 28px; position: relative;
+            transition: transform 0.15s, box-shadow 0.15s;
         }
-        .service-card:nth-child(1){ transform:rotate(-1.5deg); }
-        .service-card:nth-child(2){ transform:rotate(1deg); }
-        .service-card:nth-child(3){ transform:rotate(-1deg); }
-        .service-card:nth-child(4){ transform:rotate(1.5deg); }
-        .service-card:hover { transform:rotate(0) translate(-4px,-4px); box-shadow:10px 10px 0 #0a0a0a; }
+        .service-card:nth-child(1) { transform: rotate(-1.5deg); }
+        .service-card:nth-child(2) { transform: rotate(1.2deg); }
+        .service-card:nth-child(3) { transform: rotate(-1deg); }
+        .service-card:nth-child(4) { transform: rotate(1.8deg); }
+        .service-card:hover { transform: rotate(0deg) translate(-4px, -4px); box-shadow: 12px 12px 0 var(--ink); }
+        
         .service-num {
-            font-family:var(--mono); font-size:1.4em; font-weight:700; color:#0a0a0a;
-            background:var(--yellow); border:2px solid #0a0a0a; display:inline-block;
-            width:46px; height:46px; line-height:42px; text-align:center; margin-bottom:18px;
+            font-family: var(--mono); font-size: 1.2em; font-weight: 700;
+            background: var(--yellow); border: var(--bd); display: inline-flex;
+            align-items: center; justify-content: center; width: 44px; height: 44px;
+            margin-bottom: 24px;
         }
-        .service-card:nth-child(1) .service-num{ background:var(--accent2); color:#fff; }
-        .service-card:nth-child(2) .service-num{ background:var(--blue); color:#fff; }
-        .service-card:nth-child(3) .service-num{ background:var(--accent3); color:#fff; }
-        .service-card:nth-child(4) .service-num{ background:var(--pink); color:#fff; }
-        .service-name { font-size:1.2em; font-weight:800; margin-bottom:10px; text-transform:uppercase; }
-        .service-desc { font-size:0.86em; color:var(--muted); line-height:1.6; }
-        .service-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; }
-        .tag { font-family:var(--mono); font-size:0.62em; font-weight:700; padding:4px 9px; background:#0a0a0a; color:#fff; }
+        .service-card:nth-child(2) .service-num { background: var(--purple); color: #fff; }
+        .service-card:nth-child(3) .service-num { background: var(--coral); color: #fff; }
+        .service-card:nth-child(4) .service-num { background: var(--pink); color: #fff; }
+        
+        .service-title { font-size: 1.4em; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; }
+        .service-desc { font-size: 0.9em; color: #444; line-height: 1.6; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .service-tags span { font-family: var(--mono); font-size: 0.65em; font-weight: 700; background: var(--ink); color: #fff; padding: 4px 8px; }
 
-        /* ===== WORKS ===== */
-        .works-filters { display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap; }
-        .wf-btn {
-            font-family:var(--mono); font-size:0.72em; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-            padding:10px 18px; background:#fff; color:#0a0a0a; border:var(--bd); box-shadow:var(--sh-sm); cursor:pointer;
-            transition: transform .1s, box-shadow .1s, background .15s, color .15s;
+        /* The Asymmetric Code-Vibe Card (AI & Software Development) */
+        .service-card.coder-card {
+            grid-column: 1 / -1; /* spans full width to break the regular grid */
+            background: #0d0e15; color: #fff;
+            border: var(--bd-thick); border-color: var(--yellow);
+            box-shadow: 12px 12px 0 var(--ink);
+            transform: rotate(-1deg) translateY(10px);
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px;
+            align-items: center;
         }
-        .wf-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 #0a0a0a; }
-        .wf-btn.active { background:#0a0a0a; color:var(--yellow); }
-        .works-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; gap:18px; }
+        .service-card.coder-card:hover { transform: rotate(0deg) translate(-4px, -4px); box-shadow: 16px 16px 0 var(--yellow); }
+        .service-card.coder-card .service-num { background: var(--green); color: var(--ink); border-color: var(--yellow); }
+        
+        /* Terminal visual inside the card */
+        .coder-visual {
+            background: #181922; border: 2.5px solid var(--yellow);
+            padding: 20px; font-family: var(--mono); font-size: 0.8em;
+            color: #00ff66; position: relative; overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,255,102,0.15);
+            transform: rotate(2deg);
+            transition: transform 0.2s;
+        }
+        .service-card.coder-card:hover .coder-visual { transform: rotate(0deg); }
+        
+        .coder-visual::before {
+            content: "Terminal - index.js"; position: absolute; top: 0; left: 0; right: 0;
+            background: #252632; color: #aaa; padding: 4px 12px; font-size: 0.8em;
+            border-bottom: 2px solid var(--yellow);
+        }
+        .coder-visual-body { margin-top: 15px; line-height: 1.5; }
+        .coder-visual-body .keyword { color: #ff5a3c; }
+        .coder-visual-body .string { color: #ffd23f; }
+        .coder-visual-body .comment { color: #6e7681; font-style: italic; }
+
+        /* ===== WORKS SECTION (PROJECTS) ===== */
+        #works { background: var(--bg); }
+        .works-filters { display:flex; gap:12px; margin-bottom:44px; flex-wrap:wrap; }
+        .wf-btn {
+            font-family:var(--mono); font-size:0.75em; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+            padding:12px 20px; background:#fff; color:var(--ink); border:var(--bd); box-shadow:var(--sh-sm); cursor:pointer;
+            transition: all .1s;
+        }
+        .wf-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
+        .wf-btn.active { background:var(--ink); color:var(--yellow); box-shadow: none; transform: none; }
+        
+        .works-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:220px; gap:24px; }
         .work-card {
             grid-column:span 1; grid-row:span 1; position:relative; overflow:hidden; cursor:pointer;
             background:#fff; border:var(--bd-thick); box-shadow:var(--sh);
-            transition: transform .12s, box-shadow .12s;
+            transition: transform .15s, box-shadow .15s;
         }
         .work-card.feature { grid-column:span 2; grid-row:span 2; }
         .work-card.wide { grid-column:span 2; }
         .work-card.tall { grid-row:span 2; }
-        .work-card:hover { transform:translate(-4px,-4px); box-shadow:12px 12px 0 #0a0a0a; z-index:5; }
-        .work-card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:grayscale(60%) contrast(1.05); transition:filter .35s, transform .5s; }
-        .work-card:hover .work-card-img { filter:grayscale(0%); transform:scale(1.06); }
-        .work-card-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.15) 50%, transparent 75%); }
+        
+        /* Broken grid details for works */
+        .work-card:nth-child(4n+1) { transform: rotate(-1.5deg) translate(-2px, 3px); }
+        .work-card:nth-child(4n+2) { transform: rotate(1.2deg) translate(3px, -2px); }
+        .work-card:nth-child(4n+3) { transform: rotate(-0.8deg) translate(-3px, -3px); }
+        .work-card:nth-child(4n) { transform: rotate(1.5deg) translate(2px, 2px); }
+        .work-card:hover { transform: rotate(0deg) translate(-6px,-6px); box-shadow:14px 14px 0 var(--ink); z-index:10; }
+
+        .work-card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:grayscale(30%) contrast(1.05); transition:filter .35s, transform .5s; }
+        .work-card:hover .work-card-img { filter:grayscale(0%); transform:scale(1.05); }
+        .work-card-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(13,14,21,0.9) 0%, rgba(13,14,21,0.2) 60%, transparent 80%); }
         .work-index {
             position:absolute; top:0; left:0; z-index:4;
-            font-family:var(--mono); font-size:0.8em; font-weight:700; color:#0a0a0a;
-            background:var(--yellow); border-right:3px solid #0a0a0a; border-bottom:3px solid #0a0a0a;
-            padding:5px 11px;
+            font-family:var(--mono); font-size:0.8em; font-weight:700; color:var(--ink);
+            background:var(--yellow); border-right:3px solid var(--ink); border-bottom:3px solid var(--ink);
+            padding:6px 12px;
         }
-        .work-card-body { position:absolute; bottom:0; left:0; right:0; padding:20px; z-index:4; }
-        .work-cat { font-family:var(--mono); font-size:0.62em; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:5px; }
-        .work-title { font-size:1.05em; font-weight:800; color:#fff; line-height:1.15; text-transform:uppercase; }
-        .work-card.feature .work-title { font-size:1.7em; }
+        .work-card-body { position:absolute; bottom:0; left:0; right:0; padding:24px; z-index:4; }
+        .work-cat { font-family:var(--mono); font-size:0.65em; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:6px; }
+        .work-title { font-size:1.2em; font-weight:900; color:#fff; line-height:1.2; text-transform:uppercase; }
+        .work-card.feature .work-title { font-size:1.8em; }
+        .work-desc-text { color: #ccc; font-size: 0.85em; margin-top: 8px; display: none; }
+        .work-card.feature .work-desc-text { display: block; }
+        
         .work-cta {
-            display:inline-flex; align-items:center; gap:7px; margin-top:0; max-height:0; overflow:hidden; opacity:0;
-            font-family:var(--mono); font-size:0.66em; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-            color:#0a0a0a; background:var(--yellow); padding:0 0;
-            transition: max-height .35s, opacity .35s, margin-top .35s, padding .35s;
+            display:inline-flex; align-items:center; gap:8px; margin-top:0; max-height:0; overflow:hidden; opacity:0;
+            font-family:var(--mono); font-size:0.7em; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+            color:var(--ink); background:var(--yellow); padding:0; border: 2px solid var(--ink);
+            transition: all .3s;
         }
-        .work-card:hover .work-cta { max-height:34px; opacity:1; margin-top:12px; padding:7px 12px; }
-        .work-cta svg { transition:transform .3s; }
+        .work-card:hover .work-cta { max-height:36px; opacity:1; margin-top:14px; padding:8px 14px; }
+        .work-cta svg { transition:transform .2s; }
         .work-card:hover .work-cta svg { transform:translateX(4px); }
-        #works.flash { animation:worksFlash .9s ease; }
-        @keyframes worksFlash { 0%{box-shadow:inset 0 0 0 0 var(--accent)} 25%{box-shadow:inset 0 0 0 12px var(--accent)} 100%{box-shadow:inset 0 0 0 0 var(--accent)} }
-        @media (max-width:900px){ .works-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:180px; } .work-card.feature{ grid-column:span 2; grid-row:span 2; } .work-card.wide{ grid-column:span 2; } }
+
+        /* Custom Visual for NhaDat Chatbot (in case there's no actual thumbnail) */
+        .chatbot-visual-bg {
+            position: absolute; inset: 0; background: #0f172a;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 40px; font-family: var(--mono); color: #38bdf8;
+            border-bottom: var(--bd);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact { background: var(--pink); }
+        #contact .sec-label { background: #fff; }
+        .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+        
+        .contact-big-title {
+            font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 900; text-transform: uppercase;
+            line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 30px;
+        }
+        .contact-big-title span { color: #fff; -webkit-text-stroke: 3px var(--ink); }
+
+        .contact-info-cards { display: flex; flex-direction: column; gap: 16px; }
+        .contact-link-card {
+            background: #fff; border: var(--bd-thick); box-shadow: var(--sh);
+            padding: 24px; text-decoration: none; color: var(--ink);
+            display: flex; align-items: center; justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-link-card:nth-child(1) { transform: rotate(-1.5deg); }
+        .contact-link-card:nth-child(2) { transform: rotate(1.2deg); }
+        .contact-link-card:nth-child(3) { transform: rotate(-0.8deg); }
+        .contact-link-card:hover { transform: rotate(0deg) translate(-4px, -4px); box-shadow: 12px 12px 0 var(--ink); }
+        
+        .cl-label { font-family: var(--mono); font-size: 0.65em; font-weight: 700; color: var(--coral); text-transform: uppercase; }
+        .cl-value { font-size: 1.1em; font-weight: 800; margin-top: 4px; }
+        
+        .contact-form {
+            background: #fff; border: var(--bd-thick); box-shadow: var(--sh-lg);
+            padding: 40px; display: flex; flex-direction: column; gap: 20px;
+            transform: rotate(1deg);
+            transition: transform 0.2s;
+        }
+        .contact-form:hover { transform: rotate(0deg); }
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-family: var(--mono); font-size: 0.7em; font-weight: 700; text-transform: uppercase; }
+        .form-group input, .form-group select, .form-group textarea {
+            background: var(--bg); border: var(--bd); color: var(--ink);
+            padding: 14px 18px; font-family: var(--font); font-size: 0.95em;
+            outline: none; transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            background: #fff; box-shadow: var(--sh-sm); transform: translate(-2px, -2px);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        
+        .cf-submit {
+            align-self: flex-start; background: var(--purple); color: #fff;
+            border: var(--bd-thick); box-shadow: var(--sh); padding: 18px 36px;
+            font-family: var(--mono); font-size: 0.9em; font-weight: 800;
+            text-transform: uppercase; cursor: pointer; transition: all 0.1s;
+        }
+        .cf-submit:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--ink); }
+        .cf-submit:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+        .cf-submit:disabled { opacity: 0.6; }
+        
+        .cf-msg { padding:14px 18px; border:var(--bd); font-size:0.9em; font-weight:700; display:none; }
+        .cf-msg.ok { display:block; background:var(--yellow); color:var(--ink); box-shadow: var(--sh-sm); }
+        .cf-msg.err { display:block; background:#f87171; color:var(--ink); box-shadow: var(--sh-sm); }
 
         /* ===== LIGHTBOX ===== */
-        .lightbox { display:none; position:fixed; inset:0; background:rgba(10,10,10,0.86); z-index:1000; align-items:center; justify-content:center; }
+        .lightbox { display:none; position:fixed; inset:0; background:rgba(13,14,21,0.92); z-index:1000; align-items:center; justify-content:center; }
         .lightbox.active { display:flex; }
-        .lb-inner { position:relative; max-width:90%; max-height:90%; border:5px solid #0a0a0a; box-shadow:14px 14px 0 var(--accent); background:#fff; }
-        .lb-img { max-width:100%; max-height:82vh; object-fit:contain; display:block; }
-        .lb-placeholder { min-width:380px; min-height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:var(--yellow); }
-        .lb-placeholder .lb-icon { font-size:5em; }
-        .lb-placeholder .lb-ptitle { font-size:1.1em; font-weight:800; text-transform:uppercase; }
+        .lb-inner { position:relative; max-width:88%; max-height:88%; border:4px solid var(--ink); box-shadow:12px 12px 0 var(--yellow); background:#fff; }
+        .lb-img { max-width:100%; max-height:80vh; object-fit:contain; display:block; }
+        .lb-placeholder {
+            min-width:400px; min-height:300px; display:flex; flex-direction:column;
+            align-items:center; justify-content:center; gap:16px; background:var(--yellow);
+            padding: 40px; text-align: center; border: var(--bd);
+        }
+        .lb-placeholder .lb-icon { font-size:4.5em; }
+        .lb-placeholder .lb-ptitle { font-size:1.3em; font-weight:900; text-transform:uppercase; }
+        
         .lb-close {
-            position:fixed; top:22px; right:26px; font-size:1.6em; color:#0a0a0a; cursor:pointer;
-            width:48px; height:48px; background:var(--accent2); border:var(--bd); box-shadow:var(--sh-sm);
-            display:flex; align-items:center; justify-content:center; transition:transform .12s;
+            position:fixed; top:24px; right:24px; font-size:2em; color:var(--ink); cursor:pointer;
+            width:48px; height:48px; background:var(--coral); border:var(--bd); box-shadow:var(--sh-sm);
+            display:flex; align-items:center; justify-content:center; transition:all 0.1s;
         }
-        .lb-close:hover { transform:rotate(90deg); }
+        .lb-close:hover { transform:rotate(90deg) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+        .lb-close:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+        
         .lb-nav {
-            position:fixed; top:50%; transform:translateY(-50%); font-size:1.5em; color:#0a0a0a; cursor:pointer;
+            position:fixed; top:50%; transform:translateY(-50%); font-size:1.8em; color:var(--ink); cursor:pointer;
             width:48px; height:48px; background:var(--yellow); border:var(--bd); box-shadow:var(--sh-sm);
-            display:flex; align-items:center; justify-content:center; user-select:none; transition:transform .12s;
+            display:flex; align-items:center; justify-content:center; user-select:none; transition:all 0.1s;
         }
-        .lb-nav:hover { transform:translateY(-50%) scale(1.08); }
-        .lb-prev { left:20px; } .lb-next { right:20px; }
-        .lb-info { position:fixed; bottom:58px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:0.72em; font-weight:700; color:#0a0a0a; background:#fff; border:var(--bd); padding:7px 16px; white-space:nowrap; }
-        .lb-thumbs { position:fixed; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px; max-width:90%; overflow-x:auto; padding:6px; }
-        .lb-thumb { width:58px; height:44px; object-fit:cover; cursor:pointer; border:3px solid #0a0a0a; flex-shrink:0; opacity:0.55; transition:opacity .2s, transform .12s; }
-        .lb-thumb:hover { opacity:0.85; }
-        .lb-thumb.active { opacity:1; box-shadow:3px 3px 0 var(--accent2); transform:translate(-1px,-1px); }
-
-        /* ===== EXPERIENCE ===== */
-        #experience .exp-list { display:flex; flex-direction:column; gap:18px; }
-        .exp-item {
-            display:grid; grid-template-columns:170px 1fr; gap:34px; align-items:start;
-            background:#fff; border:var(--bd-thick); box-shadow:var(--sh); padding:26px 30px;
-            transition: transform .12s, box-shadow .12s;
-        }
-        .exp-item:nth-child(odd){ transform:rotate(-0.6deg); }
-        .exp-item:nth-child(even){ transform:rotate(0.6deg); }
-        .exp-item:hover { transform:rotate(0) translate(-4px,-4px); box-shadow:11px 11px 0 #0a0a0a; }
-        .exp-period { font-family:var(--mono); font-size:0.78em; font-weight:700; color:#fff; background:#0a0a0a; padding:5px 10px; display:inline-block; }
-        .exp-role { font-size:1.15em; font-weight:800; margin-bottom:4px; text-transform:uppercase; }
-        .exp-company { font-size:0.9em; color:var(--accent2); font-weight:700; margin-bottom:10px; }
-        .exp-desc { font-size:0.88em; color:var(--muted); line-height:1.65; }
-
-        /* ===== CONTACT ===== */
-        .contact-big {
-            font-size:clamp(3rem,10vw,8rem); font-weight:800; letter-spacing:-0.04em; line-height:.95;
-            text-transform:uppercase; margin-bottom:48px; color:#0a0a0a;
-        }
-        .contact-big span { color:#fff; -webkit-text-stroke:3px #0a0a0a; }
-        .contact-cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
-        .contact-info-block { display:flex; flex-direction:column; gap:16px; }
-        .ci-card { background:#fff; border:var(--bd); box-shadow:var(--sh-sm); padding:18px 22px; transition:transform .12s, box-shadow .12s; }
-        .ci-card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 #0a0a0a; }
-        .ci-label { font-family:var(--mono); font-size:0.64em; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent2); margin-bottom:5px; }
-        .ci-value { font-size:0.95em; color:#0a0a0a; font-weight:500; }
-        .ci-value a { color:#0a0a0a; text-decoration:none; border-bottom:2px solid var(--accent); }
-        .ci-value a:hover { background:var(--yellow); }
-        .contact-form { display:flex; flex-direction:column; gap:14px; background:#fff; border:var(--bd-thick); box-shadow:var(--sh-lg); padding:28px; }
-        .cf-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-        .cf-group { display:flex; flex-direction:column; gap:6px; }
-        .cf-label { font-family:var(--mono); font-size:0.64em; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#0a0a0a; }
-        .cf-group input, .cf-group select, .cf-group textarea {
-            background:var(--bg); border:var(--bd); color:#0a0a0a; padding:13px 14px;
-            font-family:var(--font); font-size:0.92em; width:100%; outline:none; transition:box-shadow .12s, transform .12s;
-        }
-        .cf-group input:focus, .cf-group select:focus, .cf-group textarea:focus { box-shadow:var(--sh-sm); transform:translate(-2px,-2px); background:#fff; }
-        .cf-group textarea { min-height:100px; resize:vertical; }
-        .cf-group select option { background:#fff; }
-        .cf-submit {
-            align-self:flex-start; background:var(--accent); color:#fff; border:var(--bd); box-shadow:var(--sh);
-            padding:15px 30px; font-family:var(--font); font-size:0.95em; font-weight:800; text-transform:uppercase;
-            cursor:pointer; transition:transform .12s, box-shadow .12s;
-        }
-        .cf-submit:hover { transform:translate(-3px,-3px); box-shadow:9px 9px 0 #0a0a0a; }
-        .cf-submit:active { transform:translate(3px,3px); box-shadow:2px 2px 0 #0a0a0a; }
-        .cf-submit:disabled { opacity:0.6; }
-        .cf-msg { padding:12px 16px; border:var(--bd); font-size:0.88em; font-weight:600; display:none; }
-        .cf-msg.ok { display:block; background:var(--yellow); color:#0a0a0a; }
+        .lb-nav:hover { transform:translateY(-50%) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+        .lb-nav:active { transform:translateY(-50%) translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+        .lb-prev { left:24px; } .lb-next { right:24px; }
+        
+        .lb-info { position:fixed; bottom:64px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:0.75em; font-weight:700; color:var(--ink); background:#fff; border:var(--bd); padding:8px 20px; white-space:nowrap; box-shadow: var(--sh-sm); }
+        .lb-thumbs { position:fixed; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:8px; max-width:90%; overflow-x:auto; padding:6px; }
+        .lb-thumb { width:60px; height:46px; object-fit:cover; cursor:pointer; border:2.5px solid var(--ink); flex-shrink:0; opacity:0.5; transition:all .2s; }
+        .lb-thumb:hover { opacity:0.8; }
+        .lb-thumb.active { opacity:1; box-shadow:3px 3px 0 var(--coral); transform:translate(-1px,-1px); }
 
         /* ===== FOOTER ===== */
         footer {
-            padding:34px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-            background:#0a0a0a; color:#f3eee1; border-top:6px solid #0a0a0a; position:relative; z-index:1;
+            padding:40px 60px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+            background:var(--ink); color:#f3eee1; border-top:var(--bd-thick); position:relative; z-index:50;
         }
-        .footer-copy, .footer-right { font-family:var(--mono); font-size:0.72em; font-weight:700; letter-spacing:0.04em; }
+        .footer-copy, .footer-right { font-family:var(--mono); font-size:0.75em; font-weight:700; letter-spacing:0.04em; }
         .footer-right { color:var(--yellow); }
 
-        /* ===== MARQUEE TICKER ===== */
-        .ticker {
-            background:#0a0a0a; color:var(--yellow); overflow:hidden; white-space:nowrap;
-            border-bottom:4px solid #0a0a0a; padding:12px 0; position:relative; z-index:1;
-        }
-        .ticker-track { display:inline-block; animation:tickerScroll 22s linear infinite; }
-        .ticker-track span {
-            font-family:var(--mono); font-weight:700; font-size:1.1em; text-transform:uppercase;
-            letter-spacing:0.06em; padding:0 26px;
-        }
-        .ticker-track span::after { content:'/'; color:var(--accent2); margin-left:26px; }
-        @keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-        /* ===== MOTION HELPERS ===== */
-        .magnetic { } .tilt { }
-        .ripple-wrap { position:relative; overflow:hidden; }
-        .ripple-circle { position:absolute; border-radius:50%; background:rgba(255,255,255,0.4); transform:scale(0); animation:ripple .6s linear; pointer-events:none; }
-        @keyframes ripple { to { transform:scale(4); opacity:0; } }
-
-        .reveal { opacity:0; transform:translateY(40px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-        .reveal-left.visible { opacity:1; transform:none; }
-        .stagger-child { opacity:0; transform:translateY(26px); transition:opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1); }
-        .stagger-child.visible { opacity:1; transform:none; }
-        .sec-label { opacity:0; transform:translateY(14px) rotate(-1.5deg); transition:opacity .5s, transform .5s; }
-        .sec-label.visible { opacity:1; }
-
-        /* hero entrance */
-        .hero-name .port, .hero-name .folio { animation: nbPop .6s cubic-bezier(.16,1,.3,1) both; }
-        .hero-name .port { animation-delay:.05s; }
-        .hero-name .folio { animation-delay:.18s; }
-        @keyframes nbPop { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-        .hero-eyebrow { animation: nbPop .5s .3s both; }
-        .hero-intro { animation: nbPop .5s .42s both; }
-        .hero-cta { animation: nbPop .5s .54s both; }
-
         /* ===== RESPONSIVE ===== */
-        @media (max-width:768px){
-            nav { padding:0 18px; }
-            .nav-links { gap:4px; }
-            .nav-links a { padding:6px 8px; font-size:0.66em; }
-            section { padding:60px 20px; }
-            #hero { padding:80px 20px 56px; }
-            #about .about-grid { grid-template-columns:1fr; gap:34px; }
-            .exp-item { grid-template-columns:1fr; gap:12px; }
-            .contact-cols { grid-template-columns:1fr; gap:32px; }
-            .cf-row { grid-template-columns:1fr; }
-            footer { flex-direction:column; align-items:flex-start; padding:26px 20px; }
-            .cam-bottom { flex-direction:column; gap:6px; text-align:center; }
-            .hero-bottom { flex-direction:column; align-items:flex-start; }
+        @media (max-width:1024px) {
+            .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+            .service-card.coder-card { grid-template-columns: 1fr; }
+            .works-grid { grid-template-columns: repeat(2, 1fr); }
+            .work-card.feature { grid-column: span 2; }
         }
+        @media (max-width:768px){
+            nav { padding:0 24px; height: 68px; }
+            .nav-links { gap:4px; }
+            .nav-links a { padding:8px 10px; font-size:0.7em; }
+            section { padding:80px 24px; }
+            #hero { padding:120px 24px 70px; }
+            .hero-sticker { top: 30px; right: 24px; font-size: 0.7em; }
+            .works-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+            .work-card.feature, .work-card.wide, .work-card.tall { grid-column: span 1; grid-row: span 1; }
+            .work-card.feature .work-title { font-size: 1.2em; }
+            .form-row { grid-template-columns: 1fr; gap: 20px; }
+            footer { flex-direction:column; align-items:flex-start; padding:30px 24px; }
+        }
+        
         @media (hover:none),(pointer:coarse){
             * { cursor:auto !important; }
             .cursor, .cursor-ring { display:none !important; }
         }
         @media (prefers-reduced-motion: reduce){
             *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
-            .reveal, .reveal-left, .stagger-child, .sec-label, .hero-name .port, .hero-name .folio, .hero-eyebrow, .hero-intro, .hero-cta { opacity:1 !important; transform:none !important; }
         }
-
     </style>
 </head>
 <body>
@@ -471,712 +529,445 @@
 <div class="cursor"><div class="cursor-dot" id="cursorDot"></div></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Background blobs -->
-<div class="blob-wrap">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-</div>
-
-<!-- ===== 1. MEDIAPIPE CAM HERO ===== -->
-<section id="hero-cam">
-    <video id="hero-video" autoplay playsinline muted></video>
-    <canvas id="hero-canvas"></canvas>
-    <div class="cam-vignette"></div>
-
-    <div class="cam-center">
-        <div class="cam-big">QUANG.</div>
-    </div>
-
-    <div class="cam-badge">Tương tác</div>
-
-    <div class="cam-status">
-        <div class="sdot" id="sdot"></div>
-        <span id="stext">Đang khởi động camera</span>
-    </div>
-
-    <div class="cam-bottom">
-        <div class="cam-hint">
-            <span>Đưa tay để đẩy hạt sáng</span>
-            <span>Chụm ngón tay để gom lại</span>
-            <span>Ghép hai tay thành khung chữ nhật để mở phần dự án</span>
-        </div>
-        <div class="cam-scroll">Cuộn xuống</div>
-    </div>
-</section>
-
-<!-- ===== NAV ===== -->
+<!-- ===== NAVIGATION ===== -->
 <nav>
     <a href="#hero" class="nav-logo">Quang.</a>
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#works">Works</a></li>
+        <li><a href="#works">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <div class="section-wrap">
 
-<!-- ===== 2. MAIN HERO ===== -->
-<section id="hero">
-    <div class="hero-eyebrow">Lê Bá Duy Quang — Saigon, Vietnam</div>
-    <h1 class="hero-name">
-        <span class="port">Port</span>
-        <span class="folio">folio</span>
-    </h1>
-    <div class="hero-divider"></div>
-    <div class="hero-bottom">
-        <p class="hero-intro">
-            I'm <strong>Quang Le Ba Duy</strong> — a UX/UI Designer with 3 years' experience
-            based between Ho Chi Minh City and Quang Tri. I design clear, considered digital products,
-            backed by <strong>5+ years</strong> of visual craft in print, brand and photography.
-        </p>
-        <a href="#contact" class="hero-cta">
-            Let's work together
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-        </a>
-    </div>
-</section>
-
-<!-- ===== MARQUEE TICKER ===== -->
-<div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-        <span>UX / UI Design</span><span>Graphic Design</span><span>Photography</span><span>3D & Motion</span><span>Branding</span><span>Print</span><span>UX / UI Design</span><span>Graphic Design</span><span>Photography</span><span>3D & Motion</span><span>Branding</span><span>Print</span>
-    </div>
-</div>
-
-<!-- ===== 3. ABOUT ===== -->
-<section id="about">
-    <div class="sec-label">About me</div>
-    <div class="about-grid">
-        <div>
-            <h2 class="about-heading">Designer<br><em>&</em><br>Creator</h2>
+    <!-- ===== HERO SECTION (HOME) ===== -->
+    <section id="hero">
+        <div class="hero-sticker">5+ Years Visual Craft</div>
+        
+        <div class="hero-name-container">
+            <h1 class="hero-name">
+                <span class="creative">Creative</span>
+                <span class="specialist">Specialist</span>
+            </h1>
         </div>
-        <div>
-            <p class="about-bio">My name is Quang, born on <strong>May 30, 1996</strong>. I am a graphic designer, UX/UI designer and photographer with over 5 years of experience. I specialize in graphic design, print, studio & product photography, and digital product design.</p>
-            <p class="about-bio">Proficient in <strong>Adobe Photoshop, Illustrator, Figma</strong>, video editing, modern AI tools and coding — I deliver creative, effective solutions for any project.</p>
-            <div class="about-meta">
-                <div class="meta-card"><div class="meta-label">Location</div><div class="meta-value">Ho Chi Minh City, Vietnam</div></div>
-                <div class="meta-card"><div class="meta-label">Experience</div><div class="meta-value">5+ Years</div></div>
-                <div class="meta-card"><div class="meta-label">Email</div><div class="meta-value">quanggooner1996@gmail.com</div></div>
-                <div class="meta-card"><div class="meta-label">Phone</div><div class="meta-value">+84 346 689 460</div></div>
-                <div class="meta-card"><div class="meta-label">Languages</div><div class="meta-value">Vietnamese, English, Chinese (Basic)</div></div>
-                <div class="meta-card"><div class="meta-label">Education</div><div class="meta-value">University of Transport & Communications HCMC</div></div>
+        
+        <!-- Overlapping broken-grid introduction box -->
+        <div class="hero-card">
+            <div class="overlap-badge" style="top:-18px; left:20px; background:var(--yellow); color:var(--ink); transform:rotate(-2deg);">saigon, vietnam</div>
+            <p class="hero-bio">
+                Tôi là <strong>Lê Bá Duy Quang</strong> — Nhà thiết kế UX/UI, Graphic Designer, Photographer & AI Developer với hơn 5 năm kinh nghiệm thực chiến.
+                Tôi kết hợp tư duy thẩm mỹ cao cấp với giải pháp tự động hóa bằng AI để tạo ra các sản phẩm số độc bản và tối ưu.
+            </p>
+            <div class="hero-ctas">
+                <a href="#works" class="btn-neo">Xem dự án</a>
+                <a href="https://canva.com" target="_blank" class="btn-neo secondary" id="canvaCvLink">Canva CV</a>
+                <a href="Quang's CV.pdf" target="_blank" class="btn-neo secondary">Tải PDF CV</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="glass-divider"></div>
-
-<!-- ===== 4. SERVICES ===== -->
-<section id="services">
-    <div class="sec-label">What I do</div>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-num">01</div>
-            <div class="service-name">UX/UI Design</div>
-            <div class="service-desc">Clear, considered digital products and interfaces — from wireframes to polished final design.</div>
-            <div class="service-tags"><span class="tag">Figma</span><span class="tag">Wireframing</span><span class="tag">Prototyping</span></div>
-        </div>
-        <div class="service-card">
-            <div class="service-num">02</div>
-            <div class="service-name">Graphic Design</div>
-            <div class="service-desc">Branding, brochures, packaging, posters and print-ready artwork with precise color management.</div>
-            <div class="service-tags"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Print</span></div>
-        </div>
-        <div class="service-card">
-            <div class="service-num">03</div>
-            <div class="service-name">Photography</div>
-            <div class="service-desc">Studio, product & e-commerce photography with full retouching, lighting setup and post-production.</div>
-            <div class="service-tags"><span class="tag">Studio</span><span class="tag">Product</span><span class="tag">Lightroom</span></div>
-        </div>
-        <div class="service-card">
-            <div class="service-num">04</div>
-            <div class="service-name">3D & Video</div>
-            <div class="service-desc">3D tile & decorative design, motion graphics, video editing and animation for commercial projects.</div>
-            <div class="service-tags"><span class="tag">3D Tiles</span><span class="tag">Motion</span><span class="tag">Video Edit</span></div>
+    <!-- ===== MARQUEE TICKER ===== -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <span>UX / UI Design</span>
+            <span>AI Development</span>
+            <span>Graphic Design</span>
+            <span>Studio Photography</span>
+            <span>3D Tile Murals</span>
+            <span>Video Editing</span>
+            <span>Print Design</span>
+            <span>UX / UI Design</span>
+            <span>AI Development</span>
+            <span>Graphic Design</span>
+            <span>Studio Photography</span>
+            <span>3D Tile Murals</span>
+            <span>Video Editing</span>
+            <span>Print Design</span>
         </div>
     </div>
-</section>
 
-<div class="glass-divider"></div>
-
-<!-- ===== 5. WORKS ===== -->
-<section id="works">
-    <div class="sec-label">Recent work <span class="works-count"><b>08</b> selected projects</span></div>
-    <div class="works-filters">
-        <button class="wf-btn active" data-filter="all">All</button>
-        <button class="wf-btn" data-filter="graphic">Graphic</button>
-        <button class="wf-btn" data-filter="photo">Photography</button>
-        <button class="wf-btn" data-filter="3d">3D & Video</button>
-    </div>
-    <div class="works-grid">
-        <div class="work-card feature" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
-            data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
-            <span class="work-index">01</span>
-            <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Packaging Design</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
-            data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
-            <span class="work-index">02</span>
-            <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Graphic Design</div><div class="work-title">Brochure & Print</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
-            data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
-            <span class="work-index">03</span>
-            <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Branding</div><div class="work-title">Brand Identity</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
-            data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
-            <span class="work-index">04</span>
-            <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Product Photography</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
-            data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
-            <span class="work-index">05</span>
-            <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Studio & Portrait</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
-            data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
-            <span class="work-index">06</span>
-            <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Social Media Content</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
-            data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
-            <span class="work-index">07</span>
-            <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">Photography</div><div class="work-title">Farm & Nature</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="work-card wide" data-cat="3d" data-title="3D Tile Murals" data-icon="🏺"
-            data-images='["media/packaging-1.jpg"]'>
-            <span class="work-index">08</span>
-            <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
-            <div class="work-card-overlay"></div>
-            <div class="work-card-body"><div class="work-cat">3D Design</div><div class="work-title">3D Tile Murals</div><div class="work-cta">View project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-    </div>
-</section>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-    <span class="lb-close" id="lbClose">&times;</span>
-    <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
-    <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
-    <div class="lb-inner" id="lbInner"></div>
-    <div class="lb-info" id="lbInfo"></div>
-    <div class="lb-thumbs" id="lbThumbs"></div>
-</div>
-
-<div class="glass-divider"></div>
-
-<!-- ===== 6. EXPERIENCE ===== -->
-<section id="experience">
-    <div class="sec-label">Experience</div>
-    <div class="exp-list">
-        <div class="exp-item">
-            <div class="exp-period">2024 — 2025</div>
+    <!-- ===== ABOUT & EXPERIENCE ===== -->
+    <section id="about">
+        <div class="sec-label">Giới thiệu</div>
+        <div class="about-layout">
+            
+            <!-- Left: Info & Skills -->
             <div>
-                <div class="exp-role">Freelance Designer</div>
-                <div class="exp-company">Axel Münsson A/S, Denmark</div>
-                <div class="exp-desc">Freelance POD design (t-shirts, posters), farm product photography & social media content. Continued design education through courses in Denmark.</div>
-            </div>
-        </div>
-        <div class="exp-item">
-            <div class="exp-period">2022 — 2024</div>
-            <div>
-                <div class="exp-role">Graphic & Industrial Art Designer</div>
-                <div class="exp-company">Piramic Saigon Company</div>
-                <div class="exp-desc">Designed 3D tile murals and high-end decorative paintings for architectural & interior projects. Developed 200+ product templates. Optimized workflow — increased productivity by 30%.</div>
-            </div>
-        </div>
-        <div class="exp-item">
-            <div class="exp-period">2017 — 2022</div>
-            <div>
-                <div class="exp-role">Graphic & Industrial Art Designer</div>
-                <div class="exp-company">Duc Phat Company</div>
-                <div class="exp-desc">3D tile and artistic product design for commercial and residential spaces. Mockups, visualizations, and collaboration with production for color accuracy.</div>
-            </div>
-        </div>
-        <div class="exp-item">
-            <div class="exp-period">2017 — 2018</div>
-            <div>
-                <div class="exp-role">Wedding Photographer</div>
-                <div class="exp-company">Vin Đắng Wedding Studio</div>
-                <div class="exp-desc">Studio & outdoor wedding photography. Advanced retouching with Photoshop & Lightroom. Color management and high-quality album print preparation.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="glass-divider"></div>
-
-<!-- ===== 7. CONTACT ===== -->
-<section id="contact">
-    <div class="sec-label">Get in touch</div>
-    <div class="contact-big">Let's<br><span>Talk.</span></div>
-    <div class="contact-cols">
-        <div class="contact-info-block">
-            <div class="ci-card">
-                <div class="ci-label">Have a project in mind?</div>
-                <div class="ci-value" style="margin-top:6px; color:var(--muted); line-height:1.7; font-size:0.95em;">Whether you need a brand identity, product photography, or a digital product — I'd love to hear about it.</div>
-            </div>
-            <div class="ci-card"><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div></div>
-            <div class="ci-card"><div class="ci-label">Phone</div><div class="ci-value"><a href="tel:+84346689460">+84 346 689 460</a></div></div>
-            <div class="ci-card"><div class="ci-label">Location</div><div class="ci-value">Saigon (Ho Chi Minh City), Vietnam</div></div>
-        </div>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgobvrnl" method="POST">
-            <div class="cf-row">
-                <div class="cf-group"><label class="cf-label">Name</label><input type="text" id="cfName" name="name" placeholder="Your name" required></div>
-                <div class="cf-group"><label class="cf-label">Email</label><input type="email" id="cfEmail" name="email" placeholder="your@email.com" required></div>
-            </div>
-            <div class="cf-row">
-                <div class="cf-group"><label class="cf-label">Phone</label><input type="tel" name="phone" placeholder="+84..."></div>
-                <div class="cf-group">
-                    <label class="cf-label">Service</label>
-                    <select name="service" required>
-                        <option value="">Select a service</option>
-                        <option>UX/UI Design</option>
-                        <option>Graphic Design</option>
-                        <option>Print Design</option>
-                        <option>Photography</option>
-                        <option>3D / Video</option>
-                        <option>Other</option>
-                    </select>
+                <div class="about-heading-box">
+                    <h2 class="about-heading">Designer<br><em>&</em><br>Developer</h2>
+                </div>
+                <p class="about-bio-text">
+                    Sinh ngày <strong>30/05/1996</strong>, tôi tốt nghiệp Đại học Giao thông Vận tải TP.HCM. Với sự am hiểu sâu rộng về bộ công cụ Adobe, Figma và khả năng phát triển các mô hình AI/RAG hỗ trợ vận hành, tôi mang đến giải pháp toàn diện cho mọi dự án.
+                </p>
+                <div class="about-meta-grid">
+                    <div class="meta-card"><div class="meta-card-label">Email</div><div class="meta-card-value"><a href="mailto:quanggooner1996@gmail.com" style="color:inherit; text-decoration:none;">quanggooner1996@gmail.com</a></div></div>
+                    <div class="meta-card"><div class="meta-card-label">Điện thoại</div><div class="meta-card-value"><a href="tel:0346689460" style="color:inherit; text-decoration:none;">0346 689 460</a></div></div>
+                    <div class="meta-card"><div class="meta-card-label">Kinh nghiệm</div><div class="meta-card-value">5+ Năm</div></div>
+                    <div class="meta-card"><div class="meta-card-label">Địa bàn</div><div class="meta-card-value">Saigon / Quảng Trị</div></div>
                 </div>
             </div>
-            <div class="cf-group"><label class="cf-label">Message</label><textarea name="message" placeholder="Describe your project..." required></textarea></div>
-            <button type="submit" class="cf-submit">Send message</button>
-            <div id="cfFeedback" class="cf-msg"></div>
-        </form>
+            
+            <!-- Right: Experience Timeline (Broken grid alignment) -->
+            <div>
+                <h3 class="exp-heading-box">Kinh nghiệm làm việc</h3>
+                <div class="exp-list">
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-period">2024 — 2025</span>
+                            <span class="exp-company">Axel Münsson A/S (Đan Mạch)</span>
+                        </div>
+                        <h4 class="exp-role">Freelance Designer</h4>
+                        <p class="exp-desc">Thiết kế các ấn phẩm in ấn (t-shirts, posters), chụp ảnh sản phẩm nông trại và quản lý nội dung kênh truyền thông xã hội.</p>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-period">2022 — 2024</span>
+                            <span class="exp-company">Piramic Saigon Company</span>
+                        </div>
+                        <h4 class="exp-role">Graphic & Industrial Art Designer</h4>
+                        <p class="exp-desc">Thiết kế tranh gạch 3D và các bức tranh trang trí cao cấp cho các công trình kiến trúc. Thiết kế hơn 200+ khuôn mẫu sản phẩm mới.</p>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-period">2017 — 2022</span>
+                            <span class="exp-company">Duc Phat Company</span>
+                        </div>
+                        <h4 class="exp-role">Graphic & Industrial Art Designer</h4>
+                        <p class="exp-desc">Tạo phối cảnh 3D, thiết kế gạch nghệ thuật cho các không gian thương mại và nhà ở cao cấp. Giám sát kỹ thuật màu sắc.</p>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-period">2017 — 2018</span>
+                            <span class="exp-company">Vin Đắng Wedding Studio</span>
+                        </div>
+                        <h4 class="exp-role">Wedding Photographer</h4>
+                        <p class="exp-desc">Chụp ảnh studio và ngoại cảnh. Hậu kỳ hình ảnh chuyên sâu, chỉnh màu và quản lý in ấn album chất lượng cao.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== SERVICES (WHAT I DO) ===== -->
+    <section id="services">
+        <div class="sec-label">Lĩnh vực hoạt động</div>
+        <div class="services-layout">
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-num">01</div>
+                    <h3 class="service-title">UX/UI Design</h3>
+                    <p class="service-desc">Xây dựng sản phẩm số, wireframes, thiết kế ứng dụng và giao diện web tối giản, tối ưu trải nghiệm người dùng.</p>
+                    <div class="service-tags"><span>Figma</span><span>Wireframing</span><span>Prototyping</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">02</div>
+                    <h3 class="service-title">Graphic Design</h3>
+                    <p class="service-desc">Thiết kế nhận diện thương hiệu, bao bì sản phẩm, poster và các ấn phẩm in ấn đạt chuẩn kỹ thuật màu sắc.</p>
+                    <div class="service-tags"><span>Photoshop</span><span>Illustrator</span><span>Branding</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">03</div>
+                    <h3 class="service-title">Photography</h3>
+                    <p class="service-desc">Chụp ảnh studio, sản phẩm thương mại, retouching chuyên nghiệp và thiết kế ánh sáng sản phẩm.</p>
+                    <div class="service-tags"><span>Studio</span><span>Product</span><span>Lightroom</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">04</div>
+                    <h3 class="service-title">3D & Video</h3>
+                    <p class="service-desc">Dựng phối cảnh gạch nghệ thuật 3D, dựng chuyển động motion graphics và dựng phim thương mại.</p>
+                    <div class="service-tags"><span>3D Mural</span><span>After Effects</span><span>Premiere</span></div>
+                </div>
+            </div>
+
+            <!-- The Asymmetric Code-Vibe Card (Software & AI Dev) -->
+            <div class="service-card coder-card">
+                <div>
+                    <div class="service-num">05</div>
+                    <h3 class="service-title">AI & Software Development</h3>
+                    <p class="service-desc" style="color: #ccc;">
+                        Xây dựng ứng dụng AI tự động hóa, thiết kế pipeline cào dữ liệu, xử lý RAG (Retrieval-Augmented Generation) kết hợp với các mô hình ngôn ngữ lớn (OpenAI, Gemini) và lưu trữ dữ liệu Vector phục vụ chatbot chuyên sâu.
+                    </p>
+                    <div class="service-tags">
+                        <span style="border:1.5px solid var(--green); background:none; color:var(--green)">Python</span>
+                        <span style="border:1.5px solid var(--green); background:none; color:var(--green)">LangChain</span>
+                        <span style="border:1.5px solid var(--green); background:none; color:var(--green)">ChromaDB</span>
+                        <span style="border:1.5px solid var(--green); background:none; color:var(--green)">REST API</span>
+                    </div>
+                </div>
+                
+                <div class="coder-visual">
+                    <div class="coder-visual-body">
+                        <span class="comment">// Setup RAG Chatbot System</span><br>
+                        <span class="keyword">const</span> agent = <span class="keyword">new</span> <span class="string">AI_Agent</span>({<br>
+                        &nbsp;&nbsp;engine: <span class="string">"gpt-4o-mini"</span>,<br>
+                        &nbsp;&nbsp;vectorStore: <span class="string">"ChromaDB"</span>,<br>
+                        &nbsp;&nbsp;pipeline: <span class="string">"RetrievalQA"</span><br>
+                        });<br>
+                        <span class="keyword">await</span> agent.initialize();<br>
+                        <span class="comment">/* Status: Live & Optimized */</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== WORKS SECTION (PROJECTS) ===== -->
+    <section id="works">
+        <div class="sec-label">Dự án chọn lọc</div>
+        <div class="works-filters">
+            <button class="wf-btn active" data-filter="all">Tất cả</button>
+            <button class="wf-btn" data-filter="ai-code">AI & Lập trình</button>
+            <button class="wf-btn" data-filter="graphic">Thiết kế đồ họa</button>
+            <button class="wf-btn" data-filter="photo">Nhiếp ảnh & Video</button>
+        </div>
+        
+        <div class="works-grid">
+            
+            <!-- FEATURED PROJECT 01: NhaDat Chatbot (Vibe Code) -->
+            <div class="work-card feature" data-cat="ai-code" data-title="NhaDat Chatbot (AI Assistant)" data-icon="🤖"
+                 data-images='["media/product-1.jpg","media/product-2.jpg"]'
+                 onclick="window.open('https://github.com/quang507/NhaDat-chatbot','_blank'); event.stopPropagation();">
+                <span class="work-index">01</span>
+                
+                <div class="chatbot-visual-bg">
+                    <div style="font-size: 2.2em; font-weight:900; color:#ffd23f; margin-bottom:10px;">🤖 NhaDat-chatbot</div>
+                    <div style="font-size:0.85em; line-height:1.5; color:#e2e8f0; margin-bottom:16px;">
+                        Hệ thống chatbot thông minh tư vấn pháp lý đất đai & định giá bất động sản. 
+                        Tích hợp RAG Pipeline, cào dữ liệu tự động và tìm kiếm ngữ nghĩa vector.
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                        <span style="font-size:0.65em; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; padding:3px 8px;">Python</span>
+                        <span style="font-size:0.65em; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; padding:3px 8px;">LangChain</span>
+                        <span style="font-size:0.65em; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; padding:3px 8px;">ChromaDB</span>
+                    </div>
+                </div>
+                
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">AI & Software Development</div>
+                    <div class="work-title">NhaDat AI Chatbot</div>
+                    <p class="work-desc-text">Hệ thống xử lý hỏi đáp pháp luật đất đai và định giá bằng RAG (Retrieval-Augmented Generation). Click để xem code trên Github.</p>
+                    <div class="work-cta">Xem Github <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 02: Packaging Design -->
+            <div class="work-card" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
+                 data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
+                <span class="work-index">02</span>
+                <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Graphic Design</div>
+                    <div class="work-title">Packaging Design</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 03: Brochure & Print -->
+            <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
+                 data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
+                <span class="work-index">03</span>
+                <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Graphic Design</div>
+                    <div class="work-title">Brochure & Print</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 04: Brand Identity -->
+            <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
+                 data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
+                <span class="work-index">04</span>
+                <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Branding</div>
+                    <div class="work-title">Brand Identity</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 05: Product Photography -->
+            <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
+                 data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
+                <span class="work-index">05</span>
+                <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Product Photography</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 06: Studio & Portrait -->
+            <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
+                 data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
+                <span class="work-index">06</span>
+                <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Studio & Portrait</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 07: Social Media Content -->
+            <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
+                 data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
+                <span class="work-index">07</span>
+                <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Social Media Content</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 08: Farm & Nature -->
+            <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
+                 data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
+                <span class="work-index">08</span>
+                <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Farm & Nature</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 09: 3D Tile Murals -->
+            <div class="work-card wide" data-cat="photo" data-title="3D Tile Murals" data-icon="🏺"
+                 data-images='["media/packaging-1.jpg"]'>
+                <span class="work-index">09</span>
+                <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">3D Design & Video</div>
+                    <div class="work-title">3D Tile Murals</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lbClose">&times;</span>
+        <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
+        <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
+        <div class="lb-inner" id="lbInner"></div>
+        <div class="lb-info" id="lbInfo"></div>
+        <div class="lb-thumbs" id="lbThumbs"></div>
     </div>
-</section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="sec-label">Thông tin liên hệ</div>
+        <div class="contact-layout">
+            
+            <!-- Left: Contact info links -->
+            <div>
+                <h2 class="contact-big-title">Let's<br><span>Connect.</span></h2>
+                <p style="margin-bottom: 30px; font-weight: 500; line-height: 1.6;">
+                    Bạn có dự án sáng tạo cần tư vấn thiết kế, chụp ảnh hay tích hợp các giải pháp tự động hóa bằng AI? Liên hệ với tôi qua các kênh dưới đây!
+                </p>
+                <div class="contact-info-cards">
+                    <!-- ZALO LINK -->
+                    <a href="https://zalo.me/0346689460" target="_blank" class="contact-link-card">
+                        <div>
+                            <div class="cl-label">Zalo Chat</div>
+                            <div class="cl-value">0346 689 460</div>
+                        </div>
+                        <span class="btn-neo zalo" style="padding: 10px 18px; box-shadow: var(--sh-sm); font-size: 0.75em;">Nhắn tin</span>
+                    </a>
+                    
+                    <!-- EMAIL MAILTO -->
+                    <a href="mailto:quanggooner1996@gmail.com" class="contact-link-card">
+                        <div>
+                            <div class="cl-label">Email trực tiếp</div>
+                            <div class="cl-value">quanggooner1996@gmail.com</div>
+                        </div>
+                        <span class="btn-neo" style="padding: 10px 18px; box-shadow: var(--sh-sm); font-size: 0.75em; background: var(--purple);">Gửi mail</span>
+                    </a>
+                    
+                    <!-- PHONE TEL -->
+                    <a href="tel:0346689460" class="contact-link-card">
+                        <div>
+                            <div class="cl-label">Hotline 24/7</div>
+                            <div class="cl-value">0346 689 460</div>
+                        </div>
+                        <span class="btn-neo" style="padding: 10px 18px; box-shadow: var(--sh-sm); font-size: 0.75em; background: var(--yellow); color: var(--ink);">Gọi điện</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Contact form (Formspree active) -->
+            <div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgobvrnl" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cfName">Họ và tên</label>
+                            <input type="text" id="cfName" name="name" placeholder="Họ tên của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cfEmail">Thư điện tử</label>
+                            <input type="email" id="cfEmail" name="email" placeholder="email@gmail.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cfPhone">Số điện thoại</label>
+                            <input type="tel" id="cfPhone" name="phone" placeholder="+84...">
+                        </div>
+                        <div class="form-group">
+                            <label for="cfService">Lĩnh vực hợp tác</label>
+                            <select id="cfService" name="service" required>
+                                <option value="">Chọn dịch vụ cần trao đổi</option>
+                                <option>AI & Software Development</option>
+                                <option>UX/UI Design</option>
+                                <option>Graphic Design</option>
+                                <option>Photography & Video</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cfMessage">Mô tả yêu cầu công việc</label>
+                        <textarea id="cfMessage" name="message" placeholder="Mô tả dự án hoặc yêu cầu của bạn..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cf-submit">Gửi thông điệp</button>
+                    <div id="cfFeedback" class="cf-msg"></div>
+                </form>
+            </div>
+
+        </div>
+    </section>
 
 </div><!-- end section-wrap -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="footer-copy">© 2026 Lê Bá Duy Quang. All rights reserved.</div>
-    <div class="footer-right">Designed & built in Saigon</div>
+    <div class="footer-right">Designed & built in Saigon — Custom Impeccable Style</div>
 </footer>
 
-<!-- MediaPipe -->
-<script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-
 <script>
-// ===== MEDIAPIPE PARTICLE GALAXY =====
-(function () {
-    const video = document.getElementById('hero-video');
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
-    const sdot = document.getElementById('sdot');
-    const stext = document.getElementById('stext');
-
-    const PALETTE = ['#ffd23f','#ff5a3c','#3d6bff','#15c06e','#ff5fa2'];
-    const RGB = [[255,210,63],[255,90,60],[61,107,255],[21,192,110],[255,95,162]];
-
-    let W = 0, H = 0, particles = [];
-
-    function seed() {
-        const count = Math.min(340, Math.round((W * H) / 7600));
-        particles = [];
-        for (let i = 0; i < count; i++) {
-            particles.push({
-                x: Math.random() * W, y: Math.random() * H,
-                hx: Math.random() * W, hy: Math.random() * H,   // home
-                vx: 0, vy: 0,
-                px: 0, py: 0,
-                c: i % PALETTE.length,
-                r: 1 + Math.random() * 2.2,
-                seed: Math.random() * 6.283
-            });
-        }
-    }
-    function resize() {
-        canvas.width = W = canvas.offsetWidth;
-        canvas.height = H = canvas.offsetHeight;
-        seed();
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Latest hand data, updated by MediaPipe; render loop reads it
-    let handData = [];
-    function handFromLandmarks(lm) {
-        const ids = [0, 5, 9, 13, 17];
-        let cx = 0, cy = 0;
-        ids.forEach(i => { cx += lm[i].x; cy += lm[i].y; });
-        cx = (cx / ids.length) * W; cy = (cy / ids.length) * H;
-        const thumb = { x: lm[4].x * W, y: lm[4].y * H };
-        const index = { x: lm[8].x * W, y: lm[8].y * H };
-        const pinchDist = Math.hypot(thumb.x - index.x, thumb.y - index.y);
-        // hand scale = wrist(0) to middle_mcp(9)
-        const scale = Math.hypot((lm[0].x - lm[9].x) * W, (lm[0].y - lm[9].y) * H) || 1;
-        const pinching = pinchDist < scale * 0.55;
-        // finger extended = tip farther from wrist than its pip joint
-        const wr = lm[0];
-        const ext = (tip, pip) =>
-            Math.hypot(lm[tip].x - wr.x, lm[tip].y - wr.y) >
-            Math.hypot(lm[pip].x - wr.x, lm[pip].y - wr.y) * 1.06;
-        const idxUp = ext(8, 6), midUp = ext(12, 10);
-        // thumb extended outward (tip far from index base)
-        const thumbOut =
-            Math.hypot((lm[4].x - lm[5].x) * W, (lm[4].y - lm[5].y) * H) > scale * 0.5;
-        // "L" pose for the rectangle gesture: thumb + index out, middle curled
-        // (middle-curled is the key thing that separates a frame from an open palm)
-        const lShape = idxUp && thumbOut && !midUp;
-        return {
-            cx, cy, pinching, lShape,
-            thumb, index,
-            px: (thumb.x + index.x) / 2,
-            py: (thumb.y + index.y) / 2,
-            scale,
-            lm
-        };
-    }
-
-    let frame = 0;
-    let heroVisible = true;
-    let frameHold = 0, frameCool = 0;   // "framing" gesture state
-    const FRAME_TARGET = 48;            // frames to hold (~0.8s)
-
-    // ---- Hand skeleton connections ----
-    const HAND_CONN = [
-        [0,1],[1,2],[2,3],[3,4],          // thumb
-        [0,5],[5,6],[6,7],[7,8],          // index
-        [5,9],[9,10],[10,11],[11,12],     // middle
-        [9,13],[13,14],[14,15],[15,16],   // ring
-        [13,17],[17,18],[18,19],[19,20],  // pinky
-        [0,17]                            // palm base
-    ];
-
-    function drawSkeleton(h) {
-        const lm = h.lm;
-        ctx.save();
-        // bones — bold black (neobrutalism)
-        ctx.strokeStyle = 'rgba(255,255,255,0.9)';
-        ctx.lineWidth = 3;
-        ctx.lineCap = 'round';
-        for (const [a, b] of HAND_CONN) {
-            ctx.beginPath();
-            ctx.moveTo(lm[a].x * W, lm[a].y * H);
-            ctx.lineTo(lm[b].x * W, lm[b].y * H);
-            ctx.stroke();
-        }
-        // joints — flat color discs with black outline
-        for (let i = 0; i < lm.length; i++) {
-            const isTip = [4, 8, 12, 16, 20].includes(i);
-            ctx.beginPath();
-            ctx.arc(lm[i].x * W, lm[i].y * H, isTip ? 7 : 4, 0, Math.PI * 2);
-            ctx.fillStyle = isTip ? PALETTE[i % PALETTE.length] : '#ffffff';
-            ctx.fill();
-            ctx.lineWidth = 2.5;
-            ctx.strokeStyle = '#0a0a0a';
-            ctx.stroke();
-        }
-        ctx.restore();
-    }
-
-    // Flat colored pane between the two hands (neobrutalism poster style)
-    function drawGlassPortal(hA, hB, t) {
-        const m = (h, i) => ({ x: h.lm[i].x * W, y: h.lm[i].y * H });
-        const TL = m(hA, 8), TR = m(hB, 8), BR = m(hB, 0), BL = m(hA, 0);
-
-        // hard offset shadow
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(TL.x + 7, TL.y + 7); ctx.lineTo(TR.x + 7, TR.y + 7);
-        ctx.lineTo(BR.x + 7, BR.y + 7); ctx.lineTo(BL.x + 7, BL.y + 7);
-        ctx.closePath();
-        ctx.fillStyle = 'rgba(10,10,10,0.55)';
-        ctx.fill();
-        ctx.restore();
-
-        // flat fill
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(TL.x, TL.y); ctx.lineTo(TR.x, TR.y);
-        ctx.lineTo(BR.x, BR.y); ctx.lineTo(BL.x, BL.y);
-        ctx.closePath();
-        ctx.fillStyle = 'rgba(255,210,63,0.72)';   // yellow pane
-        ctx.fill();
-
-        // diagonal stripe sweep
-        ctx.save();
-        ctx.clip();
-        const xs = [TL.x, TR.x, BR.x, BL.x], ys = [TL.y, TR.y, BR.y, BL.y];
-        const minX = Math.min(...xs), maxX = Math.max(...xs);
-        const minY = Math.min(...ys), maxY = Math.max(...ys);
-        const sweepX = minX + ((Math.sin(t * 0.03) + 1) / 2) * (maxX - minX);
-        ctx.fillStyle = 'rgba(255,90,60,0.5)';
-        ctx.fillRect(sweepX - 26, minY, 26, maxY - minY);
-        ctx.restore();
-
-        // thick black border
-        ctx.strokeStyle = '#0a0a0a';
-        ctx.lineWidth = 4;
-        ctx.stroke();
-        ctx.restore();
-    }
-
-    // ---- Physics constants ----
-    const REPEL_R = 190, ATTRACT_R = 300, DAMP = 0.9, SPRING = 0.004;
-
-    function updateParticles() {
-        for (const p of particles) {
-            p.px = p.x; p.py = p.y;
-            // weak spring back to home → keeps field evenly spread
-            p.vx += (p.hx - p.x) * SPRING;
-            p.vy += (p.hy - p.y) * SPRING;
-            // ambient drift so the galaxy always breathes
-            p.vx += Math.cos(frame * 0.012 + p.seed) * 0.06;
-            p.vy += Math.sin(frame * 0.012 + p.seed * 1.7) * 0.06;
-
-            for (const h of handData) {
-                const dx = p.x - h.cx, dy = p.y - h.cy;
-                const d = Math.hypot(dx, dy) || 0.001;
-                if (h.pinching) {
-                    // attract toward pinch point + swirl → forms orb
-                    const ax = h.px - p.x, ay = h.py - p.y;
-                    const ad = Math.hypot(ax, ay) || 0.001;
-                    if (ad < ATTRACT_R) {
-                        const f = (1 - ad / ATTRACT_R) * 1.2;
-                        p.vx += (ax / ad) * f;
-                        p.vy += (ay / ad) * f;
-                        // tangential swirl
-                        p.vx += (-ay / ad) * f * 0.9;
-                        p.vy += (ax / ad) * f * 0.9;
-                    }
-                } else if (d < REPEL_R) {
-                    // open hand pushes particles away
-                    const f = (1 - d / REPEL_R) * 6;
-                    p.vx += (dx / d) * f;
-                    p.vy += (dy / d) * f;
-                }
-            }
-            p.vx *= DAMP; p.vy *= DAMP;
-            p.x += p.vx; p.y += p.vy;
-        }
-    }
-
-    function render() {
-        if (!heroVisible) { requestAnimationFrame(render); return; }
-        frame++;
-        ctx.clearRect(0, 0, W, H);
-
-        if (W && H && particles.length) updateParticles();
-
-        // connection lines between nearby particles (spatial-cheap: stride sampling)
-        ctx.globalCompositeOperation = 'lighter';
-        for (let i = 0; i < particles.length; i += 2) {
-            const a = particles[i];
-            for (let j = i + 2; j < Math.min(i + 24, particles.length); j += 2) {
-                const b = particles[j];
-                const dx = a.x - b.x, dy = a.y - b.y;
-                const d2 = dx * dx + dy * dy;
-                if (d2 < 6400) {
-                    const al = (1 - d2 / 6400) * 0.18;
-                    const c = RGB[a.c];
-                    ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${al})`;
-                    ctx.lineWidth = 0.6;
-                    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-                }
-            }
-        }
-
-        // particles with motion-trail + glow
-        for (const p of particles) {
-            const c = RGB[p.c];
-            const spd = Math.hypot(p.vx, p.vy);
-            // trail
-            if (spd > 1.5) {
-                ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},0.4)`;
-                ctx.lineWidth = p.r;
-                ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke();
-            }
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r + Math.min(spd * 0.15, 2), 0, Math.PI * 2);
-            ctx.fillStyle = PALETTE[p.c];
-            ctx.shadowColor = PALETTE[p.c];
-            ctx.shadowBlur = 8 + Math.min(spd, 12);
-            ctx.fill();
-        }
-        ctx.shadowBlur = 0;
-        ctx.globalCompositeOperation = 'source-over';
-
-        // framing pose detection — both hands "L" forming a rectangle of decent size.
-        // No diagonal requirement → easy to hold the two hands however feels natural.
-        const framers = handData.filter(h => h.lShape);
-        let framing = false;
-        if (handData.length >= 2 && framers.length >= 2) {
-            const pts = [framers[0].thumb, framers[0].index, framers[1].thumb, framers[1].index];
-            const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
-            const boxW = Math.max(...xs) - Math.min(...xs);
-            const boxH = Math.max(...ys) - Math.min(...ys);
-            framing = boxW > W * 0.16 && boxH > H * 0.12;
-        }
-
-        // neoglass colored pane between two hands (when not framing)
-        if (handData.length >= 2 && !framing) {
-            drawGlassPortal(handData[0], handData[1], frame);
-        }
-
-        // hand indicators + full skeleton
-        for (const h of handData) {
-            if (h.pinching) {
-                const g = ctx.createRadialGradient(h.px, h.py, 0, h.px, h.py, 60);
-                g.addColorStop(0, 'rgba(255,90,60,0.6)');
-                g.addColorStop(1, 'rgba(255,90,60,0)');
-                ctx.fillStyle = g;
-                ctx.beginPath(); ctx.arc(h.px, h.py, 60, 0, Math.PI * 2); ctx.fill();
-            } else if (!framing) {
-                ctx.strokeStyle = 'rgba(255,210,63,0.3)';
-                ctx.lineWidth = 2;
-                ctx.setLineDash([8, 8]);
-                ctx.beginPath(); ctx.arc(h.cx, h.cy, REPEL_R, 0, Math.PI * 2); ctx.stroke();
-                ctx.setLineDash([]);
-            }
-            drawSkeleton(h);
-        }
-
-        // ---- RECTANGLE GESTURE: both hands (thumb+index) frame a box → go to Recent Work ----
-        if (frameCool > 0) frameCool--;
-        if (frameCool === 0 && framing) {
-            frameHold++;
-            // rectangle = bounding box of the 4 fingertips (thumbs + indexes)
-            const pts = [framers[0].thumb, framers[0].index, framers[1].thumb, framers[1].index];
-            const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
-            const rx = Math.min(...xs), ry = Math.min(...ys);
-            const rw = Math.max(...xs) - rx, rh = Math.max(...ys) - ry;
-            const prog = Math.min(frameHold / FRAME_TARGET, 1);
-
-            // bold frame rectangle (neobrutalism)
-            ctx.save();
-            ctx.strokeStyle = '#ffd23f';
-            ctx.lineWidth = 4;
-            ctx.shadowBlur = 0;
-            ctx.strokeRect(rx, ry, rw, rh);
-            // corner ticks
-            const t = 24;
-            ctx.strokeStyle = '#ff5a3c';
-            ctx.lineWidth = 6;
-            [[rx, ry, 1, 1], [rx + rw, ry, -1, 1], [rx, ry + rh, 1, -1], [rx + rw, ry + rh, -1, -1]]
-              .forEach(([cxp, cyp, sx, sy]) => {
-                ctx.beginPath();
-                ctx.moveTo(cxp, cyp + sy * t); ctx.lineTo(cxp, cyp); ctx.lineTo(cxp + sx * t, cyp);
-                ctx.stroke();
-              });
-            // progress bar along top
-            ctx.shadowBlur = 0;
-            ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-            ctx.lineWidth = 6;
-            ctx.beginPath(); ctx.moveTo(rx, ry - 14); ctx.lineTo(rx + rw, ry - 14); ctx.stroke();
-            ctx.strokeStyle = '#15c06e';
-            ctx.beginPath(); ctx.moveTo(rx, ry - 14); ctx.lineTo(rx + rw * prog, ry - 14); ctx.stroke();
-            // label (drawn un-mirrored)
-            ctx.scale(-1, 1);
-            ctx.fillStyle = '#ffd23f';
-            ctx.font = '800 16px Inter, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(prog < 1 ? 'Giữ khung hình' : 'Đang mở dự án',
-                         -(rx + rw / 2), ry + rh + 28);
-            ctx.restore();
-
-            sdot.classList.add('on');
-            stext.textContent = 'Giữ khung hình để mở phần dự án';
-
-            if (prog >= 1) {
-                frameHold = 0; frameCool = 150;
-                document.getElementById('works').scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('works').classList.add('flash');
-                setTimeout(() => document.getElementById('works').classList.remove('flash'), 900);
-            }
-        } else if (frameHold > 0) {
-            frameHold = Math.max(0, frameHold - 3);
-        }
-
-        requestAnimationFrame(render);
-    }
-    render();
-
-    // Pause hand processing when hero is scrolled out of view (saves CPU/battery)
-    const heroEl = document.getElementById('hero-cam');
-    if ('IntersectionObserver' in window) {
-        new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; },
-            { threshold: 0.05 }).observe(heroEl);
-    }
-
-    function startFallback(msg) {
-        stext.textContent = msg;
-        sdot.style.display = 'none';
-    }
-
-    // Heavy MediaPipe (≈10MB WASM + model) is initialised AFTER first paint,
-    // so the page loads & becomes interactive without competing for the main thread.
-    function initHands() {
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            startFallback('Camera không khả dụng, hãy mở bằng https');
-            return;
-        }
-        stext.textContent = 'Đang tải camera';
-        const hands = new Hands({ locateFile: f => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}` });
-        hands.setOptions({ maxNumHands: 2, modelComplexity: 1, minDetectionConfidence: 0.7, minTrackingConfidence: 0.6 });
-        hands.onResults(res => {
-            const ml = res.multiHandLandmarks || [];
-            const prev = handData;
-            handData = ml.map(handFromLandmarks);
-            // burst on pinch-release
-            handData.forEach((h, i) => {
-                const was = prev[i];
-                if (was && was.pinching && !h.pinching) {
-                    for (const p of particles) {
-                        const dx = p.x - was.px, dy = p.y - was.py, d = Math.hypot(dx, dy) || 0.001;
-                        if (d < ATTRACT_R) {
-                            const f = (1 - d / ATTRACT_R) * 26;
-                            p.vx += (dx / d) * f; p.vy += (dy / d) * f;
-                        }
-                    }
-                }
-            });
-            if (handData.length === 0) { sdot.classList.remove('on'); stext.textContent = 'Đưa tay vào để khuấy dải sao'; }
-            else if (handData.some(h => h.pinching)) { sdot.classList.add('on'); stext.textContent = 'Đang gom hạt, mở tay để bung ra'; }
-            else { sdot.classList.add('on'); stext.textContent = 'Di chuyển tay để đẩy, chụm ngón để gom'; }
-        });
-
-        const cam = new Camera(video, {
-            onFrame: async () => { if (heroVisible) await hands.send({ image: video }); },
-            width: 960, height: 540
-        });
-        cam.start()
-           .then(() => { video.classList.add('ready'); stext.textContent = 'Đưa tay vào khung hình'; })
-           .catch(() => { startFallback('Camera bị từ chối, tạm dừng tương tác'); });
-    }
-
-    function scheduleInit() {
-        if ('requestIdleCallback' in window) requestIdleCallback(initHands, { timeout: 2000 });
-        else setTimeout(initHands, 800);
-    }
-    if (document.readyState === 'complete') scheduleInit();
-    else window.addEventListener('load', scheduleInit);
-})();
-
 // ===== WORKS FILTER =====
 document.querySelectorAll('.wf-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
@@ -1192,10 +983,14 @@ document.querySelectorAll('.wf-btn').forEach(btn=>{
 // ===== LIGHTBOX =====
 let curItem=null,curImgs=[],curIdx=0;
 document.querySelectorAll('.work-card').forEach(card=>{
+    // If card leads to Github direct, do not open lightbox
+    if(card.classList.contains('feature') && card.dataset.cat === 'ai-code') return;
+    
     card.addEventListener('click',()=>{
         curItem=card; curImgs=JSON.parse(card.dataset.images||'[]'); curIdx=0; openLB();
     });
 });
+
 function openLB(){
     document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow='hidden';
@@ -1235,28 +1030,28 @@ document.addEventListener('keydown',e=>{
     if(e.key==='ArrowRight'&&curImgs.length){curIdx=(curIdx+1)%curImgs.length;showImg(curIdx);}
 });
 
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM (FORMSPREE) =====
 document.getElementById('contactForm').addEventListener('submit', async e=>{
     e.preventDefault();
     const form=e.target, name=document.getElementById('cfName').value;
     const fb=document.getElementById('cfFeedback'), btn=form.querySelector('.cf-submit');
-    btn.textContent='Sending...'; btn.disabled=true;
+    btn.textContent='Đang gửi...'; btn.disabled=true;
     try {
         const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         if(res.ok){
             fb.className='cf-msg ok';
-            fb.textContent=`Thanks ${name}! Message sent — I'll get back to you soon.`;
+            fb.textContent=`Cảm ơn ${name}! Tin nhắn của bạn đã được gửi thành công. Tôi sẽ sớm liên hệ lại.`;
             form.reset();
         } else {
-            fb.className='cf-msg ok'; fb.style.background='rgba(248,113,113,0.1)'; fb.style.borderColor='rgba(248,113,113,0.3)'; fb.style.color='#f87171';
-            fb.textContent='Something went wrong. Please email me directly.';
+            fb.className='cf-msg err';
+            fb.textContent='Đã xảy ra lỗi khi gửi. Vui lòng gửi email trực tiếp qua quanggooner1996@gmail.com.';
         }
-    } catch { fb.className='cf-msg ok'; fb.textContent='Network error. Please try again.'; }
-    btn.textContent='Send message'; btn.disabled=false;
-    setTimeout(()=>{ fb.className='cf-msg'; fb.style=''; },6000);
+    } catch { fb.className='cf-msg err'; fb.textContent='Lỗi kết nối mạng. Vui lòng thử lại.'; }
+    btn.textContent='Gửi thông điệp'; btn.disabled=false;
+    setTimeout(()=>{ fb.className='cf-msg'; fb.style.display='none'; },6000);
 });
 
-// ===== CUSTOM CURSOR =====
+// ===== CUSTOM CURSOR TRACKER =====
 (function(){
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
@@ -1265,22 +1060,19 @@ document.getElementById('contactForm').addEventListener('submit', async e=>{
         mx=e.clientX; my=e.clientY;
         dot.style.left=mx+'px'; dot.style.top=my+'px';
     });
-    // ring follows with lag
     function animRing(){
-        rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+        rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
         ring.style.left=rx+'px'; ring.style.top=ry+'px';
         requestAnimationFrame(animRing);
     }
     animRing();
-    // hover state
-    const hoverEls = 'a,button,.work-card,.service-card,.exp-item,.wf-btn,.hero-cta,.nav-logo';
+    const hoverEls = 'a,button,.work-card,.service-card,.exp-item,.wf-btn,.btn-neo,.nav-logo';
     document.querySelectorAll(hoverEls).forEach(el=>{
         el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
         el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
     });
     document.addEventListener('mousedown',()=>ring.classList.add('clicking'));
     document.addEventListener('mouseup',()=>ring.classList.remove('clicking'));
-    // hide on leave
     document.addEventListener('mouseleave',()=>{ dot.style.opacity=0; ring.style.opacity=0; });
     document.addEventListener('mouseenter',()=>{ dot.style.opacity=1; ring.style.opacity=1; });
 })();
@@ -1294,81 +1086,41 @@ document.getElementById('contactForm').addEventListener('submit', async e=>{
     }, {passive:true});
 })();
 
-// ===== NAV HIDE ON SCROLL DOWN =====
+// ===== NAV VISIBILITY & ACTIVE LINK TRACKING =====
 (function(){
     const nav = document.querySelector('nav');
     let lastY = 0;
     window.addEventListener('scroll',()=>{
         const y = window.scrollY;
-        if(y > 80 && y > lastY) nav.classList.add('hidden');
+        if(y > 100 && y > lastY) nav.classList.add('hidden');
         else nav.classList.remove('hidden');
         lastY = y;
     }, {passive:true});
-})();
 
-// ===== SCROLL REVEAL (Intersection Observer) =====
-(function(){
-    // Tag elements
-    document.querySelectorAll('.service-card').forEach((el,i)=>{
-        el.classList.add('stagger-child');
-        el.style.transitionDelay = (i*0.1)+'s';
-    });
-    document.querySelectorAll('.work-card').forEach((el,i)=>{
-        el.classList.add('stagger-child');
-        el.style.transitionDelay = (i*0.07)+'s';
-    });
-    document.querySelectorAll('.exp-item').forEach((el,i)=>{
-        el.classList.add('reveal-left');
-        el.style.transitionDelay = (i*0.1)+'s';
-    });
-    document.querySelectorAll('.meta-card').forEach((el,i)=>{
-        el.classList.add('stagger-child');
-        el.style.transitionDelay = (i*0.08)+'s';
-    });
-    document.querySelectorAll('.about-heading, .contact-big, .about-bio').forEach(el=>{
-        el.classList.add('reveal');
-    });
-    document.querySelectorAll('.ci-card').forEach((el,i)=>{
-        el.classList.add('stagger-child');
-        el.style.transitionDelay = (i*0.1)+'s';
-    });
-    document.querySelectorAll('.contact-form').forEach(el=>el.classList.add('reveal'));
-    document.querySelectorAll('.sec-label').forEach(el=>{ /* already has class */ });
-
-    const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-            if(e.isIntersecting){
-                e.target.classList.add('visible');
-                // stagger children
-                e.target.querySelectorAll('.stagger-child, .reveal, .reveal-left').forEach(c=>c.classList.add('visible'));
+    // Active Section Tracking
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll',()=>{
+        let current = '';
+        sections.forEach(s => {
+            const top = s.offsetTop - 120;
+            if(window.scrollY >= top) {
+                current = s.getAttribute('id');
             }
         });
-    }, { threshold:0.1, rootMargin:'0px 0px -60px 0px' });
-
-    document.querySelectorAll('section, .stagger-child, .reveal, .reveal-left, .sec-label').forEach(el=>io.observe(el));
-})();
-
-// ===== BLOB PARALLAX ON MOUSE =====
-(function(){
-    const blobs = document.querySelectorAll('.blob');
-    document.addEventListener('mousemove', e=>{
-        const cx = (e.clientX/window.innerWidth - 0.5)*2;
-        const cy = (e.clientY/window.innerHeight - 0.5)*2;
-        blobs.forEach((b,i)=>{
-            const factor = (i+1)*12;
-            b.style.transform = `translate(${cx*factor}px, ${cy*factor}px)`;
+        links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
         });
-    });
+    }, {passive:true});
 })();
 
-// ===== MAGNETIC BUTTONS =====
+// ===== MAGNETIC HOVER FOR BUTTONS =====
 (function(){
-    document.querySelectorAll('.hero-cta, .cf-submit, .wf-btn').forEach(btn=>{
-        btn.classList.add('magnetic');
+    document.querySelectorAll('.btn-neo, .cf-submit, .wf-btn, .nav-logo').forEach(btn=>{
         btn.addEventListener('mousemove', e=>{
             const r = btn.getBoundingClientRect();
-            const x = (e.clientX - r.left - r.width/2) * 0.3;
-            const y = (e.clientY - r.top - r.height/2) * 0.3;
+            const x = (e.clientX - r.left - r.width/2) * 0.25;
+            const y = (e.clientY - r.top - r.height/2) * 0.25;
             btn.style.transform = `translate(${x}px,${y}px)`;
         });
         btn.addEventListener('mouseleave',()=>{
@@ -1376,56 +1128,6 @@ document.getElementById('contactForm').addEventListener('submit', async e=>{
         });
     });
 })();
-
-// ===== CARD 3D TILT (disabled for neobrutalism — CSS handles hard-shadow hover) =====
-
-// ===== RIPPLE EFFECT on buttons =====
-(function(){
-    document.querySelectorAll('.cf-submit, .wf-btn, .hero-cta').forEach(btn=>{
-        btn.classList.add('ripple-wrap');
-        btn.addEventListener('click', e=>{
-            const r = btn.getBoundingClientRect();
-            const size = Math.max(r.width, r.height)*2;
-            const x = e.clientX - r.left - size/2;
-            const y = e.clientY - r.top - size/2;
-            const circle = document.createElement('span');
-            circle.className = 'ripple-circle';
-            circle.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`;
-            btn.appendChild(circle);
-            setTimeout(()=>circle.remove(), 650);
-        });
-    });
-})();
-
-// ===== GLITCH TITLE on hover =====
-(function(){
-    const port = document.querySelector('.hero-name .port');
-    const folio = document.querySelector('.hero-name .folio');
-    if(!port||!folio) return;
-    [port,folio].forEach(el=>{
-        el.addEventListener('mouseenter',()=>{
-            el.style.animation='none';
-            let i=0;
-            const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const orig=el.textContent;
-            const iv=setInterval(()=>{
-                el.textContent=orig.split('').map((c,j)=>
-                    j<i ? orig[j] : chars[Math.floor(Math.random()*chars.length)]
-                ).join('');
-                i++;
-                if(i>orig.length){ clearInterval(iv); el.textContent=orig; }
-            }, 40);
-        });
-    });
-})();
-
-// ===== SMOOTH NAV =====
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-        const t=document.querySelector(a.getAttribute('href'));
-        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-    });
-});
 </script>
 </body>
 </html>
