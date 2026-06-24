@@ -1,0 +1,18 @@
+{
+    "menu": {
+        "about": "Về tôi",
+        "skills": "Kỹ năng",
+        "experience": "Kinh nghiệm",
+        "gallery": "Gallery",
+        "contact": "Liên hệ"
+    },
+    "header": {
+        "title": "Quang Nguyen",
+        "subtitle": "Nhà thiết kế đồ họa & Nhiếp ảnh gia"
+    },
+    "contactInfo": "Thông tin liên hệ",
+    "galleryTitle": "Portfolio Gallery",
+    "skillsTitle": "Kỹ năng",
+    "experienceTitle": "Kinh nghiệm",
+    "contactTitle": "Liên hệ"
+}

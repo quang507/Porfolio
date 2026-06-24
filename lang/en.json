@@ -1,0 +1,18 @@
+{
+    "menu": {
+        "about": "About",
+        "skills": "Skills",
+        "experience": "Experience",
+        "gallery": "Gallery",
+        "contact": "Contact"
+    },
+    "header": {
+        "title": "Quang Nguyen",
+        "subtitle": "Graphic Designer & Photographer"
+    },
+    "contactInfo": "Contact Information",
+    "galleryTitle": "Portfolio Gallery",
+    "skillsTitle": "Skills",
+    "experienceTitle": "Experience",
+    "contactTitle": "Get in Touch"
+}

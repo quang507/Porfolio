@@ -1,0 +1,83 @@
+{
+    "en": {
+        "name": "Quang",
+        "age": 30,
+        "contact": {
+            "phone": "0346689460",
+            "email": "quanggooner1996@gmail.com",
+            "address": "C11,11C Ấp 41, Xã Tân Nhựt, TP Hồ Chí Minh",
+            "linkedin": "www.linkedin.com/quang"
+        },
+        "description": "Tôi là Quang sinh ngày sinh 30/05/1996, một nhà thiết kế đồ họa và nhiếp ảnh gia với hơn 5 năm kinh nghiệm trong lĩnh vực sáng tạo. Tôi chuyên về thiết kế đồ họa, in ấn, chụp ảnh studio và sản phẩm. Với sự thành thạo các công cụ chuyên nghiệp như Adobe Photoshop, Illustrator, video editing, các công cụ AI hiện đại, và một phần kiến thức coding giúp tôi tối ưu hóa quy trình làm việc, luôn sẵn sàng mang đến những giải pháp sáng tạo và hiệu quả cho mọi dự án.",
+        "skills": [
+            "Adobe Photoshop (Advanced)",
+            "Adobe Illustrator (Advanced)",
+            "Stable Diffusion",
+            "Video Editing",
+            "Figma (Basic)",
+            "HTML/CSS (Basic)",
+            "JavaScript (Basic)",
+            "Quản lý màu sắc in ấn",
+            "Quản lý dữ liệu",
+            "Tư duy sáng tạo",
+            "Tiếng Anh (Basic)",
+            "Tiếng Trung (Basic)",
+            "Làm việc độc lập & teamwork",
+            "Học hỏi nhanh công nghệ mới"
+        ]
+    },
+    "vi": {
+        "name": "Quang",
+        "age": 30,
+        "contact": {
+            "phone": "0346689460",
+            "email": "quanggooner1996@gmail.com",
+            "address": "C11,11C Ấp 41, Xã Tân Nhựt, TP Hồ Chí Minh",
+            "linkedin": "www.linkedin.com/quang"
+        },
+        "description": "Tôi là Quang sinh ngày sinh 30/05/1996, một nhà thiết kế đồ họa và nhiếp ảnh gia với hơn 5 năm kinh nghiệm trong lĩnh vực sáng tạo. Tôi chuyên về thiết kế đồ họa, in ấn, chụp ảnh studio và sản phẩm. Với sự thành thạo các công cụ chuyên nghiệp như Adobe Photoshop, Illustrator, video editing, các công cụ AI hiện đại, và một phần kiến thức coding giúp tôi tối ưu hóa quy trình làm việc, luôn sẵn sàng mang đến những giải pháp sáng tạo và hiệu quả cho mọi dự án.",
+        "skills": [
+            "Adobe Photoshop (Advanced)",
+            "Adobe Illustrator (Advanced)",
+            "Stable Diffusion",
+            "Video Editing",
+            "Figma (Basic)",
+            "HTML/CSS (Basic)",
+            "JavaScript (Basic)",
+            "Quản lý màu sắc in ấn",
+            "Quản lý dữ liệu",
+            "Tư duy sáng tạo",
+            "Tiếng Anh (Basic)",
+            "Tiếng Trung (Basic)",
+            "Làm việc độc lập & teamwork",
+            "Học hỏi nhanh công nghệ mới"
+        ]
+    },
+    "zh": {
+        "name": "Quang",
+        "age": 30,
+        "contact": {
+            "phone": "0346689460",
+            "email": "quanggooner1996@gmail.com",
+            "address": "C11,11C Ấp 41, Xã Tân Nhựt, TP Hồ Chí Minh",
+            "linkedin": "www.linkedin.com/quang"
+        },
+        "description": "Tôi là Quang sinh ngày sinh 30/05/1996, một nhà thiết kế đồ họa và nhiếp ảnh gia với hơn 5 năm kinh nghiệm trong lĩnh vực sáng tạo. Tôi chuyên về thiết kế đồ họa, in ấn, chụp ảnh studio và sản phẩm. Với sự thành thạo các công cụ chuyên nghiệp như Adobe Photoshop, Illustrator, video editing, các công cụ AI hiện đại, và một phần kiến thức coding giúp tôi tối ưu hóa quy trình làm việc, luôn sẵn sàng mang đến những giải pháp sáng tạo và hiệu quả cho mọi dự án.",
+        "skills": [
+            "Adobe Photoshop (Advanced)",
+            "Adobe Illustrator (Advanced)",
+            "Stable Diffusion",
+            "Video Editing",
+            "Figma (Basic)",
+            "HTML/CSS (Basic)",
+            "JavaScript (Basic)",
+            "Quản lý màu sắc in ấn",
+            "Quản lý dữ liệu",
+            "Tư duy sáng tạo",
+            "Tiếng Anh (Basic)",
+            "Tiếng Trung (Basic)",
+            "Làm việc độc lập & teamwork",
+            "Học hỏi nhanh công nghệ mới"
+        ]
+    }
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects by Lê Bá Duy Quang — Creative Specialist & AI Developer</title>
+    <meta name="description" content="Portfolio of selected works in AI & Software Development, Graphic Design, Photography & 3D tiles by Lê Bá Duy Quang.">
+    <meta name="author" content="Lê Bá Duy Quang">
+    <meta name="theme-color" content="#0a0b10">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a0b10'/><text x='50' y='70' font-size='62' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%2300ff9d'>Q</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+<body>
+
+<!-- Cursor & progress -->
+<div id="progress-bar"></div>
+<div class="cursor"><div class="cursor-dot" id="cursorDot"></div></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="index.html" class="nav-logo">Quang.</a>
+    <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="section-wrap">
+
+    <!-- PROJECTS GALLERY -->
+    <section id="works">
+        <!-- Decoration Glyphs -->
+        <div class="crosshair" style="top: 70px; right: 100px;">+</div>
+        <div class="sticker" style="top: 40px; left: 100px; transform: rotate(1deg); background: var(--green); color: var(--ink);">SELECTED WORKS & REPOS</div>
+
+        <div class="works-filters" style="margin-top: 20px;">
+            <button class="wf-btn active" data-filter="all">Tất cả</button>
+            <button class="wf-btn" data-filter="ai-code">AI & Lập trình</button>
+            <button class="wf-btn" data-filter="graphic">Thiết kế đồ họa</button>
+            <button class="wf-btn" data-filter="photo">Nhiếp ảnh & Video</button>
+        </div>
+        
+        <div class="works-grid">
+            
+            <!-- FEATURED PROJECT 01: NhaDat Chatbot (Vibe Code) -->
+            <div class="work-card feature" data-cat="ai-code" data-title="NhaDat Chatbot (AI Assistant)" data-icon="🤖"
+                 data-images='["media/product-1.jpg","media/product-2.jpg"]'
+                 onclick="window.open('https://github.com/quang507/NhaDat-chatbot','_blank'); event.stopPropagation();">
+                <span class="work-index">01</span>
+                
+                <div class="chatbot-visual-bg">
+                    <div style="font-size: 2.2em; font-weight:900; color:#ffd23f; margin-bottom:10px;">🤖 NhaDat-chatbot</div>
+                    <div style="font-size:0.85em; line-height:1.5; color:#e2e8f0; margin-bottom:16px; font-family:var(--mono);">
+                        Hệ thống chatbot thông minh tư vấn pháp lý đất đai & định giá bất động sản. 
+                        Tích hợp RAG Pipeline, cào dữ liệu tự động và tìm kiếm ngữ nghĩa vector.
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">Python</span>
+                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">LangChain</span>
+                        <span style="font-size:0.65em; background:rgba(0,255,157,0.15); border:1px solid var(--green); color:var(--green); padding:3px 8px; font-family:var(--mono);">ChromaDB</span>
+                    </div>
+                </div>
+                
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">AI & Software Development</div>
+                    <div class="work-title">NhaDat AI Chatbot</div>
+                    <p class="work-desc-text">Hệ thống xử lý hỏi đáp pháp luật đất đai và định giá bằng RAG (Retrieval-Augmented Generation). Click để xem code trên Github.</p>
+                    <div class="work-cta">Xem Github <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 02: Packaging Design -->
+            <div class="work-card" data-cat="graphic" data-title="Packaging Design" data-icon="📦"
+                 data-images='["media/packaging-1.jpg","media/packaging-2.jpg","media/brand-1.jpg","media/brand-2.jpg"]'>
+                <span class="work-index">02</span>
+                <img class="work-card-img" src="media/thumb/packaging-2.jpg" alt="Packaging design work" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Graphic Design</div>
+                    <div class="work-title">Packaging Design</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 03: Brochure & Print -->
+            <div class="work-card" data-cat="graphic" data-title="Brochure & Print" data-icon="🎨"
+                 data-images='["media/print-1.jpg","media/print-2.jpg","media/print-3.jpg"]'>
+                <span class="work-index">03</span>
+                <img class="work-card-img" src="media/thumb/print-2.jpg" alt="Brochure and print design" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Graphic Design</div>
+                    <div class="work-title">Brochure & Print</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 04: Brand Identity -->
+            <div class="work-card" data-cat="graphic" data-title="Brand Identity" data-icon="🎭"
+                 data-images='["media/brand-1.jpg","media/brand-2.jpg"]'>
+                <span class="work-index">04</span>
+                <img class="work-card-img" src="media/thumb/brand-1.jpg" alt="Brand identity work" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Branding</div>
+                    <div class="work-title">Brand Identity</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 05: Product Photography -->
+            <div class="work-card wide" data-cat="photo" data-title="Product Photography" data-icon="📸"
+                 data-images='["media/product-1.jpg","media/product-2.jpg","media/product-3.jpg"]'>
+                <span class="work-index">05</span>
+                <img class="work-card-img" src="media/thumb/product-1.jpg" alt="Product photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Product Photography</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 06: Studio & Portrait -->
+            <div class="work-card tall" data-cat="photo" data-title="Studio & Portrait" data-icon="🏢"
+                 data-images='["media/studio-1.jpg","media/product-1.jpg"]'>
+                <span class="work-index">06</span>
+                <img class="work-card-img" src="media/thumb/studio-1.jpg" alt="Studio portrait photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Studio & Portrait</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 07: Social Media Content -->
+            <div class="work-card wide" data-cat="photo" data-title="Social Media Content" data-icon="📱"
+                 data-images='["media/social-1.jpg","media/social-2.jpg","media/social-3.jpg","media/social-4.jpg","media/social-5.jpg"]'>
+                <span class="work-index">07</span>
+                <img class="work-card-img" src="media/thumb/social-3.jpg" alt="Social media content" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Social Media Content</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 08: Farm & Nature -->
+            <div class="work-card tall" data-cat="photo" data-title="Farm & Nature" data-icon="🌿"
+                 data-images='["media/farm-1.jpg","media/farm-2.jpg","media/farm-3.jpg"]'>
+                <span class="work-index">08</span>
+                <img class="work-card-img" src="media/thumb/farm-2.jpg" alt="Farm and nature photography" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">Photography</div>
+                    <div class="work-title">Farm & Nature</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+
+            <!-- Project 09: 3D Tile Murals -->
+            <div class="work-card wide" data-cat="photo" data-title="3D Tile Murals" data-icon="🏺"
+                 data-images='["media/packaging-1.jpg"]'>
+                <span class="work-index">09</span>
+                <img class="work-card-img" src="media/thumb/packaging-1.jpg" alt="3D tile mural design" loading="lazy" width="700" height="525">
+                <div class="work-card-overlay"></div>
+                <div class="work-card-body">
+                    <div class="work-cat">3D Design & Video</div>
+                    <div class="work-title">3D Tile Murals</div>
+                    <div class="work-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lbClose">&times;</span>
+        <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
+        <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
+        <div class="lb-inner" id="lbInner"></div>
+        <div class="lb-info" id="lbInfo"></div>
+        <div class="lb-thumbs" id="lbThumbs"></div>
+    </div>
+
+</div><!-- end section-wrap -->
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-copy">© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+    <div class="footer-right">Designed & built in Saigon — Cyber Dark Style</div>
+</footer>
+
+<script>
+// ===== WORKS FILTER =====
+document.querySelectorAll('.wf-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.wf-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f=btn.dataset.filter;
+        document.querySelectorAll('.work-card').forEach(c=>{
+            c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
+        });
+    });
+});
+
+// ===== LIGHTBOX =====
+let curItem=null,curImgs=[],curIdx=0;
+document.querySelectorAll('.work-card').forEach(card=>{
+    // If card leads to Github direct, do not open lightbox
+    if(card.classList.contains('feature') && card.dataset.cat === 'ai-code') return;
+    
+    card.addEventListener('click',()=>{
+        curItem=card; curImgs=JSON.parse(card.dataset.images||'[]'); curIdx=0; openLB();
+    });
+});
+
+function openLB(){
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow='hidden';
+    if(curImgs.length){ showImg(0); buildThumbs(); }
+    else{
+        document.getElementById('lbInner').innerHTML=`<div class="lb-placeholder"><div class="lb-icon">${curItem.dataset.icon||'🖼️'}</div><div class="lb-ptitle">${curItem.dataset.title}</div></div>`;
+        document.getElementById('lbInfo').textContent=curItem.dataset.title;
+        document.getElementById('lbThumbs').innerHTML='';
+    }
+}
+function showImg(i){
+    document.getElementById('lbInner').innerHTML=`<img src="${curImgs[i]}" class="lb-img" alt="${curItem.dataset.title}">`;
+    document.getElementById('lbInfo').textContent=`${i+1} / ${curImgs.length}  —  ${curItem.dataset.title}`;
+    document.querySelectorAll('.lb-thumb').forEach((t,j)=>{
+        t.classList.toggle('active',j===i);
+        if(j===i)t.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+    });
+}
+function buildThumbs(){
+    const c=document.getElementById('lbThumbs'); c.innerHTML='';
+    curImgs.forEach((src,i)=>{
+        const img=document.createElement('img'); img.src=src; img.className='lb-thumb';
+        if(i===0)img.classList.add('active');
+        img.addEventListener('click',()=>{ curIdx=i; showImg(i); });
+        c.appendChild(img);
+    });
+}
+function closeLB(){ document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+document.getElementById('lbClose').addEventListener('click',closeLB);
+document.getElementById('lightbox').addEventListener('click',e=>{ if(e.target===document.getElementById('lightbox'))closeLB(); });
+document.getElementById('lbPrev').addEventListener('click',()=>{ if(!curImgs.length)return; curIdx=(curIdx-1+curImgs.length)%curImgs.length; showImg(curIdx); });
+document.getElementById('lbNext').addEventListener('click',()=>{ if(!curImgs.length)return; curIdx=(curIdx+1)%curImgs.length; showImg(curIdx); });
+document.addEventListener('keydown',e=>{
+    if(!document.getElementById('lightbox').classList.contains('active'))return;
+    if(e.key==='Escape')closeLB();
+    if(e.key==='ArrowLeft'&&curImgs.length){curIdx=(curIdx-1+curImgs.length)%curImgs.length;showImg(curIdx);}
+    if(e.key==='ArrowRight'&&curImgs.length){curIdx=(curIdx+1)%curImgs.length;showImg(curIdx);}
+});
+
+// Custom Cursor Tracker
+(function(){
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx=0, my=0, rx=0, ry=0;
+    document.addEventListener('mousemove', e=>{
+        mx=e.clientX; my=e.clientY;
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+    });
+    function animRing(){
+        rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(animRing);
+    }
+    animRing();
+    const hoverEls = 'a,button,.work-card,.service-card,.exp-item,.wf-btn,.btn-neo,.nav-logo';
+    document.querySelectorAll(hoverEls).forEach(el=>{
+        el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
+        el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
+    });
+    document.addEventListener('mousedown',()=>ring.classList.add('clicking'));
+    document.addEventListener('mouseup',()=>ring.classList.remove('clicking'));
+    document.addEventListener('mouseleave',()=>{ dot.style.opacity=0; ring.style.opacity=0; });
+    document.addEventListener('mouseenter',()=>{ dot.style.opacity=1; ring.style.opacity=1; });
+})();
+
+// Scroll Progress Bar
+(function(){
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll',()=>{
+        const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        bar.style.transform = `scaleX(${p})`;
+    }, {passive:true});
+})();
+
+// Nav Hide on Scroll
+(function(){
+    const nav = document.querySelector('nav');
+    let lastY = 0;
+    window.addEventListener('scroll',()=>{
+        const y = window.scrollY;
+        if(y > 100 && y > lastY) nav.classList.add('hidden');
+        else nav.classList.remove('hidden');
+        lastY = y;
+    }, {passive:true});
+})();
+
+// Magnetic Hover for elements
+(function(){
+    document.querySelectorAll('.btn-neo, .nav-logo, .wf-btn').forEach(btn=>{
+        btn.addEventListener('mousemove', e=>{
+            const r = btn.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width/2) * 0.25;
+            const y = (e.clientY - r.top - r.height/2) * 0.25;
+            btn.style.transform = `translate(${x}px,${y}px)`;
+        });
+        btn.addEventListener('mouseleave',()=>{
+            btn.style.transform = '';
+        });
+    });
+})();
+</script>
+</body>
+</html>
