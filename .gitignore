@@ -3,3 +3,14 @@
 *.zip
 *.docx
 FACEBOOK-2FA-RecoveryCodes.txt
+
+# giấy tờ cá nhân — không đưa lên GitHub
+Thông tin cá nhân Quang/
+ID.JPG
+IDback.JPG
+Driverlis.jpg
+Driverlisback.jpg
+selfie.jpg
+*.pdf
+!assets/docs/*.pdf
+.claude/

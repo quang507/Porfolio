@@ -1,204 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Lê Bá Duy Quang — Creative Specialist & AI Developer</title>
-    <meta name="description" content="Biography, skills and professional experience timeline of Lê Bá Duy Quang.">
+    <title>Về tôi — Lê Bá Duy Quang</title>
+    <meta name="description" content="Lê Bá Duy Quang — designer và nhiếp ảnh gia tại TP.HCM. Kinh nghiệm, kỹ năng và học vấn.">
     <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#0a0b10">
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a0b10'/><text x='50' y='70' font-size='62' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23b76eff'>Q</text></svg>">
-    
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171b18'/><text x='50' y='69' font-size='58' font-family='Georgia,serif' text-anchor='middle' fill='%23fff'>Q</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/main.css">
 </head>
 <body>
 
-<!-- Cursor & progress -->
-<div id="progress-bar"></div>
-<div class="cursor"><div class="cursor-dot" id="cursorDot"></div></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<header class="site-header">
+    <div class="wrap">
+        <a href="index.html" class="brand">Lê Bá Duy Quang <small>Designer & Photographer</small></a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+        <nav class="nav" id="nav">
+            <a href="index.html">Trang chủ</a>
+            <a href="projects.html">Dự án</a>
+            <a href="about.html" aria-current="page">Về tôi</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+    </div>
+</header>
 
-<!-- NAVIGATION -->
-<nav>
-    <a href="index.html" class="nav-logo">Quang.</a>
-    <ul class="nav-links">
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-
-<div class="section-wrap">
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <!-- Decoration Glyphs -->
-        <div class="crosshair" style="top: 70px; right: 80px;">+</div>
-        <div class="sticker" style="top: 40px; left: 100px; transform: rotate(-2deg); background: var(--purple); color: #fff;">BIOGRAPHY & BACKGROUND</div>
-
-        <div class="about-layout">
-            <!-- Left: Bio Info -->
+<main>
+    <section class="page-head">
+        <div class="wrap about-grid">
+            <figure class="portrait">
+                <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" width="900" height="1200">
+            </figure>
             <div>
-                <div class="about-heading-box tech-dots">
-                    <h2 class="about-heading">Designer<br><em>&</em><br>Developer</h2>
-                </div>
-                <p class="about-bio-text">
-                    Sinh ngày <strong>30/05/1996</strong>, tôi đã theo học năm 2 Đại học Giao thông Vận tải TP.HCM. Với sự am hiểu sâu rộng về bộ công cụ Adobe, Figma và khả năng phát triển các mô hình AI/RAG hỗ trợ vận hành, tôi mang đến giải pháp toàn diện cho mọi dự án.
-                </p>
-                <p class="about-bio-text">
-                    Bên cạnh năng lực mỹ thuật, tôi còn nghiên cứu sâu về <strong>lập trình ứng dụng AI (RAG, vector DB, LLM API)</strong> giúp tự động hóa và nâng cấp hiệu suất làm việc cho các doanh nghiệp. Tôi luôn sẵn sàng mang đến giải pháp tối ưu và thiết thực nhất.
-                </p>
-                
-                <div class="about-meta-grid" style="margin-top: 40px;">
-                    <div class="meta-card">
-                        <div class="meta-card-label">Email liên hệ</div>
-                        <div class="meta-card-value"><a href="mailto:quanggooner1996@gmail.com" style="color:inherit; text-decoration:none;">quanggooner1996@gmail.com</a></div>
-                    </div>
-                    <div class="meta-card">
-                        <div class="meta-card-label">Điện thoại</div>
-                        <div class="meta-card-value"><a href="tel:0346689460" style="color:inherit; text-decoration:none;">0346 689 460</a></div>
-                    </div>
-                    <div class="meta-card">
-                        <div class="meta-card-label">Địa bàn hoạt động</div>
-                        <div class="meta-card-value">Saigon / Quảng Trị</div>
-                    </div>
-                    <div class="meta-card">
-                        <div class="meta-card-label">Ngoại ngữ</div>
-                        <div class="meta-card-value">English, Chinese (Basic)</div>
-                    </div>
-                </div>
-                
-                <!-- CV Download Flow Optimization -->
-                <div class="about-cv-box" style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
-                    <a href="assets/docs/Quang's CV.pdf" target="_blank" class="btn-neo secondary" style="font-size: 0.8em; padding: 10px 20px; text-decoration: none;">Xem CV Tiếng Việt</a>
-                    <a href="assets/docs/Quang's CV English.pdf" target="_blank" class="btn-neo secondary" style="font-size: 0.8em; padding: 10px 20px; text-decoration: none;">Xem CV English</a>
-                </div>
-            </div>
-            
-            <!-- Right: Experience Timeline -->
-            <div>
-                <h3 class="exp-heading-box"><span class="star-icon"></span> Kinh nghiệm làm việc</h3>
-                
-                <div class="exp-list">
-                    <!-- Exp Item 1 -->
-                    <div class="exp-item tech-dots">
-                        <div class="exp-header">
-                            <span class="exp-period">2024 — 2025</span>
-                            <span class="exp-company">Axel Münsson A/S (Đan Mạch)</span>
-                        </div>
-                        <h4 class="exp-role">Freelance Designer</h4>
-                        <p class="exp-desc">Đảm nhận thiết kế các sản phẩm in ấn POD (t-shirts, posters), chụp ảnh sản phẩm nông nghiệp và quản lý hình ảnh truyền thông.</p>
-                    </div>
-                    
-                    <!-- Exp Item 2 -->
-                    <div class="exp-item tech-dots">
-                        <div class="exp-header">
-                            <span class="exp-period">2022 — 2024</span>
-                            <span class="exp-company">Piramic Saigon Company</span>
-                        </div>
-                        <h4 class="exp-role">Graphic & Industrial Art Designer</h4>
-                        <p class="exp-desc">Thiết kế tranh gạch nghệ thuật 3D và các bức vẽ trang trí cao cấp cho các dự án nội thất. Xây dựng và quản lý hơn 200+ khuôn mẫu sản phẩm.</p>
-                    </div>
-                    
-                    <!-- Exp Item 3 -->
-                    <div class="exp-item tech-dots">
-                        <div class="exp-header">
-                            <span class="exp-period">2017 — 2022</span>
-                            <span class="exp-company">Duc Phat Company</span>
-                        </div>
-                        <h4 class="exp-role">Graphic & Industrial Art Designer</h4>
-                        <p class="exp-desc">Thiết kế gạch 3D nghệ thuật và tranh tường trang trí cho các biệt thự, căn hộ cao cấp. Phối màu chuẩn xác giữa thiết kế và sản xuất.</p>
-                    </div>
-                    
-                    <!-- Exp Item 4 -->
-                    <div class="exp-item tech-dots">
-                        <div class="exp-header">
-                            <span class="exp-period">2017 — 2018</span>
-                            <span class="exp-company">Viễn Đông Wedding Studio</span>
-                        </div>
-                        <h4 class="exp-role">Wedding Photographer</h4>
-                        <p class="exp-desc">Chụp ảnh cưới studio và ngoại cảnh. Xử lý hậu kỳ hình ảnh, retouching, quản lý kỹ thuật in ấn album chất lượng cao.</p>
-                    </div>
+                <h1>Tôi là Quang, làm thiết kế và chụp ảnh ở Sài Gòn.</h1>
+                <p class="lead" style="margin-top:24px;">Sinh năm 1996 ở Quảng Trị. Tôi bắt đầu bằng nghề chụp ảnh cưới, rồi làm 7 năm thiết kế tranh gạch 3D và mỹ thuật công nghiệp cho biệt thự, căn hộ — công việc buộc phải hiểu màu sắc từ màn hình đến bản in, và làm quen với việc sản xuất số lượng lớn.</p>
+                <p style="margin-top:16px; max-width:38em;">Từ 2024 tôi làm thêm cho một công ty ở Đan Mạch (thiết kế in, chụp sản phẩm nông nghiệp), và từ 2025 phụ trách hình ảnh truyền thông tại <a class="link" href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> — công ty phát triển nhà ở với hơn 20 năm kinh nghiệm — cho hai dự án Ny'ah Phú Định và Villa Ny'ah: quay chụp, social post, sự kiện, quản lý kho tư liệu, và phối hợp với marketing trong từng chiến dịch.</p>
+                <p style="margin-top:16px; max-width:38em;">Tôi cũng "vibe code" cùng AI để tự dựng những thứ công việc cần mà không chờ ai: chatbot bán hàng kèm live slide cho sales gallery, sàn tin bất động sản gom từ 5 nguồn (NhaDat Radar), landing page cho dự án, và các script nhỏ như lọc ảnh trùng, lên lịch đăng bài, dựng video ngắn hàng loạt. Không phải lập trình viên chuyên nghiệp — nhưng sản phẩm đang chạy thật.</p>
+
+                <ul class="facts">
+                    <li><span class="k">Ở</span><span class="v">TP.HCM · quê Quảng Trị</span></li>
+                    <li><span class="k">Học vấn</span><span class="v">ĐH Giao thông Vận tải TP.HCM (2 năm)</span></li>
+                    <li><span class="k">Ngoại ngữ</span><span class="v">Tiếng Anh (IELTS), tiếng Trung cơ bản</span></li>
+                    <li><span class="k">Hiện tại</span><span class="v">Nhã Đạt — dự án Ny'ah Phú Định</span></li>
+                </ul>
+
+                <div class="hero-actions" style="margin-top:32px;">
+                    <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="btn ghost">CV tiếng Việt (PDF)</a>
+                    <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener" class="link">English CV</a>
                 </div>
             </div>
         </div>
     </section>
 
-</div><!-- end section-wrap -->
+    <section id="experience">
+        <div class="wrap two-col">
+            <div><h2>Kinh nghiệm</h2></div>
+            <ul class="exp">
+                <li>
+                    <span class="when">2025 — nay</span>
+                    <div>
+                        <div class="who"><a href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> <span class="role">— Hình ảnh &amp; nội dung truyền thông</span></div>
+                        <p class="what">Phụ trách hình ảnh và nội dung cho Ny'ah Phú Định (compound &amp; shophouse 50 căn, quận 8) và Villa Ny'ah (villa nghỉ dưỡng ven sông Cầu Tràm). Việc hằng ngày: chụp kiến trúc, nội thất nhà mẫu và quay dựng video; thiết kế social post theo lịch chiến dịch; triển khai sự kiện mở bán, tham quan nhà mẫu (backdrop, ấn phẩm, ghi hình); quản lý và đặt tên kho ảnh — video cho cả đội dùng chung; tự dựng chatbot AI trả lời khách và hệ thống live slide cho sales gallery, landing page Villa Ny'ah, cùng công cụ lên lịch đăng bài và dựng video ngắn hàng loạt; phối hợp với marketing và sales để ra nội dung đúng tiến độ bán hàng.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="when">2024 — 2025</span>
+                    <div>
+                        <div class="who">Axel Münsson A/S, Đan Mạch <span class="role">— Freelance designer</span></div>
+                        <p class="what">Thiết kế sản phẩm in theo yêu cầu (áo, poster), bao bì và nhãn; chụp ảnh sản phẩm nông nghiệp và nông trại; sắp xếp kho ảnh truyền thông. Làm việc từ xa, trao đổi bằng tiếng Anh.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="when">2022 — 2024</span>
+                    <div>
+                        <div class="who">Piramic Saigon <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
+                        <p class="what">Thiết kế tranh gạch 3D và tranh trang trí cho nội thất cao cấp; xây dựng và quản lý thư viện hơn 200 mẫu; làm việc trực tiếp với xưởng để khớp màu giữa thiết kế và sản phẩm.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="when">2017 — 2022</span>
+                    <div>
+                        <div class="who">Đức Phát <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
+                        <p class="what">Thiết kế gạch 3D và tranh tường cho biệt thự, căn hộ; kiểm soát màu in; hỗ trợ khách chọn mẫu và phối cảnh.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="when">2017 — 2018</span>
+                    <div>
+                        <div class="who">Viễn Đông Wedding Studio <span class="role">— Nhiếp ảnh</span></div>
+                        <p class="what">Chụp ảnh cưới studio và ngoại cảnh, hậu kỳ, retouch và in album.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-    <div class="footer-copy">© 2026 Lê Bá Duy Quang. All rights reserved.</div>
-    <div class="footer-right">Designed & built in Saigon — Cyber Dark Style</div>
+    <section id="skills">
+        <div class="wrap two-col">
+            <div><h2>Kỹ năng &amp; công cụ</h2></div>
+            <div>
+                <p class="eyebrow" style="margin-bottom:12px;">Thiết kế &amp; hình ảnh</p>
+                <div class="skills">
+                    <span>Photoshop</span><span>Illustrator</span><span>Lightroom</span><span>Premiere</span><span>After Effects</span><span>Figma</span><span>Chụp ảnh kiến trúc &amp; sản phẩm</span><span>Quay dựng video ngắn</span><span>Quản lý màu in ấn</span><span>Tổ chức sự kiện mở bán</span><span>Quản lý kho ảnh — video</span><span>Stable Diffusion &amp; AI tạo ảnh</span>
+                </div>
+                <p class="eyebrow" style="margin:28px 0 12px;">Code &amp; tự động hóa</p>
+                <div class="skills">
+                    <span>Vibe code với Claude / Gemini / Cursor</span><span>HTML / CSS / JavaScript</span><span>Next.js · TypeScript</span><span>Supabase · PostGIS</span><span>Gemini API · RAG</span><span>Python · Playwright · Selenium</span><span>FFmpeg</span><span>Vercel · GitHub Actions</span>
+                </div>
+                <p class="eyebrow" style="margin:28px 0 12px;">Ngôn ngữ</p>
+                <div class="skills">
+                    <span>Tiếng Việt</span><span>Tiếng Anh — IELTS, làm việc từ xa được</span><span>Tiếng Trung — cơ bản</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="col"><span>Liên hệ</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a><br><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">Zalo 0346 689 460</a></div>
+        <div class="col"><span>Trang</span><a href="projects.html">Dự án</a><br><a href="about.html">Về tôi</a><br><a href="contact.html">Liên hệ</a></div>
+        <div class="col"><span>Khác</span><a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub</a><br><a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
+        <div class="copy">© 2026 Lê Bá Duy Quang · TP.HCM</div>
+    </div>
 </footer>
 
-<script>
-// Custom Cursor Tracker
-(function(){
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    let mx=0, my=0, rx=0, ry=0;
-    document.addEventListener('mousemove', e=>{
-        mx=e.clientX; my=e.clientY;
-        dot.style.left=mx+'px'; dot.style.top=my+'px';
-    });
-    function animRing(){
-        rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
-        ring.style.left=rx+'px'; ring.style.top=ry+'px';
-        requestAnimationFrame(animRing);
-    }
-    animRing();
-    const hoverEls = 'a,button,.work-card,.service-card,.exp-item,.wf-btn,.btn-neo,.nav-logo';
-    document.querySelectorAll(hoverEls).forEach(el=>{
-        el.addEventListener('mouseenter',()=>ring.classList.add('hovering'));
-        el.addEventListener('mouseleave',()=>ring.classList.remove('hovering'));
-    });
-    document.addEventListener('mousedown',()=>ring.classList.add('clicking'));
-    document.addEventListener('mouseup',()=>ring.classList.remove('clicking'));
-    document.addEventListener('mouseleave',()=>{ dot.style.opacity=0; ring.style.opacity=0; });
-    document.addEventListener('mouseenter',()=>{ dot.style.opacity=1; ring.style.opacity=1; });
-})();
-
-// Scroll Progress Bar
-(function(){
-    const bar = document.getElementById('progress-bar');
-    window.addEventListener('scroll',()=>{
-        const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        bar.style.transform = `scaleX(${p})`;
-    }, {passive:true});
-})();
-
-// Nav Hide on Scroll
-(function(){
-    const nav = document.querySelector('nav');
-    let lastY = 0;
-    window.addEventListener('scroll',()=>{
-        const y = window.scrollY;
-        if(y > 100 && y > lastY) nav.classList.add('hidden');
-        else nav.classList.remove('hidden');
-        lastY = y;
-    }, {passive:true});
-})();
-
-// Magnetic Hover for elements
-(function(){
-    document.querySelectorAll('.btn-neo, .nav-logo').forEach(btn=>{
-        btn.addEventListener('mousemove', e=>{
-            const r = btn.getBoundingClientRect();
-            const x = (e.clientX - r.left - r.width/2) * 0.25;
-            const y = (e.clientY - r.top - r.height/2) * 0.25;
-            btn.style.transform = `translate(${x}px,${y}px)`;
-        });
-        btn.addEventListener('mouseleave',()=>{
-            btn.style.transform = '';
-        });
-    });
-})();
-</script>
+<script src="assets/main.js" defer></script>
 </body>
 </html>
