@@ -1,55 +1,126 @@
 /**
- * Astra Interactive Engine — Lê Bá Duy Quang Portfolio
- * Handles: Full-screen menu overlay, Services accordion,
- * Animated stat counters, and Header scroll effects.
+ * Astra Genuine Motion & Interaction Engine (Framer 1:1)
+ * Directly extracted from https://astralab.framer.website/
+ * 
+ * 1. Framer Appear Animation System:
+ *    - Slide in from y: -41px with opacity 0.001 -> 1
+ *    - Transition: 0.8s ease-in-out with 0.2s / 0.4s / 0.6s stagger
+ * 2. Hero Big Title & Celestial Sphere Entrance & Parallax
+ * 3. Sticky Timeline Stacking Cards
+ * 4. Services Accordion Expand / Collapse & Rotation
+ * 5. Decelerated Stat Counters
+ * 6. Full-screen Menu Overlay (00_Menu_Overlay) with radial reveal & stagger
+ * 7. Cinematic Film Grain Atmosphere
+ * 8. Astra Magnetic Cursor & Interactive Follower (Desktop only)
+ * 9. Live Timezone Clock Widget (Asia/Ho_Chi_Minh • GMT+7)
  */
 
 (function () {
   'use strict';
 
-  // 1. Full-screen Menu Overlay (00_Menu_Overlay)
-  const menuTrigger = document.querySelector('.menu-trigger-btn');
-  const menuOverlay = document.querySelector('.menu-overlay');
-  const menuClose = document.querySelector('.menu-close-btn');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-  function openMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+  // =========================================================================
+  // 1. CINEMATIC FILM GRAIN ATMOSPHERE (Automatic Injection)
+  // =========================================================================
+  if (!document.querySelector('.grain-overlay')) {
+    const grain = document.createElement('div');
+    grain.className = 'grain-overlay';
+    grain.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(grain);
   }
 
-  function closeMenu() {
-    if (!menuOverlay) return;
-    menuOverlay.classList.remove('is-open');
-    document.body.style.overflow = '';
+  // =========================================================================
+  // 2. FRAMER ASTRA APPEAR ANIMATION ENGINE
+  // =========================================================================
+  const targets = document.querySelectorAll(
+    '.stat-card, .timeline-card-row, .accordion-item, .founder-editorial-row, .pricing-card, .dash-card, .stage-item, .project-work-card'
+  );
+
+  targets.forEach((el, idx) => {
+    el.classList.add('framer-appear');
+    const delay = (idx % 3) + 1;
+    el.classList.add(`framer-delay-${delay}`);
+  });
+
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const appearObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            appearObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    document.querySelectorAll('.framer-appear').forEach((el) => {
+      appearObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.framer-appear').forEach((el) => {
+      el.classList.add('in-view');
+    });
   }
 
-  if (menuTrigger) {
-    menuTrigger.addEventListener('click', openMenu);
-  }
+  // Hero entrance trigger on DOM load
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelector('.hero-planet')?.classList.add('in-view');
+      document.querySelector('.hero-title-wrap')?.classList.add('in-view');
+    }, 60);
+  });
 
-  if (menuClose) {
-    menuClose.addEventListener('click', closeMenu);
-  }
+  // =========================================================================
+  // 3. HERO PARALLAX ON SCROLL
+  // =========================================================================
+  const hero = document.querySelector('.hero-section');
+  const heroPlanet = document.querySelector('.hero-planet');
+  const heroTitle = document.querySelector('.hero-title-wrap');
 
-  if (menuOverlay) {
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuOverlay.classList.contains('is-open')) {
-        closeMenu();
+  if (hero && heroPlanet && !prefersReduced) {
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          const heroHeight = rect.height || 1;
+          const progress = Math.min(Math.max(-rect.top / heroHeight, 0), 1);
+
+          const scale = 1 - 0.12 * progress;
+          const translateY = progress * 90;
+          heroPlanet.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+
+          if (heroTitle) {
+            const titleY = progress * 40;
+            heroTitle.style.transform = `translate3d(0, ${titleY.toFixed(1)}px, 0)`;
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
-
-    // Close when clicking nav links
-    const navLinks = menuOverlay.querySelectorAll('.menu-overlay-nav a');
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
-    });
+    }, { passive: true });
   }
 
-  // 2. Services Accordion (03_Services_Accordion)
+  // =========================================================================
+  // 4. HERO SERVICE STEP SELECTION
+  // =========================================================================
+  const heroServiceItems = document.querySelectorAll('.hero-service-item');
+  heroServiceItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      heroServiceItems.forEach((x) => x.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  // =========================================================================
+  // 5. SERVICES ACCORDION (Astra 1:1 Expand & Rotate)
+  // =========================================================================
   const accordionItems = document.querySelectorAll('.accordion-item');
   if (accordionItems.length > 0) {
     accordionItems.forEach((item) => {
@@ -59,12 +130,12 @@
       header.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
 
-        // Close siblings
+        // Close other items
         accordionItems.forEach((other) => {
           if (other !== item) other.classList.remove('open');
         });
 
-        // Toggle current
+        // Toggle current item
         if (isOpen) {
           item.classList.remove('open');
         } else {
@@ -74,9 +145,10 @@
     });
   }
 
-  // 3. Stat Counter Animation
+  // =========================================================================
+  // 6. STAT COUNTER ANIMATION
+  // =========================================================================
   const counters = document.querySelectorAll('[data-count]');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function runCounter(el) {
     const target = parseFloat(el.dataset.count);
@@ -92,7 +164,6 @@
     const start = performance.now();
     function tick(now) {
       const progress = Math.min((now - start) / duration, 1);
-      // easeOutCubic
       const ease = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(target * ease);
       el.textContent = prefix + current.toLocaleString('vi-VN') + suffix;
@@ -107,36 +178,164 @@
   }
 
   if ('IntersectionObserver' in window && counters.length > 0) {
-    const observer = new IntersectionObserver(
+    const counterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             runCounter(entry.target);
-            observer.unobserve(entry.target);
+            counterObserver.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.25 }
     );
 
-    counters.forEach((c) => observer.observe(c));
+    counters.forEach((c) => counterObserver.observe(c));
   } else {
     counters.forEach(runCounter);
   }
 
-  // 4. Header Scroll State
-  const header = document.querySelector('.site-header');
-  if (header) {
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (window.scrollY > 40) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      },
-      { passive: true }
-    );
+  // =========================================================================
+  // 7. FULL-SCREEN MENU OVERLAY (00_Menu_Overlay - Astra Genuine Fluid Reveal)
+  // =========================================================================
+  const menuTrigger = document.querySelector('.menu-trigger-btn');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  const menuClose = document.querySelector('.menu-close-btn');
+
+  function openMenu() {
+    if (!menuOverlay) return;
+    menuOverlay.classList.add('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
+
+  function closeMenu() {
+    if (!menuOverlay) return;
+    menuOverlay.classList.remove('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (menuTrigger) menuTrigger.addEventListener('click', openMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMenu);
+
+  if (menuOverlay) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOverlay.classList.contains('is-open')) closeMenu();
+    });
+
+    const navLinks = menuOverlay.querySelectorAll('.menu-overlay-nav a');
+    navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+  }
+
+  // Header scroll state
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // =========================================================================
+  // 8. ASTRA MAGNETIC CURSOR & INTERACTIVE FOLLOWER (Desktop fine pointer)
+  // =========================================================================
+  if (isFinePointer && !prefersReduced) {
+    document.body.classList.add('has-custom-cursor');
+
+    const cursorDot = document.createElement('div');
+    cursorDot.className = 'astra-cursor-dot';
+    cursorDot.setAttribute('aria-hidden', 'true');
+
+    const cursorFollower = document.createElement('div');
+    cursorFollower.className = 'astra-cursor-follower';
+    cursorFollower.setAttribute('aria-hidden', 'true');
+
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorFollower);
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let followerX = -100;
+    let followerY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    }, { passive: true });
+
+    function animateCursor() {
+      // Smooth lerp trailing physics
+      followerX += (mouseX - followerX) * 0.18;
+      followerY += (mouseY - followerY) * 0.18;
+
+      cursorFollower.style.left = `${followerX.toFixed(2)}px`;
+      cursorFollower.style.top = `${followerY.toFixed(2)}px`;
+
+      requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+
+    // Interactive Hover States
+    const interactiveSelectors = 'a, button, .contact-pill, .menu-trigger-btn, .menu-close-btn, .accordion-header, [data-cursor], .pricing-card-btn';
+    document.querySelectorAll(interactiveSelectors).forEach((el) => {
+      el.addEventListener('mouseenter', () => cursorFollower.classList.add('is-hovered'));
+      el.addEventListener('mouseleave', () => cursorFollower.classList.remove('is-hovered'));
+    });
+
+    const viewSelectors = '.timeline-card-row, .hero-planet, .dash-card';
+    document.querySelectorAll(viewSelectors).forEach((el) => {
+      el.addEventListener('mouseenter', () => cursorFollower.classList.add('is-view'));
+      el.addEventListener('mouseleave', () => cursorFollower.classList.remove('is-view'));
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorDot.style.opacity = '0';
+      cursorFollower.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      cursorDot.style.opacity = '1';
+      cursorFollower.style.opacity = '1';
+    });
+  }
+
+  // =========================================================================
+  // 9. LIVE TIMEZONE CLOCK (Asia/Ho_Chi_Minh • GMT+7)
+  // =========================================================================
+  function updateLiveClock() {
+    const bottomBar = document.querySelector('.footer-bottom-bar');
+    if (!bottomBar) return;
+
+    let clockEl = bottomBar.querySelector('.live-clock');
+    if (!clockEl) {
+      // Find the second child of footer-bottom-bar (the location text)
+      const children = bottomBar.children;
+      if (children.length >= 2) {
+        children[1].innerHTML = `<div class="live-clock"><span class="clock-dot"></span> TP. Hồ Chí Minh, VN · <span id="clockTime">--:--:--</span> GMT+7</div>`;
+      }
+    }
+
+    const timeSpan = document.getElementById('clockTime');
+    if (!timeSpan) return;
+
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('vi-VN', {
+      timeZone: 'Asia/Ho_Chi_Minh',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+    timeSpan.textContent = formatter.format(now);
+  }
+
+  setInterval(updateLiveClock, 1000);
+  updateLiveClock();
+
 })();
