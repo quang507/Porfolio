@@ -1,0 +1,197 @@
+/* ============================================================
+   HERO — "Majd" style layer for Lê Bá Duy Quang
+   Big bold grotesque + WebGL star + scroll reveal.
+   Loaded ONLY on index.html, after main.css (overrides home hero).
+   ============================================================ */
+
+:root {
+    --mj-bg:      #edeae4;
+    --mj-bg-2:    #e4e0d8;
+    --mj-fg:      #0c0c0c;
+    --mj-muted:   #6f6d67;
+    --mj-line:    #d3cfc6;
+    --mj-accent:  #6b53ff;
+    --mj-mega: 'Archivo Black', 'Bricolage Grotesque', Impact, sans-serif;
+}
+
+/* ---- page-wide skin for the home page ---- */
+body.mj {
+    background: var(--mj-bg);
+    color: var(--mj-fg);
+}
+body.mj ::selection { background: var(--mj-fg); color: var(--mj-bg); }
+
+/* film grain over everything (cheap, GPU-free) */
+body.mj::after {
+    content: "";
+    position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+    opacity: .05; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- top pill nav (replaces sticky bar look) ---- */
+body.mj .site-header {
+    position: fixed; top: 18px; left: 0; right: 0;
+    background: none; border: 0; backdrop-filter: none;
+    z-index: 9999;
+}
+body.mj .site-header .wrap {
+    height: auto; justify-content: center;
+}
+.mj-pill {
+    display: flex; align-items: center; gap: 18px;
+    background: var(--mj-fg); color: var(--mj-bg);
+    border-radius: 999px;
+    padding: 11px 12px 11px 22px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0);
+    transition: box-shadow .4s ease, transform .4s ease;
+    will-change: transform;
+}
+.mj-pill .mj-brand {
+    font-family: var(--mj-mega); font-size: 1rem; letter-spacing: -0.01em;
+    line-height: 1;
+}
+.mj-pill nav { display: flex; gap: 20px; }
+.mj-pill nav a {
+    color: rgba(255,255,255,.62); font-size: .82rem; letter-spacing: .02em;
+    transition: color .2s;
+}
+.mj-pill nav a:hover, .mj-pill nav a[aria-current="page"] { color: #fff; }
+.mj-pill .mj-dot {
+    width: 34px; height: 34px; border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    display: grid; place-items: center; cursor: pointer; flex: none;
+}
+.mj-pill .mj-dot span { width: 4px; height: 4px; border-radius: 999px; background: #fff;
+    box-shadow: -6px 0 #fff, 6px 0 #fff; }
+@media (max-width: 640px) {
+    .mj-pill nav { display: none; }
+}
+/* old inline nav: hidden on desktop (pill handles it), dropdown on mobile */
+body.mj .site-header .wrap > nav#nav { display: none; }
+@media (max-width: 640px) {
+    body.mj .site-header .wrap > nav#nav.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; left: var(--gutter); right: var(--gutter); top: 62px;
+        background: var(--mj-fg); color: var(--mj-bg); border-radius: 14px;
+        padding: 6px 18px 12px;
+    }
+    body.mj .site-header .wrap > nav#nav.open a { color: rgba(255,255,255,.8); padding: 12px 0; border: 0; }
+}
+
+/* ---- WebGL canvas (above the headline so the stars read as accents) ---- */
+#mj-webgl {
+    position: fixed; inset: 0; z-index: 4; pointer-events: none;
+    width: 100%; height: 100%;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.mj-hero {
+    position: relative; z-index: 2;
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 96px var(--gutter) 40px;
+    overflow: hidden;
+}
+.mj-hero .mj-inner { width: 100%; max-width: 1500px; margin: 0 auto; }
+
+/* mega headline */
+.mj-title { text-align: center; }
+.mj-line { overflow: hidden; display: block; }
+.mj-line span {
+    display: block;
+    font-family: var(--mj-mega);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: .84;
+    letter-spacing: -0.04em;
+    font-size: clamp(2rem, 9.7vw, 10.5rem);
+    color: var(--mj-fg);
+    will-change: transform;
+}
+
+/* portrait card floating over the headline */
+.mj-portrait {
+    position: absolute; left: 50%; top: 56%;
+    transform: translate(-50%, -50%);
+    width: clamp(120px, 15vw, 190px);
+    aspect-ratio: 3 / 4;
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,.28);
+    z-index: 8; will-change: transform;
+    background: var(--mj-bg-2);
+}
+.mj-portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.15) contrast(1.02); }
+
+/* corner meta */
+.mj-meta {
+    position: absolute; left: var(--gutter); bottom: 34px;
+    z-index: 8;
+    font-family: var(--mj-mega); font-size: clamp(1.4rem, 3vw, 2.4rem);
+    letter-spacing: -0.02em;
+}
+.mj-side {
+    position: absolute; right: 26px; top: 50%;
+    transform: translateY(-50%) rotate(90deg); transform-origin: right center;
+    z-index: 8;
+    font-size: .72rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--mj-muted); white-space: nowrap;
+}
+.mj-scroll {
+    position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+    z-index: 8; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--mj-muted); display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.mj-scroll::after { content: ""; width: 1px; height: 28px; background: var(--mj-muted); animation: mj-drop 1.8s infinite; }
+@keyframes mj-drop { 0%{transform: scaleY(0); transform-origin: top;} 45%{transform: scaleY(1); transform-origin: top;} 55%{transform: scaleY(1); transform-origin: bottom;} 100%{transform: scaleY(0); transform-origin: bottom;} }
+
+@media (max-width: 640px) {
+    .mj-side { display: none; }
+    .mj-portrait { top: 60%; width: 34vw; }
+    .mj-meta { font-size: 1.6rem; bottom: 70px; }
+}
+
+/* ---- loader ---- */
+#mj-loader {
+    position: fixed; inset: 0; z-index: 10000; background: var(--mj-bg);
+    display: grid; place-items: center;
+}
+#mj-loader .mj-load-word {
+    font-family: var(--mj-mega); text-transform: uppercase;
+    font-size: clamp(2rem, 8vw, 6rem); letter-spacing: -0.03em; color: var(--mj-fg);
+    overflow: hidden;
+}
+#mj-loader .mj-count { position: absolute; right: var(--gutter); bottom: 30px;
+    font-family: var(--mj-mega); font-size: 2rem; }
+
+/* ============================================================
+   restyle the sections below to harmonize with the hero
+   ============================================================ */
+body.mj main > section { position: relative; z-index: 2; background: var(--mj-bg); }
+body.mj section + section { border-top: 1px solid var(--mj-line); }
+body.mj .sec-head h2,
+body.mj #experience h2 {
+    font-family: var(--mj-mega); font-weight: 400; text-transform: uppercase;
+    letter-spacing: -0.02em; line-height: .95;
+}
+body.mj .eyebrow, body.mj .facts .k, body.mj .site-footer .col span {
+    font-family: var(--sans); letter-spacing: .16em;
+}
+body.mj .work-index .ttl { font-family: var(--mj-mega); font-weight: 400; text-transform: uppercase; }
+body.mj .work-index a:hover .ttl, body.mj .work-index a.is-active .ttl { color: var(--mj-accent); }
+body.mj .btn { border-radius: 999px; background: var(--mj-fg); border-color: var(--mj-fg); }
+body.mj .btn:hover { background: var(--mj-accent); border-color: var(--mj-accent); }
+body.mj .flow .step { font-family: var(--mj-mega); font-weight: 400; }
+body.mj .site-footer { border-top: 1px solid var(--mj-line); }
+
+/* reveal-on-scroll helper — only hidden when JS is confirmed alive (html.mj-js).
+   If the CDN/JS fails, the guard class is removed and content shows normally. */
+html.mj-js body.mj [data-reveal] { opacity: 0; transform: translateY(28px); }
+
+@media (prefers-reduced-motion: reduce) {
+    #mj-loader { display: none; }
+    body.mj [data-reveal] { opacity: 1; transform: none; }
+    .mj-line span { transform: none !important; }
+}

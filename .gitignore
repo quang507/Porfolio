@@ -1,16 +1,25 @@
-Ảnh Portfolio/
-*.rar
-*.zip
-*.docx
-FACEBOOK-2FA-RecoveryCodes.txt
+# ===== hồ sơ cá nhân — tuyệt đối không đưa lên GitHub =====
+_Hồ sơ/
 
-# giấy tờ cá nhân — không đưa lên GitHub
+# thư mục cũ (giữ lại phòng khi có bản sao sót lại)
+Ảnh Portfolio/
 Thông tin cá nhân Quang/
+
+# giấy tờ tuỳ thân
 ID.JPG
 IDback.JPG
 Driverlis.jpg
 Driverlisback.jpg
 selfie.jpg
+FACEBOOK-2FA-RecoveryCodes.txt
+
+# ===== file nén & tài liệu =====
+*.rar
+*.zip
+*.docx
 *.pdf
 !assets/docs/*.pdf
+
+# ===== công cụ =====
 .claude/
+tools/

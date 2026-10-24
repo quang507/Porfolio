@@ -1,218 +1,400 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án — Lê Bá Duy Quang</title>
-    <meta name="description" content="Dự án chụp ảnh, video, thiết kế và web của Lê Bá Duy Quang: Ny'ah Phú Định (Nhã Đạt), bao bì và ấn phẩm in, ảnh sản phẩm, tranh gạch 3D.">
-    <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171b18'/><text x='50' y='69' font-size='58' font-family='Georgia,serif' text-anchor='middle' fill='%23fff'>Q</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dự án chọn lọc — Lê Bá Duy Quang® | Designer, Photographer &amp; AI Builder</title>
+  <meta name="description" content="Tuyển tập dự án thiết kế nhận diện, ấn phẩm in ấn, chụp kiến trúc nội thất và ứng dụng AI của Lê Bá Duy Quang.">
+  <meta name="author" content="Lê Bá Duy Quang">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dự án chọn lọc — Lê Bá Duy Quang®">
+  <meta property="og:description" content="Hình ảnh, video, sản phẩm web và AI thực tế của Lê Bá Duy Quang.">
+  <meta property="og:image" content="media/nyah-photo-1.jpg">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='73' font-size='68' font-family='Inter,Helvetica,Arial' font-weight='600' text-anchor='middle' fill='%23fafafa'>Q</text></svg>">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Astra CSS -->
+  <link rel="stylesheet" href="assets/styles/astra.css">
 </head>
 <body>
 
-<header class="site-header">
-    <div class="wrap">
-        <a href="index.html" class="brand">Lê Bá Duy Quang <small>Designer & Photographer</small></a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-        <nav class="nav" id="nav">
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-overlay-header">
+      <div class="header-left">
+        <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+        </svg>
+        <span class="header-brand">Quang®</span>
+      </div>
+      <button class="menu-close-btn" aria-label="Đóng bảng điều hướng">
+        <div class="menu-close-grid">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+
+    <nav class="menu-overlay-nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Về tôi</a>
+      <a href="projects.html" class="active">Dự án chọn lọc</a>
+      <a href="index.html#services">Dịch vụ &amp; Quy trình</a>
+      <a href="contact.html">Liên hệ hợp tác</a>
+    </nav>
+
+    <div class="menu-overlay-footer">
+      <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      <div><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div>
+      <div>Hotline: <a href="tel:+84346689460">0346 689 460</a></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+      </svg>
+      <a href="index.html" class="header-brand">Quang®</a>
+    </div>
+
+    <div class="header-center">
+      <span>Tuyển tập dự án &amp; Kho lưu trữ giải pháp</span>
+    </div>
+
+    <div class="header-right">
+      <a href="contact.html" class="contact-pill">
+        <div class="contact-pill-avatar-wrap">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="contact-pill-avatar">
+          <span class="contact-pill-status"></span>
+        </div>
+        <div class="contact-pill-text">
+          <div class="contact-pill-title">Liên hệ</div>
+          <div class="contact-pill-sub">Nhận việc từ 10/2026</div>
+        </div>
+        <div class="contact-pill-dots">
+          <span></span><span></span>
+        </div>
+      </a>
+
+      <button class="menu-trigger-btn" aria-label="Mở menu" id="menuTriggerBtn">
+        <div class="menu-trigger-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <!-- Head & Filters -->
+    <section class="section-paper">
+      <div class="paper-grid">
+        <div class="services-head" style="margin-bottom: 20px;">
+          <h1 class="section-big-title">Dự án</h1>
+          <div class="section-count-tag">/ TOÀN BỘ DANH MỤC THỰC HIỆN</div>
+        </div>
+        <p style="font-size: 16px; color: var(--text-dark-muted); max-width: 640px; line-height: 1.6;">
+          Hình ảnh thực tế, ấn phẩm thiết kế, website thương mại và sản phẩm AI đang vận hành. Bấm vào thẻ để xem bộ ảnh hoặc truy cập đường dẫn trực tiếp.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="project-filters">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">Tất cả (All)</button>
+          <button class="filter-btn" data-filter="photo" aria-pressed="false">Nhiếp ảnh kiến trúc</button>
+          <button class="filter-btn" data-filter="design" aria-pressed="false">Thương hiệu &amp; Bao bì</button>
+          <button class="filter-btn" data-filter="web" aria-pressed="false">Sản phẩm Web &amp; AI</button>
+        </div>
+
+        <!-- Projects Cards Grid -->
+        <div class="projects-gallery-grid">
+          <!-- Item 1: Ny'ah Phú Định -->
+          <div class="project-work-card" data-cat="photo">
+            <img src="media/nyah-photo-1.jpg" alt="Ny'ah Phú Định" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Nhiếp ảnh · Kiến trúc</span>
+              </div>
+              <h3 class="project-work-title">Compound Ny'ah Phú Định</h3>
+              <p class="project-work-desc">Compound 50 căn tại Quận 8. Chụp mặt tiền, ban công xanh, phòng khách và bếp căn mẫu Cosmo. Hậu kỳ HDR nắn phối cảnh chuẩn xác.</p>
+              <a href="#" class="project-work-link" onclick="openLightbox(['media/nyah-photo-1.jpg','media/nyah-photo-2.jpg','media/nyah-photo-3.jpg'], 'Ny\'ah Phú Định'); return false;">Xem bộ ảnh ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 2: GÓI Packaging -->
+          <div class="project-work-card" data-cat="design">
+            <img src="media/goi-1.jpg" alt="Xưởng bao bì GÓI" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Thương hiệu · In ấn</span>
+              </div>
+              <h3 class="project-work-title">GÓI — Nhận diện &amp; Web xưởng</h3>
+              <p class="project-work-desc">Bộ nhận diện hoàn chỉnh cho xưởng in bao bì giấy tại Quận 12. Kèm website thương mại 11 trang và bot tự động tính giá hộp.</p>
+              <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="project-work-link">Truy cập trang web ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 3: Landing Page Villa Ny'ah -->
+          <div class="project-work-card" data-cat="web">
+            <img src="media/shot-nyah-landing.jpg" alt="Villa Ny'ah Landing Page" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Web · Thiết kế UI</span>
+              </div>
+              <h3 class="project-work-title">Landing Page Villa Ny'ah Ven Sông</h3>
+              <p class="project-work-desc">Trang giới thiệu phân khu villa nghỉ dưỡng cao cấp ven sông Cầu Tràm: video hero, sơ đồ mặt bằng và phễu thu thập thông tin khách hàng.</p>
+              <a href="https://polite-hamster-cf3510.netlify.app/" target="_blank" rel="noopener" class="project-work-link">Xem trang demo ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 4: Nhã Đạt AI Chatbot -->
+          <div class="project-work-card" data-cat="web">
+            <img src="media/shot-nha-dat-chatbot.jpg" alt="Nhã Đạt AI Chatbot" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">AI App · Gemini API</span>
+              </div>
+              <h3 class="project-work-title">Nhã Đạt AI — Chatbot &amp; Live Slide</h3>
+              <p class="project-work-desc">Trợ lý tự động trả lời giá bán, chính sách căn hộ bằng tiếng Việt tự nhiên và tự đổi slide thuyết trình tại sales gallery theo giọng nói nhân viên.</p>
+              <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="project-work-link">Dùng thử Chatbot ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 5: NhaDat Radar -->
+          <div class="project-work-card" data-cat="web">
+            <img src="media/shot-nha-dat-chatbot.jpg" alt="NhaDat Radar" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Data Crawler · PostGIS</span>
+              </div>
+              <h3 class="project-work-title">NhaDat Radar</h3>
+              <p class="project-work-desc">Sàn tin gom từ 5 nguồn lớn với crawler tự động, Gemini chuẩn hóa dữ liệu, loại bỏ tin ảo và định vị bất động sản trên bản đồ số.</p>
+              <a href="https://github.com/quang507/NhaDat-Radar" target="_blank" rel="noopener" class="project-work-link">Xem mã nguồn GitHub ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 6: Corio Coffee -->
+          <div class="project-work-card" data-cat="web">
+            <img src="media/shot-corio-coffee.jpg" alt="Corio Coffee" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Landing Page · Bán hàng</span>
+              </div>
+              <h3 class="project-work-title">Corio Coffee</h3>
+              <p class="project-work-desc">Trang bán cà phê sấy lạnh với phong cách tối giản, chuyển động cuộn mượt mà và nút đặt hàng tiện lợi.</p>
+              <a href="https://corio-coffee.vercel.app" target="_blank" rel="noopener" class="project-work-link">Ghé thăm trang web ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 7: Axel Münsson Nông Trại Đan Mạch -->
+          <div class="project-work-card" data-cat="photo">
+            <img src="media/farm-2.jpg" alt="Nông trại Đan Mạch" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Nhiếp ảnh · Quốc tế</span>
+              </div>
+              <h3 class="project-work-title">Nông trại &amp; Vùng quê Đan Mạch</h3>
+              <p class="project-work-desc">Bộ ảnh ghi lại bốn mùa nông trại Axel Münsson A/S, phục vụ cho tài liệu truyền thông và xuất khẩu nông sản châu Âu.</p>
+              <a href="#" class="project-work-link" onclick="openLightbox(['media/farm-2.jpg','media/farm-1.jpg','media/farm-3.jpg'], 'Nông trại Đan Mạch'); return false;">Xem bộ ảnh ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 8: Thành phố châu Âu -->
+          <div class="project-work-card" data-cat="photo">
+            <img src="media/social-5.jpg" alt="Nyhavn Copenhagen" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Nhiếp ảnh · Đô thị</span>
+              </div>
+              <h3 class="project-work-title">Kiến trúc Đô thị Châu Âu</h3>
+              <p class="project-work-desc">Các góc máy ghi lại những ngôi nhà cổ kính tại Copenhagen và Rome, nghiên cứu sự hài hòa về tỉ lệ không gian và ánh sáng.</p>
+              <a href="#" class="project-work-link" onclick="openLightbox(['media/social-5.jpg','media/studio-1.jpg'], 'Kiến trúc Châu Âu'); return false;">Xem ảnh ↗</a>
+            </div>
+          </div>
+
+          <!-- Item 9: Tranh gạch nghệ thuật 3D -->
+          <div class="project-work-card" data-cat="design">
+            <img src="media/social-2.jpg" alt="Tranh gạch 3D" class="project-work-thumb" loading="lazy">
+            <div class="project-work-body">
+              <div class="project-work-tags">
+                <span class="project-work-tag">Mỹ thuật công nghiệp</span>
+              </div>
+              <h3 class="project-work-title">Tranh gạch mỹ thuật 3D</h3>
+              <p class="project-work-desc">Thiết kế tranh gạch nghệ thuật khổ lớn cho phòng khách biệt thự cao cấp tại Piramic Saigon và Đức Phát. Thư viện hơn 200 mẫu.</p>
+              <a href="#" class="project-work-link" onclick="openLightbox(['media/social-2.jpg'], 'Tranh gạch 3D'); return false;">Chi tiết mẫu ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-divider" style="margin: 80px 0 40px;"></div>
+
+        <!-- Self-written tools section -->
+        <div class="services-head" style="margin-bottom: 24px;">
+          <h2 class="section-big-title" style="font-size: clamp(48px, 6vw, 80px);">Công cụ tự viết</h2>
+          <div class="section-count-tag">/ CÔNG CỤ TỰ ĐỘNG HÓA HẰNG NGÀY</div>
+        </div>
+
+        <div class="tools-items-list">
+          <div class="tool-box-card">
+            <div>
+              <h4 class="tool-box-title">Finding-picture</h4>
+              <div class="tool-box-tech">Python · Image Hashing</div>
+              <p class="tool-box-desc">Tìm và lọc ảnh trùng lặp trong kho lưu trữ vài chục nghìn file hình raw, tiết kiệm hàng chục GB dung lượng lưu trữ.</p>
+            </div>
+            <a href="https://github.com/quang507/Finding-picture" target="_blank" rel="noopener" class="project-work-link">Kho lưu trữ GitHub ↗</a>
+          </div>
+
+          <div class="tool-box-card">
+            <div>
+              <h4 class="tool-box-title">Lên lịch đăng bài mạng xã hội</h4>
+              <div class="tool-box-tech">Python · Selenium · Graph API</div>
+              <p class="tool-box-desc">Tự động đặt lịch và đăng bài viết đồng loạt lên nhiều fanpage, hội nhóm phục vụ chiến dịch mở bán dự án.</p>
+            </div>
+            <span style="font-size: 12px; color: var(--text-dark-subtle);">Sử dụng nội bộ</span>
+          </div>
+
+          <div class="tool-box-card">
+            <div>
+              <h4 class="tool-box-title">Tạo video ngắn hàng loạt</h4>
+              <div class="tool-box-tech">Node.js · FFmpeg</div>
+              <p class="tool-box-desc">Ghép ảnh chụp thực tế công trình, lồng tiếng và phụ đề tự động thành các video Reels và TikTok theo kịch bản có sẵn.</p>
+            </div>
+            <span style="font-size: 12px; color: var(--text-dark-subtle);">Sử dụng nội bộ</span>
+          </div>
+
+          <div class="tool-box-card">
+            <div>
+              <h4 class="tool-box-title">Ứng dụng học ngôn ngữ ký hiệu</h4>
+              <div class="tool-box-tech">Flutter · MediaPipe</div>
+              <p class="tool-box-desc">Nhận diện cử chỉ chuyển động của bàn tay qua camera và chuyển đổi thành văn bản hiển thị theo thời gian thực.</p>
+            </div>
+            <span style="font-size: 12px; color: var(--text-dark-subtle);">Bản thử nghiệm</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh chi tiết">
+    <div class="lb-bar">
+      <span id="lbTitle">Chi tiết ảnh</span>
+      <button class="lb-close" onclick="closeLightbox()">Đóng ✕</button>
+    </div>
+    <div class="lb-stage">
+      <div class="lb-stage-media" id="lbStageMedia"></div>
+    </div>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-sky-bg"></div>
+    <div class="footer-content">
+      <div class="footer-top-grid">
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">KẾT NỐI TRỰC TIẾP</div>
+          <div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+            <a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a>
+          </div>
+          <div style="font-size: 18px; color: var(--text-light-muted);">
+            <a href="tel:+84346689460">0346 689 460</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">ĐIỀU HƯỚNG NHANH</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
             <a href="index.html">Trang chủ</a>
-            <a href="projects.html" aria-current="page">Dự án</a>
             <a href="about.html">Về tôi</a>
-            <a href="contact.html">Liên hệ</a>
-        </nav>
+            <a href="contact.html">Liên hệ &amp; Báo giá</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">HỒ SƠ NĂNG LỰC</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance Portfolio ↗</a>
+            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub (14 Repositories) ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-giant-brand">Quang®</div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+        <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      </div>
     </div>
-</header>
+  </footer>
 
-<main>
-    <div class="wrap page-head">
-        <h1>Dự án</h1>
-        <p class="lead muted">Ảnh, video, thiết kế, và vài sản phẩm web &amp; AI tự dựng — phần lớn cho bất động sản. Bấm vào ảnh để xem đủ bộ; thẻ có mũi tên ↗ mở trang thật.</p>
-        <div class="filters" role="group" aria-label="Lọc dự án">
-            <button data-filter="all" aria-pressed="true">Tất cả</button>
-            <button data-filter="photo" aria-pressed="false">Nhiếp ảnh &amp; video</button>
-            <button data-filter="design" aria-pressed="false">Thiết kế</button>
-            <button data-filter="web" aria-pressed="false">Web &amp; AI</button>
-        </div>
-    </div>
+  <script src="assets/astra.js"></script>
+  <script>
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const workCards = document.querySelectorAll('.project-work-card');
 
-    <div class="wrap" style="padding-bottom: 32px;">
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        const filter = btn.dataset.filter;
 
-        <!-- Ny'ah — Nhã Đạt -->
-        <div data-group id="nyah">
-            <div class="group-label"><h2>Ny'ah — Nhã Đạt</h2><span>2025 — nay</span></div>
-            <p class="muted" style="max-width:52em; margin-bottom:24px;">Hai dự án của Nhã Đạt mang thương hiệu Ny'ah: <strong>Ny'ah Phú Định</strong> — compound &amp; shophouse 50 căn ở quận 8, và <strong>Villa Ny'ah</strong> — khu villa nghỉ dưỡng ven sông Cầu Tràm. Tôi phụ trách hình ảnh và nội dung cho cả hai: chụp kiến trúc, nội thất nhà mẫu; quay dựng video; thiết kế social post; triển khai sự kiện mở bán; quản lý kho ảnh — video; và tự viết công cụ để đội marketing chạy chiến dịch nhanh hơn.</p>
-            <div class="grid four">
-                <button class="card" data-cat="photo" data-title="Ảnh kiến trúc & nội thất Ny'ah Phú Định"
-                        data-images='["media/nyah-photo-1.jpg","media/nyah-photo-2.jpg","media/nyah-photo-3.jpg"]'>
-                    <div class="img"><img src="media/thumb/nyah-photo-1.jpg" alt="Mặt tiền compound Ny'ah Phú Định" loading="lazy" width="900" height="900"></div>
-                    <div class="meta"><span class="t">Ảnh Ny'ah Phú Định</span><span class="c">Nhiếp ảnh</span></div>
-                    <p class="d">Mặt tiền, ban công cây xanh, bếp và phòng khách căn mẫu Cosmo. 3 ảnh.</p>
-                </button>
-                <button class="card" data-cat="photo" data-title="Video giới thiệu Ny'ah"
-                        data-images='["media/nyah-video.mp4"]' data-poster="media/thumb/nyah-video-thumb.jpg">
-                    <div class="img"><img src="media/thumb/nyah-video-thumb.jpg" alt="Khung hình video Ny'ah" loading="lazy" width="900" height="502"></div>
-                    <div class="meta"><span class="t">Video giới thiệu</span><span class="c">Video</span></div>
-                    <p class="d">Quay và dựng video ngắn cho fanpage và landing page.</p>
-                </button>
-                <button class="card" data-cat="design" data-title="Social post Ny'ah"
-                        data-images='["media/nyah-social-1.jpg","media/nyah-social-2.jpg","media/nyah-landing-1.jpg"]'>
-                    <div class="img"><img src="media/thumb/nyah-social-1.jpg" alt="Bài đăng mạng xã hội Ny'ah" loading="lazy" width="900" height="900"></div>
-                    <div class="meta"><span class="t">Social post</span><span class="c">Thiết kế</span></div>
-                    <p class="d">Bài đăng Facebook theo từng tiện ích: sân thượng, ban công, mặt tiền. 3 mẫu.</p>
-                </button>
-                <a class="card" data-cat="web" href="https://polite-hamster-cf3510.netlify.app/" target="_blank" rel="noopener">
-                    <div class="img"><img src="media/thumb/shot-nyah-landing.jpg" alt="Landing page Villa Ny'ah" loading="lazy" width="900" height="563"></div>
-                    <div class="meta"><span class="t">Landing page Villa Ny'ah ↗</span><span class="c">Web</span></div>
-                    <p class="d">Trang giới thiệu khu villa: hero video, mặt bằng, tiện ích, form đăng ký. Tự thiết kế và code.</p>
-                </a>
-            </div>
-        </div>
+        workCards.forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
 
-        <!-- Sản phẩm web & AI -->
-        <div data-group id="web">
-            <div class="group-label"><h2>Sản phẩm web &amp; AI</h2><span>Vibe code · 2025 — nay</span></div>
-            <p class="muted" style="max-width:52em; margin-bottom:24px;">Những thứ tôi tự dựng bằng cách "vibe code" cùng AI — xuất phát từ nhu cầu của người làm marketing bất động sản, không phải lập trình viên. Đều đang chạy thật cho công việc ở Nhã Đạt hoặc cho khách.</p>
-            <div class="grid">
-                <a class="card" data-cat="web" href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener">
-                    <div class="img"><img src="media/thumb/shot-nha-dat-chatbot.jpg" alt="Giao diện Nhã Đạt AI chatbot" loading="lazy" width="900" height="563"></div>
-                    <div class="meta"><span class="t">Nhã Đạt AI — chatbot &amp; live slide ↗</span><span class="c">Web · AI</span></div>
-                    <p class="d">Trợ lý trả lời khách về Ny'ah Phú Định và Villa Ny'ah (giá, căn còn trống, pháp lý, đường đi thật qua Google Maps), tự bắt số điện thoại để lấy lead. Trong sales gallery, hệ thống nghe cuộc trò chuyện của sales và tự đổi slide trên màn hình theo nội dung đang nói; có giọng nói tiếng Việt và app điều khiển cho sales. Nhúng vào WordPress qua iframe.</p>
-                    <p class="d stack">Next.js · Gemini · RAG · Deepgram / Edge TTS · Bun + Elysia · WebSocket · GitHub: NhaDat-chatbot</p>
-                </a>
-                <a class="card" data-cat="web" href="https://github.com/quang507/NhaDat-Radar" target="_blank" rel="noopener">
-                    <div class="img radar" aria-hidden="true">
-                        <div class="radar-in">
-                            <span>Chợ Tốt · Batdongsan · Mogi · nhadat · Facebook</span>
-                            <span>↓ crawler chạy 2 lần/ngày (GitHub Actions)</span>
-                            <span>↓ Gemini chuẩn hóa nội dung, lọc spam, gộp tin trùng</span>
-                            <span>↓ geocoding → Supabase / PostGIS / pgvector</span>
-                            <span>↓ web: tìm kiếm, bản đồ, định giá, chatbot, báo tin qua email / Zalo</span>
-                        </div>
-                    </div>
-                    <div class="meta"><span class="t">NhaDat Radar ↗</span><span class="c">Web · Data</span></div>
-                    <p class="d">Sàn tin bất động sản gom từ 5 nguồn: crawler tự chạy hằng ngày, AI chuẩn hóa và lọc trùng, rồi lên web có tìm kiếm theo vị trí — giá — diện tích, bản đồ, công cụ định giá và tính vay, lưu tin và báo qua email/Zalo, trang đăng tin cho môi giới. Khoảng 450 tin đang hoạt động.</p>
-                    <p class="d stack">Next.js 15 · TypeScript · Supabase · Playwright · Gemini · Leaflet · Vercel · GitHub: NhaDat-Radar</p>
-                </a>
-                <a class="card" data-cat="web" href="https://corio-coffee.vercel.app" target="_blank" rel="noopener">
-                    <div class="img"><img src="media/thumb/shot-corio-coffee.jpg" alt="Trang web Corio Coffee" loading="lazy" width="900" height="563"></div>
-                    <div class="meta"><span class="t">Corio Coffee ↗</span><span class="c">Web</span></div>
-                    <p class="d">Landing page bán cà phê sấy lạnh cho một thương hiệu nhỏ: câu chuyện, sản phẩm, nút mua. HTML/CSS/JS thuần, deploy Vercel.</p>
-                    <p class="d stack">HTML · CSS · JavaScript · GitHub: Corio-coffee</p>
-                </a>
-            </div>
-        </div>
+    // Lightbox modal logic
+    const lb = document.getElementById('lightbox');
+    const lbStage = document.getElementById('lbStageMedia');
+    const lbThumbs = document.getElementById('lbThumbs');
+    const lbTitle = document.getElementById('lbTitle');
 
-        <!-- Nhiếp ảnh -->
-        <div data-group id="photo">
-            <div class="group-label"><h2>Nhiếp ảnh</h2><span>2017 — 2024</span></div>
-            <p class="muted" style="max-width:52em; margin-bottom:24px;">Ảnh chụp trong thời gian làm việc cho Axel Münsson ở Đan Mạch, đi lại ở châu Âu, và ở nhà — Sài Gòn, Quảng Trị.</p>
-            <div class="grid">
-                <button class="card" data-cat="photo" data-title="Nông trại & vùng quê Đan Mạch"
-                        data-images='["media/farm-2.jpg","media/brand-2.jpg","media/packaging-1.jpg","media/packaging-2.jpg","media/product-2.jpg","media/print-1.jpg","media/brand-1.jpg"]'>
-                    <div class="img"><img src="media/thumb/farm-2.jpg" alt="Nhà nông trại Đan Mạch mùa tuyết" loading="lazy" width="900" height="675"></div>
-                    <div class="meta"><span class="t">Nông trại &amp; vùng quê Đan Mạch</span><span class="c">2023–2024</span></div>
-                    <p class="d">Ảnh dùng cho truyền thông của Axel Münsson A/S — bốn mùa quanh nông trại. 7 ảnh.</p>
-                </button>
-                <button class="card" data-cat="photo" data-title="Thành phố châu Âu"
-                        data-images='["media/social-5.jpg","media/farm-1.jpg","media/studio-1.jpg","media/farm-3.jpg"]'>
-                    <div class="img"><img src="media/thumb/social-5.jpg" alt="Bến cảng Nyhavn, Copenhagen" loading="lazy" width="900" height="675"></div>
-                    <div class="meta"><span class="t">Thành phố châu Âu</span><span class="c">2023–2024</span></div>
-                    <p class="d">Copenhagen, Rome và những ngôi nhà cũ dọc đường. 4 ảnh.</p>
-                </button>
-                <button class="card" data-cat="photo" data-title="Việt Nam — kiến trúc & đời sống"
-                        data-images='["media/product-1.jpg","media/print-2.jpg","media/social-1.jpg","media/social-3.jpg","media/social-4.jpg"]'>
-                    <div class="img"><img src="media/thumb/product-1.jpg" alt="Công trình kiến trúc hiện đại" loading="lazy" width="900" height="565"></div>
-                    <div class="meta"><span class="t">Việt Nam — kiến trúc &amp; đời sống</span><span class="c">2022–2025</span></div>
-                    <p class="d">Kiến trúc, sân vườn và góc phố ở Sài Gòn, Quảng Trị. 5 ảnh.</p>
-                </button>
-                <button class="card" data-cat="photo" data-title="Chân dung"
-                        data-images='["media/product-3.jpg","media/print-3.jpg"]'>
-                    <div class="img"><img src="media/thumb/product-3.jpg" alt="Chân dung ngoại cảnh trong rừng thông" loading="lazy" width="900" height="1350"></div>
-                    <div class="meta"><span class="t">Chân dung</span><span class="c">2017–2024</span></div>
-                    <p class="d">Chân dung ngoại cảnh và ảnh hồ sơ doanh nhân. Bắt đầu từ ảnh cưới ở Viễn Đông Studio.</p>
-                </button>
-            </div>
-        </div>
+    function openLightbox(images, title) {
+      if (!images || !images.length) return;
+      lbTitle.textContent = title;
+      lbThumbs.innerHTML = '';
 
-        <!-- Thiết kế -->
-        <div data-group id="print">
-            <div class="group-label"><h2>Thiết kế &amp; mỹ thuật công nghiệp</h2><span>2017 — 2024</span></div>
-            <div class="grid">
-                <button class="card" data-cat="design" data-title="Tranh gạch nghệ thuật 3D"
-                        data-images='["media/social-2.jpg"]'>
-                    <div class="img"><img src="media/thumb/social-2.jpg" alt="Tranh gạch 3D hoa vàng trên tường phòng khách" loading="lazy" width="900" height="1200"></div>
-                    <div class="meta"><span class="t">Tranh gạch nghệ thuật 3D</span><span class="c">2017–2024</span></div>
-                    <p class="d">Piramic Saigon &amp; Đức Phát — thiết kế tranh gạch, tranh tường cho phòng khách biệt thự, căn hộ; hơn 200 mẫu. Ảnh: mẫu đã thi công.</p>
-                </button>
-                <div class="card" style="cursor:default;">
-                    <div class="img" style="display:flex; align-items:center; justify-content:center; padding:24px;">
-                        <p class="muted small" style="text-align:center; max-width:22em;">Bao bì, ấn phẩm in và sản phẩm POD cho Axel Münsson thuộc về khách hàng — gửi riêng khi cần xem.</p>
-                    </div>
-                    <div class="meta"><span class="t">In ấn &amp; bao bì</span><span class="c">2024–2025</span></div>
-                    <p class="d">Áo, poster in theo yêu cầu; nhãn và bao bì sản phẩm nông nghiệp.</p>
-                </div>
-            </div>
-        </div>
+      function showImage(idx) {
+        lbStage.innerHTML = `<img src="${images[idx]}" alt="${title}">`;
+        const thumbs = lbThumbs.querySelectorAll('img');
+        thumbs.forEach((t, i) => t.classList.toggle('on', i === idx));
+      }
 
-        <!-- Công cụ tự viết -->
-        <div id="tools">
-            <div class="group-label"><h2>Công cụ nhỏ tự viết</h2><span>Python · JavaScript</span></div>
-            <p class="muted" style="max-width:52em; margin-bottom:24px;">Script và tool tôi viết để bỏ bớt việc lặp lại hằng ngày. Không phải sản phẩm — chỉ là thứ tôi dùng thật.</p>
-            <ul class="tools">
-                <li>
-                    <div class="n">Finding-picture<span class="stack">Python · image hash</span></div>
-                    <div class="d">Tìm và lọc ảnh trùng trong kho vài chục nghìn tệp — dùng để dọn kho ảnh chụp.</div>
-                    <a class="l link arrow" href="https://github.com/quang507/Finding-picture" target="_blank" rel="noopener">GitHub</a>
-                </li>
-                <li>
-                    <div class="n">Lên lịch đăng bài Facebook<span class="stack">Python · Selenium · Graph API</span></div>
-                    <div class="d">Lên lịch và đăng bài hàng loạt lên nhiều fanpage/group cho việc truyền thông dự án.</div>
-                    <span class="l muted">Dùng nội bộ</span>
-                </li>
-                <li>
-                    <div class="n">Tạo video ngắn hàng loạt<span class="stack">Node.js · FFmpeg</span></div>
-                    <div class="d">Ghép ảnh, tiếng và phụ đề thành video ngắn (Reels, TikTok) từ kịch bản.</div>
-                    <span class="l muted">Dùng nội bộ</span>
-                </li>
-                <li>
-                    <div class="n">Ứng dụng học ngôn ngữ ký hiệu<span class="stack">Flutter · MediaPipe</span></div>
-                    <div class="d">Nhận dạng cử chỉ tay qua camera và chuyển thành chữ. Đang thử nghiệm.</div>
-                    <span class="l muted">Prototype</span>
-                </li>
-            </ul>
-        </div>
+      images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.addEventListener('click', () => showImage(idx));
+        lbThumbs.appendChild(thumb);
+      });
 
-    </div>
+      showImage(0);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh">
-        <div class="lb-bar">
-            <span><span class="lb-title"></span> &nbsp;·&nbsp; <span class="lb-count"></span></span>
-            <button class="lb-close" type="button">Đóng ✕</button>
-        </div>
-        <div class="lb-stage">
-            <button class="lb-nav prev" type="button" aria-label="Ảnh trước">Trước</button>
-            <div class="lb-stage-media"></div>
-            <button class="lb-nav next" type="button" aria-label="Ảnh sau">Sau</button>
-        </div>
-        <div class="lb-thumbs"></div>
-    </div>
-</main>
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-<footer class="site-footer">
-    <div class="wrap">
-        <div class="col"><span>Liên hệ</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a><br><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">Zalo 0346 689 460</a></div>
-        <div class="col"><span>Trang</span><a href="projects.html">Dự án</a><br><a href="about.html">Về tôi</a><br><a href="contact.html">Liên hệ</a></div>
-        <div class="col"><span>Khác</span><a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub</a><br><a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
-        <div class="copy">© 2026 Lê Bá Duy Quang · TP.HCM</div>
-    </div>
-</footer>
-
-<script src="assets/main.js" defer></script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>

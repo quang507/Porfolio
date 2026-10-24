@@ -1,205 +1,719 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lê Bá Duy Quang — Designer & Photographer, TP.HCM</title>
-    <meta name="description" content="Lê Bá Duy Quang — thiết kế, chụp ảnh và làm nội dung hình ảnh cho bất động sản và thương hiệu. Hiện làm tại Nhã Đạt (dự án Ny'ah Phú Định).">
-    <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#ffffff">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Lê Bá Duy Quang — Designer & Photographer">
-    <meta property="og:description" content="Thiết kế, chụp ảnh và làm nội dung hình ảnh cho bất động sản và thương hiệu tại TP.HCM.">
-    <meta property="og:image" content="media/nyah-photo-1.jpg">
-    <meta property="og:locale" content="vi_VN">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171b18'/><text x='50' y='69' font-size='58' font-family='Georgia,serif' text-anchor='middle' fill='%23fff'>Q</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lê Bá Duy Quang® — Designer &amp; Photographer, TP.HCM</title>
+  <meta name="description" content="Lê Bá Duy Quang — Thiết kế nhận diện, UX/UI, ảnh kiến trúc nội thất và giải pháp AI thực chiến tại TP.HCM.">
+  <meta name="author" content="Lê Bá Duy Quang">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lê Bá Duy Quang® — Designer &amp; Photographer">
+  <meta property="og:description" content="Thiết kế thương hiệu, UX/UI, ảnh kiến trúc và giải pháp AI thực tế tại TP.HCM.">
+  <meta property="og:image" content="media/nyah-photo-1.jpg">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='73' font-size='68' font-family='Inter,Helvetica,Arial' font-weight='600' text-anchor='middle' fill='%23fafafa'>Q</text></svg>">
+
+  <!-- Typography: Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Astra Design System CSS -->
+  <link rel="stylesheet" href="assets/styles/astra.css">
 </head>
-<body>
+<body class="hero-active">
 
-<header class="site-header">
-    <div class="wrap">
-        <a href="index.html" class="brand">Lê Bá Duy Quang <small>Designer & Photographer</small></a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-        <nav class="nav" id="nav">
-            <a href="index.html" aria-current="page">Trang chủ</a>
-            <a href="projects.html">Dự án</a>
-            <a href="about.html">Về tôi</a>
-            <a href="contact.html">Liên hệ</a>
-        </nav>
+  <!-- ========================================================================
+       00_MENU_OVERLAY (Full-screen navigation overlay)
+       ======================================================================== -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-overlay-header">
+      <div class="header-left">
+        <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+        </svg>
+        <span class="header-brand">Quang®</span>
+      </div>
+      <button class="menu-close-btn" aria-label="Đóng bảng điều hướng">
+        <div class="menu-close-grid">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </button>
     </div>
-</header>
 
-<main>
+    <nav class="menu-overlay-nav">
+      <a href="index.html" class="active">Trang chủ</a>
+      <a href="about.html">Về tôi</a>
+      <a href="projects.html">Dự án chọn lọc</a>
+      <a href="#services">Dịch vụ &amp; Quy trình</a>
+      <a href="contact.html">Liên hệ hợp tác</a>
+    </nav>
 
-    <section class="hero">
-        <div class="wrap hero-grid">
-            <div class="hero-text">
-                <p class="eyebrow">Thiết kế · Nhiếp ảnh · Nội dung hình ảnh — TP.HCM</p>
-                <h1>Chụp, thiết kế và làm nội dung cho nhà ở và thương hiệu.</h1>
-                <p class="lead">Tôi làm hình ảnh và nội dung tại <a class="link" href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> — quay chụp, social post, sự kiện, kho tư liệu cho Ny'ah Phú Định và Villa Ny'ah — và tự "vibe code" chatbot bán hàng, sàn tin bất động sản, landing page để đội marketing dùng thật. Trước đó là 7 năm thiết kế tranh gạch 3D và chụp ảnh.</p>
-                <div class="hero-actions">
-                    <a href="projects.html" class="btn">Xem dự án</a>
-                    <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="link">CV tiếng Việt (PDF)</a>
-                    <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener" class="link">English CV</a>
-                </div>
-            </div>
-            <figure class="hero-fig">
-                <img src="media/nyah-photo-1.jpg" alt="Mặt tiền nhà phố compound Ny'ah Phú Định với ban công cây xanh" width="2000" height="2000" fetchpriority="high">
-                <figcaption><span>Ny'ah Phú Định — compound &amp; shophouse, 2025</span><span>Ảnh: Quang</span></figcaption>
-            </figure>
+    <div class="menu-overlay-footer">
+      <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      <div><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div>
+      <div>Hotline: <a href="tel:+84346689460">0346 689 460</a></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       TOP HEADER NAVIGATION (Glass bar with status and menu trigger)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="header-left">
+      <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+      </svg>
+      <a href="#top" class="header-brand">Quang®</a>
+    </div>
+
+    <div class="header-center">
+      <span>Không gian sáng tạo &amp; Giải pháp AI</span>
+    </div>
+
+    <div class="header-right">
+      <a href="contact.html" class="contact-pill">
+        <div class="contact-pill-avatar-wrap">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="contact-pill-avatar">
+          <span class="contact-pill-status"></span>
         </div>
-    </section>
-
-    <section id="work">
-        <div class="wrap">
-            <div class="sec-head">
-                <h2>Dự án chọn lọc</h2>
-                <a href="projects.html" class="link arrow small">Tất cả dự án</a>
-            </div>
-            <div class="index-layout">
-                <ul class="work-index">
-                    <li><a href="projects.html#nyah" data-preview="media/thumb/nyah-photo-2.jpg" data-caption="Ny'ah Phú Định — bếp căn mẫu Cosmo">
-                        <img class="thumb" src="media/thumb/nyah-photo-2.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">Ảnh dự án Ny'ah Phú Định<span class="cli">Nhã Đạt</span></span>
-                        <span class="cat">Nhiếp ảnh</span></a></li>
-                    <li><a href="projects.html#nyah" data-preview="media/thumb/nyah-video-thumb.jpg" data-caption="Ny'ah Phú Định — khung hình từ video giới thiệu">
-                        <img class="thumb" src="media/thumb/nyah-video-thumb.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">Video giới thiệu Ny'ah<span class="cli">Nhã Đạt</span></span>
-                        <span class="cat">Video</span></a></li>
-                    <li><a href="projects.html#nyah" data-preview="media/thumb/nyah-social-1.jpg" data-caption="Ny'ah Phú Định — bài đăng mạng xã hội">
-                        <img class="thumb" src="media/thumb/nyah-social-1.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">Social post Ny'ah<span class="cli">Nhã Đạt</span></span>
-                        <span class="cat">Thiết kế</span></a></li>
-                    <li><a href="projects.html#web" data-preview="media/thumb/shot-nha-dat-chatbot.jpg" data-caption="Nhã Đạt AI — chatbot trên web và live slide trong sales gallery">
-                        <img class="thumb" src="media/thumb/shot-nha-dat-chatbot.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">Nhã Đạt AI — chatbot &amp; live slide<span class="cli">Nhã Đạt · vibe code</span></span>
-                        <span class="cat">Web · AI</span></a></li>
-                    <li><a href="projects.html#nyah" data-preview="media/thumb/shot-nyah-landing.jpg" data-caption="Landing page Villa Ny'ah — villa nghỉ dưỡng ven sông Cầu Tràm">
-                        <img class="thumb" src="media/thumb/shot-nyah-landing.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">Landing page Villa Ny'ah<span class="cli">Nhã Đạt</span></span>
-                        <span class="cat">Web</span></a></li>
-                    <li><a href="projects.html#web" data-preview="media/thumb/radar-diagram.jpg" data-caption="NhaDat Radar — gom tin BĐS từ 5 nguồn, AI lọc trùng, web tìm kiếm & định giá">
-                        <img class="thumb" src="media/thumb/radar-diagram.jpg" alt="" loading="lazy">
-                        <span class="yr">2025</span>
-                        <span class="ttl">NhaDat Radar<span class="cli">Cá nhân · vibe code</span></span>
-                        <span class="cat">Web · Data</span></a></li>
-                    <li><a href="projects.html#photo" data-preview="media/thumb/farm-2.jpg" data-caption="Nông trại Đan Mạch — ảnh cho Axel Münsson A/S">
-                        <img class="thumb" src="media/thumb/farm-2.jpg" alt="" loading="lazy">
-                        <span class="yr">2023–24</span>
-                        <span class="ttl">Nông trại &amp; vùng quê Đan Mạch<span class="cli">Axel Münsson A/S</span></span>
-                        <span class="cat">Nhiếp ảnh</span></a></li>
-                    <li><a href="projects.html#print" data-preview="media/thumb/social-2.jpg" data-caption="Tranh gạch 3D đã thi công trong phòng khách">
-                        <img class="thumb" src="media/thumb/social-2.jpg" alt="" loading="lazy">
-                        <span class="yr">2017–24</span>
-                        <span class="ttl">Tranh gạch nghệ thuật 3D<span class="cli">Piramic Saigon · Đức Phát</span></span>
-                        <span class="cat">Thiết kế</span></a></li>
-                </ul>
-                <figure class="index-preview" aria-hidden="true">
-                    <div class="frame"></div>
-                    <figcaption></figcaption>
-                </figure>
-            </div>
+        <div class="contact-pill-text">
+          <div class="contact-pill-title">Liên hệ</div>
+          <div class="contact-pill-sub">Nhận việc từ 10/2026</div>
         </div>
-    </section>
-
-    <section id="process">
-        <div class="wrap">
-            <div class="sec-head">
-                <h2>Một nội dung đi từ nhà mẫu đến fanpage</h2>
-                <p class="small muted" style="max-width:24em; text-align:right;">Cách một bài đăng của Ny'ah được làm ra — và tôi ở đâu trong từng bước.</p>
-            </div>
-            <ol class="flow">
-                <li>
-                    <img src="media/thumb/nyah-photo-2.jpg" alt="" loading="lazy">
-                    <span class="step">1 · Chụp &amp; quay</span>
-                    <p>Nhà mẫu hoàn thiện, đội sales cần ảnh trong tuần. Chụp sáng sớm khi ánh sáng đều, quay thêm vài cảnh cho video.</p>
-                </li>
-                <li>
-                    <img src="media/thumb/nyah-photo-3.jpg" alt="" loading="lazy">
-                    <span class="step">2 · Hậu kỳ &amp; lưu trữ</span>
-                    <p>Chỉnh màu thống nhất cả bộ, đặt tên theo căn — góc — ngày, đưa vào kho chung để marketing tự lấy.</p>
-                </li>
-                <li>
-                    <img src="media/thumb/nyah-social-1.jpg" alt="" loading="lazy">
-                    <span class="step">3 · Thiết kế</span>
-                    <p>Bài đăng theo từng tiện ích: sân thượng, ban công, bếp. Một khung nhận diện, đổi ảnh và câu chữ theo chiến dịch.</p>
-                </li>
-                <li>
-                    <img src="media/thumb/nyah-video-thumb.jpg" alt="" loading="lazy">
-                    <span class="step">4 · Đăng &amp; đo</span>
-                    <p>Tool tự viết lên lịch đăng nhiều page; video ngắn dựng hàng loạt từ kho ảnh; khách hỏi thì chatbot trả lời và bắt lead. Xem số liệu rồi quay lại bước 3.</p>
-                </li>
-            </ol>
+        <div class="contact-pill-dots">
+          <span></span><span></span>
         </div>
-    </section>
+      </a>
 
-    <section id="experience">
-        <div class="wrap two-col">
+      <button class="menu-trigger-btn" aria-label="Mở menu" id="menuTriggerBtn">
+        <div class="menu-trigger-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       01_HERO_CELESTIAL_CONTRAST (Eclipse Lens Layout)
+       ======================================================================== -->
+  <section class="hero-section" id="top">
+    <!-- Genuine Astra Milky Way Texture -->
+    <div class="hero-cosmos-bg"></div>
+
+    <!-- Architectural Lens Backdrop -->
+    <div class="hero-planet-backdrop" style="background-image: url('media/nyah-photo-1.jpg');"></div>
+
+    <!-- Optical Rings & Radial Flare -->
+    <div class="hero-lens-ring-outer"></div>
+    <div class="hero-lens-ring-inner"></div>
+    <div class="hero-streak"></div>
+
+    <!-- Main Celestial Sphere Image -->
+    <div class="hero-planet">
+      <img src="media/nyah-photo-1.jpg" alt="Dự án compound Ny'ah Phú Định">
+    </div>
+
+    <!-- Hero Satellite Optics Info -->
+    <div class="hero-satellite">
+      <div class="satellite-tag">OPTICS // 01</div>
+      <div class="satellite-title">TP.HCM · GMT+7</div>
+      <div class="satellite-desc">Thiết kế thương hiệu, UX/UI, ảnh kiến trúc và giải pháp AI thực tế.</div>
+    </div>
+
+    <!-- Giant Display Title -->
+    <div class="hero-title-wrap">
+      <h1 class="hero-display-title">Quang®</h1>
+    </div>
+
+    <!-- Hero Subtitle -->
+    <div class="hero-subtitle-wrap">
+      <p class="hero-tagline">Brand Identity, UX/UI, Architectural Photography &amp; AI Real Estate Solutions</p>
+    </div>
+
+    <!-- Hero Service Step Items -->
+    <div class="hero-service-stack">
+      <div class="hero-service-item active">
+        <span>01/04 Thiết kế thương hiệu &amp; Ấn phẩm in</span>
+        <span class="hero-service-step">File chuẩn nhà in</span>
+      </div>
+      <div class="hero-service-item">
+        <span>02/04 Giao diện UX/UI &amp; Prototype</span>
+        <span class="hero-service-step">Bản chạy thử</span>
+      </div>
+      <div class="hero-service-item">
+        <span>03/04 Nhiếp ảnh kiến trúc &amp; Nội thất</span>
+        <span class="hero-service-step">Chụp &amp; Hậu kỳ HDR</span>
+      </div>
+      <div class="hero-service-item">
+        <span>04/04 Giải pháp AI &amp; Sàn dữ liệu</span>
+        <span class="hero-service-step">Thực tế hoá sản phẩm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       02_HELLO_EDITORIAL_INTRO_&_STATS (Warm Paper #EEEDEC)
+       ======================================================================== -->
+  <section class="section-paper" id="about-intro">
+    <div class="paper-grid">
+      <!-- Top Stats Row -->
+      <div class="stats-row">
+        <svg class="double-sparkle-svg" viewBox="0 0 44 22" fill="#000000">
+          <path d="M11 0L12.5 8.5L21 11L12.5 13.5L11 22L9.5 13.5L1 11L9.5 8.5L11 0Z"/>
+          <path d="M33 3L34.2 9.8L41 11.5L34.2 13.2L33 20L31.8 13.2L25 11.5L31.8 9.8L33 3Z"/>
+        </svg>
+
+        <div class="stat-card">
+          <div class="stat-card-label">DỰ ÁN THƯƠNG MẠI</div>
+          <div class="stat-card-body">
+            <div class="stat-card-number" data-count="200" data-suffix="+">200+</div>
+            <div class="stat-card-desc">Sản phẩm bao bì, nhận diện và bộ ảnh kiến trúc hoàn thiện từ 2017 đến nay.</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-label">TỶ LỆ NGHIỆM THU</div>
+          <div class="stat-card-body">
+            <div class="stat-card-number" data-count="98" data-suffix="%">98%</div>
+            <div class="stat-card-desc">File xuất xưởng đúng chuẩn kỹ thuật ngay từ lần gửi đầu tiên đến nhà in và đối tác.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Offset Stat Row -->
+      <div class="stats-row-offset">
+        <div></div>
+        <div class="stat-card">
+          <div class="stat-card-label">KINH NGHIỆM THỰC CHIẾN</div>
+          <div class="stat-card-body">
+            <div class="stat-card-number" data-count="2017">2017</div>
+            <div class="stat-card-desc">Năm khởi đầu làm việc trong ngành in thương mại và thiết kế ứng dụng.</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">QUỐC TẾ</div>
+          <div class="stat-card-body">
+            <div class="stat-card-number" data-count="16" data-suffix=" Th">16 Th</div>
+            <div class="stat-card-desc">Thời gian sống và làm việc tại Đan Mạch, mở rộng góc nhìn thẩm mỹ Bắc Âu tối giản.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="paper-divider"></div>
+
+      <!-- Founder & Editorial Row -->
+      <div class="founder-editorial-row">
+        <!-- Tools Stack Badges -->
+        <div class="tools-stack-block">
+          <div class="tools-stack-title">Bộ công cụ chính</div>
+          <div class="tools-stack-sub">Làm chủ từ tiền kỳ đến hoàn thiện</div>
+          <div class="tools-badges-cluster">
+            <div class="tool-badge">Ps</div>
+            <div class="tool-badge">Ai</div>
+            <div class="tool-badge">Lr</div>
+            <div class="tool-badge">Fg</div>
+            <div class="tool-badge">Pr</div>
+            <div class="tool-badge dark">+14</div>
+          </div>
+        </div>
+
+        <!-- Founder Bio Card -->
+        <div class="founder-bio-card">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="founder-portrait-img">
+          <div class="founder-name">Lê Bá Duy Quang</div>
+          <div class="founder-role">Designer, Photographer &amp; AI Builder tại TP.HCM</div>
+        </div>
+
+        <!-- Editorial Thesis -->
+        <div class="editorial-statement-block">
+          <h2 class="statement-main">Phần lớn designer giao file rồi dừng. Tôi giao thứ chạy được.</h2>
+          <p class="statement-muted">Tám năm làm thương mại: nhận diện, ấn phẩm in, social và ảnh kiến trúc do chính tôi bấm máy. Tự chủ ảnh nguồn nên chiến dịch cần là có ngay trong ngày, không phải chờ bên thứ ba hay mua stock.</p>
+          <p class="statement-muted">Hiện tôi phụ trách toàn bộ phần nhìn cho Ny'ah Phú Định và Villa Ny'ah tại Nhã Đạt. Song song đó, tôi ứng dụng AI để xây dựng các sản phẩm thực tế: sàn tin bất động sản Nhà Đất Radar, chatbot tư vấn tự động, web xưởng in bao bì GÓI.</p>
+
+          <!-- Brand Partners Strip -->
+          <div class="brand-partners-strip">
+            <div class="brand-strip-label">ĐỐI TÁC VÀ DỰ ÁN ĐỒNG HÀNH</div>
+            <div class="brand-tags-grid">
+              <div class="brand-tag"><span>✦</span> Nhã Đạt Compound</div>
+              <div class="brand-tag"><span>✦</span> Xưởng bao bì GÓI</div>
+              <div class="brand-tag"><span>✦</span> Villa Ny'ah Ven Sông</div>
+              <div class="brand-tag"><span>✦</span> NAHT Architecture</div>
+              <div class="brand-tag"><span>✦</span> Mekong Decor</div>
+              <div class="brand-tag"><span>✦</span> AI Ơi Nhà Đất</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       03_SERVICES_ACCORDION (Staggered Layout + Layered Images)
+       ======================================================================== -->
+  <section class="section-services" id="services">
+    <div class="paper-grid">
+      <div class="services-head">
+        <h2 class="section-big-title">Dịch vụ</h2>
+        <div class="section-count-tag">/ 04 LĨNH VỰC CHUYÊN SÂU</div>
+      </div>
+
+      <!-- Accordion Items -->
+      <div class="services-accordion-list">
+        <!-- Item 001 -->
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <div class="accordion-left">
+              <span class="accordion-num">001</span>
+              <h3 class="accordion-title">Thiết kế thương hiệu &amp; Ấn phẩm in</h3>
+            </div>
+            <div class="accordion-right">
+              <span class="accordion-count">01</span>
+              <span class="accordion-plus">+</span>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content-grid">
+              <div class="accordion-images-overlap">
+                <img src="media/goi-1.jpg" alt="Bao bì GÓI" class="accordion-overlap-img">
+                <img src="media/goi-2.jpg" alt="Mẫu hộp in" class="accordion-overlap-img">
+              </div>
+              <div>
+                <strong>Bộ nhận diện hoàn chỉnh:</strong>
+                <p>Brochure, bảng giá dự án, sales gallery, standee và hộp sản phẩm. Am hiểu sâu về profile màu CMYK, khuôn bế và chất liệu giấy giúp file xuất xưởng không bao giờ bị lệch khi lên máy in.</p>
+              </div>
+              <div>
+                <strong>Khách hàng tiêu biểu:</strong>
+                <p>Nhã Đạt Compound, Xưởng in GÓI, NAHT Brand.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 002 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-left">
+              <span class="accordion-num">002</span>
+              <h3 class="accordion-title">Giao diện UX/UI &amp; Prototype chạy thật</h3>
+            </div>
+            <div class="accordion-right">
+              <span class="accordion-count">02</span>
+              <span class="accordion-plus">+</span>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content-grid">
+              <div class="accordion-images-overlap">
+                <img src="media/shot-nyah-landing.jpg" alt="Villa Ny'ah Landing Page" class="accordion-overlap-img">
+                <img src="media/shot-nha-dat-chatbot.jpg" alt="NhaDat Chatbot" class="accordion-overlap-img">
+              </div>
+              <div>
+                <strong>Quy trình số tinh gọn:</strong>
+                <p>Khởi đầu từ khung dây wireframe, xây dựng Design System đồng bộ trên Figma rồi chuyển đổi thành giao diện web chạy thực tế với tốc độ tải trang tối ưu.</p>
+              </div>
+              <div>
+                <strong>Dự án đã triển khai:</strong>
+                <p>Landing page Villa Ny'ah, Web thương mại GÓI Packaging 11 trang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 003 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-left">
+              <span class="accordion-num">003</span>
+              <h3 class="accordion-title">Nhiếp ảnh kiến trúc &amp; Nội thất</h3>
+            </div>
+            <div class="accordion-right">
+              <span class="accordion-count">03</span>
+              <span class="accordion-plus">+</span>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content-grid">
+              <div class="accordion-images-overlap">
+                <img src="media/nyah-photo-1.jpg" alt="Ngoại thất compound" class="accordion-overlap-img">
+                <img src="media/nyah-photo-2.jpg" alt="Nội thất hoàn thiện" class="accordion-overlap-img">
+              </div>
+              <div>
+                <strong>Bấm máy &amp; Hậu kỳ chuyên nghiệp:</strong>
+                <p>Cân bằng ánh sáng cửa sổ (HDR bracketing), nắn thẳng phối cảnh kiến trúc, dọn dẹp vật thể thừa và thay mây trời nghệ thuật để tôn trọn giá trị công trình.</p>
+              </div>
+              <div>
+                <strong>Ứng dụng:</strong>
+                <p>Bộ ảnh bàn giao cho sales gallery, tài liệu bán hàng và hồ sơ kiến trúc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 004 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-left">
+              <span class="accordion-num">004</span>
+              <h3 class="accordion-title">Sản phẩm AI &amp; Nền tảng dữ liệu</h3>
+            </div>
+            <div class="accordion-right">
+              <span class="accordion-count">04</span>
+              <span class="accordion-plus">+</span>
+            </div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content-grid">
+              <div class="accordion-images-overlap">
+                <img src="media/shot-nha-dat-chatbot.jpg" alt="Chatbot Bất động sản" class="accordion-overlap-img">
+                <img src="media/shot-nyah-landing.jpg" alt="NhaDat Radar" class="accordion-overlap-img">
+              </div>
+              <div>
+                <strong>Giải pháp tự động hóa:</strong>
+                <p>Kết hợp mô hình ngôn ngữ lớn để tạo chatbot tư vấn bất động sản bằng tiếng Việt tự nhiên, hệ thống bot tự động đọc thông số hộp và tính giá in ấn tức thì.</p>
+              </div>
+              <div>
+                <strong>Sản phẩm trực tiếp:</strong>
+                <p>NhaDat Radar với hơn 7.700 tin tức làm mới liên tục mỗi ngày.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       04_PROJECTS_STICKY_TIMELINE (Cosmos Dark Background)
+       ======================================================================== -->
+  <section class="section-projects" id="projects">
+    <div class="projects-sky-bg"></div>
+
+    <div class="paper-grid" style="position: relative; z-index: 2;">
+      <div class="services-head">
+        <h2 class="section-big-title">Dự án</h2>
+        <div class="section-count-tag">/ CHỌN LỌC TIÊU BIỂU (2022 — 2026)</div>
+      </div>
+
+      <div class="timeline-items-stack">
+        <!-- Project 1: Ny'ah Phú Định -->
+        <article class="timeline-card-row">
+          <div class="timeline-date-block">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-year">Đang triển khai</div>
+          </div>
+          <div class="timeline-card">
+            <img src="media/nyah-photo-2.jpg" alt="Compound Ny'ah Phú Định" class="timeline-card-media" loading="lazy">
+            <div class="timeline-card-meta">
+              <h3 class="timeline-card-title">Compound 50 căn Ny'ah Phú Định</h3>
+              <p class="timeline-card-desc">Quần thể compound tại Quận 8, TP.HCM. Chụp toàn bộ kiến trúc ngoại thất, nội thất căn mẫu, tiến độ thi công. Hậu kỳ kéo sáng cửa sổ, nắn phối cảnh chuẩn xác, dùng cho sales gallery và truyền thông bán hàng.</p>
+            </div>
+          </div>
+          <div class="timeline-roles-stack">
+            <div class="role-badge">Nhiếp ảnh</div>
+            <div class="role-badge">Hậu kỳ HDR</div>
+            <div class="role-badge">Ấn phẩm Sales</div>
+          </div>
+        </article>
+
+        <!-- Project 2: GÓI Packaging -->
+        <article class="timeline-card-row">
+          <div class="timeline-date-block">
+            <div class="timeline-date">2026</div>
+            <div class="timeline-year">Hoàn thành</div>
+          </div>
+          <div class="timeline-card">
+            <img src="media/goi-1.jpg" alt="Thương hiệu GÓI" class="timeline-card-media" loading="lazy">
+            <div class="timeline-card-meta">
+              <h3 class="timeline-card-title">GÓI — Nhận diện &amp; Web xưởng in bao bì</h3>
+              <p class="timeline-card-desc">Trọn bộ nhận diện thương hiệu, hình ảnh sản phẩm thực tế, mockup bao bì giấy và website thương mại 11 trang. Tích hợp bot tự động đọc quy cách hộp của khách hàng và tính toán báo giá chính xác.</p>
+            </div>
+          </div>
+          <div class="timeline-roles-stack">
+            <div class="role-badge">Thương hiệu</div>
+            <div class="role-badge">Web 11 trang</div>
+            <div class="role-badge">Bot báo giá</div>
+          </div>
+        </article>
+
+        <!-- Project 3: Villa Ny'ah -->
+        <article class="timeline-card-row">
+          <div class="timeline-date-block">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-year">Đã bàn giao</div>
+          </div>
+          <div class="timeline-card">
+            <img src="media/shot-nyah-landing.jpg" alt="Landing page Villa Ny'ah" class="timeline-card-media" loading="lazy">
+            <div class="timeline-card-meta">
+              <h3 class="timeline-card-title">Villa Ny'ah Ven Sông Cầu Tràm</h3>
+              <p class="timeline-card-desc">Trang đích cao cấp dành cho phân khu biệt thự ven sông. Bố cục hình ảnh khổ lớn sắc nét, thông tin quy hoạch và tiện ích được sắp xếp mạch lạc, tối ưu chuyển đổi khách hàng tiềm năng gửi yêu cầu tư vấn.</p>
+            </div>
+          </div>
+          <div class="timeline-roles-stack">
+            <div class="role-badge">Giao diện UX/UI</div>
+            <div class="role-badge">Dựng trang</div>
+            <div class="role-badge">Phễu chuyển đổi</div>
+          </div>
+        </article>
+
+        <!-- Project 4: NhaDat Radar -->
+        <article class="timeline-card-row">
+          <div class="timeline-date-block">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-year">Hoạt động thật</div>
+          </div>
+          <div class="timeline-card">
+            <img src="media/shot-nha-dat-chatbot.jpg" alt="Sàn tin NhaDat Radar" class="timeline-card-media" loading="lazy">
+            <div class="timeline-card-meta">
+              <h3 class="timeline-card-title">NhaDat Radar &amp; AI Chatbot Bất Động Sản</h3>
+              <p class="timeline-card-desc">Sàn tin bất động sản vận hành thực tế: thu thập dữ liệu tự động 2 lượt mỗi ngày, bộ lọc tìm kiếm thông minh, hiển thị bản đồ trực quan kèm chatbot trả lời ngôn ngữ tự nhiên bằng tiếng Việt.</p>
+            </div>
+          </div>
+          <div class="timeline-roles-stack">
+            <div class="role-badge">Sản phẩm AI</div>
+            <div class="role-badge">UX/UI App</div>
+            <div class="role-badge">7.700+ tin</div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 60px;">
+        <a href="projects.html" class="pricing-btn">Xem toàn bộ 14+ dự án &amp; Repositories →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       05_PRICING_ECLIPSE (Astrological Cooperation)
+       ======================================================================== -->
+  <section class="section-pricing" id="cooperation">
+    <div class="paper-grid">
+      <div class="services-head" style="margin-bottom: 20px;">
+        <h2 class="section-big-title">Hợp tác</h2>
+        <div class="section-count-tag">/ HÌNH THỨC LÀM VIỆC LINH HOẠT</div>
+      </div>
+
+      <!-- Moon / Sun Eclipse Geometry Graphic -->
+      <div class="eclipse-shape-wrap">
+        <div class="eclipse-white-sun"></div>
+        <div class="eclipse-black-moon"></div>
+      </div>
+
+      <div class="pricing-cards-grid">
+        <!-- Card 1 -->
+        <div class="pricing-card">
+          <span class="pricing-card-num">GÓI 01 // CỐ ĐỊNH THEO DỰ ÁN</span>
+          <h3 class="pricing-card-name">Theo đầu việc &amp; Dự án</h3>
+          <div class="pricing-card-price">Trao đổi theo phạm vi</div>
+          <div class="pricing-items-list">
+            <div class="pricing-item-row"><span>✦</span> Thiết kế trọn bộ nhận diện thương hiệu &amp; logo guideline</div>
+            <div class="pricing-item-row"><span>✦</span> Chụp ảnh kiến trúc, nội thất dự án hoàn thiện kèm hậu kỳ</div>
+            <div class="pricing-item-row"><span>✦</span> Dựng landing page hoặc website giới thiệu sản phẩm</div>
+            <div class="pricing-item-row"><span>✦</span> File bàn giao đúng chuẩn kỹ thuật, bảo hành chỉnh sửa</div>
+          </div>
+          <a href="contact.html" class="pricing-btn">Khởi động dự án</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pricing-card">
+          <span class="pricing-card-num">GÓI 02 // ĐỒNG HÀNH DÀI HẠN</span>
+          <h3 class="pricing-card-name">Đồng hành theo tháng (Retainer)</h3>
+          <div class="pricing-card-price">Thoả thuận linh hoạt</div>
+          <div class="pricing-items-list">
+            <div class="pricing-item-row"><span>✦</span> Phụ trách toàn bộ phần nhìn, ấn phẩm marketing &amp; social</div>
+            <div class="pricing-item-row"><span>✦</span> Định kỳ chụp ảnh thực tế tại công trình hoặc văn phòng</div>
+            <div class="pricing-item-row"><span>✦</span> Triển khai nhanh các ý tưởng landing page và tính năng mới</div>
+            <div class="pricing-item-row"><span>✦</span> Ưu tiên xử lý gấp trong vòng 24 giờ cho các chiến dịch</div>
+          </div>
+          <a href="contact.html" class="pricing-btn">Thảo luận phương án</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       06_DASHBOARD_NUMBERS (Analytical Metrics)
+       ======================================================================== -->
+  <section class="section-paper" id="metrics">
+    <div class="paper-grid">
+      <div class="services-head">
+        <h2 class="section-big-title">Dữ liệu</h2>
+        <div class="section-count-tag">/ ĐO LƯỜNG HIỆU QUẢ CÔNG VIỆC</div>
+      </div>
+
+      <div class="dashboard-cards-grid">
+        <!-- Card 1 -->
+        <div class="dash-card">
+          <div class="dash-card-title">Cơ cấu dự án đã thực hiện</div>
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span>Kiến trúc &amp; Bất động sản</span>
+              <strong>45%</strong>
+            </div>
+            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
+              <div style="background: #000; width: 45%; height: 100%;"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span>Thương hiệu, Bao bì &amp; In ấn</span>
+              <strong>35%</strong>
+            </div>
+            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
+              <div style="background: #000; width: 35%; height: 100%;"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span>Giao diện số &amp; Ứng dụng AI</span>
+              <strong>20%</strong>
+            </div>
+            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
+              <div style="background: #000; width: 20%; height: 100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dash-card">
+          <div class="dash-card-title">Tốc độ &amp; Khối lượng bàn giao</div>
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
             <div>
-                <h2>Kinh nghiệm</h2>
-                <p class="muted" style="margin-top:12px; max-width:22em;">Hơn 8 năm làm việc trong thiết kế, sản xuất và hình ảnh — từ xưởng gạch đến sàn bất động sản.</p>
-                <p style="margin-top:20px;"><a href="about.html" class="link arrow small">Đọc thêm về tôi</a></p>
+              <div style="font-size: 36px; font-weight: 600; letter-spacing: -0.04em;">24 Giờ</div>
+              <div style="font-size: 13px; color: var(--text-dark-muted);">Từ khi chụp hình thực tế đến lúc ra bộ ấn phẩm truyền thông.</div>
             </div>
-            <ul class="exp">
-                <li>
-                    <span class="when">2025 — nay</span>
-                    <div>
-                        <div class="who"><a href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> <span class="role">— Hình ảnh &amp; nội dung truyền thông</span></div>
-                        <p class="what">Hình ảnh và nội dung cho Ny'ah Phú Định và Villa Ny'ah: chụp, quay dựng, social post, sự kiện mở bán, quản lý kho ảnh — video; tự dựng chatbot bán hàng + live slide cho sales gallery, landing page và công cụ tự động hóa; phối hợp với marketing trong từng chiến dịch.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2024 — 2025</span>
-                    <div>
-                        <div class="who">Axel Münsson A/S, Đan Mạch <span class="role">— Freelance designer</span></div>
-                        <p class="what">Thiết kế sản phẩm in theo yêu cầu (áo, poster), chụp ảnh sản phẩm nông nghiệp và quản lý kho ảnh truyền thông.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2022 — 2024</span>
-                    <div>
-                        <div class="who">Piramic Saigon <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
-                        <p class="what">Thiết kế tranh gạch 3D và tranh trang trí cho nội thất; xây dựng và quản lý hơn 200 mẫu sản phẩm.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2017 — 2022</span>
-                    <div>
-                        <div class="who">Đức Phát <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
-                        <p class="what">Thiết kế gạch 3D và tranh tường cho biệt thự, căn hộ; kiểm soát màu giữa file thiết kế và bản in thực tế.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2017 — 2018</span>
-                    <div>
-                        <div class="who">Viễn Đông Wedding Studio <span class="role">— Nhiếp ảnh</span></div>
-                        <p class="what">Chụp ảnh cưới studio và ngoại cảnh, hậu kỳ và in album.</p>
-                    </div>
-                </li>
-            </ul>
+            <div>
+              <div style="font-size: 36px; font-weight: 600; letter-spacing: -0.04em;">100%</div>
+              <div style="font-size: 13px; color: var(--text-dark-muted);">File in ấn đạt chuẩn kỹ thuật nhà máy sản xuất ngay lần đầu duyệt.</div>
+            </div>
+          </div>
         </div>
-    </section>
 
-</main>
-
-<footer class="site-footer">
-    <div class="wrap">
-        <div class="col"><span>Liên hệ</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a><br><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">Zalo 0346 689 460</a></div>
-        <div class="col"><span>Trang</span><a href="projects.html">Dự án</a><br><a href="about.html">Về tôi</a><br><a href="contact.html">Liên hệ</a></div>
-        <div class="col"><span>Khác</span><a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub</a><br><a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
-        <div class="copy">© 2026 Lê Bá Duy Quang · TP.HCM</div>
+        <!-- Card 3 -->
+        <div class="dash-card">
+          <div class="dash-card-title">Sản phẩm thực tế vận hành</div>
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
+              ✦ <strong>Compound Ny'ah:</strong> Bàn giao trọn vẹn hình ảnh cho chiến dịch mở bán 50 căn nhà phố cao cấp.
+            </div>
+            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
+              ✦ <strong>Xưởng GÓI:</strong> Vận hành website 11 trang và hệ thống tính giá bao bì tự động cho hàng trăm đơn hàng.
+            </div>
+            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
+              ✦ <strong>NhaDat Radar:</strong> Phân tích và quản lý hơn 7.700 dữ liệu tin tức thị trường tự động.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</footer>
+  </section>
 
-<script src="assets/main.js" defer></script>
+  <!-- ========================================================================
+       07_EXPERIENCE_PLANET_ARC (Orbital Stages)
+       ======================================================================== -->
+  <section class="section-experience" id="experience">
+    <div class="paper-grid">
+      <div class="services-head">
+        <h2 class="section-big-title">Hành trình</h2>
+        <div class="section-count-tag">/ CÁC CỘT MỐC NGHỀ NGHIỆP</div>
+      </div>
+
+      <div class="experience-layout-grid">
+        <!-- Planets Arc Graphic -->
+        <div class="planets-arc-wrap">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="planet-item-portrait">
+          <img src="media/nyah-photo-1.jpg" alt="Kiến trúc" class="planet-item" style="width: 120px; height: 120px;">
+          <img src="media/goi-1.jpg" alt="Bao bì" class="planet-item" style="width: 80px; height: 80px;">
+          <img src="media/shot-nyah-landing.jpg" alt="Web" class="planet-item" style="width: 50px; height: 50px;">
+        </div>
+
+        <!-- Stages List -->
+        <div class="stages-list">
+          <div class="stage-item active">
+            <div>
+              <div class="stage-name">Lead Visual &amp; Nhiếp ảnh kiến trúc</div>
+              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Công ty Cổ phần Nhã Đạt</div>
+            </div>
+            <div style="font-size: 14px; font-weight: 500;">2025 — Nay</div>
+          </div>
+
+          <div class="stage-item">
+            <div>
+              <div class="stage-name">Thiết kế nhận diện, Bao bì &amp; Web</div>
+              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Xưởng in GÓI &amp; Đối tác độc lập</div>
+            </div>
+            <div style="font-size: 14px; font-weight: 500;">2022 — 2024</div>
+          </div>
+
+          <div class="stage-item">
+            <div>
+              <div class="stage-name">Chuyên viên Tiền kỳ In ấn &amp; Đồ họa</div>
+              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Doanh nghiệp in ấn bao bì TP.HCM</div>
+            </div>
+            <div style="font-size: 14px; font-weight: 500;">2017 — 2021</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       08_FOOTER_COSMOS_CTA (Giant Brand Mark)
+       ======================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-sky-bg"></div>
+
+    <div class="footer-content">
+      <div class="footer-top-grid">
+        <!-- Direct Channel -->
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">KẾT NỐI TRỰC TIẾP</div>
+          <div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+            <a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a>
+          </div>
+          <div style="font-size: 18px; color: var(--text-light-muted);">
+            <a href="tel:+84346689460">0346 689 460</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">ĐIỀU HƯỚNG NHANH</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="about.html">Về tôi (About)</a>
+            <a href="projects.html">Dự án chọn lọc</a>
+            <a href="contact.html">Liên hệ &amp; Báo giá</a>
+            <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">Tải CV tiếng Việt</a>
+            <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener">Download CV English</a>
+          </div>
+        </div>
+
+        <!-- External Profiles -->
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">HỒ SƠ NĂNG LỰC</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance Portfolio ↗</a>
+            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub (14 Repositories) ↗</a>
+            <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener">Dự án GÓI Packaging ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giant Brand Mark -->
+      <div class="footer-giant-brand">Quang®</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+        <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Astra Interactive Engine JS -->
+  <script src="assets/astra.js"></script>
 </body>
 </html>

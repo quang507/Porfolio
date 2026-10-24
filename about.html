@@ -1,133 +1,300 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Về tôi — Lê Bá Duy Quang</title>
-    <meta name="description" content="Lê Bá Duy Quang — designer và nhiếp ảnh gia tại TP.HCM. Kinh nghiệm, kỹ năng và học vấn.">
-    <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171b18'/><text x='50' y='69' font-size='58' font-family='Georgia,serif' text-anchor='middle' fill='%23fff'>Q</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Về tôi — Lê Bá Duy Quang® | Designer, Photographer &amp; AI Builder</title>
+  <meta name="description" content="Lê Bá Duy Quang — 8 năm thiết kế thương mại, am hiểu tiền kỳ in ấn, chụp kiến trúc nội thất và xây dựng sản phẩm AI thực chiến.">
+  <meta name="author" content="Lê Bá Duy Quang">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Về tôi — Lê Bá Duy Quang®">
+  <meta property="og:description" content="Hành trình nghề nghiệp, kinh nghiệm thực chiến và bộ kỹ năng của Lê Bá Duy Quang.">
+  <meta property="og:image" content="media/portrait.jpg">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='73' font-size='68' font-family='Inter,Helvetica,Arial' font-weight='600' text-anchor='middle' fill='%23fafafa'>Q</text></svg>">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Astra CSS -->
+  <link rel="stylesheet" href="assets/styles/astra.css">
 </head>
 <body>
 
-<header class="site-header">
-    <div class="wrap">
-        <a href="index.html" class="brand">Lê Bá Duy Quang <small>Designer & Photographer</small></a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-        <nav class="nav" id="nav">
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-overlay-header">
+      <div class="header-left">
+        <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+        </svg>
+        <span class="header-brand">Quang®</span>
+      </div>
+      <button class="menu-close-btn" aria-label="Đóng bảng điều hướng">
+        <div class="menu-close-grid">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+
+    <nav class="menu-overlay-nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html" class="active">Về tôi</a>
+      <a href="projects.html">Dự án chọn lọc</a>
+      <a href="index.html#services">Dịch vụ &amp; Quy trình</a>
+      <a href="contact.html">Liên hệ hợp tác</a>
+    </nav>
+
+    <div class="menu-overlay-footer">
+      <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      <div><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div>
+      <div>Hotline: <a href="tel:+84346689460">0346 689 460</a></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+      </svg>
+      <a href="index.html" class="header-brand">Quang®</a>
+    </div>
+
+    <div class="header-center">
+      <span>Hồ sơ năng lực &amp; Hành trình nghề nghiệp</span>
+    </div>
+
+    <div class="header-right">
+      <a href="contact.html" class="contact-pill">
+        <div class="contact-pill-avatar-wrap">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="contact-pill-avatar">
+          <span class="contact-pill-status"></span>
+        </div>
+        <div class="contact-pill-text">
+          <div class="contact-pill-title">Liên hệ</div>
+          <div class="contact-pill-sub">Nhận việc từ 10/2026</div>
+        </div>
+        <div class="contact-pill-dots">
+          <span></span><span></span>
+        </div>
+      </a>
+
+      <button class="menu-trigger-btn" aria-label="Mở menu" id="menuTriggerBtn">
+        <div class="menu-trigger-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <!-- Section 1: Editorial Introduction -->
+    <section class="section-paper">
+      <div class="paper-grid">
+        <div class="services-head" style="margin-bottom: 40px;">
+          <h1 class="section-big-title">Về tôi</h1>
+          <div class="section-count-tag">/ DESIGNER, PHOTOGRAPHER &amp; AI BUILDER</div>
+        </div>
+
+        <div class="founder-editorial-row" style="align-items: start;">
+          <!-- Portrait Card -->
+          <div class="founder-bio-card">
+            <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="founder-portrait-img" style="width: 220px; height: 260px; border-radius: 16px;">
+            <div class="founder-name" style="font-size: 20px; margin-top: 8px;">Lê Bá Duy Quang</div>
+            <div class="founder-role" style="font-size: 14px; margin-top: 4px;">Sinh năm 1996 · Quê Quảng Trị<br>Hiện sống và làm việc tại TP.HCM</div>
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 8px;">
+              <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="pricing-btn" style="padding: 10px 20px; font-size: 13px;">Tải CV tiếng Việt (PDF)</a>
+              <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener" class="pricing-btn" style="background:#E5E4E2; padding: 10px 20px; font-size: 13px;">Download English CV</a>
+            </div>
+          </div>
+
+          <!-- Editorial Detail -->
+          <div class="editorial-statement-block" style="grid-column: span 2;">
+            <h2 class="statement-main">Giao thứ chạy được, không chỉ file thiết kế.</h2>
+            <p class="statement-muted" style="font-size: 18px; line-height: 1.6;">Tôi bắt đầu bằng nghề nhiếp ảnh, sau đó dành 7 năm chuyên sâu thiết kế mỹ thuật công nghiệp và tranh gạch 3D cho biệt thự, căn hộ cao cấp. Môi trường này rèn luyện cho tôi sự chính xác tuyệt đối về màu sắc giữa màn hình máy tính và thực tế sản xuất số lượng lớn.</p>
+            <p class="statement-muted" style="font-size: 18px; line-height: 1.6;">Từ 2024, tôi hợp tác từ xa cho doanh nghiệp nông nghiệp tại Đan Mạch (chụp ảnh sản phẩm và bao bì xuất khẩu). Từ 2025 đến nay, tôi phụ trách toàn bộ hình ảnh truyền thông tại Công ty Cổ phần Nhã Đạt cho hai dự án trọng điểm: Compound Ny'ah Phú Định (Quận 8) và Villa Ny'ah (ven sông Cầu Tràm).</p>
+            <p class="statement-muted" style="font-size: 18px; line-height: 1.6;">Điểm khác biệt của tôi là sự chủ động. Tự chụp ảnh nguồn giúp các chiến dịch ra đời nhanh trong ngày. Kết hợp cùng AI, tôi trực tiếp dựng các công cụ chạy thực tế: sàn tin Nhà Đất Radar thu thập từ 5 nguồn, chatbot trả lời khách tự động, web xưởng in GÓI 11 trang.</p>
+          </div>
+        </div>
+
+        <div class="paper-divider" style="margin-top: 60px;"></div>
+
+        <!-- Quick Facts Grid -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px;">
+          <div>
+            <div style="font-size: 12px; color: var(--text-dark-subtle); margin-bottom: 6px;">ĐỊA BÀN HOẠT ĐỘNG</div>
+            <div style="font-size: 16px; font-weight: 600;">TP.HCM · Việt Nam</div>
+          </div>
+          <div>
+            <div style="font-size: 12px; color: var(--text-dark-subtle); margin-bottom: 6px;">HỌC VẤN</div>
+            <div style="font-size: 16px; font-weight: 600;">ĐH Giao thông Vận tải (2 năm)</div>
+          </div>
+          <div>
+            <div style="font-size: 12px; color: var(--text-dark-subtle); margin-bottom: 6px;">NGOẠI NGỮ</div>
+            <div style="font-size: 16px; font-weight: 600;">Tiếng Anh (IELTS) · Hoa cơ bản</div>
+          </div>
+          <div>
+            <div style="font-size: 12px; color: var(--text-dark-subtle); margin-bottom: 6px;">DỰ ÁN HIỆN TẠI</div>
+            <div style="font-size: 16px; font-weight: 600;">Compound Ny'ah Phú Định</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Detailed Experience Timeline -->
+    <section class="section-experience" style="padding: 100px 48px;">
+      <div class="paper-grid">
+        <div class="services-head">
+          <h2 class="section-big-title">Kinh nghiệm</h2>
+          <div class="section-count-tag">/ QUÁ TRÌNH LÀM NGHỀ TỪ 2017</div>
+        </div>
+
+        <div class="stages-list" style="margin-top: 40px;">
+          <!-- Stage 1 -->
+          <div class="stage-item active" style="align-items: start; padding: 28px 0;">
+            <div style="width: 200px; font-size: 20px; font-weight: 600;">2025 — Nay</div>
+            <div style="flex: 1;">
+              <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">Nhã Đạt — Phụ trách Hình ảnh &amp; Nội dung Truyền thông</h3>
+              <p style="font-size: 15px; color: var(--text-light-muted); line-height: 1.6; max-width: 800px;">
+                Chịu trách nhiệm toàn bộ hình ảnh cho Compound Ny'ah Phú Định (50 căn tại Quận 8) và Villa Ny'ah Ven Sông. Trực tiếp bấm máy ảnh kiến trúc, nội thất nhà mẫu; quay dựng video tiến độ; thiết kế ấn phẩm bán hàng và bộ bài đăng social. Đồng thời tự xây dựng chatbot tư vấn và landing page dự án.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-item" style="align-items: start; padding: 28px 0;">
+            <div style="width: 200px; font-size: 20px; font-weight: 600;">2024 — 2025</div>
+            <div style="flex: 1;">
+              <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">Axel Münsson A/S (Đan Mạch) — Designer &amp; Photographer Từ xa</h3>
+              <p style="font-size: 15px; color: var(--text-light-muted); line-height: 1.6; max-width: 800px;">
+                Thiết kế ấn phẩm in ấn theo yêu cầu (áo, poster, bao bì và nhãn xuất khẩu), chụp ảnh sản phẩm nông nghiệp và quản trị thư viện tư liệu truyền thông quốc tế. Trao đổi hoàn toàn bằng tiếng Anh.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-item" style="align-items: start; padding: 28px 0;">
+            <div style="width: 200px; font-size: 20px; font-weight: 600;">2022 — 2024</div>
+            <div style="flex: 1;">
+              <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">Piramic Saigon — Thiết kế Đồ họa &amp; Mỹ thuật Công nghiệp</h3>
+              <p style="font-size: 15px; color: var(--text-light-muted); line-height: 1.6; max-width: 800px;">
+                Sáng tạo tranh gạch 3D và vật phẩm nghệ thuật cho không gian nội thất cao cấp. Quản trị hệ thống thư viện hơn 200 mẫu thiết kế độc quyền, phối hợp với xưởng gia công để bảo đảm độ chuẩn xác tuyệt đối của màu men.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="stage-item" style="align-items: start; padding: 28px 0;">
+            <div style="width: 200px; font-size: 20px; font-weight: 600;">2017 — 2022</div>
+            <div style="flex: 1;">
+              <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">Đức Phát — Tiền kỳ In ấn &amp; Đồ họa Ứng dụng</h3>
+              <p style="font-size: 15px; color: var(--text-light-muted); line-height: 1.6; max-width: 800px;">
+                Thiết kế tranh tường khổ lớn cho biệt thự; kiểm soát quy trình cân màu in ấn thương mại; trực tiếp tư vấn phối cảnh nội thất cho khách hàng.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Skill & Tools Matrix -->
+    <section class="section-paper" style="padding: 100px 48px;">
+      <div class="paper-grid">
+        <div class="services-head">
+          <h2 class="section-big-title">Năng lực</h2>
+          <div class="section-count-tag">/ CÔNG CỤ VÀ KỸ NĂNG THỰC THI</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px;">
+          <!-- Column 1 -->
+          <div>
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px solid var(--border-dark); padding-bottom: 12px;">Thiết kế &amp; Hình ảnh</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Photoshop</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Illustrator</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Lightroom</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Premiere</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Figma</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Ảnh kiến trúc</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Chuẩn màu in CMYK</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Stable Diffusion</span>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px solid var(--border-dark); padding-bottom: 12px;">Sản phẩm số &amp; Code AI</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">HTML5 / CSS3</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">JavaScript</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Next.js / TypeScript</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Supabase</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Gemini API &amp; RAG</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Python Crawler</span>
+              <span class="role-badge" style="background:#EBEAE8; color:#000; border-color:#D8D7D4;">Vercel Deploy</span>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px solid var(--border-dark); padding-bottom: 12px;">Ngôn ngữ &amp; Giao tiếp</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: var(--text-dark-muted);">
+              <div>✦ <strong>Tiếng Việt:</strong> Bản ngữ.</div>
+              <div>✦ <strong>Tiếng Anh:</strong> Trình độ IELTS, làm việc từ xa tốt với đối tác nước ngoài.</div>
+              <div>✦ <strong>Tiếng Trung:</strong> Giao tiếp cơ bản trong sản xuất và đàm phán vật tư.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-sky-bg"></div>
+    <div class="footer-content">
+      <div class="footer-top-grid">
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">KẾT NỐI TRỰC TIẾP</div>
+          <div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+            <a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a>
+          </div>
+          <div style="font-size: 18px; color: var(--text-light-muted);">
+            <a href="tel:+84346689460">0346 689 460</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">ĐIỀU HƯỚNG NHANH</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
             <a href="index.html">Trang chủ</a>
-            <a href="projects.html">Dự án</a>
-            <a href="about.html" aria-current="page">Về tôi</a>
-            <a href="contact.html">Liên hệ</a>
-        </nav>
+            <a href="projects.html">Dự án chọn lọc</a>
+            <a href="contact.html">Liên hệ &amp; Báo giá</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">HỒ SƠ NĂNG LỰC</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance Portfolio ↗</a>
+            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub (14 Repositories) ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-giant-brand">Quang®</div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+        <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      </div>
     </div>
-</header>
+  </footer>
 
-<main>
-    <section class="page-head">
-        <div class="wrap about-grid">
-            <figure class="portrait">
-                <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" width="900" height="1200">
-            </figure>
-            <div>
-                <h1>Tôi là Quang, làm thiết kế và chụp ảnh ở Sài Gòn.</h1>
-                <p class="lead" style="margin-top:24px;">Sinh năm 1996 ở Quảng Trị. Tôi bắt đầu bằng nghề chụp ảnh cưới, rồi làm 7 năm thiết kế tranh gạch 3D và mỹ thuật công nghiệp cho biệt thự, căn hộ — công việc buộc phải hiểu màu sắc từ màn hình đến bản in, và làm quen với việc sản xuất số lượng lớn.</p>
-                <p style="margin-top:16px; max-width:38em;">Từ 2024 tôi làm thêm cho một công ty ở Đan Mạch (thiết kế in, chụp sản phẩm nông nghiệp), và từ 2025 phụ trách hình ảnh truyền thông tại <a class="link" href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> — công ty phát triển nhà ở với hơn 20 năm kinh nghiệm — cho hai dự án Ny'ah Phú Định và Villa Ny'ah: quay chụp, social post, sự kiện, quản lý kho tư liệu, và phối hợp với marketing trong từng chiến dịch.</p>
-                <p style="margin-top:16px; max-width:38em;">Tôi cũng "vibe code" cùng AI để tự dựng những thứ công việc cần mà không chờ ai: chatbot bán hàng kèm live slide cho sales gallery, sàn tin bất động sản gom từ 5 nguồn (NhaDat Radar), landing page cho dự án, và các script nhỏ như lọc ảnh trùng, lên lịch đăng bài, dựng video ngắn hàng loạt. Không phải lập trình viên chuyên nghiệp — nhưng sản phẩm đang chạy thật.</p>
-
-                <ul class="facts">
-                    <li><span class="k">Ở</span><span class="v">TP.HCM · quê Quảng Trị</span></li>
-                    <li><span class="k">Học vấn</span><span class="v">ĐH Giao thông Vận tải TP.HCM (2 năm)</span></li>
-                    <li><span class="k">Ngoại ngữ</span><span class="v">Tiếng Anh (IELTS), tiếng Trung cơ bản</span></li>
-                    <li><span class="k">Hiện tại</span><span class="v">Nhã Đạt — dự án Ny'ah Phú Định</span></li>
-                </ul>
-
-                <div class="hero-actions" style="margin-top:32px;">
-                    <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="btn ghost">CV tiếng Việt (PDF)</a>
-                    <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener" class="link">English CV</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="wrap two-col">
-            <div><h2>Kinh nghiệm</h2></div>
-            <ul class="exp">
-                <li>
-                    <span class="when">2025 — nay</span>
-                    <div>
-                        <div class="who"><a href="https://nhadat.company/" target="_blank" rel="noopener">Nhã Đạt</a> <span class="role">— Hình ảnh &amp; nội dung truyền thông</span></div>
-                        <p class="what">Phụ trách hình ảnh và nội dung cho Ny'ah Phú Định (compound &amp; shophouse 50 căn, quận 8) và Villa Ny'ah (villa nghỉ dưỡng ven sông Cầu Tràm). Việc hằng ngày: chụp kiến trúc, nội thất nhà mẫu và quay dựng video; thiết kế social post theo lịch chiến dịch; triển khai sự kiện mở bán, tham quan nhà mẫu (backdrop, ấn phẩm, ghi hình); quản lý và đặt tên kho ảnh — video cho cả đội dùng chung; tự dựng chatbot AI trả lời khách và hệ thống live slide cho sales gallery, landing page Villa Ny'ah, cùng công cụ lên lịch đăng bài và dựng video ngắn hàng loạt; phối hợp với marketing và sales để ra nội dung đúng tiến độ bán hàng.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2024 — 2025</span>
-                    <div>
-                        <div class="who">Axel Münsson A/S, Đan Mạch <span class="role">— Freelance designer</span></div>
-                        <p class="what">Thiết kế sản phẩm in theo yêu cầu (áo, poster), bao bì và nhãn; chụp ảnh sản phẩm nông nghiệp và nông trại; sắp xếp kho ảnh truyền thông. Làm việc từ xa, trao đổi bằng tiếng Anh.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2022 — 2024</span>
-                    <div>
-                        <div class="who">Piramic Saigon <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
-                        <p class="what">Thiết kế tranh gạch 3D và tranh trang trí cho nội thất cao cấp; xây dựng và quản lý thư viện hơn 200 mẫu; làm việc trực tiếp với xưởng để khớp màu giữa thiết kế và sản phẩm.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2017 — 2022</span>
-                    <div>
-                        <div class="who">Đức Phát <span class="role">— Thiết kế đồ họa &amp; mỹ thuật công nghiệp</span></div>
-                        <p class="what">Thiết kế gạch 3D và tranh tường cho biệt thự, căn hộ; kiểm soát màu in; hỗ trợ khách chọn mẫu và phối cảnh.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="when">2017 — 2018</span>
-                    <div>
-                        <div class="who">Viễn Đông Wedding Studio <span class="role">— Nhiếp ảnh</span></div>
-                        <p class="what">Chụp ảnh cưới studio và ngoại cảnh, hậu kỳ, retouch và in album.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="wrap two-col">
-            <div><h2>Kỹ năng &amp; công cụ</h2></div>
-            <div>
-                <p class="eyebrow" style="margin-bottom:12px;">Thiết kế &amp; hình ảnh</p>
-                <div class="skills">
-                    <span>Photoshop</span><span>Illustrator</span><span>Lightroom</span><span>Premiere</span><span>After Effects</span><span>Figma</span><span>Chụp ảnh kiến trúc &amp; sản phẩm</span><span>Quay dựng video ngắn</span><span>Quản lý màu in ấn</span><span>Tổ chức sự kiện mở bán</span><span>Quản lý kho ảnh — video</span><span>Stable Diffusion &amp; AI tạo ảnh</span>
-                </div>
-                <p class="eyebrow" style="margin:28px 0 12px;">Code &amp; tự động hóa</p>
-                <div class="skills">
-                    <span>Vibe code với Claude / Gemini / Cursor</span><span>HTML / CSS / JavaScript</span><span>Next.js · TypeScript</span><span>Supabase · PostGIS</span><span>Gemini API · RAG</span><span>Python · Playwright · Selenium</span><span>FFmpeg</span><span>Vercel · GitHub Actions</span>
-                </div>
-                <p class="eyebrow" style="margin:28px 0 12px;">Ngôn ngữ</p>
-                <div class="skills">
-                    <span>Tiếng Việt</span><span>Tiếng Anh — IELTS, làm việc từ xa được</span><span>Tiếng Trung — cơ bản</span>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="site-footer">
-    <div class="wrap">
-        <div class="col"><span>Liên hệ</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a><br><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">Zalo 0346 689 460</a></div>
-        <div class="col"><span>Trang</span><a href="projects.html">Dự án</a><br><a href="about.html">Về tôi</a><br><a href="contact.html">Liên hệ</a></div>
-        <div class="col"><span>Khác</span><a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub</a><br><a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
-        <div class="copy">© 2026 Lê Bá Duy Quang · TP.HCM</div>
-    </div>
-</footer>
-
-<script src="assets/main.js" defer></script>
+  <script src="assets/astra.js"></script>
 </body>
 </html>

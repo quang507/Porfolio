@@ -1,96 +1,227 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ — Lê Bá Duy Quang</title>
-    <meta name="description" content="Liên hệ Lê Bá Duy Quang để trao đổi về chụp ảnh, video, thiết kế hoặc nội dung cho dự án bất động sản và thương hiệu.">
-    <meta name="author" content="Lê Bá Duy Quang">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171b18'/><text x='50' y='69' font-size='58' font-family='Georgia,serif' text-anchor='middle' fill='%23fff'>Q</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ — Lê Bá Duy Quang® | Designer, Photographer &amp; AI Builder</title>
+  <meta name="description" content="Liên hệ Lê Bá Duy Quang để trao đổi về chụp ảnh kiến trúc, thiết kế nhận diện thương hiệu, sản phẩm web và giải pháp AI.">
+  <meta name="author" content="Lê Bá Duy Quang">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Liên hệ — Lê Bá Duy Quang®">
+  <meta property="og:description" content="Kết nối trực tiếp qua Zalo, Hotline hoặc để lại lời nhắn trao đổi dự án.">
+  <meta property="og:image" content="media/portrait.jpg">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='73' font-size='68' font-family='Inter,Helvetica,Arial' font-weight='600' text-anchor='middle' fill='%23fafafa'>Q</text></svg>">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Astra CSS -->
+  <link rel="stylesheet" href="assets/styles/astra.css">
 </head>
 <body>
 
-<header class="site-header">
-    <div class="wrap">
-        <a href="index.html" class="brand">Lê Bá Duy Quang <small>Designer & Photographer</small></a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-        <nav class="nav" id="nav">
-            <a href="index.html">Trang chủ</a>
-            <a href="projects.html">Dự án</a>
-            <a href="about.html">Về tôi</a>
-            <a href="contact.html" aria-current="page">Liên hệ</a>
-        </nav>
-    </div>
-</header>
-
-<main>
-    <section class="page-head">
-        <div class="wrap contact-grid">
-            <div>
-                <h1>Liên hệ</h1>
-                <p class="lead muted" style="margin-top:20px;">Cần chụp ảnh, quay video, thiết kế hay làm nội dung cho dự án — nhắn tôi qua Zalo là nhanh nhất. Email hoặc form bên cạnh cũng được, tôi trả lời trong 1–2 ngày.</p>
-                <ul class="contact-list">
-                    <li><span class="k">Zalo</span><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">0346 689 460</a></li>
-                    <li><span class="k">Điện thoại</span><a href="tel:+84346689460">0346 689 460</a></li>
-                    <li><span class="k">Email</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></li>
-                    <li><span class="k">GitHub</span><a href="https://github.com/quang507" target="_blank" rel="noopener">github.com/quang507</a></li>
-                    <li><span class="k">Ở</span><span>TP.HCM — nhận việc trong thành phố và làm từ xa</span></li>
-                </ul>
-            </div>
-            <form id="contactForm" action="https://formspree.io/f/mgobvrnl" method="POST">
-                <div class="row">
-                    <div class="field">
-                        <label for="cfName">Tên của bạn</label>
-                        <input type="text" id="cfName" name="name" required autocomplete="name">
-                    </div>
-                    <div class="field">
-                        <label for="cfEmail">Email</label>
-                        <input type="email" id="cfEmail" name="email" required autocomplete="email">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="field">
-                        <label for="cfPhone">Số điện thoại / Zalo (không bắt buộc)</label>
-                        <input type="tel" id="cfPhone" name="phone" autocomplete="tel">
-                    </div>
-                    <div class="field">
-                        <label for="cfService">Bạn cần gì</label>
-                        <select id="cfService" name="service" required>
-                            <option value="">Chọn một mục</option>
-                            <option>Chụp ảnh / quay video</option>
-                            <option>Thiết kế (social, in ấn, nhận diện)</option>
-                            <option>Landing page / web</option>
-                            <option>Tuyển dụng / hợp tác dài hạn</option>
-                            <option>Khác</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="cfMessage">Nội dung</label>
-                    <textarea id="cfMessage" name="message" required placeholder="Dự án gì, ở đâu, thời gian dự kiến…"></textarea>
-                </div>
-                <button type="submit" class="btn">Gửi</button>
-                <div id="formMsg" class="form-msg" aria-live="polite"></div>
-                <p class="form-note">Form gửi qua Formspree về email của tôi. Không lưu dữ liệu ở đâu khác.</p>
-            </form>
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-overlay-header">
+      <div class="header-left">
+        <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+        </svg>
+        <span class="header-brand">Quang®</span>
+      </div>
+      <button class="menu-close-btn" aria-label="Đóng bảng điều hướng">
+        <div class="menu-close-grid">
+          <span></span><span></span><span></span><span></span><span></span>
         </div>
-    </section>
-</main>
-
-<footer class="site-footer">
-    <div class="wrap">
-        <div class="col"><span>Liên hệ</span><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a><br><a href="https://zalo.me/0346689460" target="_blank" rel="noopener">Zalo 0346 689 460</a></div>
-        <div class="col"><span>Trang</span><a href="projects.html">Dự án</a><br><a href="about.html">Về tôi</a><br><a href="contact.html">Liên hệ</a></div>
-        <div class="col"><span>Khác</span><a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub</a><br><a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
-        <div class="copy">© 2026 Lê Bá Duy Quang · TP.HCM</div>
+      </button>
     </div>
-</footer>
 
-<script src="assets/main.js" defer></script>
+    <nav class="menu-overlay-nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Về tôi</a>
+      <a href="projects.html">Dự án chọn lọc</a>
+      <a href="index.html#services">Dịch vụ &amp; Quy trình</a>
+      <a href="contact.html" class="active">Liên hệ hợp tác</a>
+    </nav>
+
+    <div class="menu-overlay-footer">
+      <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      <div><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div>
+      <div>Hotline: <a href="tel:+84346689460">0346 689 460</a></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z" />
+      </svg>
+      <a href="index.html" class="header-brand">Quang®</a>
+    </div>
+
+    <div class="header-center">
+      <span>Kết nối &amp; Khởi động dự án mới</span>
+    </div>
+
+    <div class="header-right">
+      <a href="contact.html" class="contact-pill">
+        <div class="contact-pill-avatar-wrap">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="contact-pill-avatar">
+          <span class="contact-pill-status"></span>
+        </div>
+        <div class="contact-pill-text">
+          <div class="contact-pill-title">Liên hệ</div>
+          <div class="contact-pill-sub">Nhận việc từ 10/2026</div>
+        </div>
+        <div class="contact-pill-dots">
+          <span></span><span></span>
+        </div>
+      </a>
+
+      <button class="menu-trigger-btn" aria-label="Mở menu" id="menuTriggerBtn">
+        <div class="menu-trigger-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="section-paper">
+      <div class="paper-grid">
+        <div class="services-head" style="margin-bottom: 40px;">
+          <h1 class="section-big-title">Liên hệ</h1>
+          <div class="section-count-tag">/ BẮT ĐẦU BUỔI TRAO ĐỔI</div>
+        </div>
+
+        <div class="contact-page-grid">
+          <!-- Left: Contact Details -->
+          <div>
+            <h2 class="statement-main" style="font-size: clamp(28px, 3vw, 40px); margin-bottom: 16px;">
+              Hãy cùng tạo nên những sản phẩm chạy thực tế và có giá trị thương mại.
+            </h2>
+            <p style="font-size: 16px; color: var(--text-dark-muted); line-height: 1.6; margin-bottom: 24px;">
+              Quý đối tác cần chụp ảnh kiến trúc, quay dựng video tiến độ, thiết kế ấn phẩm nhận diện hay xây dựng ứng dụng số chạy bằng AI — liên hệ qua Zalo hoặc Hotline là nhanh nhất.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <span class="contact-info-label">ZALO / ĐIỆN THOẠI</span>
+                <a href="https://zalo.me/0346689460" target="_blank" rel="noopener" class="contact-info-val">0346 689 460 ↗</a>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">EMAIL TRỰC TIẾP</span>
+                <a href="mailto:quanggooner1996@gmail.com" class="contact-info-val">quanggooner1996@gmail.com ↗</a>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">HỒ SƠ GITHUB</span>
+                <a href="https://github.com/quang507" target="_blank" rel="noopener" class="contact-info-val">github.com/quang507 ↗</a>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">ĐỊA BÀN LÀM VIỆC</span>
+                <span class="contact-info-val">TP.HCM &amp; Làm việc từ xa</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 36px;">
+              <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="pricing-btn" style="padding: 12px 24px; font-size: 14px;">Tải bản CV tiếng Việt (PDF) ↗</a>
+            </div>
+          </div>
+
+          <!-- Right: Message Form -->
+          <div class="astra-form-card">
+            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 24px;">Gửi thông tin trao đổi</h3>
+            <form id="contactForm" action="https://formspree.io/f/mgobvrnl" method="POST">
+              <div class="form-field-group">
+                <label for="cfName">Họ và tên của bạn</label>
+                <input type="text" id="cfName" name="name" class="form-field-input" required autocomplete="name" placeholder="Ví dụ: Nguyễn Văn A">
+              </div>
+
+              <div class="form-field-group">
+                <label for="cfEmail">Địa chỉ Email</label>
+                <input type="email" id="cfEmail" name="email" class="form-field-input" required autocomplete="email" placeholder="name@company.com">
+              </div>
+
+              <div class="form-field-group">
+                <label for="cfPhone">Số điện thoại hoặc Zalo</label>
+                <input type="tel" id="cfPhone" name="phone" class="form-field-input" autocomplete="tel" placeholder="090x xxx xxx">
+              </div>
+
+              <div class="form-field-group">
+                <label for="cfService">Lĩnh vực cần hợp tác</label>
+                <select id="cfService" name="service" class="form-field-select" required>
+                  <option value="">Vui lòng chọn một mục</option>
+                  <option>Nhiếp ảnh kiến trúc &amp; Nội thất hoàn thiện</option>
+                  <option>Thiết kế nhận diện, Bao bì &amp; Chuẩn bị file in</option>
+                  <option>Thiết kế UI/UX &amp; Landing Page sản phẩm</option>
+                  <option>Giải pháp AI &amp; Hệ thống tự động hóa</option>
+                  <option>Vị trí toàn thời gian / Đồng hành dài hạn</option>
+                </select>
+              </div>
+
+              <div class="form-field-group">
+                <label for="cfMessage">Nội dung tóm tắt dự án</label>
+                <textarea id="cfMessage" name="message" class="form-field-textarea" required placeholder="Quy mô dự án, địa điểm, thời gian dự kiến..."></textarea>
+              </div>
+
+              <button type="submit" class="pricing-btn" style="width: 100%; border: none; cursor: pointer; padding: 16px;">Gửi tin nhắn ngay →</button>
+              <p style="font-size: 12px; color: var(--text-dark-subtle); margin-top: 14px; text-align: center;">
+                Thông tin được chuyển an toàn qua Formspree tới hộp thư chính của tôi.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-sky-bg"></div>
+    <div class="footer-content">
+      <div class="footer-top-grid">
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">KẾT NỐI TRỰC TIẾP</div>
+          <div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
+            <a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a>
+          </div>
+          <div style="font-size: 18px; color: var(--text-light-muted);">
+            <a href="tel:+84346689460">0346 689 460</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">ĐIỀU HƯỚNG NHANH</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="index.html">Trang chủ</a>
+            <a href="about.html">Về tôi</a>
+            <a href="projects.html">Dự án chọn lọc</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">HỒ SƠ NĂNG LỰC</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
+            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance Portfolio ↗</a>
+            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub (14 Repositories) ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-giant-brand">Quang®</div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+        <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/astra.js"></script>
 </body>
 </html>
