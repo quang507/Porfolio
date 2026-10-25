@@ -66,13 +66,21 @@
     });
   }
 
-  // Hero entrance trigger on DOM load
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      document.querySelector('.hero-planet')?.classList.add('in-view');
-      document.querySelector('.hero-title-wrap')?.classList.add('in-view');
-    }, 60);
-  });
+  // Hero entrance trigger (Framer Astra 1:1 Majestic Cascade)
+  function triggerHeroEntrance() {
+    const heroElements = document.querySelectorAll(
+      '.site-header, .hero-planet, .hero-lens-ring-outer, .hero-lens-ring-inner, ' +
+      '.hero-satellite-orb, .hero-streak, .hero-title-wrap, .hero-subtitle-wrap, ' +
+      '.header-center, .hero-services-list'
+    );
+    heroElements.forEach((el) => el.classList.add('hero-ready'));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(triggerHeroEntrance, 80));
+  } else {
+    setTimeout(triggerHeroEntrance, 80);
+  }
 
   // =========================================================================
   // 3. HERO PARALLAX ON SCROLL
