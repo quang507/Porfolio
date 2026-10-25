@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Astra Design System CSS -->
-  <link rel="stylesheet" href="assets/styles/astra.css?v=2.3">
+  <link rel="stylesheet" href="assets/styles/astra.css?v=2.4">
 </head>
 <body class="hero-active">
 
@@ -117,8 +117,13 @@
     <!-- Clean Celestial Sphere (White to Warm Cream Gradient from Figma) -->
     <div class="hero-planet"></div>
 
-    <!-- Satellite Accent Orb & Asteroid Capsule Streak from Figma -->
-    <div class="hero-satellite-orb"></div>
+    <!-- Satellite Accent Orb & Revolving Mini Moon (Astra 1:1) -->
+    <div class="hero-satellite-wrap">
+      <div class="hero-satellite-orb"></div>
+      <div class="hero-satellite-orbit-track">
+        <div class="hero-satellite-mini"></div>
+      </div>
+    </div>
     <div class="hero-streak"></div>
 
     <!-- Giant Display Title with Difference Blend Split -->
@@ -763,6 +768,6 @@
   </footer>
 
   <!-- Astra Interactive Engine JS -->
-  <script src="assets/astra.js?v=2.3"></script>
+  <script src="assets/astra.js?v=2.4"></script>
 </body>
 </html>

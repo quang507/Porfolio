@@ -70,7 +70,7 @@
   function triggerHeroEntrance() {
     const heroElements = document.querySelectorAll(
       '.site-header, .hero-planet, .hero-lens-ring-outer, .hero-lens-ring-inner, ' +
-      '.hero-satellite-orb, .hero-streak, .hero-title-wrap, .hero-subtitle-wrap, ' +
+      '.hero-satellite-wrap, .hero-satellite-orb, .hero-streak, .hero-title-wrap, .hero-subtitle-wrap, ' +
       '.header-center, .hero-services-list'
     );
     heroElements.forEach((el) => el.classList.add('hero-ready'));
