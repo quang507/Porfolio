@@ -391,4 +391,29 @@
     activateStage(0);
   }
 
+
+  // =========================================================================
+  // 11. COSMIC BACKGROUND VIDEOS (Autoplay Safeguard)
+  // =========================================================================
+  const bgVideos = document.querySelectorAll('.hero-cosmos-video, .footer-cosmos-video');
+  bgVideos.forEach((vid) => {
+    vid.muted = true;
+    vid.setAttribute('playsinline', '');
+    const playPromise = vid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay policy fallback: play on first user interaction
+        const startPlay = () => {
+          vid.play().catch(() => {});
+          window.removeEventListener('click', startPlay);
+          window.removeEventListener('scroll', startPlay);
+          window.removeEventListener('touchstart', startPlay);
+        };
+        window.addEventListener('click', startPlay, { once: true });
+        window.addEventListener('scroll', startPlay, { once: true });
+        window.addEventListener('touchstart', startPlay, { once: true });
+      });
+    }
+  });
+
 })();
