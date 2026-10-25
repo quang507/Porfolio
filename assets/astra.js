@@ -32,14 +32,14 @@
   }
 
   // =========================================================================
-  // 2. FRAMER ASTRA APPEAR ANIMATION ENGINE
+  // 2. FRAMER ASTRA APPEAR ANIMATION ENGINE (Safe, non-blocking)
   // =========================================================================
   const targets = document.querySelectorAll(
     '.stat-card, .timeline-card-row, .accordion-item, .founder-editorial-row, .pricing-card, .dash-card, .stage-item, .project-work-card'
   );
 
   targets.forEach((el, idx) => {
-    el.classList.add('framer-appear');
+    el.classList.add('framer-appear', 'will-animate');
     const delay = (idx % 3) + 1;
     el.classList.add(`framer-delay-${delay}`);
   });
@@ -54,7 +54,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.05, rootMargin: '50px 0px 0px 0px' }
     );
 
     document.querySelectorAll('.framer-appear').forEach((el) => {
@@ -71,7 +71,7 @@
     const heroElements = document.querySelectorAll(
       '.site-header, .hero-planet, .hero-lens-ring-outer, .hero-lens-ring-inner, ' +
       '.hero-satellite-wrap, .hero-satellite-orb, .hero-streak, .hero-title-wrap, .hero-subtitle-wrap, ' +
-      '.header-center, .hero-services-list'
+      '.hero-slogan-block, .hero-services-list'
     );
     heroElements.forEach((el) => el.classList.add('hero-ready'));
   }
@@ -162,10 +162,11 @@
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
-    const duration = 1200;
+    const duration = 1000;
+    const isYear = (target >= 1900 && target <= 2100 && !suffix);
 
     if (prefersReduced || isNaN(target)) {
-      el.textContent = prefix + target.toLocaleString('vi-VN') + suffix;
+      el.textContent = prefix + (isYear ? target.toString() : target.toLocaleString('vi-VN')) + suffix;
       return;
     }
 
@@ -174,12 +175,12 @@
       const progress = Math.min((now - start) / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(target * ease);
-      el.textContent = prefix + current.toLocaleString('vi-VN') + suffix;
+      el.textContent = prefix + (isYear ? current.toString() : current.toLocaleString('vi-VN')) + suffix;
 
       if (progress < 1) {
         requestAnimationFrame(tick);
       } else {
-        el.textContent = prefix + target.toLocaleString('vi-VN') + suffix;
+        el.textContent = prefix + (isYear ? target.toString() : target.toLocaleString('vi-VN')) + suffix;
       }
     }
     requestAnimationFrame(tick);
@@ -236,82 +237,23 @@
     navLinks.forEach((link) => link.addEventListener('click', closeMenu));
   }
 
-  // Header scroll state
+  // Header dynamic blur and brand color transition on scroll
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        siteHeader.classList.add('scrolled');
+    const handleHeaderScroll = () => {
+      if (window.scrollY > 50) {
+        siteHeader.classList.add('is-scrolled');
       } else {
-        siteHeader.classList.remove('scrolled');
+        siteHeader.classList.remove('is-scrolled');
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    handleHeaderScroll();
   }
 
   // =========================================================================
-  // 8. ASTRA MAGNETIC CURSOR & INTERACTIVE FOLLOWER (Desktop fine pointer)
+  // 8. SYSTEM NATIVE CURSOR PRESERVED (Custom cursor disabled per design specs)
   // =========================================================================
-  if (isFinePointer && !prefersReduced) {
-    document.body.classList.add('has-custom-cursor');
-
-    const cursorDot = document.createElement('div');
-    cursorDot.className = 'astra-cursor-dot';
-    cursorDot.setAttribute('aria-hidden', 'true');
-
-    const cursorFollower = document.createElement('div');
-    cursorFollower.className = 'astra-cursor-follower';
-    cursorFollower.setAttribute('aria-hidden', 'true');
-
-    document.body.appendChild(cursorDot);
-    document.body.appendChild(cursorFollower);
-
-    let mouseX = -100;
-    let mouseY = -100;
-    let followerX = -100;
-    let followerY = -100;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      cursorDot.style.left = `${mouseX}px`;
-      cursorDot.style.top = `${mouseY}px`;
-    }, { passive: true });
-
-    function animateCursor() {
-      // Smooth lerp trailing physics
-      followerX += (mouseX - followerX) * 0.18;
-      followerY += (mouseY - followerY) * 0.18;
-
-      cursorFollower.style.left = `${followerX.toFixed(2)}px`;
-      cursorFollower.style.top = `${followerY.toFixed(2)}px`;
-
-      requestAnimationFrame(animateCursor);
-    }
-    requestAnimationFrame(animateCursor);
-
-    // Interactive Hover States
-    const interactiveSelectors = 'a, button, .contact-pill, .menu-trigger-btn, .menu-close-btn, .accordion-header, [data-cursor], .pricing-card-btn';
-    document.querySelectorAll(interactiveSelectors).forEach((el) => {
-      el.addEventListener('mouseenter', () => cursorFollower.classList.add('is-hovered'));
-      el.addEventListener('mouseleave', () => cursorFollower.classList.remove('is-hovered'));
-    });
-
-    const viewSelectors = '.timeline-card-row, .hero-planet, .dash-card';
-    document.querySelectorAll(viewSelectors).forEach((el) => {
-      el.addEventListener('mouseenter', () => cursorFollower.classList.add('is-view'));
-      el.addEventListener('mouseleave', () => cursorFollower.classList.remove('is-view'));
-    });
-
-    document.addEventListener('mouseleave', () => {
-      cursorDot.style.opacity = '0';
-      cursorFollower.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      cursorDot.style.opacity = '1';
-      cursorFollower.style.opacity = '1';
-    });
-  }
 
   // =========================================================================
   // 9. LIVE TIMEZONE CLOCK (Asia/Ho_Chi_Minh • GMT+7)
