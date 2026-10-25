@@ -288,18 +288,18 @@ img {
   justify-content: space-between;
   padding: clamp(28px, 4vw, 48px) clamp(28px, 5vw, 64px);
   opacity: 0;
-  visibility: hidden;
+  visibility: hidden !important;
   clip-path: circle(0% at calc(100% - 72px) 48px);
   transition: clip-path 0.75s cubic-bezier(0.16, 1, 0.3, 1),
               opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               visibility 0.75s;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 .menu-overlay.is-open {
   opacity: 1;
-  visibility: visible;
+  visibility: visible !important;
   clip-path: circle(150% at calc(100% - 72px) 48px);
-  pointer-events: all;
+  pointer-events: auto !important;
 }
 
 .menu-overlay-header {
@@ -1763,15 +1763,19 @@ img {
    ASTRA MAGNETIC CURSOR & INTERACTIVE FOLLOWER
    ========================================================================== */
 @media (pointer: fine) {
+  /* Native cursor preserved for maximum responsiveness and accuracy */
   body.has-custom-cursor {
-    cursor: none;
+    cursor: default;
   }
   body.has-custom-cursor a,
   body.has-custom-cursor button,
-  body.has-custom-cursor input,
-  body.has-custom-cursor textarea,
-  body.has-custom-cursor [role="button"] {
-    cursor: none;
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor .stage-item,
+  body.has-custom-cursor .planet-item,
+  body.has-custom-cursor .planet-item-portrait,
+  body.has-custom-cursor .contact-pill,
+  body.has-custom-cursor .menu-trigger-btn {
+    cursor: pointer !important;
   }
 
   .astra-cursor-dot {
@@ -1896,4 +1900,80 @@ img {
 @keyframes pulseDot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+
+/* ==========================================================================
+   INTERACTIVE CAREER STAGES & PLANETS (Hành trình)
+   ========================================================================== */
+.stage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 16px;
+  border-top: 1px solid var(--border-light);
+  cursor: pointer !important;
+  border-radius: 8px;
+  transition: background 0.25s ease, border-top-color 0.25s ease, transform 0.25s ease;
+  user-select: none;
+}
+.stage-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(8px);
+}
+.stage-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-top-color: #FAFAFA !important;
+  transform: translateX(12px);
+}
+.stage-item.active .stage-name {
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.planets-arc-wrap img {
+  cursor: pointer !important;
+  border-radius: 50%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              opacity 0.35s ease,
+              outline 0.35s ease;
+}
+.planets-arc-wrap img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.35);
+}
+.planets-arc-wrap img.active {
+  transform: scale(1.18);
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.55);
+  outline: 2px solid #FAFAFA;
+  outline-offset: 4px;
+  opacity: 1 !important;
+}
+
+/* Explicit interactive styles for header & footer */
+.contact-pill {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 102;
+}
+.menu-trigger-btn {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 102;
+}
+.site-footer a {
+  cursor: pointer !important;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+.site-footer a:hover {
+  color: #FFFFFF !important;
+  transform: translateX(4px);
 }

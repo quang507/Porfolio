@@ -338,4 +338,57 @@
   setInterval(updateLiveClock, 1000);
   updateLiveClock();
 
+
+  // =========================================================================
+  // 10. CAREER STAGES & PLANET ORBS INTERACTIVE SELECTION (Hành trình)
+  // =========================================================================
+  const stageItems = document.querySelectorAll('.stage-item');
+  const planetImages = document.querySelectorAll('.planets-arc-wrap img');
+
+  function activateStage(index) {
+    if (!stageItems.length) return;
+    stageItems.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    if (planetImages.length) {
+      planetImages.forEach((img, i) => {
+        // Index 0: Stage 0 (Lead Visual -> portrait & villa photo)
+        // Index 1: Stage 0 villa photo
+        // Index 2: Stage 1 Gói packaging
+        // Index 3: Stage 2 Web landing
+        const isMatch = (index === 0 && (i === 0 || i === 1)) ||
+                        (index === 1 && i === 2) ||
+                        (index === 2 && i === 3);
+        if (isMatch) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  if (stageItems.length > 0) {
+    stageItems.forEach((item, idx) => {
+      item.addEventListener('click', () => activateStage(idx));
+    });
+
+    if (planetImages.length > 0) {
+      planetImages.forEach((img, idx) => {
+        img.addEventListener('click', () => {
+          const target = idx <= 1 ? 0 : (idx === 2 ? 1 : 2);
+          activateStage(target);
+        });
+      });
+    }
+
+    // Initialize first stage
+    activateStage(0);
+  }
+
 })();
