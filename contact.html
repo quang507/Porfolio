@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Astra CSS -->
-  <link rel="stylesheet" href="assets/styles/astra.css?v=2.5">
+  <link rel="stylesheet" href="assets/styles/astra.css?v=2.7">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
         </svg>
         <span class="header-brand">Quang®</span>
       </div>
-      <button class="menu-close-btn" aria-label="Đóng bảng điều hướng">
+      <button class="menu-close-btn" type="button" aria-label="Đóng bảng điều hướng">
         <div class="menu-close-grid">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -87,7 +87,7 @@
         </div>
       </a>
 
-      <button class="menu-trigger-btn" aria-label="Mở menu" id="menuTriggerBtn">
+      <button class="menu-trigger-btn" type="button" aria-label="Mở menu" id="menuTriggerBtn">
         <div class="menu-trigger-dots">
           <span></span><span></span><span></span><span></span>
         </div>
@@ -222,6 +222,45 @@
     </div>
   </footer>
 
-  <script src="assets/astra.js?v=2.5"></script>
+  <script src="assets/astra.js?v=2.7"></script>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Đang chuyển thông tin...';
+
+        try {
+          const formData = new FormData(contactForm);
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            contactForm.innerHTML = `
+              <div style="padding: 36px 24px; text-align: center; background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.25); border-radius: 16px;">
+                <div style="font-size: 36px; margin-bottom: 12px; color: #16a34a;">✓</div>
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #111827;">Gửi tin nhắn thành công!</h4>
+                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; max-width: 420px; margin: 0 auto;">Cảm ơn bạn đã liên hệ. Tôi đã nhận được thông tin dự án và sẽ phản hồi qua Email hoặc số Zalo của bạn trong vòng 24 giờ.</p>
+              </div>
+            `;
+          } else {
+            throw new Error('Submit failed');
+          }
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          alert('Không thể kết nối đến máy chủ. Bạn vui lòng liên hệ trực tiếp qua Zalo / Hotline: 0346 689 460.');
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>

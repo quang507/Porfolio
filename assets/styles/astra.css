@@ -2188,3 +2188,152 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
   color: #FAFAFA;
   border-color: #FAFAFA;
 }
+
+/* ==========================================================================
+   UI/UX PRO MAX HEURISTIC INTERACTIVITY & ERGONOMICS
+   ========================================================================== */
+.hero-service-item {
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  user-select: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: -2px -12px;
+}
+.hero-service-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateX(4px);
+}
+.hero-service-item:active {
+  transform: translateX(2px) scale(0.98);
+}
+.hero-service-item:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: 2px;
+}
+
+.timeline-card {
+  cursor: pointer;
+}
+.timeline-card:active {
+  transform: scale(0.99);
+}
+
+.accordion-header {
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.accordion-header:active {
+  opacity: 0.85;
+}
+.accordion-header:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.7);
+  outline-offset: 4px;
+}
+
+/* Lightbox overlay sits above header (z-index 1000) */
+.lightbox {
+  z-index: 10000 !important;
+}
+
+/* Project gallery cards interactivity */
+.project-work-thumb, .project-work-title {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.project-work-thumb:hover {
+  opacity: 0.94;
+}
+.project-work-title:hover {
+  color: var(--brand-accent, #2563eb);
+}
+
+/* Active touch feedback for all buttons */
+button:active, .filter-btn:active, .pricing-btn:active, .contact-pill:active, .menu-trigger-btn:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
+}
+
+/* Focus rings for accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+.section-paper button:focus-visible, .section-paper a:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+/* Quick Contact Floating Thumb Button (Mobile Ergonomics >= 44px) */
+.floating-quick-contact {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 8px 16px 8px 10px;
+  color: #FAFAFA;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+  min-height: 48px;
+}
+.floating-quick-contact:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(26, 26, 26, 0.95);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  color: #FFFFFF;
+}
+.floating-quick-contact:active {
+  transform: translateY(0) scale(0.96);
+}
+.floating-quick-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0068FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 104, 255, 0.4);
+}
+.floating-quick-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.floating-quick-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.floating-quick-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FAFAFA;
+}
+@media (max-width: 600px) {
+  .floating-quick-contact {
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 14px 8px 10px;
+  }
+}
+
+body.lightbox-open .site-header,
+body.lightbox-open .floating-quick-contact {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

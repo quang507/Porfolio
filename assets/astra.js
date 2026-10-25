@@ -116,38 +116,92 @@
   }
 
   // =========================================================================
-  // 4. HERO SERVICE STEP SELECTION
+  // 4. HERO SERVICE STEP SELECTION & SMOOTH NAVIGATION (Heuristic #3 & #7)
   // =========================================================================
   const heroServiceItems = document.querySelectorAll('.hero-service-item');
-  heroServiceItems.forEach((item) => {
-    item.addEventListener('click', () => {
+  const serviceSection = document.getElementById('services');
+  const accordionItemsList = document.querySelectorAll('.accordion-item');
+
+  heroServiceItems.forEach((item, idx) => {
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', item.innerText.replace(/\s+/g, ' ').trim());
+
+    const handleSelect = (e) => {
       heroServiceItems.forEach((x) => x.classList.remove('active'));
       item.classList.add('active');
+
+      if (serviceSection) {
+        const headerOffset = 90;
+        const targetTop = serviceSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+
+        // Expand corresponding accordion item
+        if (accordionItemsList[idx]) {
+          accordionItemsList.forEach((other) => other.classList.remove('open'));
+          accordionItemsList[idx].classList.add('open');
+          const header = accordionItemsList[idx].querySelector('.accordion-header');
+          if (header) header.setAttribute('aria-expanded', 'true');
+        }
+      }
+    };
+
+    item.addEventListener('click', handleSelect);
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleSelect(e);
+      }
     });
   });
 
   // =========================================================================
-  // 5. SERVICES ACCORDION (Astra 1:1 Expand & Rotate)
+  // 5. SERVICES ACCORDION (Astra 1:1 Expand & Rotate, ARIA & Keyboard support)
   // =========================================================================
   const accordionItems = document.querySelectorAll('.accordion-item');
   if (accordionItems.length > 0) {
-    accordionItems.forEach((item) => {
+    accordionItems.forEach((item, index) => {
       const header = item.querySelector('.accordion-header');
       if (!header) return;
 
-      header.addEventListener('click', () => {
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+      header.setAttribute('aria-controls', `accordion-panel-${index}`);
+
+      const body = item.querySelector('.accordion-body');
+      if (body) body.id = `accordion-panel-${index}`;
+
+      const toggleAccordion = () => {
         const isOpen = item.classList.contains('open');
 
         // Close other items
         accordionItems.forEach((other) => {
-          if (other !== item) other.classList.remove('open');
+          if (other !== item) {
+            other.classList.remove('open');
+            const h = other.querySelector('.accordion-header');
+            if (h) h.setAttribute('aria-expanded', 'false');
+          }
         });
 
         // Toggle current item
         if (isOpen) {
           item.classList.remove('open');
+          header.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      header.addEventListener('click', toggleAccordion);
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleAccordion();
         }
       });
     });
@@ -365,5 +419,75 @@
       });
     }
   });
+
+
+  // =========================================================================
+  // 12. PROJECT TIMELINE & GALLERY CARDS INTERACTIVITY (Full card clickable)
+  // =========================================================================
+  document.querySelectorAll('.timeline-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      // If user clicked directly on a link inside, let it follow naturally
+      if (e.target.closest('a')) return;
+      window.location.href = 'projects.html';
+    });
+  });
+
+  document.querySelectorAll('.project-work-card').forEach((card) => {
+    const link = card.querySelector('.project-work-link');
+    const thumb = card.querySelector('.project-work-thumb');
+    const title = card.querySelector('.project-work-title');
+    if (link) {
+      if (thumb) {
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation();
+          link.click();
+        });
+      }
+      if (title) {
+        title.addEventListener('click', (e) => {
+          e.stopPropagation();
+          link.click();
+        });
+      }
+    }
+  });
+
+  // Lightbox backdrop click to dismiss
+  const lightboxEl = document.getElementById('lightbox');
+  if (lightboxEl) {
+    lightboxEl.addEventListener('click', (e) => {
+      if (e.target === lightboxEl || e.target.classList.contains('lightbox')) {
+        const closeBtn = lightboxEl.querySelector('.lb-close') || lightboxEl.querySelector('button');
+        if (closeBtn) closeBtn.click();
+      }
+    });
+  }
+
+  // =========================================================================
+  // 13. QUICK CONTACT FLOATING BUTTON (Mobile Ergonomics Zalo / Hotline 1 chạm)
+  // =========================================================================
+  if (!document.querySelector('.floating-quick-contact')) {
+    const quickBtn = document.createElement('a');
+    quickBtn.className = 'floating-quick-contact';
+    quickBtn.href = 'https://zalo.me/0346689460';
+    quickBtn.target = '_blank';
+    quickBtn.rel = 'noopener';
+    quickBtn.setAttribute('aria-label', 'Nhắn tin Zalo trực tiếp với Duy Quang: 0346 689 460');
+    quickBtn.innerHTML = `
+      <div class="floating-quick-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+          <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.29 16.03 5.34 17.58L4.5 21.5L8.68 19.43C9.72 19.8 10.83 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2Z" fill="#FFFFFF"/>
+          <circle cx="8.5" cy="11" r="1.2" fill="#0068FF"/>
+          <circle cx="12" cy="11" r="1.2" fill="#0068FF"/>
+          <circle cx="15.5" cy="11" r="1.2" fill="#0068FF"/>
+        </svg>
+      </div>
+      <div class="floating-quick-text">
+        <span class="floating-quick-label">Tư vấn trực tiếp</span>
+        <span class="floating-quick-title">Zalo: 0346 689 460</span>
+      </div>
+    `;
+    document.body.appendChild(quickBtn);
+  }
 
 })();
