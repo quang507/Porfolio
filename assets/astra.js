@@ -463,31 +463,32 @@
     });
   }
 
+  // Quick contact floating button removed per user request
+
+
   // =========================================================================
-  // 13. QUICK CONTACT FLOATING BUTTON (Mobile Ergonomics Zalo / Hotline 1 chạm)
+  // 14. BRAND PARTNERS & PROJECTS INTERACTION
   // =========================================================================
-  if (!document.querySelector('.floating-quick-contact')) {
-    const quickBtn = document.createElement('a');
-    quickBtn.className = 'floating-quick-contact';
-    quickBtn.href = 'https://zalo.me/0346689460';
-    quickBtn.target = '_blank';
-    quickBtn.rel = 'noopener';
-    quickBtn.setAttribute('aria-label', 'Nhắn tin Zalo trực tiếp với Duy Quang: 0346 689 460');
-    quickBtn.innerHTML = `
-      <div class="floating-quick-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-          <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.29 16.03 5.34 17.58L4.5 21.5L8.68 19.43C9.72 19.8 10.83 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2Z" fill="#FFFFFF"/>
-          <circle cx="8.5" cy="11" r="1.2" fill="#0068FF"/>
-          <circle cx="12" cy="11" r="1.2" fill="#0068FF"/>
-          <circle cx="15.5" cy="11" r="1.2" fill="#0068FF"/>
-        </svg>
-      </div>
-      <div class="floating-quick-text">
-        <span class="floating-quick-label">Tư vấn trực tiếp</span>
-        <span class="floating-quick-title">Zalo: 0346 689 460</span>
-      </div>
-    `;
-    document.body.appendChild(quickBtn);
-  }
+  document.querySelectorAll('.brand-tag[data-target]').forEach((tag) => {
+    tag.addEventListener('click', (e) => {
+      const targetId = tag.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        const headerOffset = 80;
+        const targetTop = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+
+        // Add highlight pulse
+        targetEl.classList.add('partner-highlight');
+        setTimeout(() => {
+          targetEl.classList.remove('partner-highlight');
+        }, 1800);
+      }
+    });
+  });
 
 })();

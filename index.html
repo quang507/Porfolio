@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Astra Design System CSS -->
-  <link rel="stylesheet" href="assets/styles/astra.css?v=2.7">
+  <link rel="stylesheet" href="assets/styles/astra.css?v=2.8">
 </head>
 <body class="hero-active">
 
@@ -274,12 +274,30 @@
           <div class="brand-partners-strip">
             <div class="brand-strip-label">ĐỐI TÁC VÀ DỰ ÁN ĐỒNG HÀNH</div>
             <div class="brand-tags-grid">
-              <div class="brand-tag"><span>✦</span> Nhã Đạt Compound</div>
-              <div class="brand-tag"><span>✦</span> Xưởng bao bì GÓI</div>
-              <div class="brand-tag"><span>✦</span> Villa Ny'ah Ven Sông</div>
-              <div class="brand-tag"><span>✦</span> NAHT Architecture</div>
-              <div class="brand-tag"><span>✦</span> Mekong Decor</div>
-              <div class="brand-tag"><span>✦</span> AI Ơi Nhà Đất</div>
+              <a href="#project-nyah" class="brand-tag" data-target="project-nyah" title="Xem dự án Ny'ah Phú Định">
+                <span>✦ Nhã Đạt Compound</span>
+                <span class="brand-tag-arrow">↓</span>
+              </a>
+              <a href="#project-goi" class="brand-tag" data-target="project-goi" title="Xem dự án GÓI Packaging">
+                <span>✦ Xưởng bao bì GÓI</span>
+                <span class="brand-tag-arrow">↓</span>
+              </a>
+              <a href="#project-villa" class="brand-tag" data-target="project-villa" title="Xem dự án Villa Ny'ah">
+                <span>✦ Villa Ny'ah Ven Sông</span>
+                <span class="brand-tag-arrow">↓</span>
+              </a>
+              <a href="projects.html" class="brand-tag" title="Xem danh mục kiến trúc NAHT">
+                <span>✦ NAHT Architecture</span>
+                <span class="brand-tag-arrow">↗</span>
+              </a>
+              <a href="projects.html" class="brand-tag" title="Xem thiết kế nội thất Mekong Decor">
+                <span>✦ Mekong Decor</span>
+                <span class="brand-tag-arrow">↗</span>
+              </a>
+              <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="brand-tag" title="Truy cập sản phẩm AI Ơi Nhà Đất">
+                <span>✦ AI Ơi Nhà Đất</span>
+                <span class="brand-tag-arrow">↗</span>
+              </a>
             </div>
           </div>
         </div>
@@ -452,7 +470,7 @@
 
       <div class="timeline-items-stack">
         <!-- Project 1: Ny'ah Phú Định -->
-        <article class="timeline-card-row">
+        <article class="timeline-card-row" id="project-nyah">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
             <div class="timeline-year">Đang triển khai</div>
@@ -473,7 +491,7 @@
         </article>
 
         <!-- Project 2: GÓI Packaging -->
-        <article class="timeline-card-row">
+        <article class="timeline-card-row" id="project-goi">
           <div class="timeline-date-block">
             <div class="timeline-date">2026</div>
             <div class="timeline-year">Hoàn thành</div>
@@ -494,7 +512,7 @@
         </article>
 
         <!-- Project 3: Villa Ny'ah -->
-        <article class="timeline-card-row">
+        <article class="timeline-card-row" id="project-villa">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
             <div class="timeline-year">Đã bàn giao</div>
@@ -515,7 +533,7 @@
         </article>
 
         <!-- Project 4: NhaDat Radar -->
-        <article class="timeline-card-row">
+        <article class="timeline-card-row" id="project-radar">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
             <div class="timeline-year">Hoạt động thật</div>
@@ -772,6 +790,6 @@
   </footer>
 
   <!-- Astra Interactive Engine JS -->
-  <script src="assets/astra.js?v=2.7"></script>
+  <script src="assets/astra.js?v=2.8"></script>
 </body>
 </html>

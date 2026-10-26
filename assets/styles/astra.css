@@ -484,6 +484,14 @@ img {
   background: #000000;
   z-index: 0;
 }
+.hero-cosmos-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20);
+  pointer-events: none;
+  z-index: 2;
+}
 
 .hero-planet {
   position: absolute;
@@ -633,18 +641,9 @@ img {
   color: var(--text-dark-primary);
   font-weight: 600;
   border-top-color: rgba(0, 0, 0, 0.85);
-  padding-left: 28px;
+  padding-left: 12px;
 }
-.hero-service-item.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 2px;
-  background: #000000;
-}
+/* Dash bar removed per user request */
 .hero-service-step {
   font-size: 12px;
   color: var(--text-dark-subtle);
@@ -836,9 +835,11 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
+
 .brand-tag {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 12px 18px;
   background: #EBEAE8;
@@ -847,7 +848,35 @@ img {
   font-size: 13px;
   font-weight: 600;
   color: #2B2B2B;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
 }
+.brand-tag:hover {
+  background: #FFFFFF;
+  border-color: #000000;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.brand-tag:active {
+  transform: translateY(0) scale(0.98);
+}
+.brand-tag-arrow {
+  font-size: 14px;
+  color: var(--text-dark-subtle);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.brand-tag:hover .brand-tag-arrow {
+  color: #000000;
+  transform: translate(2px, -2px);
+}
+.timeline-card-row.partner-highlight .timeline-card {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8), 0 16px 40px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.4s ease;
+}
+
 
 /* ==========================================================================
    03_SERVICES_ACCORDION (Staggered Layout + Layered Images)
@@ -1681,10 +1710,48 @@ img {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   z-index: 10;
 }
+
 .brand-tag {
-  transition: transform 0.2s var(--ease-astra), background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #EBEAE8;
+  border: 1px solid #D8D7D4;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: #2B2B2B;
+  text-decoration: none;
   cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
 }
+.brand-tag:hover {
+  background: #FFFFFF;
+  border-color: #000000;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.brand-tag:active {
+  transform: translateY(0) scale(0.98);
+}
+.brand-tag-arrow {
+  font-size: 14px;
+  color: var(--text-dark-subtle);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.brand-tag:hover .brand-tag-arrow {
+  color: #000000;
+  transform: translate(2px, -2px);
+}
+.timeline-card-row.partner-highlight .timeline-card {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8), 0 16px 40px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.4s ease;
+}
+
 .brand-tag:hover {
   transform: translateY(-2px);
   background: #FFFFFF;
@@ -1898,6 +1965,15 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
    COSMIC BACKGROUND 4K VIDEOS (Hero & Footer)
    ========================================================================== */
 .hero-cosmos-bg {
+.hero-cosmos-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20);
+  pointer-events: none;
+  z-index: 2;
+}
+
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -2264,76 +2340,69 @@ button:focus-visible, a:focus-visible {
   outline: 2px solid rgba(0, 0, 0, 0.6);
 }
 
-/* Quick Contact Floating Thumb Button (Mobile Ergonomics >= 44px) */
-.floating-quick-contact {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 990;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(18, 18, 18, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  padding: 8px 16px 8px 10px;
-  color: #FAFAFA;
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
-  min-height: 48px;
+
+/* ==========================================================================
+   ASTRA REVOLVING SATELLITE & MINI MOON SYSTEM (Astra 1:1 Continuous Orbit)
+   ========================================================================== */
+.hero-satellite-wrap {
+  position: absolute;
+  top: 148px;
+  left: 465px;
+  width: 74px;
+  height: 74px;
+  z-index: 4;
+  pointer-events: none;
+  transform: scale(1.0);
+  opacity: 1;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
 }
-.floating-quick-contact:hover {
-  transform: translateY(-3px) scale(1.02);
-  background: rgba(26, 26, 26, 0.95);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
-  color: #FFFFFF;
-}
-.floating-quick-contact:active {
-  transform: translateY(0) scale(0.96);
-}
-.floating-quick-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0068FF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 104, 255, 0.4);
-}
-.floating-quick-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-.floating-quick-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
-}
-.floating-quick-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #FAFAFA;
-}
-@media (max-width: 600px) {
-  .floating-quick-contact {
-    bottom: 20px;
-    right: 20px;
-    padding: 8px 14px 8px 10px;
-  }
+.hero-satellite-wrap.hero-ready {
+  transform: scale(1.0);
+  opacity: 1;
 }
 
-body.lightbox-open .site-header,
-body.lightbox-open .floating-quick-contact {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+.hero-satellite-orb {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2a2a2a 0%, #0d0d0d 65%, #000000 100%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), inset 0 -2px 6px rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.hero-satellite-orbit-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 116px;
+  height: 116px;
+  margin-top: -58px;
+  margin-left: -58px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: astraOrbitMini 4.5s linear infinite;
+  will-change: transform;
+}
+
+.hero-satellite-mini {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #d1d5db 45%, #4b5563 100%);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.85), 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes astraOrbitMini {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
