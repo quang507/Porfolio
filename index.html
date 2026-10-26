@@ -248,12 +248,21 @@
           <div class="tools-stack-title">Bộ công cụ chính</div>
           <div class="tools-stack-sub">Làm chủ từ tiền kỳ đến hoàn thiện</div>
           <div class="tools-badges-cluster">
-            <div class="tool-badge">Ps</div>
-            <div class="tool-badge">Ai</div>
-            <div class="tool-badge">Lr</div>
-            <div class="tool-badge">Fg</div>
-            <div class="tool-badge">Pr</div>
-            <div class="tool-badge dark">+14</div>
+            <div class="tool-badge" title="Adobe Photoshop (Chỉnh sửa ảnh chuyên nghiệp &amp; Mockup)">Ps</div>
+            <div class="tool-badge" title="Adobe Illustrator (Thiết kế vector &amp; Bao bì in chuẩn)">Ai</div>
+            <div class="tool-badge" title="Adobe Lightroom (Cân bằng sáng HDR &amp; Hậu kỳ màu sắc)">Lr</div>
+            <div class="tool-badge" title="Figma (Design System &amp; Prototype UI/UX)">Fg</div>
+            <div class="tool-badge" title="Adobe Premiere Pro (Dựng phim &amp; Video kiến trúc)">Pr</div>
+            <div class="tool-badge dark tool-badge-more" role="button" tabindex="0" title="Bấm để xem thêm 14 công cụ chuyên sâu" id="toolBadgeMore">+14</div>
+          </div>
+          <div class="tools-popover" id="toolsPopover" aria-hidden="true">
+            <div class="tools-popover-title">14 Công nghệ &amp; Công cụ chuyên sâu:</div>
+            <div class="tools-popover-tags">
+              <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Python</span>
+              <span>Gemini API</span><span>GSAP</span><span>Cinema 4D</span><span>After Effects</span>
+              <span>PostGIS</span><span>Docker</span><span>Git/GitHub</span><span>Vercel</span>
+              <span>Netlify</span><span>Behance</span>
+            </div>
           </div>
         </div>
 
@@ -507,7 +516,7 @@
             <div class="role-badge">Thương hiệu</div>
             <div class="role-badge">Web 11 trang</div>
             <div class="role-badge">Bot báo giá</div>
-            <a href="projects.html" class="timeline-view-link">Xem chi tiết ↗</a>
+            <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="timeline-view-link" title="Mở website xưởng in GÓI">Truy cập web GÓI ↗</a>
           </div>
         </article>
 
@@ -528,7 +537,7 @@
             <div class="role-badge">Giao diện UX/UI</div>
             <div class="role-badge">Dựng trang</div>
             <div class="role-badge">Phễu chuyển đổi</div>
-            <a href="projects.html" class="timeline-view-link">Xem chi tiết ↗</a>
+            <a href="https://polite-hamster-cf3510.netlify.app/" target="_blank" rel="noopener" class="timeline-view-link" title="Xem bản demo Villa Ny'ah">Xem demo Villa Ny'ah ↗</a>
           </div>
         </article>
 
@@ -549,7 +558,7 @@
             <div class="role-badge">Sản phẩm AI</div>
             <div class="role-badge">UX/UI App</div>
             <div class="role-badge">7.700+ tin</div>
-            <a href="projects.html" class="timeline-view-link">Xem chi tiết ↗</a>
+            <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="timeline-view-link" title="Dùng thử Chatbot NhaDat Radar">Dùng thử Chatbot AI ↗</a>
           </div>
         </article>
       </div>
@@ -669,13 +678,13 @@
           <div class="dash-card-title">Sản phẩm thực tế vận hành</div>
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
             <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <strong>Compound Ny'ah:</strong> Bàn giao trọn vẹn hình ảnh cho chiến dịch mở bán 50 căn nhà phố cao cấp.
+              ✦ <a href="projects.html" class="dash-product-link" title="Xem chi tiết dự án Ny'ah"><strong>Compound Ny'ah:</strong></a> Bàn giao trọn vẹn hình ảnh cho chiến dịch mở bán 50 căn nhà phố cao cấp.
             </div>
             <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <strong>Xưởng GÓI:</strong> Vận hành website 11 trang và hệ thống tính giá bao bì tự động cho hàng trăm đơn hàng.
+              ✦ <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="dash-product-link" title="Truy cập web thương mại GÓI"><strong>Xưởng GÓI:</strong></a> Vận hành website 11 trang và hệ thống tính giá bao bì tự động cho hàng trăm đơn hàng.
             </div>
             <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <strong>NhaDat Radar:</strong> Phân tích và quản lý hơn 7.700 dữ liệu tin tức thị trường tự động.
+              ✦ <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="dash-product-link" title="Dùng thử trực tiếp AI Chatbot"><strong>NhaDat Radar:</strong></a> Phân tích và quản lý hơn 7.700 dữ liệu tin tức thị trường tự động.
             </div>
           </div>
         </div>
@@ -779,7 +788,7 @@
       </div>
 
       <!-- Giant Brand Mark -->
-      <div class="footer-giant-brand">Quang®</div>
+      <a href="#top" class="footer-giant-brand-link" title="Cuộn lên đầu trang" aria-label="Cuộn lên đầu trang"><div class="footer-giant-brand">Quang®</div></a>
 
       <!-- Bottom Bar -->
       <div class="footer-bottom-bar">

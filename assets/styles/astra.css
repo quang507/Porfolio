@@ -2236,19 +2236,31 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
 }
 
 .timeline-view-link {
-  display: inline-block;
-  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--text-light-muted);
+  font-weight: 600;
+  color: #FAFAFA;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 2px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
 }
 .timeline-view-link:hover {
-  color: #FAFAFA;
-  border-color: #FAFAFA;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.timeline-view-link:active {
+  transform: scale(0.96);
 }
 
 /* ==========================================================================
@@ -2391,4 +2403,98 @@ button:focus-visible, a:focus-visible {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+/* ==========================================================================
+   HEURISTIC INTERACTION ENHANCEMENTS (UI/UX Pro Max WCAG AA & Ergonomics)
+   ========================================================================== */
+.tools-stack-block {
+  position: relative;
+}
+.tools-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 14px;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  width: 320px;
+  max-width: calc(100vw - 48px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tools-popover.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.tools-popover-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.tools-popover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tools-popover-tags span {
+  font-size: 11px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.tool-badge-more {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.tool-badge-more:hover {
+  transform: scale(1.12);
+  background: #1a1a1a;
+  border-color: #2563eb !important;
+}
+
+/* Dashboard Products Link Highlight */
+.dash-product-link {
+  color: var(--text-dark-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--text-dark-muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.dash-product-link:hover {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Footer Giant Watermark Link */
+.footer-giant-brand-link {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+.footer-giant-brand {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.footer-giant-brand-link:hover .footer-giant-brand {
+  opacity: 0.12 !important;
+  transform: translateY(-6px);
+}
+
+/* Ensure entire timeline-card has pointer cursor */
+.timeline-card {
+  cursor: pointer;
 }

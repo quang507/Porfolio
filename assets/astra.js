@@ -491,4 +491,56 @@
     });
   });
 
+
+  // =========================================================================
+  // 15. HEURISTIC INTERACTION EXPANSIONS (Timeline Cards & Tool Popover)
+  // =========================================================================
+  // A. Entire Timeline Card Clickability
+  document.querySelectorAll('.timeline-card-row').forEach((row) => {
+    const card = row.querySelector('.timeline-card');
+    const link = row.querySelector('.timeline-view-link');
+    if (card && link) {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          link.click();
+        }
+      });
+    }
+  });
+
+  // B. Tools Popover Toggle
+  const toolBadgeMore = document.getElementById('toolBadgeMore');
+  const toolsPopover = document.getElementById('toolsPopover');
+
+  if (toolBadgeMore && toolsPopover) {
+    toolBadgeMore.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = toolsPopover.classList.toggle('open');
+      toolsPopover.setAttribute('aria-hidden', String(!isOpen));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!toolsPopover.contains(e.target) && e.target !== toolBadgeMore) {
+        toolsPopover.classList.remove('open');
+        toolsPopover.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toolsPopover.classList.contains('open')) {
+        toolsPopover.classList.remove('open');
+        toolsPopover.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  // C. Footer Giant Watermark Smooth Scroll to Top
+  const footerWatermark = document.querySelector('.footer-giant-brand-link');
+  if (footerWatermark) {
+    footerWatermark.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 })();
