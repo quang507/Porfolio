@@ -1047,8 +1047,11 @@ img {
 }
 .timeline-card-media {
   width: 100%;
-  height: clamp(320px, 42vh, 460px);
+  height: auto;
+  max-height: 580px;
   object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 .timeline-card-meta {
   padding: 24px 32px;
@@ -1384,6 +1387,7 @@ img {
   width: 100%;
   height: 260px;
   object-fit: cover;
+  object-position: top center;
   background: #E5E4E2;
 }
 .project-work-body {
@@ -1793,7 +1797,7 @@ img {
 }
 
 .timeline-card-media, .accordion-overlap-img {
-  transform: scale(1.15);
+  transform: scale(1.02);
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .in-view .timeline-card-media, .in-view .accordion-overlap-img {
