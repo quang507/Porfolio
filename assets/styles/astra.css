@@ -488,7 +488,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.20);
+  background: radial-gradient(ellipse at 75% 50%, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.68) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -500,37 +500,21 @@ img {
   width: 1520px;
   height: 1520px;
   border-radius: 50%;
-  background: linear-gradient(105deg, #FFFFFF 0%, #FFFFFF 72%, #F4F3F0 88%, #E3E2DE 97%, #C8C4C6 100%);
+  background: linear-gradient(100deg, #C2BEB9 0%, #D4D0CB 28%, #E4E1DD 58%, #F2EFEB 80%, #FAF8F6 94%, #FFFFFF 100%);
   z-index: 1;
   overflow: hidden;
-  box-shadow: 0 0 120px rgba(0, 0, 0, 0.9);
+  box-shadow: 35px 0 75px rgba(0, 0, 0, 0.85), 15px 0 25px rgba(0, 0, 0, 0.65), 0 0 100px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  will-change: transform;
 }
 
 .hero-planet-backdrop {
   display: none;
 }
 
-.hero-lens-ring-outer {
-  position: absolute;
-  top: -325px;
-  left: -845px;
-  width: 1550px;
-  height: 1550px;
-  border-radius: 50%;
-  border: 1px solid rgba(250, 250, 250, 0.22);
-  z-index: 3;
-  pointer-events: none;
-}
+.hero-lens-ring-outer,
 .hero-lens-ring-inner {
-  position: absolute;
-  top: -295px;
-  left: -815px;
-  width: 1490px;
-  height: 1490px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  z-index: 3;
-  pointer-events: none;
+  display: none !important;
 }
 
 .hero-streak {
@@ -1685,9 +1669,9 @@ img {
   width: 1520px;
   height: 1520px;
   border-radius: 50%;
-  background: linear-gradient(105deg, #FFFFFF 0%, #F5F4F2 78%, #E2E1DE 96%, #CFCCCE 100%);
+  background: linear-gradient(100deg, #C2BEB9 0%, #D4D0CB 28%, #E4E1DD 58%, #F2EFEB 80%, #FAF8F6 94%, #FFFFFF 100%);
   z-index: 2;
-  box-shadow: 0 0 120px rgba(0, 0, 0, 0.85);
+  box-shadow: 35px 0 75px rgba(0, 0, 0, 0.85), 15px 0 25px rgba(0, 0, 0, 0.65), 0 0 100px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   transition: transform 0.1s ease-out;
   will-change: transform;
@@ -1976,15 +1960,6 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
    COSMIC BACKGROUND 4K VIDEOS (Hero & Footer)
    ========================================================================== */
 .hero-cosmos-bg {
-.hero-cosmos-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.20);
-  pointer-events: none;
-  z-index: 2;
-}
-
   position: absolute;
   inset: 0;
   overflow: hidden;
