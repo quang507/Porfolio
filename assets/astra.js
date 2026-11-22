@@ -1,16 +1,13 @@
 /**
- * Astra Genuine Motion & Interaction Engine (Framer 1:1)
- * Directly extracted from https://astralab.framer.website/
- * 
- * 1. Framer Appear Animation System
- * 2. Hero Big Title & Celestial Sphere Entrance & Parallax
- * 3. Sticky Timeline Stacking Cards
- * 4. Services Accordion Expand / Collapse & Rotation
- * 5. Decelerated Stat Counters
- * 6. Full-screen Menu Overlay (00_Menu_Overlay) with radial reveal & stagger
- * 7. Cinematic Film Grain Atmosphere
- * 8. Live Timezone Clock Widget (Asia/Ho_Chi_Minh • GMT+7)
- * 9. Deep-Dive UX & Product Case Study Drawer (openCaseStudy / closeCaseStudy)
+ * Tương tác của trang portfolio
+ *
+ * 1. Lớp hạt phim
+ * 2. Hiện dần khi cuộn tới
+ * 3. Hero: vào trang và parallax
+ * 4. Menu toàn màn hình, header khi cuộn
+ * 5. Đồng hồ giờ TP.HCM ở footer
+ * 6. Link tới dự án, danh sách công cụ
+ * 7. Popup case study (openCaseStudy / closeCaseStudy)
  */
 
 (function () {
@@ -29,7 +26,7 @@
   }
 
   // =========================================================================
-  // 2. FRAMER ASTRA APPEAR ANIMATION ENGINE (Safe, non-blocking)
+  // 2. HIỆN DẦN KHI CUỘN TỚI
   // =========================================================================
   const targets = document.querySelectorAll(
     '.stat-card, .timeline-card-row, .accordion-item, .founder-editorial-row, .pricing-card, .dash-card, .stage-item, .project-work-card'
@@ -63,7 +60,7 @@
     });
   }
 
-  // Hero entrance trigger (Framer Astra 1:1 Majestic Cascade)
+  // Hero: bật hiệu ứng vào trang
   function triggerHeroEntrance() {
     const heroElements = document.querySelectorAll(
       '.site-header, .hero-planet, .hero-lens-ring-outer, .hero-lens-ring-inner, ' +
@@ -160,7 +157,7 @@
   });
 
   // =========================================================================
-  // 5. SERVICES ACCORDION (Astra 1:1 Expand & Rotate, ARIA & Keyboard support)
+  // 5. ACCORDION (mở/đóng, hỗ trợ bàn phím)
   // =========================================================================
   const accordionItems = document.querySelectorAll('.accordion-item');
   if (accordionItems.length > 0) {
@@ -258,7 +255,7 @@
   }
 
   // =========================================================================
-  // 7. FULL-SCREEN MENU OVERLAY (00_Menu_Overlay - Astra Genuine Fluid Reveal)
+  // 7. MENU TOÀN MÀN HÌNH
   // =========================================================================
   const menuTrigger = document.querySelector('.menu-trigger-btn');
   const menuOverlay = document.querySelector('.menu-overlay');

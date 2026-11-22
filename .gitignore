@@ -23,3 +23,10 @@ FACEBOOK-2FA-RecoveryCodes.txt
 # ===== công cụ =====
 .claude/
 tools/
+
+# Video nền 4K gốc (trang dùng bản 1080p: media/bg-hero.mp4, media/bg-footer.mp4)
+media/*uhd_3840_2160*.mp4
+
+# Bản xuất chat, không thuộc trang
+chat_data.json
+share_page.html

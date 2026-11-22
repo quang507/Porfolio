@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ASTRA DESIGN SYSTEM · LÊ BÁ DUY QUANG PORTFOLIO
-   Extracted & Transformed from Figma: Portfolio_Quang
+   PORTFOLIO LÊ BÁ DUY QUANG
+   Thiết kế từ file Figma Portfolio_Quang
    Tokens, Typography, Modular Layouts & Responsive Fluid Grid
    ========================================================================== */
 
@@ -258,7 +258,7 @@ img {
 }
 
 /* ==========================================================================
-   MENU TRIGGER & FULL-SCREEN OVERLAY (Astra Genuine Fluid Reveal)
+   NÚT MENU VÀ MENU TOÀN MÀN HÌNH
    ========================================================================== */
 .menu-trigger-btn {
   width: 48px;
@@ -1606,7 +1606,7 @@ img {
 
 
 /* ==========================================================================
-   AUTHENTIC ASTRA MOTION & INTERACTION ENGINE (Framer 1:1)
+   CHUYỂN ĐỘNG VÀ TƯƠNG TÁC
    ========================================================================== */
 
 /* 1. Continuous Marquee Ticker */
@@ -1761,8 +1761,7 @@ img {
 
 
 /* ==========================================================================
-   AUTHENTIC FRAMER ASTRA APPEAR ANIMATION SPEC
-   Extracted from __framer__appearAnimationsContent on astralab.framer.website
+   HIỆN DẦN KHI CUỘN TỚI
    ========================================================================== */
 
 .framer-appear {
@@ -1803,7 +1802,7 @@ img {
 
 
 /* ==========================================================================
-   ASTRA CINEMATIC FILM GRAIN (Authentic Analog Atmosphere)
+   LỚP HẠT PHIM
    ========================================================================== */
 .grain-overlay {
   position: fixed;
@@ -1825,7 +1824,7 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
 }
 
 /* ==========================================================================
-   INFINITE MARQUEE TICKER (Astra Genuine Tech & Craft Marquee)
+   BĂNG CHỮ CHẠY
    ========================================================================== */
 .astra-marquee-wrap {
   position: relative;
@@ -2033,7 +2032,7 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
 
 
 /* ==========================================================================
-   FRAMER ASTRA 1:1 HERO LIQUID ENTRANCE ENGINE (Spring Physics)
+   HERO: HIỆU ỨNG VÀO TRANG
    ========================================================================== */
 
 /* 1. Header slide-down */
@@ -2241,8 +2240,7 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
 
 
 /* ==========================================================================
-   09_UX_CASE_STUDY_DRAWER (Deep-Dive Product & Design Engineering Thinking)
-   Inspired by Framer Case Study Architecture (CGV Hook Model & OneSeat UX)
+   POPUP CASE STUDY
    ========================================================================== */
 .cs-modal {
   position: fixed;
