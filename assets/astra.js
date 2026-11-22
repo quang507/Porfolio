@@ -609,12 +609,13 @@
       subtitle: 'Trang tìm nhà đất gom tin từ nhiều nguồn, lọc trùng, đưa lên bản đồ, kèm chatbot trả lời bằng tiếng Việt.',
       year: '2025',
       role: 'Thiết kế và code toàn bộ',
-      scope: 'Thiết kế sản phẩm, giao diện bản đồ, kịch bản hội thoại, code full-stack',
-      tools: 'Next.js 15 · TypeScript · Supabase (PostGIS, pgvector) · Playwright · Gemini',
+      scope: 'Luồng người dùng, design system, prototype mobile, giao diện bản đồ, code full-stack',
+      tools: 'Figma · Next.js 15 · TypeScript · Supabase (PostGIS, pgvector) · Playwright · Gemini',
       cover: 'media/shot-nhadat-radar.jpg',
       liveUrl: 'https://nhadatradar.com',
       liveLabel: 'Mở nhadatradar.com ↗',
       repoUrl: 'https://github.com/quang507/NhaDat-Radar',
+      figmaUrl: 'https://www.figma.com/design/ovoxnSrm4hFhFnfjiI5UTA/Nhadatradar.com',
       context: 'Cùng một căn nhà có thể được nhiều môi giới đăng lại trên nhiều trang, mỗi nơi một giá và một diện tích. Người mua mất rất nhiều thời gian lọc tin mà vẫn không biết mặt bằng giá thật của khu vực.',
       problems: [
         {
@@ -636,24 +637,28 @@
       ],
       steps: [
         {
-          title: 'Gom tin tự động',
-          desc: 'Playwright quét 9 nguồn tin, 2 lần mỗi ngày.'
+          title: 'Vẽ luồng từ tìm phòng tới chốt lịch xem',
+          desc: 'Trên Figma tôi chia hai loại tin. Tin do Radar giữ thì Radar là đầu mối: nút Zalo chép sẵn câu nhắn kèm mã phòng, người trực tra mã là biết khách hỏi căn nào. Tin gom từ web thì dẫn về bài gốc, số điện thoại chỉ hiện sau khi đăng nhập.'
         },
         {
-          title: 'Chuẩn hóa và lọc trùng',
-          desc: 'Gemini tách từng tin thành giá trên m², diện tích, pháp lý, tọa độ. Tin trùng và tin có dấu hiệu giá ảo bị loại.'
+          title: 'Thiết kế cho điện thoại trước',
+          desc: 'Prototype 9 màn ở khổ 375px, từ trang chủ, bộ lọc, chi tiết tin tới đăng nhập. Nút Gọi và Zalo luôn nằm ở đáy màn hình, vùng chạm tối thiểu 44px.'
         },
         {
-          title: 'Đưa lên bản đồ',
-          desc: 'Hơn 22.700 tin ở 116 quận huyện hiện trên bản đồ PostGIS, bên cạnh là bảng tóm tắt giá trên m², chiều ngang và lộ giới. Người xem khoanh bán kính để so giá trong khu vực.'
+          title: 'Bộ token và component',
+          desc: 'Màu Emerald và Slate có cả chế độ sáng và tối, chữ Inter, lưới 4pt, bo góc 2–4px. Component bọc lại từ bộ ZEN Kaiz.'
         },
         {
-          title: 'Chatbot có dẫn nguồn',
-          desc: 'Câu trả lời về giá, tiến độ thanh toán và chiết khấu đều lấy từ cơ sở dữ liệu (pgvector), kèm gợi ý câu hỏi tiếp theo và nút chuyển cho tư vấn viên.'
+          title: 'Đặt chỉ số để đo',
+          desc: 'Ba sự kiện được ghi lại: xem tin, gọi, nhắn Zalo. Mục tiêu đặt ra là ít nhất 6% lượt xem tin thành liên hệ.'
         },
         {
-          title: 'Lật slide bằng giọng nói',
-          desc: 'Khi tư vấn viên nói “mặt bằng tầng trệt” hay “chính sách ngân hàng”, màn hình tự chuyển sang đúng slide.'
+          title: 'Gom tin, lọc trùng, đưa lên bản đồ',
+          desc: 'Playwright quét 9 nguồn tin, 2 lần mỗi ngày. Gemini tách từng tin thành giá trên m², diện tích, pháp lý, tọa độ; tin trùng và tin có dấu hiệu giá ảo bị loại. Hơn 22.700 tin ở 116 quận huyện hiện trên bản đồ PostGIS.'
+        },
+        {
+          title: 'Chatbot và trình chiếu bằng giọng nói',
+          desc: 'Câu trả lời về giá, tiến độ thanh toán và chiết khấu đều lấy từ cơ sở dữ liệu (pgvector) và có dẫn nguồn. Khi tư vấn viên nói “mặt bằng tầng trệt” hay “chính sách ngân hàng”, màn hình tự chuyển sang đúng slide.'
         }
       ],
       results: [
