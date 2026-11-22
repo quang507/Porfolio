@@ -337,51 +337,29 @@
   updateLiveClock();
 
   // =========================================================================
-  // 9. CAREER STAGES & PLANET ORBS INTERACTIVE SELECTION (Hành trình)
+  // 9. LINK TỚI DỰ ÁN (ảnh tròn và dòng kinh nghiệm ở mục Kinh nghiệm)
+  //    Thẻ dự án là position: sticky nên đo trực tiếp sẽ lệch khi đang đứng
+  //    bên dưới; tính vị trí tự nhiên từ đầu danh sách rồi cuộn tới đó.
   // =========================================================================
-  const stageItems = document.querySelectorAll('.stage-item');
-  const planetImages = document.querySelectorAll('.planets-arc-wrap img');
+  document.querySelectorAll('[data-project]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const row = document.getElementById(link.getAttribute('data-project'));
+      const stack = row && row.parentElement;
+      if (!row || !stack) return;
+      e.preventDefault();
 
-  function activateStage(index) {
-    if (!stageItems.length) return;
-    stageItems.forEach((item, i) => {
-      if (i === index) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
+      const gap = parseFloat(getComputedStyle(stack).rowGap) || 0;
+      let top = stack.getBoundingClientRect().top + window.scrollY;
+      for (const sib of stack.children) {
+        if (sib === row) break;
+        top += sib.offsetHeight + (parseFloat(getComputedStyle(sib).marginBottom) || 0) + gap;
       }
+
+      window.scrollTo({ top: Math.max(top - 100, 0), behavior: prefersReduced ? 'auto' : 'smooth' });
+      row.classList.add('partner-highlight');
+      setTimeout(() => row.classList.remove('partner-highlight'), 1800);
     });
-
-    if (planetImages.length) {
-      planetImages.forEach((img, i) => {
-        const isMatch = (index === 0 && (i === 0 || i === 1)) ||
-                        (index === 1 && i === 2) ||
-                        (index === 2 && i === 3);
-        if (isMatch) {
-          img.classList.add('active');
-        } else {
-          img.classList.remove('active');
-        }
-      });
-    }
-  }
-
-  if (stageItems.length > 0) {
-    stageItems.forEach((item, idx) => {
-      item.addEventListener('click', () => activateStage(idx));
-    });
-
-    if (planetImages.length > 0) {
-      planetImages.forEach((img, idx) => {
-        img.addEventListener('click', () => {
-          const target = idx <= 1 ? 0 : (idx === 2 ? 1 : 2);
-          activateStage(target);
-        });
-      });
-    }
-
-    activateStage(0);
-  }
+  });
 
   // =========================================================================
   // 10. COSMIC BACKGROUND VIDEOS (Autoplay Safeguard)
@@ -483,28 +461,28 @@
     }
   });
 
-  const toolBadgeMore = document.getElementById('toolBadgeMore');
+  const toolBadges = document.querySelectorAll('.tools-badges-cluster .tool-badge');
   const toolsPopover = document.getElementById('toolsPopover');
 
-  if (toolBadgeMore && toolsPopover) {
-    toolBadgeMore.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = toolsPopover.classList.toggle('open');
-      toolsPopover.setAttribute('aria-hidden', String(!isOpen));
+  if (toolBadges.length && toolsPopover) {
+    const setPopover = (open) => {
+      toolsPopover.classList.toggle('open', open);
+      toolsPopover.setAttribute('aria-hidden', String(!open));
+    };
+
+    toolBadges.forEach((badge) => {
+      badge.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setPopover(!toolsPopover.classList.contains('open'));
+      });
     });
 
     document.addEventListener('click', (e) => {
-      if (!toolsPopover.contains(e.target) && e.target !== toolBadgeMore) {
-        toolsPopover.classList.remove('open');
-        toolsPopover.setAttribute('aria-hidden', 'true');
-      }
+      if (!toolsPopover.contains(e.target) && !e.target.closest('.tool-badge')) setPopover(false);
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && toolsPopover.classList.contains('open')) {
-        toolsPopover.classList.remove('open');
-        toolsPopover.setAttribute('aria-hidden', 'true');
-      }
+      if (e.key === 'Escape') setPopover(false);
     });
   }
 
@@ -517,298 +495,278 @@
   }
 
   // =========================================================================
-  // 14. DEEP-DIVE UX & PRODUCT CASE STUDY ENGINE (Framer Case Study Architecture)
+  // 14. CASE STUDY (popup: Vấn đề / Cách làm / Kết quả)
   // =========================================================================
   const CASE_STUDIES = {
     nyah: {
-      kicker: 'CASE STUDY 01 · BẤT ĐỘNG SẢN CAO CẤP & TỐI ƯU CHUYỂN ĐỔI (CRO)',
-      title: 'Compound Ny\'ah Phú Định & Villa Ny\'ah: Thiết kế trải nghiệm mở bán dựa trên dữ liệu hành vi',
-      subtitle: 'Từ việc chụp ảnh kiến trúc HDR nguồn, xây dựng hệ thống giao diện trên Figma đến đo lường bản đồ nhiệt Microsoft Clarity, GA4 và Google Search Console để giải quyết điểm nghẽn tâm lý của khách mua nhà phân khúc 8 – 15 tỷ.',
-      year: '2025 – Nay',
-      role: 'Lead Visual & Design Engineer (UI/UX, SEO/CRO, Nhiếp ảnh HDR)',
-      scope: 'UX Research · User Journey · Figma UI · Clarity / GA4 / GSC · AI Visual Search',
-      platform: 'Web Responsive & Sales Gallery Interactive',
+      kicker: 'Case study · Bất động sản',
+      title: 'Ny\'ah Phú Định và Villa Ny\'ah',
+      subtitle: 'Ảnh thật, landing page và công cụ tìm ảnh cho hai dự án nhà ở của Nhã Đạt.',
+      year: '2025 – nay',
+      role: 'Lead Visual & Design Engineer',
+      scope: 'Chụp ảnh kiến trúc, thiết kế giao diện, dựng landing page, đo hành vi người xem',
+      tools: 'Figma · Clarity · GA4 · Search Console · Python (CLIP, FAISS)',
       cover: 'media/nyah-photo-2.jpg',
       liveUrl: 'https://polite-hamster-cf3510.netlify.app/',
-      liveLabel: 'Xem Landing Page Villa Ny\'ah ↗',
-      context: 'Trong thị trường bất động sản nhà phố compound và biệt thự ven sông tại TP.HCM, khách hàng có giá trị giao dịch lớn (high-ticket) ngày càng cảnh giác với các hình vẽ phối cảnh 3D bóng bẩy nhưng thiếu thực tế. Khi phụ trách toàn bộ hình ảnh và giao diện số cho hai dự án trọng điểm của Nhã Đạt (Compound 50 căn Ny\'ah Phú Định Quận 8 và Villa Ny\'ah Ven Sông), bài toán không chỉ là làm một trang web đẹp, mà là xây dựng niềm tin thị giác đủ lớn để khách hàng sẵn sàng để lại số điện thoại đặt lịch tham quan nhà mẫu.',
-      problemQuote: 'Problem Statement: Khách hàng phân khúc cao cấp thoát trang sớm vì nghi ngờ ảnh phối cảnh 3D ảo, bị ngợp bởi thông tin quy hoạch rời rạc và ngần ngại điền form đăng ký khi chưa biết rõ giá trị thực tế cũng như chính sách thanh toán.',
-      painPoints: [
+      liveLabel: 'Xem landing page Villa Ny\'ah ↗',
+      context: 'Nhã Đạt bán nhà phố compound ở Quận 8 và biệt thự ven sông. Người mua nhà giá trị lớn thường không tin ảnh phối cảnh 3D, nên trang web phải cho họ thấy căn nhà thật trước khi họ chịu để lại số điện thoại. Tôi phụ trách hình ảnh và giao diện cho cả hai dự án.',
+      problems: [
         {
-          title: 'Điểm đau 01 · Khoảng cách niềm tin thị giác (Visual Trust Gap)',
-          desc: 'Phần lớn landing page bất động sản dùng ảnh render 3D hoặc ảnh chụp bị cháy sáng cửa sổ, méo góc rộng, khiến người xem cảm thấy không gian giả tạo và rời trang ngay ở 15 giây đầu tiên.'
+          title: 'Ảnh 3D không tạo được niềm tin',
+          desc: 'Ảnh render, hoặc ảnh chụp cháy sáng và méo góc, làm không gian trông giả. Người xem rời trang sớm.'
         },
         {
-          title: 'Điểm đau 02 · Đứt gãy luồng đọc trên thiết bị di động',
-          desc: 'Qua theo dõi Microsoft Clarity (session recordings & scroll heatmaps), hơn 75% lưu lượng đến từ điện thoại nhưng người dùng thường dừng cuộn ở các khối văn bản giới thiệu dài dòng trước khi kịp nhìn thấy mặt bằng căn mẫu và nút đặt lịch.'
+          title: 'Chữ nhiều, ảnh căn mẫu nằm quá sâu',
+          desc: 'Xem lại các phiên truy cập trên Clarity, tôi thấy người dùng điện thoại hay dừng cuộn ở đoạn giới thiệu dài, chưa tới mặt bằng và nút đặt lịch.'
         },
         {
-          title: 'Điểm đau 03 · Chậm trễ trong khâu cung cấp tư liệu cho đội Sales',
-          desc: 'Kho hình chụp tiến độ công trình và nội thất lên tới hơn 10.000 file RAW/JPEG khiến đội ngũ kinh doanh mất 15 – 20 phút mỗi lần tìm đúng góc chụp khách hàng yêu cầu.'
+          title: 'Tìm ảnh cho đội kinh doanh rất chậm',
+          desc: 'Kho ảnh công trình có hơn 10.000 file. Mỗi lần khách hỏi một góc chụp là phải lục thư mục bằng tay.'
         },
         {
-          title: 'Điểm đau 04 · Rào cản tâm lý ở bước để lại thông tin (Form Friction)',
-          desc: 'Khách hàng ngại điền form truyền thống vì sợ bị làm phiền nếu chưa được giải đáp nhanh các câu hỏi cơ bản về diện tích, hướng nhà và lịch thanh toán.'
+          title: 'Khách ngại điền form',
+          desc: 'Họ muốn biết diện tích, hướng nhà và lịch thanh toán trước khi để lại thông tin.'
         }
       ],
-      flowTitle: 'Tư duy thiết kế & Mô hình chuyển đổi 4 bước (Hook & Trust Loop)',
-      flowSteps: [
+      steps: [
         {
-          num: '01 · TRIGGER (KÍCH HOẠT)',
-          title: 'Ấn tượng thị giác thật 100%',
-          desc: 'Thay thế hoàn toàn ảnh 3D bằng bộ ảnh chụp kiến trúc HDR thực tế (kéo sáng cửa sổ, nắn thẳng trục đứng) ngay tại màn hình đầu tiên (Above the Fold).'
+          title: 'Chụp lại bằng ảnh thật',
+          desc: 'Tôi chụp ngoại thất, ban công, phòng khách và bếp căn mẫu bằng HDR bracketing để giữ được cảnh ngoài cửa sổ. Ảnh thật thay ảnh 3D ngay ở màn hình đầu tiên.'
         },
         {
-          num: '02 · ACTION (HÀNH ĐỘNG)',
-          title: 'Luồng khám phá không ma sát',
-          desc: 'Tái cấu trúc Information Architecture (IA): gom nhóm Mặt bằng – Tiện ích – Tiến độ thực tế thành các thẻ trực quan dễ lướt bằng một ngón cái trên di động.'
+          title: 'Rút chữ, đưa căn mẫu lên trên',
+          desc: 'Dựa vào heatmap, bản ghi phiên trên Clarity và số liệu GA4, tôi cắt đoạn chữ đầu trang và gom mặt bằng, tiện ích, tiến độ thành các thẻ dễ lướt trên điện thoại. Từ khóa tìm kiếm theo khu vực thì chỉnh theo Search Console.'
         },
         {
-          num: '03 · VARIABLE REWARD',
-          title: 'Phản hồi tức thì bằng AI',
-          desc: 'Tích hợp trợ lý AI trả lời ngay bảng giá, chính sách chiết khấu bằng tiếng Việt tự nhiên thay vì bắt khách hàng chờ nhân viên gọi lại.'
+          title: 'Form ngắn, nút đặt lịch luôn hiện',
+          desc: 'Form chỉ còn 2 trường. Nút đặt lịch tham quan nằm cố định trên màn hình.'
         },
         {
-          num: '04 · INVESTMENT (CHUYỂN ĐỔI)',
-          title: 'Đặt lịch tham quan 1 chạm',
-          desc: 'Đặt cụm CTA cố định (Sticky Action) và form đăng ký rút gọn chỉ 2 trường thông tin đúng tại điểm dừng mắt (Heatmap Hotspot).'
+          title: 'Viết công cụ tìm ảnh bằng mô tả',
+          desc: 'Tôi viết Tìm Hình Quang bằng Python, Streamlit, CLIP và FAISS. Gõ mô tả tiếng Việt như “phòng khách căn mẫu có nắng chiều” là ra đúng ảnh.'
         }
       ],
-      solutions: [
-        {
-          title: '1. Tối ưu UI/UX & CRO dựa trên dữ liệu Microsoft Clarity, GA4 và GSC',
-          desc: 'Cài đặt Microsoft Clarity để xem lại video phiên truy cập (session recordings) và bản đồ nhiệt (click/scroll heatmaps), kết hợp Google Analytics 4 (GA4) theo dõi sự kiện cuộn trang và Google Search Console (GSC) để tối ưu từ khóa tìm kiếm địa phương (nhà phố Quận 8, compound Phú Định). Từ dữ liệu thực tế, tôi rút gọn độ dài khối chữ đầu trang, đưa bộ ảnh thực tế căn mẫu Cosmo lên vị trí vàng và tinh chỉnh lại độ tương phản của nút CTA.'
-        },
-        {
-          title: '2. Chủ động nhiếp ảnh kiến trúc HDR & Chuẩn hóa thẩm mỹ thực tế',
-          desc: 'Trực tiếp bấm máy toàn bộ ngoại thất, ban công xanh, phòng khách và bếp căn mẫu bằng kỹ thuật phơi sáng đa lớp (HDR Bracketing), giữ trọn chi tiết cảnh quan bên ngoài cửa sổ và độ ấm của vật liệu nội thất.'
-        },
-        {
-          title: '3. Xây dựng công cụ AI tìm kiếm thị giác (CLIP + FAISS) cho kho 10.000+ ảnh',
-          desc: 'Để giải quyết bài toán vận hành nội bộ, tôi tự viết ứng dụng Tìm Hình Quang bằng Python, Streamlit, mô hình thị giác CLIP và cơ sở dữ liệu vector FAISS. Đội ngũ chỉ cần gõ mô tả tiếng Việt tự nhiên (ví dụ: "phòng khách căn mẫu có nắng chiều") là lấy được đúng ảnh dưới 2 giây.'
-        }
-      ],
-      metrics: [
-        { num: 'Clarity + GA4', label: 'Đo lường trực tiếp bản đồ nhiệt (heatmap), tỷ lệ cuộn trang và phễu sự kiện chuyển đổi.' },
-        { num: '< 2 Giây', label: 'Thời gian truy vấn chính xác hình ảnh trong kho 10.000+ file kiến trúc bằng AI CLIP/FAISS.' },
-        { num: '50 Căn', label: 'Compound Ny\'ah Phú Định & phân khu Villa được đồng bộ 100% nhận diện, web và ấn phẩm mở bán.' }
+      results: [
+        { num: '< 2 giây', label: 'để tìm một ảnh trong kho hơn 10.000 file.' },
+        { num: '50 căn', label: 'compound Ny\'ah Phú Định dùng chung một bộ ảnh thật cho web và ấn phẩm mở bán.' },
+        { num: '2 trường', label: 'là tất cả những gì form đặt lịch hỏi.' }
       ]
     },
     goi: {
-      kicker: 'CASE STUDY 02 · B2B E-COMMERCE, DESIGN SYSTEM & AI AUTOMATION',
-      title: 'Xưởng bao bì GÓI: Từ Design System đến Website 11 trang & Bot báo giá hộp giấy tự động',
-      subtitle: 'Giải quyết điểm nghẽn báo giá thủ công chậm trễ của ngành in bao bì truyền thống bằng hệ thống thiết kế đồng bộ, luồng tra cứu quy cách trực quan và động cơ tính giá AI kiểm chứng trên 1.400 đơn hàng.',
+      kicker: 'Case study · Bao bì',
+      title: 'Xưởng bao bì GÓI',
+      subtitle: 'Nhận diện, website 11 trang và bot báo giá hộp giấy cho một xưởng in.',
       year: '2025 – 2026',
-      role: 'Design Engineer (Brand Identity, Figma Design System, Frontend & AI Bot)',
-      scope: 'UX Research · Design Tokens · Web 11 Trang · Python & Gemini Quoting Bot',
-      platform: 'Web Thương mại B2B & Hệ thống Báo giá Tự động',
+      role: 'Design Engineer',
+      scope: 'Nhận diện thương hiệu, design system, ảnh sản phẩm, code website, viết bot báo giá',
+      tools: 'Figma · Python · Gemini API',
       cover: 'media/goi-1.jpg',
       liveUrl: 'https://goi-v2.vercel.app',
-      liveLabel: 'Truy cập Website GÓI ↗',
-      context: 'Trong ngành sản xuất bao bì hộp giấy B2B, khách hàng doanh nghiệp nhỏ và các chủ thương hiệu (local brands) thường rất lúng túng trước hàng loạt thuật ngữ kỹ thuật: định lượng giấy (Ivory, Duplex, Kraft), sóng carton (sóng E, sóng B), cán màng, ép kim và khổ trải khuôn bế (dieline). Ở chiều ngược lại, bộ phận kinh doanh của xưởng mất từ 30 phút đến vài giờ để tính toán chi phí giấy, kẽm in và gia công cho mỗi yêu cầu hỏi giá, dẫn đến tỷ lệ rớt khách cao.',
-      problemQuote: 'Problem Statement: Khách đặt in hộp không hiểu thông số kỹ thuật nên gửi yêu cầu thiếu dữ liệu, trong khi xưởng in mất quá nhiều thời gian tính giá thủ công trên Excel khiến khách hàng rời đi chọn đối thủ phản hồi nhanh hơn.',
-      painPoints: [
+      liveLabel: 'Mở website GÓI ↗',
+      context: 'Khách đặt hộp giấy thường là chủ thương hiệu nhỏ, không rành định lượng giấy, sóng carton hay khuôn bế, nên gửi yêu cầu thiếu thông tin. Phía xưởng thì tính giá bằng tay trên Excel cho từng yêu cầu. Khách chờ lâu và bỏ đi.',
+      problems: [
         {
-          title: 'Điểm đau 01 · Rào cản thuật ngữ kỹ thuật in ấn (Cognitive Overload)',
-          desc: 'Khách hàng mới không phân biệt được các kiểu nắp hộp (hộp âm dương, hộp nắp gài, hộp rút) và chất liệu giấy nếu chỉ đọc bảng chữ thông thường.'
+          title: 'Khách không hiểu thuật ngữ in',
+          desc: 'Chỉ đọc chữ thì khó phân biệt hộp âm dương, hộp nắp gài, hộp rút hay các loại giấy.'
         },
         {
-          title: 'Điểm đau 02 · Quy trình báo giá thủ công rời rạc, dễ sai sót',
-          desc: 'Mỗi đơn hàng phụ thuộc vào kích thước 3 chiều (Dài × Rộng × Cao), số lượng in và quy cách gia công sau in; tính nhẩm hoặc tra bảng thủ công rất chậm và thiếu nhất quán.'
+          title: 'Báo giá bằng tay chậm và dễ lệch',
+          desc: 'Giá phụ thuộc kích thước ba chiều, số lượng và gia công sau in. Tính nhẩm hay tra bảng đều chậm, mỗi người ra một con số.'
         },
         {
-          title: 'Điểm đau 03 · Thiếu hệ thống hình ảnh sản phẩm chuẩn mực',
-          desc: 'Các xưởng in truyền thống thường dùng ảnh chụp điện thoại thiếu sáng hoặc ảnh lấy trên mạng, không thể hiện được độ sắc nét của đường cấn bế và chất lượng bề mặt giấy.'
+          title: 'Ảnh sản phẩm kém',
+          desc: 'Ảnh chụp điện thoại thiếu sáng không cho thấy đường cấn bế và bề mặt giấy.'
         },
         {
-          title: 'Điểm đau 04 · Giao diện web B2B khô khan, thiếu luồng dẫn dắt',
-          desc: 'Người dùng truy cập website không biết bắt đầu từ việc chọn kiểu hộp, chọn ngành hàng hay gửi kích thước trước.'
+          title: 'Vào web không biết bắt đầu từ đâu',
+          desc: 'Chọn kiểu hộp trước, chọn ngành hàng trước, hay gửi kích thước trước?'
         }
       ],
-      flowTitle: 'Kiến trúc thông tin (IA) & Luồng đặt in 4 bước giảm tải nhận thức',
-      flowSteps: [
+      steps: [
         {
-          num: '01 · VISUAL CATALOG',
-          title: 'Chọn kiểu hộp qua hình thật',
-          desc: 'Trực quan hóa toàn bộ danh mục hộp bằng ảnh chụp studio và mockup 3D sắc nét, phân loại theo ngành hàng (mỹ phẩm, F&B, quà tặng).'
+          title: 'Cho khách chọn hộp bằng hình',
+          desc: 'Danh mục hộp dùng ảnh chụp studio và mockup, chia theo ngành hàng: mỹ phẩm, đồ ăn uống, quà tặng.'
         },
         {
-          num: '02 · GUIDED SPECS',
-          title: 'Nhập quy cách có gợi ý',
-          desc: 'Hướng dẫn người dùng nhập kích thước Dài × Rộng × Cao và số lượng kèm gợi ý chất liệu giấy tối ưu chi phí.'
+          title: 'Design system và website 11 trang',
+          desc: 'Tôi dựng bộ token màu, lưới 12 cột và các thẻ sản phẩm dùng lại được trên Figma, rồi tự code cả 11 trang cho máy tính lẫn điện thoại.'
         },
         {
-          num: '03 · AI PARSING ENGINE',
-          title: 'Bóc tách & Tính giá tự động',
-          desc: 'Bot Python + Gemini API tự động đọc tin nhắn tự nhiên của khách, quy đổi khổ trải giấy, tính số lượng con trên tờ in và áp công thức giá xưởng.'
+          title: 'Bot báo giá',
+          desc: 'Bot viết bằng Python và Gemini API. Nó đọc tin nhắn viết tự do của khách, quy ra khổ trải giấy, tính số con trên tờ in, hao hụt và gia công, rồi trả giá theo từng mốc số lượng.'
         },
         {
-          num: '04 · INSTANT QUOTE',
-          title: 'Nhận báo giá & Chốt khuôn bế',
-          desc: 'Trả bảng báo giá chi tiết theo từng mốc số lượng ngay lập tức, chuyển thẳng sang bước duyệt file thiết kế chuẩn in.'
+          title: 'Đối chiếu với đơn thật',
+          desc: 'Tôi chạy bot trên 1.400 đơn mẫu của xưởng để sửa các trường hợp khó, như hộp quá khổ phải ghép bài in hay đơn số lượng ít.'
         }
       ],
-      solutions: [
-        {
-          title: '1. Xây dựng Figma Design System & Website thương mại 11 trang hoàn chỉnh',
-          desc: 'Thiết lập hệ thống Design Tokens (màu sắc lấy cảm hứng từ chất liệu giấy mộc và mực in công nghiệp, hệ thống lưới 12 cột và các component thẻ sản phẩm tái sử dụng). Trực tiếp lập trình toàn bộ 11 trang web thương mại với tốc độ tải nhanh và trải nghiệm mượt mà trên cả máy tính lẫn điện thoại.'
-        },
-        {
-          title: '2. Phát triển Bot báo giá AI tự động (Python + Gemini API)',
-          desc: 'Kết hợp kinh nghiệm thực tế trong ngành kỹ thuật in với lập trình Python và Gemini API để xây dựng luồng tính giá tự động: nhận diện yêu cầu viết tự do của khách hàng, tự động tính diện tích khổ trải, hao hụt giấy và chi phí gia công.'
-        },
-        {
-          title: '3. Kiểm thử thực nghiệm trên 1.400 đơn hàng mẫu (Validation)',
-          desc: 'Chạy đối soát kết quả tính giá của hệ thống với 1.400 đơn hàng thực tế của xưởng để tinh chỉnh các trường hợp biên (edge cases) như hộp kích thước quá khổ phải ghép bài in hoặc đơn hàng số lượng ít.'
-        }
-      ],
-      metrics: [
-        { num: '11 Trang', label: 'Website thương mại hoàn chỉnh từ trang chủ, danh mục quy cách đến luồng đặt hàng.' },
-        { num: '1.400 Đơn', label: 'Đơn hàng mẫu được chạy kiểm thử đối soát để đảm bảo độ chính xác của thuật toán báo giá.' },
-        { num: 'Tức thì', label: 'Rút ngắn thời gian phản hồi báo giá sơ bộ từ hàng chục phút xuống chỉ còn vài giây.' }
+      results: [
+        { num: '11 trang', label: 'website, từ trang chủ, danh mục đến luồng đặt hàng.' },
+        { num: '1.400 đơn', label: 'mẫu đã dùng để đối chiếu giá bot tính ra.' },
+        { num: 'Vài giây', label: 'để có báo giá sơ bộ, thay vì chờ người tính.' }
       ]
     },
     radar: {
-      kicker: 'CASE STUDY 03 · AI PRODUCT DESIGN, CONVERSATION UI & SPATIAL DATA',
-      title: 'NhaDat Radar & AI Chatbot: Giải quyết bài toán "tin rác, giá ảo" trên thị trường bất động sản',
-      subtitle: 'Nghiên cứu nỗi đau của người tìm mua nhà trước ma trận tin đăng trùng lặp, từ đó thiết kế nền tảng bản đồ số PostGIS kết hợp trợ lý hội thoại AI (Gemini RAG) và điều khiển slide bằng giọng nói.',
+      kicker: 'Case study · Sản phẩm tự làm',
+      title: 'NhaDat Radar',
+      subtitle: 'Trang tìm nhà đất gom tin từ nhiều nguồn, lọc trùng, đưa lên bản đồ, kèm chatbot trả lời bằng tiếng Việt.',
       year: '2025',
-      role: 'Product Designer & Full-stack AI Builder',
-      scope: 'Problem Deconstruction · Spatial UX · Conversation Design · Next.js 15 / PostGIS / pgvector',
-      platform: 'Web App Bản đồ Số & AI Voice/Chat Assistant',
-      cover: 'media/thumb/radar-diagram.jpg',
-      liveUrl: 'https://nha-dat-chatbot.vercel.app',
-      liveLabel: 'Dùng thử AI Chatbot & Live Slide ↗',
+      role: 'Thiết kế và code toàn bộ',
+      scope: 'Thiết kế sản phẩm, giao diện bản đồ, kịch bản hội thoại, code full-stack',
+      tools: 'Next.js 15 · TypeScript · Supabase (PostGIS, pgvector) · Playwright · Gemini',
+      cover: 'media/shot-nhadat-radar.jpg',
+      liveUrl: 'https://nhadatradar.com',
+      liveLabel: 'Mở nhadatradar.com ↗',
       repoUrl: 'https://github.com/quang507/NhaDat-Radar',
-      context: 'Tương tự như cách người mua vé sự kiện sợ "vé chợ đen, QR giả" (trong bài toán OneSeat), người đi tìm mua nhà thực tại Việt Nam luôn đối mặt với tâm lý bất an trước "tin mồi, giá ảo và tin đăng trùng lặp". Cùng một căn nhà nhưng có tới hàng chục môi giới đăng lại trên nhiều trang khác nhau với mức giá và diện tích sai lệch, khiến người dùng mất hàng tuần lọc tin mà vẫn không nắm được mặt bằng giá thật của khu vực.',
-      problemQuote: 'Problem Statement: Người mua nhà bị quá tải thông tin bởi hàng nghìn tin đăng trùng lặp, thiếu vị trí thực tế trên bản đồ và phải đọc các mô tả quảng cáo phóng đại thay vì dữ liệu đã được kiểm chứng.',
-      painPoints: [
+      context: 'Cùng một căn nhà có thể được nhiều môi giới đăng lại trên nhiều trang, mỗi nơi một giá và một diện tích. Người mua mất rất nhiều thời gian lọc tin mà vẫn không biết mặt bằng giá thật của khu vực.',
+      problems: [
         {
-          title: 'Điểm đau 01 · Nhiễu loạn tin trùng lặp từ nhiều nguồn (Duplicate Noise)',
-          desc: 'Một bất động sản bị đăng đi đăng lại trên 5 – 6 sàn tin với tiêu đề giật tít khác nhau, làm loãng kết quả tìm kiếm của người mua thực.'
+          title: 'Tin trùng',
+          desc: 'Một căn bị đăng lại trên 5, 6 trang với tiêu đề khác nhau, làm loãng kết quả tìm kiếm.'
         },
         {
-          title: 'Điểm đau 02 · Mù mờ về không gian & Tọa độ địa lý',
-          desc: 'Danh sách tin dạng thẻ truyền thống không cho phép người dùng hình dung ngay căn nhà nằm ở vị trí nào, cách trục đường chính bao xa và giá các căn lân cận trong bán kính 1km ra sao.'
+          title: 'Không thấy vị trí',
+          desc: 'Danh sách dạng thẻ không cho biết căn nhà nằm ở đâu, cách đường chính bao xa, các căn quanh đó giá bao nhiêu.'
         },
         {
-          title: 'Điểm đau 03 · Bộ lọc cứng nhắc, thiếu ngữ cảnh tự nhiên',
-          desc: 'Người mua thường có nhu cầu phức hợp (ví dụ: "tìm nhà gần trường học Quận 8 tài chính dưới 9 tỷ có chỗ đậu ô tô"), nhưng bộ lọc dropdown truyền thống đòi hỏi quá nhiều bước bấm.'
+          title: 'Bộ lọc cứng',
+          desc: 'Nhu cầu thật thường là một câu dài, kiểu “nhà gần trường ở Quận 8, dưới 9 tỷ, có chỗ đậu ô tô”. Bộ lọc dropdown bắt bấm quá nhiều bước.'
         },
         {
-          title: 'Điểm đau 04 · Gián đoạn khi tư vấn trực tiếp tại Sales Gallery',
-          desc: 'Chuyên viên tư vấn khi đang nói chuyện với khách phải liên tục dùng chuột tìm slide mặt bằng hoặc bảng tính dòng tiền, làm ngắt mạch cảm xúc của buổi thuyết trình.'
+          title: 'Tư vấn viên bị ngắt mạch khi trình chiếu',
+          desc: 'Đang nói chuyện với khách mà phải cầm chuột tìm slide mặt bằng hay bảng dòng tiền.'
         }
       ],
-      flowTitle: 'Kiến trúc giải pháp 2 tầng: Làm sạch dữ liệu nguồn & Giao diện hội thoại thông minh',
-      flowSteps: [
+      steps: [
         {
-          num: '01 · MULTI-SOURCE CRAWL',
-          title: 'Thu thập tự động 2 lần/ngày',
-          desc: 'Hệ thống Playwright tự động quét dữ liệu từ 5 sàn bất động sản lớn nhất theo lịch cố định.'
+          title: 'Gom tin tự động',
+          desc: 'Playwright quét 9 nguồn tin, 2 lần mỗi ngày.'
         },
         {
-          num: '02 · AI NORMALIZATION',
-          title: 'Bóc tách & Khử trùng lặp',
-          desc: 'Dùng Gemini API trích xuất cấu trúc chuẩn (giá/m², diện tích, pháp lý, tọa độ) và loại bỏ các tin đăng trùng hoặc có dấu hiệu giá ảo.'
+          title: 'Chuẩn hóa và lọc trùng',
+          desc: 'Gemini tách từng tin thành giá trên m², diện tích, pháp lý, tọa độ. Tin trùng và tin có dấu hiệu giá ảo bị loại.'
         },
         {
-          num: '03 · SPATIAL MAP UI',
-          title: 'Trực quan hóa trên PostGIS',
-          desc: 'Hiển thị trực tiếp hơn 7.700 bất động sản lên bản đồ tương tác, cho phép khoanh vùng bán kính và so sánh mặt bằng giá khu vực.'
+          title: 'Đưa lên bản đồ',
+          desc: 'Hơn 22.700 tin ở 116 quận huyện hiện trên bản đồ PostGIS, bên cạnh là bảng tóm tắt giá trên m², chiều ngang và lộ giới. Người xem khoanh bán kính để so giá trong khu vực.'
         },
         {
-          num: '04 · CONVERSATION & VOICE',
-          title: 'Hỏi đáp RAG & Lật slide giọng nói',
-          desc: 'Trợ lý AI trả lời tiếng Việt có trích dẫn nguồn rõ ràng (Trust & Transparency) và tự động chuyển slide thuyết trình khi nghe từ khóa của nhân viên tư vấn.'
+          title: 'Chatbot có dẫn nguồn',
+          desc: 'Câu trả lời về giá, tiến độ thanh toán và chiết khấu đều lấy từ cơ sở dữ liệu (pgvector), kèm gợi ý câu hỏi tiếp theo và nút chuyển cho tư vấn viên.'
+        },
+        {
+          title: 'Lật slide bằng giọng nói',
+          desc: 'Khi tư vấn viên nói “mặt bằng tầng trệt” hay “chính sách ngân hàng”, màn hình tự chuyển sang đúng slide.'
         }
       ],
-      solutions: [
+      results: [
+        { num: '22.735 tin', label: 'từ 9 nguồn, ở 116 quận huyện, đã lọc trùng và có vị trí trên bản đồ.' },
+        { num: '19.800', label: 'lượt hiển thị trên Google trong 3 tháng, từ 20/8 đến 18/11/2026 (Search Console).' },
+        { num: '190', label: 'lượt nhấp từ Google trong cùng 3 tháng, vị trí trung bình 17,5.' }
+      ]
+    },
+    vslv: {
+      kicker: 'Case study · App học tập',
+      title: 'VSLV, app học ngôn ngữ ký hiệu Việt Nam',
+      subtitle: 'Học ký hiệu tại nhà: xem mẫu, làm theo trước camera, máy chấm đúng sai ngay.',
+      year: '2026',
+      role: 'Lead nhóm 3 người: lên ý tưởng, dẫn phần thiết kế, tự code',
+      scope: 'Nghiên cứu người dùng, luồng học, design system, prototype, code web app',
+      tools: 'Figma · Next.js 14 · MediaPipe · TensorFlow.js · Capacitor',
+      cover: 'media/vslv-flow.jpg',
+      liveUrl: 'https://quang507.github.io/VSL/',
+      liveLabel: 'Mở app trên web ↗',
+      repoUrl: 'https://github.com/quang507/VSL',
+      figmaUrl: 'https://www.figma.com/design/1MxaKSyYEyPMvSVKUTJ3IZ/?node-id=2-4',
+      context: 'Người thân, bạn bè, đồng nghiệp của người khiếm thính muốn học ngôn ngữ ký hiệu thường chỉ có video để xem. Ký hiệu lại khác nhau giữa Hà Nội, Hải Phòng và TP.HCM, và có ngữ pháp riêng chứ không phải dịch từng từ tiếng Việt.',
+      problems: [
         {
-          title: '1. Thiết kế giao diện Bản đồ làm trung tâm (Map-First UX)',
-          desc: 'Thay vì bắt người dùng mở từng trang chi tiết, giao diện kết hợp song song bản đồ không gian PostGIS và bảng tóm tắt thông số cốt lõi (giá quy đổi trên mỗi m², chiều ngang, lộ giới hẻm/đường), giúp người xem đánh giá nhanh giá trị bất động sản chỉ trong một ánh nhìn.'
+          title: 'Không có chỗ luyện',
+          desc: 'Xem video xong thì không có cách nào thực hành ngay trên máy.'
         },
         {
-          title: '2. Thiết kế hội thoại (Conversation Design) minh bạch, chống ảo giác AI',
-          desc: 'Áp dụng nguyên tắc Trust & Transparency của AI UX: mọi câu trả lời của Chatbot về giá bán, tiến độ thanh toán và chiết khấu đều truy xuất trực tiếp từ cơ sở dữ liệu vector (pgvector RAG), kèm gợi ý câu hỏi tiếp theo và nút chuyển tiếp gặp chuyên viên tư vấn thật khi cần thương lượng sâu.'
+          title: 'Không biết mình sai ở đâu',
+          desc: 'Người học khó tự nhận ra lỗi về hình bàn tay, vị trí và chuyển động.'
         },
         {
-          title: '3. Tính năng Live Slide điều khiển bằng giọng nói tại Sales Gallery',
-          desc: 'Tích hợp nhận diện giọng nói tiếng Việt thời gian thực: khi nhân viên tư vấn nhắc tới "mặt bằng tầng trệt", "chính sách ngân hàng" hay "vị trí kết nối", màn hình trình chiếu tự động chuyển đúng slide tương ứng mà không cần chạm tay vào máy tính.'
+          title: 'Nội dung không theo vùng',
+          desc: 'Người học cần đúng ký hiệu của vùng mình sẽ dùng, và một lộ trình hợp với mục tiêu của mình.'
         }
       ],
-      metrics: [
-        { num: '7.700+ Tin', label: 'Dữ liệu bất động sản được chuẩn hóa, khử trùng lặp và định vị trên bản đồ PostGIS.' },
-        { num: '5 Nguồn lớn', label: 'Tự động thu thập và cập nhật dữ liệu 2 lượt mỗi ngày qua pipeline Playwright & Python.' },
-        { num: 'RAG + Voice', label: 'Kết hợp hỏi đáp ngôn ngữ tự nhiên tiếng Việt và điều khiển slide rảnh tay theo thời gian thực.' }
+      steps: [
+        {
+          title: 'Vào app trong ba bước',
+          desc: 'Đăng nhập, chọn vùng ký hiệu (chuẩn toàn quốc, TP.HCM, Hà Nội, Hải Phòng), chọn mục tiêu 5 hoặc 10 phút mỗi ngày. Quyền camera chỉ hỏi khi vào bài học, từ chối vẫn học được.'
+        },
+        {
+          title: 'Xem mẫu rồi làm theo trước camera',
+          desc: 'Video mẫu xem chậm được và có ba góc nhìn. Sau đó người học làm theo một bóng mờ hình tay; độ khớp hiện liên tục, từ 80% là đạt.'
+        },
+        {
+          title: 'Sai thì chỉ đúng chỗ lệch',
+          desc: 'Mũi tên vàng chỉ chỗ lệch kèm một câu gợi ý. Quá ba lần thì lưu vào mục cần ôn lại và cho đi tiếp. Camera không thấy tay thì không tính là sai.'
+        },
+        {
+          title: 'Phản hồi không cần âm thanh',
+          desc: 'Đúng, sai, chưa đạt đều báo bằng màu, icon, chữ và nhịp rung khác nhau, để người khiếm thính và người mù màu đều nhận ra.'
+        },
+        {
+          title: 'Code cho chạy trong trình duyệt',
+          desc: 'Tôi viết web app bằng Next.js. MediaPipe bắt 21 điểm khớp bàn tay, TensorFlow.js phân loại ký hiệu ngay trên máy người dùng, không cần server. Capacitor đóng gói thành app iOS và Android.'
+        }
+      ],
+      results: [
+        { num: '3 luồng', label: 'chính đã thiết kế xong: thiết lập, học một bài, tra từ điển.' },
+        { num: '10 trang', label: 'trong bản web đang chạy, từ lộ trình đến từ điển.' },
+        { num: '21 điểm', label: 'khớp bàn tay được theo dõi qua camera, không gửi hình lên server.' }
       ]
     },
     tiles: {
-      kicker: 'CASE STUDY 04 · THIẾT KẾ SẢN PHẨM MŨI NHỌN & TĂNG TRƯỞNG B2B NHÀ MÁY',
-      title: 'Piramic Saigon & Đức Phát: Thiết kế tranh gạch 3D dẫn dắt thị trường & Mở rộng mạng lưới đại lý',
-      subtitle: 'Hành trình 7 năm biến kỹ thuật thiết kế đồ họa khổ lớn và quản trị màu sắc in UV/in men công nghiệp thành đòn bẩy thương mại, giúp nhà máy thu hút đại lý mới và tăng trưởng doanh thu bền vững.',
+      kicker: 'Case study · In công nghiệp',
+      title: 'Tranh gạch 3D cho Piramic Saigon và Đức Phát',
+      subtitle: 'Bảy năm thiết kế tranh gạch khổ lớn và giữ màu in đúng với bản thiết kế.',
       year: '2017 – 2024',
-      role: 'Chuyên viên Thiết kế Sản phẩm & Kỹ thuật In Công nghiệp',
-      scope: 'Market Research · 3D Tile Mural Design · ICC Color Management · Digital Catalogue',
-      platform: 'Sản xuất Công nghiệp (UV / Ceramic Glaze) & Hệ thống Phân phối Đại lý',
+      role: 'Thiết kế sản phẩm và kỹ thuật in',
+      scope: 'Thiết kế tranh gạch 3D, xử lý file in khổ lớn, quản lý màu, làm catalogue',
+      tools: 'Photoshop · Illustrator · ICC profile · máy in UV',
       cover: 'media/social-2.jpg',
-      context: 'Trong ngành vật liệu trang trí nội thất (gạch ốp tường, tranh gạch 3D khổ lớn và thảm gạch sảnh biệt thự), phần lớn các xưởng sản xuất nhỏ chỉ sao chép lại các mẫu có sẵn trên mạng với chất lượng ảnh vỡ nét và màu sắc sau khi nung/in UV bị sai lệch nặng so với bản vẽ. Để nhà máy Piramic Saigon và Đức Phát thuyết phục được các đại lý vật liệu xây dựng lớn nhập hàng, sản phẩm thiết kế phải đủ độc đáo để tạo xu hướng và đạt độ chính xác kỹ thuật tuyệt đối khi sản xuất hàng loạt.',
-      problemQuote: 'Problem Statement: Các đại lý vật liệu xây dựng ngại nhập mẫu mới vì sợ tồn kho, khách mua lẻ khó hình dung tranh gạch khổ lớn khi lên tường thực tế, trong khi sai lệch màu sắc giữa màn hình thiết kế và lò in công nghiệp gây thiệt hại chi phí phế phẩm lớn cho nhà máy.',
-      painPoints: [
+      context: 'Nhiều xưởng tranh gạch chỉ chép lại mẫu trên mạng: ảnh vỡ nét, màu sau khi in UV hoặc nung lệch xa bản vẽ. Muốn đại lý vật liệu chịu nhập hàng thì mẫu phải khác hàng đại trà, và in hàng loạt phải đúng màu.',
+      problems: [
         {
-          title: 'Điểm đau 01 · Mẫu mã đại trà, thiếu tính dẫn dắt thị trường',
-          desc: 'Thị trường tràn ngập các mẫu tranh gạch cũ kỹ, độ phân giải thấp, không đáp ứng được gu thẩm mỹ của các căn biệt thự và sảnh khách sạn hiện đại.'
+          title: 'Mẫu trên thị trường cũ và giống nhau',
+          desc: 'Độ phân giải thấp, không hợp với biệt thự và sảnh khách sạn mới.'
         },
         {
-          title: 'Điểm đau 02 · Sai lệch màu sắc giữa file RGB và máy in UV / lò nung',
-          desc: 'Màu men gạch và mực UV phản ứng khác hoàn toàn màn hình máy tính; chỉ cần lệch tông màu da hoặc màu vàng kim là toàn bộ lô gạch khổ lớn phải hủy bỏ.'
+          title: 'Màu trên màn hình khác màu in',
+          desc: 'Men gạch và mực UV lên màu khác hẳn màn hình. Lệch tông da hay tông vàng kim là phải bỏ cả lô gạch.'
         },
         {
-          title: 'Điểm đau 03 · Đại lý thiếu công cụ tư vấn trực quan cho chủ nhà',
-          desc: 'Nhân viên tại các cửa hàng đại lý không có kỹ năng thiết kế, rất khó thuyết phục chủ nhà chốt đơn nếu chỉ cho xem ảnh phẳng rời rạc.'
+          title: 'Đại lý khó tư vấn',
+          desc: 'Nhân viên cửa hàng không biết thiết kế, chỉ có ảnh phẳng rời rạc để cho chủ nhà xem.'
         }
       ],
-      flowTitle: 'Quy trình 4 bước từ Nghiên cứu thị hiếu đến Mở rộng mạng lưới đại lý',
-      flowSteps: [
+      steps: [
         {
-          num: '01 · TREND RESEARCH',
-          title: 'Nắm bắt gu nội thất mới',
-          desc: 'Phân tích xu hướng kiến trúc biệt thự, tân cổ điển và phong thủy Á Đông để sáng tạo các dòng tranh 3D & thảm gạch sảnh có chiều sâu thị giác cao.'
+          title: 'Thiết kế mẫu riêng',
+          desc: 'Tôi thiết kế hơn 200 mẫu tranh gạch 3D, tranh giả ngọc và thảm gạch sảnh, theo gu biệt thự, tân cổ điển và phong thủy.'
         },
         {
-          num: '02 · HIGH-RES CRAFT',
-          title: 'Vẽ & Tái tạo chi tiết siêu thực',
-          desc: 'Thiết kế và xử lý file độ phân giải cực lớn (hàng chục GB), đảm bảo khi ghép hàng chục viên gạch 80×80cm vẫn sắc nét ở cự ly gần.'
+          title: 'File đủ nét cho khổ lớn',
+          desc: 'File nặng hàng chục GB, ghép hàng chục viên 80×80 cm vẫn nét khi đứng gần. Tôi tính độ hụt đường ron giữa các viên và tách lớp mực trắng, lớp bóng cho máy in UV.'
         },
         {
-          num: '03 · ICC CALIBRATION',
-          title: 'Chuẩn hóa màu in nhà máy',
-          desc: 'Xây dựng ICC Profile riêng cho từng dòng máy in UV phẳng và chất liệu men kính, đạt tỷ lệ duyệt mẫu ngay từ lần in đầu tiên.'
+          title: 'Giữ màu đúng',
+          desc: 'Mỗi dòng máy in UV và mỗi loại men có một ICC profile riêng.'
         },
         {
-          num: '04 · DEALER ENABLEMENT',
-          title: 'Catalogue số & Phối cảnh 3D',
-          desc: 'Đóng gói thư viện 200+ mẫu độc quyền thành bộ catalogue số hóa kèm phối cảnh không gian thực tế để đại lý chốt khách nhanh.'
+          title: 'Catalogue cho đại lý',
+          desc: 'Catalogue chia theo không gian: phòng khách, sảnh, cầu thang, phòng thờ. Tôi cũng ghép mẫu lên ảnh nhà thật của khách để đại lý dễ tư vấn.'
         }
       ],
-      solutions: [
-        {
-          title: '1. Sáng tạo các dòng tranh gạch 3D & thảm gạch sảnh dẫn dắt thị trường',
-          desc: 'Trực tiếp thiết kế hơn 200 mẫu tranh gạch 3D dán tường, tranh giả ngọc điêu khắc và thảm gạch trang trí sảnh chính độc quyền. Các bộ sưu tập này trở thành sản phẩm mũi nhọn tạo sự khác biệt rõ rệt với hàng đại trà, thu hút nhiều nhà phân phối và đại lý mới ký hợp đồng nhập hàng.'
-        },
-        {
-          title: '2. Chuẩn hóa kỹ thuật bình file, chia viên và quản trị màu CMYK/UV',
-          desc: 'Thiết lập quy trình kiểm soát chất lượng file tiền kỳ in ấn nghiêm ngặt: tính toán chính xác độ hụt đường ron giữa các viên gạch, tách lớp mực trắng/bóng (varnish) trên máy in UV công nghiệp, giảm tối đa tỷ lệ in lỗi tại xưởng.'
-        },
-        {
-          title: '3. Số hóa công cụ bán hàng giúp tăng doanh thu cho hệ thống đại lý',
-          desc: 'Biên tập bộ catalogue phân loại theo từng không gian (phòng khách, sảnh biệt thự, cầu thang, phòng thờ) và hỗ trợ dựng phối cảnh ghép mẫu trực tiếp lên ảnh chụp nhà thật của khách, giúp rút ngắn 40% thời gian từ lúc tư vấn đến khi đặt cọc sản xuất.'
-        }
-      ],
-      metrics: [
-        { num: '200+ Mẫu', label: 'Thư viện mẫu tranh gạch 3D và thảm gạch sảnh độc quyền dẫn dắt thị hiếu thị trường.' },
-        { num: '-40% Thời gian', label: 'Rút ngắn thời gian tư vấn và chốt đơn cho hệ thống đại lý nhờ bộ catalogue phối cảnh số hóa.' },
-        { num: 'Mở rộng Đại lý', label: 'Đóng góp trực tiếp vào việc phát triển mạng lưới đại lý phân phối mới và tăng trưởng doanh thu nhà máy.' }
+      results: [
+        { num: '200+ mẫu', label: 'tranh gạch 3D và thảm gạch sảnh do tôi thiết kế.' },
+        { num: '7 năm', label: 'làm việc với máy in UV và lò nung.' },
+        { num: '80×80 cm', label: 'mỗi viên, ghép hàng chục viên vẫn nét.' }
       ]
     }
   };
@@ -822,12 +780,12 @@
     modal.className = 'cs-modal';
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Case Study Chi Tiết');
+    modal.setAttribute('aria-label', 'Case study');
     modal.innerHTML = `
       <div class="cs-sheet" id="csSheet">
         <div class="cs-topbar">
-          <span class="cs-topbar-tag" id="csTopTag">UX &amp; DESIGN ENGINEERING CASE STUDY</span>
-          <button type="button" class="cs-close-btn" id="csCloseBtn">Đóng Case Study ✕</button>
+          <span class="cs-topbar-tag" id="csTopTag">Case study</span>
+          <button type="button" class="cs-close-btn" id="csCloseBtn">Đóng ✕</button>
         </div>
         <div id="csContentMount"></div>
       </div>
@@ -857,41 +815,34 @@
     const topTag = modal.querySelector('#csTopTag');
     if (topTag) topTag.textContent = data.kicker;
 
-    const painCardsHtml = data.painPoints.map((p) => `
+    const problemsHtml = data.problems.map((p) => `
       <div class="cs-mini-card">
         <h4>${p.title}</h4>
         <p>${p.desc}</p>
       </div>
     `).join('');
 
-    const flowStepsHtml = data.flowSteps.map((s) => `
-      <div class="cs-flow-step">
-        <div class="cs-flow-step-num">${s.num}</div>
-        <div class="cs-flow-step-title">${s.title}</div>
-        <div class="cs-flow-step-desc">${s.desc}</div>
-      </div>
+    const stepsHtml = data.steps.map((s) => `
+      <li>
+        <div>
+          <h4>${s.title}</h4>
+          <p>${s.desc}</p>
+        </div>
+      </li>
     `).join('');
 
-    const solutionsHtml = data.solutions.map((sol) => `
-      <div style="margin-bottom: 14px;">
-        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #000;">${sol.title}</h4>
-        <p style="font-size: 15px; line-height: 1.65; color: #262625;">${sol.desc}</p>
-      </div>
-    `).join('');
-
-    const metricsHtml = data.metrics.map((m) => `
+    const resultsHtml = data.results.map((m) => `
       <div class="cs-metric-box">
         <div class="cs-metric-num">${m.num}</div>
         <div class="cs-metric-label">${m.label}</div>
       </div>
     `).join('');
 
-    const actionLinksHtml = `
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        ${data.liveUrl ? `<a href="${data.liveUrl}" target="_blank" rel="noopener" class="pricing-btn" style="background:#000; color:#FAFAFA; padding: 12px 24px; font-size: 14px;">${data.liveLabel}</a>` : ''}
-        ${data.repoUrl ? `<a href="${data.repoUrl}" target="_blank" rel="noopener" class="pricing-btn" style="background:#FAFAFA; color:#000; border: 1px solid #000; padding: 12px 24px; font-size: 14px;">Xem mã nguồn GitHub ↗</a>` : ''}
-      </div>
-    `;
+    const linksHtml = [
+      data.liveUrl ? `<a href="${data.liveUrl}" target="_blank" rel="noopener" class="pricing-btn" style="background:#000; color:#FAFAFA; padding: 12px 24px; font-size: 14px;">${data.liveLabel}</a>` : '',
+      data.repoUrl ? `<a href="${data.repoUrl}" target="_blank" rel="noopener" class="pricing-btn" style="background:#FAFAFA; color:#000; border: 1px solid #000; padding: 12px 24px; font-size: 14px;">Mã nguồn trên GitHub ↗</a>` : '',
+      data.figmaUrl ? `<a href="${data.figmaUrl}" target="_blank" rel="noopener" class="pricing-btn" style="background:#FAFAFA; color:#000; border: 1px solid #000; padding: 12px 24px; font-size: 14px;">File Figma ↗</a>` : ''
+    ].join('');
 
     mount.innerHTML = `
       <div class="cs-hero">
@@ -908,12 +859,12 @@
             <div class="cs-meta-val">${data.role}</div>
           </div>
           <div>
-            <div class="cs-meta-label">PHẠM VI CHUYÊN MÔN</div>
+            <div class="cs-meta-label">VIỆC TÔI LÀM</div>
             <div class="cs-meta-val">${data.scope}</div>
           </div>
           <div>
-            <div class="cs-meta-label">NỀN TẢNG</div>
-            <div class="cs-meta-val">${data.platform}</div>
+            <div class="cs-meta-label">CÔNG CỤ</div>
+            <div class="cs-meta-val">${data.tools}</div>
           </div>
         </div>
       </div>
@@ -923,80 +874,45 @@
       </div>
 
       <div class="cs-body">
-        <!-- 01. Context & Overview -->
         <div class="cs-section">
           <div>
-            <div class="cs-sec-index">I / BỐI CẢNH &amp; THỰC TRẠNG</div>
-            <h3 class="cs-sec-heading">Bối cảnh dự án &amp; Bài toán thương mại</h3>
+            <div class="cs-sec-index">01</div>
+            <h3 class="cs-sec-heading">Vấn đề</h3>
           </div>
           <div class="cs-sec-content">
             <p>${data.context}</p>
-            <div class="cs-callout">
-              <strong>${data.problemQuote}</strong>
-            </div>
-          </div>
-        </div>
-
-        <!-- 02. Research & Pain Points -->
-        <div class="cs-section">
-          <div>
-            <div class="cs-sec-index">II / NGHIÊN CỨU &amp; ĐIỂM ĐAU</div>
-            <h3 class="cs-sec-heading">Bóc tách hành vi &amp; Pain Points người dùng</h3>
-          </div>
-          <div class="cs-sec-content">
-            <p>Thay vì thiết kế dựa trên cảm tính, tôi phân tích trực tiếp những rào cản khiến khách hàng chần chừ hoặc bỏ cuộc giữa chừng trong hành trình trải nghiệm:</p>
             <div class="cs-cards-2col">
-              ${painCardsHtml}
+              ${problemsHtml}
             </div>
           </div>
         </div>
 
-        <!-- 03. Strategy & User Flow -->
         <div class="cs-section">
           <div>
-            <div class="cs-sec-index">III / TƯ DUY HỆ THỐNG &amp; LUỒNG TRẢI NGHIỆM</div>
-            <h3 class="cs-sec-heading">${data.flowTitle}</h3>
+            <div class="cs-sec-index">02</div>
+            <h3 class="cs-sec-heading">Cách làm</h3>
           </div>
           <div class="cs-sec-content">
-            <p>Cấu trúc luồng trải nghiệm được thiết kế để dẫn dắt tâm lý người dùng tự nhiên từ lúc tiếp cận đến khi thực hiện hành động chuyển đổi:</p>
-            <div class="cs-flow-steps">
-              ${flowStepsHtml}
-            </div>
+            <ol class="cs-steps">
+              ${stepsHtml}
+            </ol>
           </div>
         </div>
 
-        <!-- 04. Design & Engineering Execution -->
         <div class="cs-section">
           <div>
-            <div class="cs-sec-index">IV / GIẢI PHÁP &amp; THỰC THI KỸ THUẬT</div>
-            <h3 class="cs-sec-heading">Từ bản vẽ Figma đến sản phẩm chạy thật</h3>
-          </div>
-          <div class="cs-sec-content">
-            ${solutionsHtml}
-          </div>
-        </div>
-
-        <!-- 05. Impact & Results -->
-        <div class="cs-section">
-          <div>
-            <div class="cs-sec-index">V / KẾT QUẢ &amp; TÁC ĐỘNG THỰC TẾ</div>
-            <h3 class="cs-sec-heading">Đo lường hiệu quả vận hành</h3>
+            <div class="cs-sec-index">03</div>
+            <h3 class="cs-sec-heading">Kết quả</h3>
           </div>
           <div class="cs-sec-content">
             <div class="cs-metrics-grid">
-              ${metricsHtml}
+              ${resultsHtml}
             </div>
           </div>
         </div>
       </div>
 
-      <div class="cs-footer-bar">
-        <div>
-          <div style="font-size: 12px; color: var(--text-dark-subtle); font-weight: 600;">TRẢI NGHIỆM SẢN PHẨM THỰC TẾ</div>
-          <div style="font-size: 15px; font-weight: 600; color: #000;">Mọi giải pháp trong Case Study đều đang vận hành thật</div>
-        </div>
-        ${actionLinksHtml}
-      </div>
+      ${linksHtml ? `<div class="cs-footer-bar"><div style="display: flex; gap: 12px; flex-wrap: wrap;">${linksHtml}</div></div>` : ''}
     `;
 
     modal.classList.add('open');

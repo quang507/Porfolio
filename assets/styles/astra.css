@@ -1894,27 +1894,53 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   padding: 18px 16px;
   border-top: 1px solid var(--border-light);
-  cursor: pointer !important;
   border-radius: 8px;
   transition: background 0.25s ease, border-top-color 0.25s ease, transform 0.25s ease;
-  user-select: none;
 }
-.stage-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-top-color: rgba(255, 255, 255, 0.4);
+/* Chỉ dòng nào dẫn đi đâu đó mới có dáng nút */
+.stage-item.is-link {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  cursor: pointer;
+}
+.stage-item.is-link:hover,
+.stage-item.is-link:focus-visible {
+  background: rgba(255, 255, 255, 0.07);
+  border-top-color: rgba(255, 255, 255, 0.6);
   transform: translateX(8px);
+  outline: none;
 }
-.stage-item.active {
-  background: rgba(255, 255, 255, 0.08);
-  border-top-color: #FAFAFA !important;
-  transform: translateX(12px);
+.stage-sub {
+  font-size: 13px;
+  color: var(--text-light-subtle);
+  margin-top: 4px;
 }
-.stage-item.active .stage-name {
-  color: #FFFFFF !important;
-  font-weight: 600;
+.stage-side {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
 }
+.stage-hint {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-light-subtle);
+  margin-top: 4px;
+}
+.stage-item.is-link:hover .stage-hint { color: #FAFAFA; }
+
+.planets-arc-wrap a { display: block; border-radius: 50%; flex-shrink: 0; }
+.planets-arc-wrap a:focus-visible { outline: 2px solid #FAFAFA; outline-offset: 4px; }
 
 .planets-arc-wrap img {
   cursor: pointer !important;
@@ -2534,3 +2560,136 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
 .tools-popover-title { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
 .tools-popover-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tools-popover-tags span { font-size: 12px; padding: 5px 10px; border-radius: 999px; background: #f1f0ee; white-space: nowrap; }
+
+/* ===== Hero intro + nút CV (thay danh sách dịch vụ) ===== */
+.hero-intro-text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--text-dark-primary);
+  margin-bottom: 18px;
+}
+.hero-intro-actions,
+.statement-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.statement-actions { margin-top: 12px; }
+.hero-intro-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hero-intro-btn.primary,
+.hero-intro-btn:hover {
+  background: #000000;
+  color: #FAFAFA;
+}
+.hero-intro-btn:focus-visible { outline: 2px solid #000000; outline-offset: 2px; }
+
+/* ===== Hero trên màn hình hẹp: kéo tên vào trong khung nhìn ===== */
+@media (max-width: 1024px) {
+  .hero-title-wrap { left: 24px; top: 300px; }
+  .hero-display-title { font-size: clamp(72px, 24vw, 160px); }
+  .hero-brand-descriptor { left: 4px; transform: none; text-align: left; }
+  .hero-services-list { left: 24px; right: 24px; width: auto; max-width: 360px; }
+}
+
+/* ===== Case study: danh sách bước "Cách làm" ===== */
+.cs-steps {
+  list-style: none;
+  counter-reset: cs-step;
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.cs-steps li {
+  counter-increment: cs-step;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+}
+.cs-steps li::before {
+  content: counter(cs-step);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark-subtle);
+  padding-top: 3px;
+}
+.cs-steps h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: #000000; }
+.cs-steps p { font-size: 15px; line-height: 1.6; color: #262625; }
+
+/* ===== Mặt trăng tối bay quanh quả cầu ở hero =====
+   Quỹ đạo elip nghiêng: X và Y cùng dao động hình sin, lệch nhau 1/4 chu kỳ.
+   Nửa chu kỳ đầu mặt trăng ở phía trước quả cầu, nửa sau vòng ra phía sau. */
+.hero-moon-path {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-18deg);
+  z-index: 2;
+  animation: heroMoonDepth 14s steps(1, end) infinite;
+}
+.hero-moon-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: heroMoonX 7s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+}
+.hero-moon {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 32%, #4a4b4d 0%, #2b2c2e 35%, #121313 75%, #030303 100%);
+  box-shadow: 5px 7px 12px rgba(0, 0, 0, 0.28),
+              inset 1px 1px 1px rgba(255, 255, 255, 0.14);
+  animation: heroMoonY 7s cubic-bezier(0.37, 0, 0.63, 1) -3.5s infinite alternate;
+}
+@keyframes heroMoonX {
+  from { transform: translateX(-82px); }
+  to   { transform: translateX(82px); }
+}
+@keyframes heroMoonY {
+  from { transform: translateY(-20px) scale(0.78); }
+  to   { transform: translateY(20px) scale(1.12); }
+}
+@keyframes heroMoonDepth {
+  0%   { z-index: 2; }
+  50%  { z-index: -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-moon-path, .hero-moon-x, .hero-moon { animation: none; }
+  .hero-moon-x { transform: translateX(70px); }
+  .hero-moon { transform: translateY(12px); }
+}
+
+/* ===== Huy hiệu công cụ là nút bấm (mở danh sách đầy đủ) ===== */
+button.tool-badge {
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+button.tool-badge:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
+
+/* ===== Dãy ảnh tròn ở Kinh nghiệm trên màn hình hẹp ===== */
+@media (max-width: 640px) {
+  .planets-arc-wrap { gap: 12px; flex-wrap: wrap; }
+  .planets-arc-wrap .planet-item-portrait { width: 100px; height: 100px; }
+  .planets-arc-wrap a:nth-child(2) img { width: 80px !important; height: 80px !important; }
+  .planets-arc-wrap a:nth-child(3) img { width: 58px !important; height: 58px !important; }
+  .planets-arc-wrap a:nth-child(4) img { width: 42px !important; height: 42px !important; }
+}

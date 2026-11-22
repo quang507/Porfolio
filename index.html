@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lê Bá Duy Quang® · Design Engineer (UI/UX, Frontend &amp; AI Workflows)</title>
-  <meta name="description" content="Lê Bá Duy Quang · Design Engineer kết hợp thiết kế hệ thống UI/UX trên Figma, lập trình giao diện Next.js/TypeScript, quy trình AI, tối ưu SEO/CRO và sản xuất hình ảnh tại TP.HCM.">
+  <title>Lê Bá Duy Quang · Design Engineer</title>
+  <meta name="description" content="Lê Bá Duy Quang, Design Engineer ở TP.HCM. Thiết kế giao diện trên Figma, tự code web, chụp ảnh kiến trúc.">
   <meta name="author" content="Lê Bá Duy Quang">
   <meta name="theme-color" content="#000000">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lê Bá Duy Quang® · Design Engineer (UI/UX, Frontend &amp; AI Workflows)">
-  <meta property="og:description" content="Thiết kế hệ thống UI/UX (Figma), lập trình web thực tế (Next.js/TypeScript), công cụ AI, tối ưu SEO/CRO và sản xuất hình ảnh chuẩn xác.">
+  <meta property="og:title" content="Lê Bá Duy Quang · Design Engineer">
+  <meta property="og:description" content="Thiết kế giao diện trên Figma, tự code web, chụp ảnh kiến trúc. TP.HCM.">
   <meta property="og:image" content="media/nyah-photo-1.jpg">
   <meta property="og:locale" content="vi_VN">
 
@@ -23,14 +23,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Astra Design System CSS -->
-  <link rel="stylesheet" href="assets/styles/astra.css?v=3.0">
+  <link rel="stylesheet" href="assets/styles/astra.css?v=3.4">
 </head>
 <body class="hero-active">
 
-  <!-- ========================================================================
-       00_MENU_OVERLAY (Full-screen navigation overlay)
-       ======================================================================== -->
+  <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-overlay-header">
       <div class="header-left">
@@ -39,7 +36,7 @@
         </svg>
         <span class="header-brand">Quang®</span>
       </div>
-      <button class="menu-close-btn" type="button" aria-label="Đóng bảng điều hướng">
+      <button class="menu-close-btn" type="button" aria-label="Đóng menu">
         <div class="menu-close-grid">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -48,22 +45,19 @@
 
     <nav class="menu-overlay-nav">
       <a href="index.html" class="active">Trang chủ</a>
+      <a href="projects.html">Dự án</a>
       <a href="about.html">Về tôi</a>
-      <a href="projects.html">Dự án chọn lọc</a>
-      <a href="#services">Dịch vụ &amp; Quy trình</a>
-      <a href="contact.html">Liên hệ hợp tác</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
     <div class="menu-overlay-footer">
-      <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
+      <div>TP. Hồ Chí Minh</div>
       <div><a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a></div>
-      <div>Hotline: <a href="tel:+84346689460">0346 689 460</a></div>
+      <div><a href="tel:+84346689460">0346 689 460</a></div>
     </div>
   </div>
 
-  <!-- ========================================================================
-       TOP HEADER NAVIGATION (Glass bar with status and menu trigger)
-       ======================================================================== -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-left">
       <svg class="header-star-logo" viewBox="0 0 16 16" fill="currentColor">
@@ -75,8 +69,6 @@
     <div class="header-center">
       <span>Design Engineer · TP.HCM</span>
     </div>
-
-
 
     <div class="header-right">
       <a href="contact.html" class="contact-pill">
@@ -101,427 +93,119 @@
     </div>
   </header>
 
-  <!-- ========================================================================
-       01_HERO_CELESTIAL_CONTRAST (Astra 1:1 Split Contrast Layout)
-       ======================================================================== -->
+  <!-- 01 HERO -->
   <section class="hero-section" id="top">
-    <!-- Genuine Astra Milky Way Texture -->
     <div class="hero-cosmos-bg">
       <video class="hero-cosmos-video" autoplay muted loop playsinline preload="auto">
         <source src="media/10378519-uhd_3840_2160_24fps.mp4" type="video/mp4">
       </video>
     </div>
 
-    <!-- Optical Rings -->
     <div class="hero-lens-ring-outer"></div>
     <div class="hero-lens-ring-inner"></div>
 
-    <!-- Clean Celestial Sphere (White to Warm Cream Gradient from Figma) -->
     <div class="hero-planet"></div>
 
-    <!-- Iconic Astra 4-point star on planet -->
-    <div class="hero-planet-star" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="#000000" width="28" height="28">
-        <path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z"/>
-      </svg>
-    </div>
-
-    <!-- Satellite Accent Orb & Revolving Moon (Astra 1:1) -->
     <div class="hero-satellite-wrap">
       <div class="hero-satellite-orb"></div>
+      <div class="hero-moon-path" aria-hidden="true">
+        <div class="hero-moon-x"><div class="hero-moon"></div></div>
+      </div>
     </div>
 
-    <!-- Authentic Full-Width Clean Minimal Seam Bar -->
     <div class="hero-streak-bar" aria-hidden="true"></div>
 
-    <!-- Giant Display Title with Difference Blend Split -->
     <div class="hero-title-wrap">
       <h1 class="hero-display-title"><span class="hero-name">Quang</span><span class="hero-reg">®</span></h1>
       <div class="hero-brand-descriptor">
         <div>Design Engineer</div>
-        <div>UI/UX &amp; AI Builder</div>
+        <div>UI/UX · Frontend</div>
       </div>
     </div>
 
-
-
-    <!-- Hero Service Step Items (Bottom Left on Planet Sphere) -->
-    <div class="hero-services-list">
-      <div class="hero-service-item active" role="button" tabindex="0" aria-label="01/04 Thiết kế UI/UX, Design System &amp; Web Next.js">
-        <span>01/04 Thiết kế UI/UX, Design System &amp; Web Next.js</span>
-        
-      </div>
-      <div class="hero-service-item" role="button" tabindex="0" aria-label="02/04 Tối ưu SEO, CRO &amp; Phân tích hành vi (Clarity / GA4)">
-        <span>02/04 Tối ưu SEO, CRO &amp; Phân tích hành vi (Clarity / GA4)</span>
-        
-      </div>
-      <div class="hero-service-item" role="button" tabindex="0" aria-label="03/04 Ứng dụng AI, Chatbot &amp; Tìm kiếm thị giác">
-        <span>03/04 Ứng dụng AI, Chatbot &amp; Tìm kiếm thị giác</span>
-        
-      </div>
-      <div class="hero-service-item" role="button" tabindex="0" aria-label="04/04 Nhiếp ảnh Kiến trúc, Bao bì &amp; Kỹ thuật In">
-        <span>04/04 Nhiếp ảnh Kiến trúc, Bao bì &amp; Kỹ thuật In</span>
-        
+    <!-- Một câu giới thiệu + hai nút, thay cho danh sách 4 dịch vụ -->
+    <div class="hero-services-list hero-intro">
+      <p class="hero-intro-text">Tôi thiết kế giao diện trên Figma rồi tự code ra web. Trước đó làm thiết kế in ấn từ 2017.</p>
+      <div class="hero-intro-actions">
+        <a href="#projects" class="hero-intro-btn primary">Xem dự án</a>
+        <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="hero-intro-btn">Tải CV</a>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================================
-       CONTINUOUS INFINITE MARQUEE TICKER (Astra Signature Glide)
-       ======================================================================== -->
-  <div class="astra-ticker-wrap" aria-hidden="true">
-    <div class="astra-ticker-track">
-      <div class="astra-ticker-item">
-        <span>User Interface (UI) &amp; User Experience (UX)</span><span class="star">✦</span>
-        <span>Figma Design Systems &amp; Next.js 15</span><span class="star">✦</span>
-        <span>Tối ưu SEO &amp; CRO (Clarity · GA4 · GSC)</span><span class="star">✦</span>
-        <span>AI Workflows &amp; Semantic Search (CLIP / FAISS)</span><span class="star">✦</span>
-        <span>Nhiếp ảnh Kiến trúc HDR &amp; Kỹ thuật In</span><span class="star">✦</span>
-        <span>Lê Bá Duy Quang® · TP.HCM</span><span class="star">✦</span>
-      </div>
-      <div class="astra-ticker-item">
-        <span>User Interface (UI) &amp; User Experience (UX)</span><span class="star">✦</span>
-        <span>Figma Design Systems &amp; Next.js 15</span><span class="star">✦</span>
-        <span>Tối ưu SEO &amp; CRO (Clarity · GA4 · GSC)</span><span class="star">✦</span>
-        <span>AI Workflows &amp; Semantic Search (CLIP / FAISS)</span><span class="star">✦</span>
-        <span>Nhiếp ảnh Kiến trúc HDR &amp; Kỹ thuật In</span><span class="star">✦</span>
-        <span>Lê Bá Duy Quang® · TP.HCM</span><span class="star">✦</span>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ========================================================================
-       02_HELLO_EDITORIAL_INTRO_&_STATS (Warm Paper #EEEDEC)
-       ======================================================================== -->
-  <section class="section-paper" id="about-intro">
-    <div class="paper-grid">
-      <!-- Top Stats Row -->
-      <div class="stats-row">
-        <svg class="double-sparkle-svg" viewBox="0 0 44 22" fill="#000000">
-          <path d="M11 0L12.5 8.5L21 11L12.5 13.5L11 22L9.5 13.5L1 11L9.5 8.5L11 0Z"/>
-          <path d="M33 3L34.2 9.8L41 11.5L34.2 13.2L33 20L31.8 13.2L25 11.5L31.8 9.8L33 3Z"/>
-        </svg>
-
-        <div class="stat-card">
-          <div class="stat-card-label">DỰ ÁN THƯƠNG MẠI</div>
-          <div class="stat-card-body">
-            <div class="stat-card-number" data-count="200" data-suffix="+">200+</div>
-            <div class="stat-card-desc">Sản phẩm bao bì, nhận diện và bộ ảnh kiến trúc hoàn thiện từ 2017 đến nay.</div>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-card-label">TỶ LỆ NGHIỆM THU</div>
-          <div class="stat-card-body">
-            <div class="stat-card-number" data-count="98" data-suffix="%">98%</div>
-            <div class="stat-card-desc">File xuất xưởng đúng chuẩn kỹ thuật ngay từ lần gửi đầu tiên đến nhà in và đối tác.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Offset Stat Row -->
-      <div class="stats-row-offset">
-        <div></div>
-        <div class="stat-card">
-          <div class="stat-card-label">KINH NGHIỆM THỰC CHIẾN</div>
-          <div class="stat-card-body">
-            <div class="stat-card-number" data-count="2017">2017</div>
-            <div class="stat-card-desc">Năm khởi đầu làm việc chuyên nghiệp trong ngành in ấn &amp; thiết kế ứng dụng.</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-label">TU NGHIỆP QUỐC TẾ</div>
-          <div class="stat-card-body">
-            <div class="stat-card-number" data-count="16" data-suffix=" Tháng">16 Tháng</div>
-            <div class="stat-card-desc">Thời gian sống và làm việc tại Đan Mạch, định hình tư duy thẩm mỹ Bắc Âu tối giản &amp; chuẩn mực.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="paper-divider"></div>
-
-      <!-- Founder & Editorial Row -->
-      <div class="founder-editorial-row">
-        <!-- Tools Stack Badges -->
-        <div class="tools-stack-block">
-          <div class="tools-stack-title">Công cụ hay dùng</div>
-          <div class="tools-stack-sub">Thiết kế, code, AI</div>
-          <div class="tools-badges-cluster">
-            <div class="tool-badge" title="Figma (Design Systems, Tokens, Auto-layout &amp; Prototyping)">Fg</div>
-            <div class="tool-badge" title="Next.js 15 &amp; TypeScript (Production Frontend Engineering)">Nx</div>
-            <div class="tool-badge" title="Python &amp; AI Pipelines (CLIP, FAISS, Gemini API, ComfyUI)">Py</div>
-            <div class="tool-badge" title="SEO &amp; Analytics (Microsoft Clarity, Google Analytics 4, Search Console)">GA</div>
-            <div class="tool-badge" title="Adobe Photoshop &amp; Lightroom (HDR Retouching &amp; Print Color)">Ps</div>
-            <div class="tool-badge dark tool-badge-more" role="button" tabindex="0" title="Bấm để xem thêm 14 công nghệ chuyên sâu" id="toolBadgeMore">+14</div>
-          </div>
-          <div class="tools-popover" id="toolsPopover" aria-hidden="true">
-            <div class="tools-popover-title">Thêm 14 công cụ</div>
-            <div class="tools-popover-tags">
-              <span>TypeScript</span><span>Tailwind CSS</span><span>Supabase / PostGIS</span><span>pgvector / FAISS</span>
-              <span>Microsoft Clarity</span><span>Search Console (GSC)</span><span>Gemini / Claude API</span><span>ComfyUI</span>
-              <span>Flow (Veo) / Seedance</span><span>Illustrator</span><span>InDesign</span><span>Premiere Pro</span>
-              <span>Playwright</span><span>Vercel / Git</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Founder Bio Card -->
-        <div class="founder-bio-card">
-          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="founder-portrait-img">
-          <div class="founder-name">Lê Bá Duy Quang</div>
-          <div class="founder-role">Design Engineer (UI/UX, Frontend &amp; AI Workflows)</div>
-        </div>
-
-        <!-- Editorial Thesis -->
-        <div class="editorial-statement-block">
-          <h2 class="statement-main">Phần lớn designer giao file rồi dừng. Tôi thiết kế trên Figma, trực tiếp code giao diện và tối ưu chuyển đổi bằng dữ liệu thật.</h2>
-          <p class="statement-muted">8 năm làm hình ảnh thương mại: từ thiết kế tranh gạch 3D cho nhà máy đến chụp ảnh kiến trúc. Giờ tôi thiết kế trên Figma, tự code bằng Next.js và xem số liệu thật để sửa giao diện.</p>
-          <p class="statement-muted">Ở Nhã Đạt, tôi làm hình ảnh và landing page cho Ny'ah Phú Định và Villa Ny'ah. Tôi cũng tự viết vài công cụ nội bộ: tìm ảnh trong kho 10.000+ file, chatbot bán hàng, web báo giá bao bì GÓI.</p>
-
-          <!-- Brand Partners Strip -->
-          <div class="brand-partners-strip">
-            <div class="brand-strip-label">ĐỐI TÁC VÀ DỰ ÁN ĐỒNG HÀNH</div>
-            <div class="brand-tags-grid">
-              <a href="#project-nyah" class="brand-tag" data-target="project-nyah" title="Xem dự án Ny'ah Phú Định">
-                <span>✦ Nhã Đạt Compound</span>
-                <span class="brand-tag-arrow">↓</span>
-              </a>
-              <a href="#project-goi" class="brand-tag" data-target="project-goi" title="Xem dự án GÓI Packaging">
-                <span>✦ Xưởng bao bì GÓI</span>
-                <span class="brand-tag-arrow">↓</span>
-              </a>
-              <a href="#project-villa" class="brand-tag" data-target="project-villa" title="Xem dự án Villa Ny'ah">
-                <span>✦ Villa Ny'ah Ven Sông</span>
-                <span class="brand-tag-arrow">↓</span>
-              </a>
-              <a href="projects.html" class="brand-tag" title="Xem danh mục kiến trúc NAHT">
-                <span>✦ NAHT Architecture</span>
-                <span class="brand-tag-arrow">↗</span>
-              </a>
-              <a href="projects.html" class="brand-tag" title="Xem thiết kế nội thất Mekong Decor">
-                <span>✦ Mekong Decor</span>
-                <span class="brand-tag-arrow">↗</span>
-              </a>
-              <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="brand-tag" title="Truy cập sản phẩm AI Ơi Nhà Đất">
-                <span>✦ AI Ơi Nhà Đất</span>
-                <span class="brand-tag-arrow">↗</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       INFINITE TICKER (Astra Lab Marquee)
-       ======================================================================== -->
-  <div class="astra-marquee-wrap" aria-hidden="true">
-    <div class="astra-marquee-track">
-      <span>PRODUCT DESIGN</span><span class="star-sep">✦</span>
-      <span>DESIGN SYSTEMS</span><span class="star-sep">✦</span>
-      <span>HIGH-CONVERTING CRO</span><span class="star-sep">✦</span>
-      <span>FULLSTACK TS / NEXT.JS</span><span class="star-sep">✦</span>
-      <span>AI AUTOMATION AGENTS</span><span class="star-sep">✦</span>
-      <span>FRAMER MOTION</span><span class="star-sep">✦</span>
-      <span>PRODUCT DESIGN</span><span class="star-sep">✦</span>
-      <span>DESIGN SYSTEMS</span><span class="star-sep">✦</span>
-      <span>HIGH-CONVERTING CRO</span><span class="star-sep">✦</span>
-      <span>FULLSTACK TS / NEXT.JS</span><span class="star-sep">✦</span>
-      <span>AI AUTOMATION AGENTS</span><span class="star-sep">✦</span>
-      <span>FRAMER MOTION</span><span class="star-sep">✦</span>
-    </div>
-  </div>
-
-  <!-- ========================================================================
-       03_SERVICES_ACCORDION (Staggered Layout + Layered Images)
-       ======================================================================== -->
-  <section class="section-services" id="services">
-    <div class="paper-grid">
-      <div class="services-head">
-        <h2 class="section-big-title">Dịch vụ</h2>
-        <div class="section-count-tag">/ 04 LĨNH VỰC CHUYÊN SÂU</div>
-      </div>
-
-      <!-- Accordion Items -->
-      <div class="services-accordion-list">
-        <!-- Item 001 -->
-        <div class="accordion-item open">
-          <div class="accordion-header">
-            <div class="accordion-left">
-              <span class="accordion-num">/01</span>
-              <h3 class="accordion-title">Thiết kế UI/UX, Design System &amp; Web Next.js</h3>
-            </div>
-            <div class="accordion-right">
-              <span class="accordion-plus">+</span>
-            </div>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-content-grid">
-              <div class="accordion-images-overlap">
-                <img src="media/shot-nyah-landing.jpg" alt="Villa Ny'ah Landing Page" class="accordion-overlap-img">
-                <img src="media/shot-corio-coffee.jpg" alt="Corio Coffee Landing Page" class="accordion-overlap-img">
-              </div>
-              <div>
-                <strong>Từ Figma ra Code chạy thật:</strong>
-                <p>Xây dựng User Flow, Design Tokens và Component Architecture trên Figma, sau đó trực tiếp lập trình giao diện responsive bằng HTML/CSS/JS, TypeScript, Next.js 15 và Tailwind CSS với độ chuẩn xác 1:1.</p>
-              </div>
-              <div>
-                <strong>Dự án tiêu biểu:</strong>
-                <p>Sàn BĐS NhaDat Radar, Website 11 trang xưởng bao bì GÓI, Landing page Villa Ny'ah &amp; Corio Coffee.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 002 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-left">
-              <span class="accordion-num">/02</span>
-              <h3 class="accordion-title">Tối ưu SEO, CRO &amp; Phân tích hành vi người dùng</h3>
-            </div>
-            <div class="accordion-right">
-              <span class="accordion-plus">+</span>
-            </div>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-content-grid">
-              <div class="accordion-images-overlap">
-                <img src="media/nyah-landing-1.jpg" alt="Chiến dịch Ny'ah Phú Định" class="accordion-overlap-img">
-                <img src="media/shot-nyah-landing.jpg" alt="Phễu chuyển đổi Villa Ny'ah" class="accordion-overlap-img">
-              </div>
-              <div>
-                <strong>Thiết kế dựa trên dữ liệu thực tế:</strong>
-                <p>Theo dõi bản đồ nhiệt (heatmap), băng ghi phiên thao tác (session recording) và hiệu suất từ khóa tìm kiếm bằng Microsoft Clarity, Google Analytics 4 (GA4) và Google Search Console (GSC) để gỡ điểm nghẽn trải nghiệm và nâng tỷ lệ chuyển đổi (CRO).</p>
-              </div>
-              <div>
-                <strong>Ứng dụng thực chiến:</strong>
-                <p>Hệ thống trang đích chiến dịch mở bán dự án Ny'ah Phú Định và Villa Ny'ah tại Nhã Đạt.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 003 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-left">
-              <span class="accordion-num">/03</span>
-              <h3 class="accordion-title">Ứng dụng AI, Chatbot &amp; Tìm kiếm thị giác</h3>
-            </div>
-            <div class="accordion-right">
-              <span class="accordion-plus">+</span>
-            </div>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-content-grid">
-              <div class="accordion-images-overlap">
-                <img src="media/shot-nha-dat-chatbot.jpg" alt="Chatbot Bất động sản" class="accordion-overlap-img">
-                <img src="media/thumb/radar-diagram.jpg" alt="Kiến trúc dữ liệu NhaDat Radar" class="accordion-overlap-img">
-              </div>
-              <div>
-                <strong>Giải quyết điểm nghẽn vận hành bằng AI:</strong>
-                <p>Tích hợp Gemini/Claude API, tìm kiếm vector (pgvector, FAISS) và mô hình thị giác (CLIP, YOLO, RF-DETR, ComfyUI) để xây dựng chatbot bán hàng, công cụ tìm ảnh theo ngữ cảnh trên kho 10.000+ file và bot tính giá in tự động.</p>
-              </div>
-              <div>
-                <strong>Sản phẩm vận hành:</strong>
-                <p>NhaDat Radar (5 nguồn tin/ngày), Tìm Hình Quang (CLIP/FAISS), Bot báo giá GÓI (kiểm chứng 1.400 đơn mẫu).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 004 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-left">
-              <span class="accordion-num">/04</span>
-              <h3 class="accordion-title">Nhiếp ảnh Kiến trúc, Bao bì &amp; Kỹ thuật In</h3>
-            </div>
-            <div class="accordion-right">
-              <span class="accordion-plus">+</span>
-            </div>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-content-grid">
-              <div class="accordion-images-overlap">
-                <img src="media/nyah-photo-3.jpg" alt="Kiến trúc Ny'ah Phú Định" class="accordion-overlap-img">
-                <img src="media/goi-1.jpg" alt="Bao bì thương mại GÓI" class="accordion-overlap-img">
-              </div>
-              <div>
-                <strong>Chuẩn xác từ ống kính đến máy in:</strong>
-                <p>Trực tiếp chụp ảnh kiến trúc/nội thất HDR, dựng phim và thiết kế bao bì, khuôn bế, tranh gạch 3D khổ lớn. Hơn 8 năm kiểm soát tách màu và ICC profile công nghiệp giúp thành phẩm in ra khớp 1:1 với thiết kế.</p>
-              </div>
-              <div>
-                <strong>Kinh nghiệm thực tế:</strong>
-                <p>Compound 50 căn Ny'ah Phú Định, Xưởng bao bì GÓI, Piramic Saigon &amp; Đức Phát.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       04_PROJECTS_STICKY_TIMELINE (Cosmos Dark Background)
-       ======================================================================== -->
+  <!-- 02 DỰ ÁN -->
   <section class="section-projects" id="projects">
     <div class="projects-sky-bg"></div>
 
     <div class="paper-grid" style="position: relative; z-index: 2;">
       <div class="services-head">
         <h2 class="section-big-title">Dự án</h2>
-        <div class="section-count-tag">/ CHỌN LỌC TIÊU BIỂU (2022 - 2026)</div>
+        <div class="section-count-tag">2025 – 2026</div>
       </div>
 
       <div class="timeline-items-stack">
-        <!-- Project 1: Ny'ah Phú Định -->
         <article class="timeline-card-row" id="project-nyah">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
-            <div class="timeline-year">Đang triển khai</div>
+            <div class="timeline-year">Đang làm</div>
           </div>
           <div class="timeline-card">
-            <img src="media/nyah-photo-2.jpg" alt="Compound Ny'ah Phú Định" class="timeline-card-media" loading="lazy">
+            <img src="media/nyah-photo-2.jpg" alt="Căn mẫu Ny'ah Phú Định" class="timeline-card-media" loading="lazy">
             <div class="timeline-card-meta">
-              <h3 class="timeline-card-title">Compound 50 căn Ny'ah Phú Định &amp; Hệ thống SEO/CRO</h3>
-              <p class="timeline-card-desc">Thiết kế UI/UX trên Figma, dựng landing page và tối ưu SEO/CRO cho dự án compound tại Quận 8 bằng Microsoft Clarity, Google Analytics 4 (GA4) và Google Search Console (GSC). Kết hợp chụp kiến trúc HDR thực tế và chuẩn hóa kho 10.000+ ảnh bằng công cụ tìm kiếm thị giác CLIP/FAISS.</p>
+              <h3 class="timeline-card-title">Ny'ah Phú Định</h3>
+              <p class="timeline-card-desc">Compound 50 căn ở Quận 8. Tôi chụp ảnh, thiết kế và dựng landing page, rồi xem heatmap để sửa lại giao diện.</p>
             </div>
           </div>
           <div class="timeline-roles-stack">
-            <div class="role-badge">UI/UX &amp; SEO</div>
-            <div class="role-badge">Clarity · GA4</div>
-            <div class="role-badge">Nhiếp ảnh HDR</div>
-            <button type="button" class="cs-trigger-btn light" data-casestudy="nyah" onclick="openCaseStudy('nyah')">Đọc Case Study UX ↗</button>
+            <div class="role-badge">UI/UX</div>
+            <div class="role-badge">Landing page</div>
+            <div class="role-badge">Ảnh kiến trúc</div>
+            <button type="button" class="cs-trigger-btn light" data-casestudy="nyah" onclick="openCaseStudy('nyah')">Xem case study</button>
           </div>
         </article>
 
-        <!-- Project 2: GÓI Packaging -->
+        <article class="timeline-card-row" id="project-vslv">
+          <div class="timeline-date-block">
+            <div class="timeline-date">2026</div>
+            <div class="timeline-year">Đang chạy</div>
+          </div>
+          <div class="timeline-card">
+            <img src="media/vslv-cover.jpg" alt="VSLV, app học ngôn ngữ ký hiệu Việt" class="timeline-card-media" loading="lazy">
+            <div class="timeline-card-meta">
+              <h3 class="timeline-card-title">VSLV</h3>
+              <p class="timeline-card-desc">App học ngôn ngữ ký hiệu Việt Nam. Xem mẫu, làm theo trước camera, máy chấm đúng sai ngay trong trình duyệt.</p>
+            </div>
+          </div>
+          <div class="timeline-roles-stack">
+            <div class="role-badge">Figma</div>
+            <div class="role-badge">Design system</div>
+            <div class="role-badge">Next.js</div>
+            <button type="button" class="cs-trigger-btn light" data-casestudy="vslv" onclick="openCaseStudy('vslv')">Xem case study</button>
+            <a href="https://quang507.github.io/VSL/" target="_blank" rel="noopener" class="timeline-view-link">Mở app ↗</a>
+          </div>
+        </article>
+
         <article class="timeline-card-row" id="project-goi">
           <div class="timeline-date-block">
             <div class="timeline-date">2026</div>
             <div class="timeline-year">Hoàn thành</div>
           </div>
           <div class="timeline-card">
-            <img src="media/goi-1.jpg" alt="Thương hiệu GÓI" class="timeline-card-media" loading="lazy">
+            <img src="media/goi-1.jpg" alt="Bao bì GÓI" class="timeline-card-media" loading="lazy">
             <div class="timeline-card-meta">
-              <h3 class="timeline-card-title">GÓI — Hệ thống Web Thương mại &amp; Bot Báo giá AI</h3>
-              <p class="timeline-card-desc">Xây dựng Design System trên Figma, bộ nhận diện thương hiệu, hình chụp studio và website thương mại 11 trang. Tích hợp bot báo giá tự động bằng Python &amp; Gemini API bóc tách quy cách hộp, kiểm chứng độ chính xác trên 1.400 đơn hàng mẫu.</p>
+              <h3 class="timeline-card-title">Xưởng bao bì GÓI</h3>
+              <p class="timeline-card-desc">Nhận diện, ảnh sản phẩm và website 11 trang. Kèm bot báo giá hộp giấy, đã thử trên 1.400 đơn mẫu.</p>
             </div>
           </div>
           <div class="timeline-roles-stack">
-            <div class="role-badge">Design System</div>
-            <div class="role-badge">Web 11 trang</div>
-            <div class="role-badge">Bot báo giá AI</div>
-            <button type="button" class="cs-trigger-btn light" data-casestudy="goi" onclick="openCaseStudy('goi')">Đọc Case Study UX ↗</button>
-            <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="timeline-view-link" title="Mở website xưởng in GÓI">Truy cập web GÓI ↗</a>
+            <div class="role-badge">Design system</div>
+            <div class="role-badge">Website</div>
+            <div class="role-badge">Bot báo giá</div>
+            <button type="button" class="cs-trigger-btn light" data-casestudy="goi" onclick="openCaseStudy('goi')">Xem case study</button>
+            <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="timeline-view-link">Mở web GÓI ↗</a>
           </div>
         </article>
 
-        <!-- Project 3: Villa Ny'ah -->
         <article class="timeline-card-row" id="project-villa">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
@@ -530,223 +214,145 @@
           <div class="timeline-card">
             <img src="media/shot-nyah-landing.jpg" alt="Landing page Villa Ny'ah" class="timeline-card-media" loading="lazy">
             <div class="timeline-card-meta">
-              <h3 class="timeline-card-title">Villa Ny'ah Ven Sông — UI/UX &amp; Phễu Chuyển đổi</h3>
-              <p class="timeline-card-desc">Thiết kế User Flow, dựng prototype tương tác trên Figma và lập trình trực tiếp trang đích cho phân khu biệt thự ven sông Cầu Tràm. Theo dõi bản đồ nhiệt (heatmap) để tinh chỉnh vị trí nút đặt lịch tham quan thực tế.</p>
+              <h3 class="timeline-card-title">Villa Ny'ah ven sông</h3>
+              <p class="timeline-card-desc">Landing page cho khu biệt thự ven sông Cầu Tràm. Thiết kế trên Figma, tự code, chỉnh vị trí nút đặt lịch theo heatmap.</p>
             </div>
           </div>
           <div class="timeline-roles-stack">
-            <div class="role-badge">Figma UI/UX</div>
-            <div class="role-badge">Frontend Code</div>
-            <div class="role-badge">Tối ưu CRO</div>
-            <button type="button" class="cs-trigger-btn light" data-casestudy="nyah" onclick="openCaseStudy('nyah')">Đọc Case Study UX ↗</button>
-            <a href="https://polite-hamster-cf3510.netlify.app/" target="_blank" rel="noopener" class="timeline-view-link" title="Xem bản demo Villa Ny'ah">Xem demo Villa Ny'ah ↗</a>
+            <div class="role-badge">Figma</div>
+            <div class="role-badge">Frontend</div>
+            <a href="https://polite-hamster-cf3510.netlify.app/" target="_blank" rel="noopener" class="timeline-view-link">Xem demo ↗</a>
           </div>
         </article>
 
-        <!-- Project 4: NhaDat Radar -->
         <article class="timeline-card-row" id="project-radar">
           <div class="timeline-date-block">
             <div class="timeline-date">2025</div>
-            <div class="timeline-year">Hoạt động thật</div>
+            <div class="timeline-year">Đang chạy</div>
           </div>
           <div class="timeline-card">
-            <img src="media/thumb/radar-diagram.jpg" alt="Sàn tin NhaDat Radar" class="timeline-card-media" loading="lazy">
+            <img src="media/shot-nhadat-radar.jpg" alt="Trang chủ NhaDat Radar" class="timeline-card-media" loading="lazy">
             <div class="timeline-card-meta">
-              <h3 class="timeline-card-title">NhaDat Radar &amp; AI Chatbot Bất Động Sản</h3>
-              <p class="timeline-card-desc">Nền tảng bản đồ bất động sản viết bằng Next.js 15, TypeScript và Supabase (PostGIS, pgvector): tự động thu thập 7.700+ tin từ 5 nguồn lớn 2 lần/ngày bằng Playwright, lọc tin trùng và tích hợp trợ lý AI Gemini trả lời tiếng Việt kèm điều khiển slide theo giọng nói.</p>
+              <h3 class="timeline-card-title">NhaDat Radar</h3>
+              <p class="timeline-card-desc">Trang tìm nhà đất gom tin từ 9 nguồn: hơn 22.700 tin ở 116 quận huyện, tự lọc tin trùng, có bản đồ và định giá bằng AI.</p>
             </div>
           </div>
           <div class="timeline-roles-stack">
-            <div class="role-badge">Next.js · PostGIS</div>
-            <div class="role-badge">Gemini RAG</div>
-            <div class="role-badge">7.700+ tin</div>
-            <button type="button" class="cs-trigger-btn light" data-casestudy="radar" onclick="openCaseStudy('radar')">Đọc Case Study UX ↗</button>
-            <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="timeline-view-link" title="Dùng thử Chatbot NhaDat Radar">Dùng thử Chatbot AI ↗</a>
+            <div class="role-badge">Next.js</div>
+            <div class="role-badge">Supabase</div>
+            <div class="role-badge">Chatbot</div>
+            <button type="button" class="cs-trigger-btn light" data-casestudy="radar" onclick="openCaseStudy('radar')">Xem case study</button>
+            <a href="https://nhadatradar.com" target="_blank" rel="noopener" class="timeline-view-link">Mở nhadatradar.com ↗</a>
           </div>
         </article>
       </div>
 
       <div style="text-align: center; margin-top: 60px;">
-        <a href="projects.html" class="pricing-btn">Xem toàn bộ 14+ dự án &amp; Repositories →</a>
+        <a href="projects.html" class="pricing-btn">Xem tất cả dự án →</a>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================================
-       05_PRICING_ECLIPSE (Astrological Cooperation)
-       ======================================================================== -->
-  <section class="section-pricing" id="cooperation">
+  <!-- 03 GIỚI THIỆU -->
+  <section class="section-paper" id="about-intro">
     <div class="paper-grid">
-      <div class="services-head" style="margin-bottom: 20px;">
-        <h2 class="section-big-title">Hợp tác</h2>
-        <div class="section-count-tag">/ HÌNH THỨC LÀM VIỆC LINH HOẠT</div>
-      </div>
-
-      <!-- Moon / Sun Eclipse Geometry Graphic -->
-      <div class="eclipse-shape-wrap">
-        <div class="eclipse-white-sun"></div>
-        <div class="eclipse-black-moon"></div>
-      </div>
-
-      <div class="pricing-cards-grid">
-        <!-- Card 1 -->
-        <div class="pricing-card">
-          <span class="pricing-card-num">GÓI 01 // CỐ ĐỊNH THEO DỰ ÁN</span>
-          <h3 class="pricing-card-name">Theo đầu việc &amp; Dự án</h3>
-          <div class="pricing-card-price">Trao đổi theo phạm vi</div>
-          <div class="pricing-items-list">
-            <div class="pricing-item-row"><span>✦</span> Thiết kế UI/UX trên Figma, xây dựng Design System &amp; lập trình web Next.js</div>
-            <div class="pricing-item-row"><span>✦</span> Tối ưu SEO, CRO &amp; cài đặt đo lường Microsoft Clarity, GA4, Search Console</div>
-            <div class="pricing-item-row"><span>✦</span> Tích hợp AI Chatbot tư vấn, công cụ tự động hóa hoặc tìm kiếm dữ liệu</div>
-            <div class="pricing-item-row"><span>✦</span> Chụp ảnh kiến trúc HDR, thiết kế bao bì &amp; bàn giao file chuẩn in nhà máy</div>
+      <div class="founder-editorial-row">
+        <div class="tools-stack-block">
+          <div class="tools-stack-title">Công cụ hay dùng</div>
+          <div class="tools-stack-sub">Thiết kế, code, AI</div>
+          <div class="tools-badges-cluster">
+            <button type="button" class="tool-badge" title="Figma" aria-label="Figma, xem tất cả công cụ">Fg</button>
+            <button type="button" class="tool-badge" title="Next.js" aria-label="Next.js, xem tất cả công cụ">Nx</button>
+            <button type="button" class="tool-badge" title="Python" aria-label="Python, xem tất cả công cụ">Py</button>
+            <button type="button" class="tool-badge" title="Google Analytics" aria-label="Google Analytics, xem tất cả công cụ">GA</button>
+            <button type="button" class="tool-badge" title="Photoshop" aria-label="Photoshop, xem tất cả công cụ">Ps</button>
+            <button type="button" class="tool-badge dark tool-badge-more" title="Xem tất cả công cụ" aria-label="Xem tất cả công cụ" id="toolBadgeMore">+14</button>
           </div>
-          <a href="contact.html" class="pricing-btn">Khởi động dự án</a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="pricing-card">
-          <span class="pricing-card-num">GÓI 02 // ĐỒNG HÀNH DÀI HẠN</span>
-          <h3 class="pricing-card-name">Toàn thời gian / Retainer</h3>
-          <div class="pricing-card-price">Thoả thuận linh hoạt</div>
-          <div class="pricing-items-list">
-            <div class="pricing-item-row"><span>✦</span> Đảm nhiệm vai trò Design Engineer kết nối trực tiếp từ Figma sang code chạy thật</div>
-            <div class="pricing-item-row"><span>✦</span> Theo dõi dữ liệu hành vi người dùng hằng tuần để nâng tỷ lệ chuyển đổi (CRO)</div>
-            <div class="pricing-item-row"><span>✦</span> Chủ động chụp ảnh dự án, quay dựng và sản xuất tư liệu truyền thông đồng bộ</div>
-            <div class="pricing-item-row"><span>✦</span> Xây dựng công cụ AI nội bộ giúp đội ngũ tiết kiệm thời gian vận hành</div>
-          </div>
-          <a href="contact.html" class="pricing-btn">Thảo luận phương án</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       06_DASHBOARD_NUMBERS (Analytical Metrics)
-       ======================================================================== -->
-  <section class="section-paper" id="metrics">
-    <div class="paper-grid">
-      <div class="services-head">
-        <h2 class="section-big-title">Dữ liệu</h2>
-        <div class="section-count-tag">/ ĐO LƯỜNG HIỆU QUẢ CÔNG VIỆC</div>
-      </div>
-
-      <div class="dashboard-cards-grid">
-        <!-- Card 1 -->
-        <div class="dash-card">
-          <div class="dash-card-title">Cơ cấu năng lực triển khai</div>
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>UI/UX, Design System &amp; Frontend Next.js</span>
-              <strong>40%</strong>
-            </div>
-            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
-              <div style="background: #000; width: 40%; height: 100%;"></div>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>Ứng dụng AI, Automation &amp; SEO/CRO (Clarity · GA4)</span>
-              <strong>30%</strong>
-            </div>
-            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
-              <div style="background: #000; width: 30%; height: 100%;"></div>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>Nhiếp ảnh Kiến trúc HDR, Bao bì &amp; Kỹ thuật In</span>
-              <strong>30%</strong>
-            </div>
-            <div style="background: #E5E4E2; height: 8px; border-radius: 4px; overflow: hidden;">
-              <div style="background: #000; width: 30%; height: 100%;"></div>
+          <div class="tools-popover" id="toolsPopover" aria-hidden="true">
+            <div class="tools-popover-title">Tất cả công cụ</div>
+            <div class="tools-popover-tags">
+              <span>Figma</span><span>Next.js</span><span>Python</span><span>Google Analytics 4</span><span>Photoshop</span>
+              <span>TypeScript</span><span>Tailwind CSS</span><span>Supabase / PostGIS</span><span>pgvector / FAISS</span>
+              <span>Microsoft Clarity</span><span>Search Console (GSC)</span><span>Gemini / Claude API</span><span>ComfyUI</span>
+              <span>Flow (Veo) / Seedance</span><span>Illustrator</span><span>InDesign</span><span>Premiere Pro</span>
+              <span>Playwright</span><span>Vercel / Git</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="dash-card">
-          <div class="dash-card-title">Tốc độ &amp; Độ chính xác kỹ thuật</div>
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
-            <div>
-              <div style="font-size: 36px; font-weight: 600; letter-spacing: -0.04em;">&lt; 2 Giây</div>
-              <div style="font-size: 13px; color: var(--text-dark-muted);">Truy vấn kho 10.000+ ảnh dự án bằng mô hình thị giác CLIP &amp; FAISS tự xây dựng.</div>
-            </div>
-            <div>
-              <div style="font-size: 36px; font-weight: 600; letter-spacing: -0.04em;">1.400 Đơn</div>
-              <div style="font-size: 13px; color: var(--text-dark-muted);">Đơn hàng bao bì mẫu được kiểm chứng chính xác trên hệ thống báo giá tự động.</div>
-            </div>
-          </div>
+        <div class="founder-bio-card">
+          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="founder-portrait-img">
+          <div class="founder-name">Lê Bá Duy Quang</div>
+          <div class="founder-role">Design Engineer</div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="dash-card">
-          <div class="dash-card-title">Sản phẩm thực tế vận hành</div>
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
-            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <a href="projects.html" class="dash-product-link" title="Xem chi tiết dự án Ny'ah"><strong>Compound Ny'ah:</strong></a> Triển khai đồng bộ UI/UX, đo lường SEO/CRO (Clarity, GA4, GSC) và bộ ảnh kiến trúc 50 căn.
-            </div>
-            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener" class="dash-product-link" title="Truy cập web thương mại GÓI"><strong>Xưởng GÓI:</strong></a> Vận hành website thương mại 11 trang kèm bot báo giá hộp giấy tự động bằng Python &amp; Gemini.
-            </div>
-            <div style="font-size: 14px; line-height: 1.5; color: var(--text-dark-muted);">
-              ✦ <a href="https://nha-dat-chatbot.vercel.app" target="_blank" rel="noopener" class="dash-product-link" title="Dùng thử trực tiếp AI Chatbot"><strong>NhaDat Radar:</strong></a> Thu thập, lọc trùng và định vị bản đồ hơn 7.700 tin bất động sản kèm trợ lý AI tiếng Việt.
-            </div>
+        <div class="editorial-statement-block">
+          <h2 class="statement-main">Tôi thiết kế trên Figma, tự code giao diện, rồi xem số liệu thật để sửa.</h2>
+          <p class="statement-muted">Hiện tôi làm ở Nhã Đạt: landing page và hình ảnh cho hai dự án Ny'ah, cùng vài công cụ nội bộ tự viết. Trước đó là 7 năm thiết kế tranh gạch 3D cho nhà máy và 16 tháng làm việc ở Đan Mạch.</p>
+          <div class="statement-actions">
+            <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener" class="hero-intro-btn primary">Tải CV tiếng Việt</a>
+            <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener" class="hero-intro-btn">CV English</a>
+            <a href="about.html" class="hero-intro-btn">Về tôi</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================================
-       07_EXPERIENCE_PLANET_ARC (Orbital Stages)
-       ======================================================================== -->
+  <!-- 04 KINH NGHIỆM -->
   <section class="section-experience" id="experience">
     <div class="paper-grid">
       <div class="services-head">
-        <h2 class="section-big-title">Hành trình</h2>
-        <div class="section-count-tag">/ CÁC CỘT MỐC NGHỀ NGHIỆP</div>
+        <h2 class="section-big-title">Kinh nghiệm</h2>
+        <div class="section-count-tag">2017 – nay</div>
       </div>
 
       <div class="experience-layout-grid">
-        <!-- Planets Arc Graphic -->
         <div class="planets-arc-wrap">
-          <img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="planet-item-portrait">
-          <img src="media/nyah-photo-1.jpg" alt="Kiến trúc" class="planet-item" style="width: 120px; height: 120px;">
-          <img src="media/goi-1.jpg" alt="Bao bì" class="planet-item" style="width: 80px; height: 80px;">
-          <img src="media/shot-nyah-landing.jpg" alt="Web" class="planet-item" style="width: 50px; height: 50px;">
+          <a href="about.html" title="Về tôi"><img src="media/portrait.jpg" alt="Lê Bá Duy Quang" class="planet-item-portrait"></a>
+          <a href="#project-nyah" data-project="project-nyah" title="Xem dự án Ny'ah Phú Định"><img src="media/nyah-photo-1.jpg" alt="Ny'ah Phú Định" class="planet-item" style="width: 120px; height: 120px;"></a>
+          <a href="#project-goi" data-project="project-goi" title="Xem dự án GÓI"><img src="media/goi-1.jpg" alt="Bao bì GÓI" class="planet-item" style="width: 80px; height: 80px;"></a>
+          <a href="#project-villa" data-project="project-villa" title="Xem dự án Villa Ny'ah"><img src="media/shot-nyah-landing.jpg" alt="Villa Ny'ah" class="planet-item" style="width: 50px; height: 50px;"></a>
         </div>
 
-        <!-- Stages List -->
         <div class="stages-list">
-          <div class="stage-item active">
+          <a class="stage-item is-link" href="#project-nyah" data-project="project-nyah">
             <div>
               <div class="stage-name">Lead Visual &amp; Design Engineer</div>
-              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Công ty Cổ phần Nhã Đạt · UI/UX, Web Next.js, SEO/CRO &amp; AI Tools</div>
+              <div class="stage-sub">Công ty Cổ phần Nhã Đạt · TP.HCM</div>
             </div>
-            <div style="font-size: 14px; font-weight: 500;">2025 - Nay</div>
-          </div>
+            <div class="stage-side">
+              <div>2025 – nay</div>
+              <div class="stage-hint">Xem dự án ↑</div>
+            </div>
+          </a>
 
           <div class="stage-item">
             <div>
               <div class="stage-name">Chuyên viên Vận hành &amp; Tư liệu Số (Trainee)</div>
-              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Axel Månsson A/S · Làm việc trực tiếp tại Đan Mạch</div>
+              <div class="stage-sub">Axel Månsson A/S · Đan Mạch</div>
             </div>
-            <div style="font-size: 14px; font-weight: 500;">2024 - 2025</div>
+            <div class="stage-side">
+              <div>2024 – 2025</div>
+            </div>
           </div>
 
-          <div class="stage-item">
+          <button type="button" class="stage-item is-link" onclick="openCaseStudy('tiles')">
             <div>
-              <div class="stage-name">Chuyên viên Thiết kế Tranh gạch 3D &amp; Kỹ thuật In</div>
-              <div style="font-size: 13px; color: var(--text-light-subtle); margin-top: 4px;">Piramic Saigon &amp; Đức Phát · Mở rộng đại lý &amp; tăng doanh thu nhà máy</div>
+              <div class="stage-name">Thiết kế Tranh gạch 3D &amp; Kỹ thuật In</div>
+              <div class="stage-sub">Piramic Saigon &amp; Đức Phát</div>
             </div>
-            <div style="font-size: 14px; font-weight: 500;">2017 - 2024</div>
-          </div>
+            <div class="stage-side">
+              <div>2017 – 2024</div>
+              <div class="stage-hint">Xem case study</div>
+            </div>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================================
-       08_FOOTER_COSMOS_CTA (Giant Brand Mark)
-       ======================================================================== -->
+  <!-- 05 FOOTER -->
   <footer class="site-footer" id="contact">
     <div class="footer-sky-bg">
       <video class="footer-cosmos-video" autoplay muted loop playsinline preload="auto">
@@ -756,9 +362,8 @@
 
     <div class="footer-content">
       <div class="footer-top-grid">
-        <!-- Direct Channel -->
         <div>
-          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">KẾT NỐI TRỰC TIẾP</div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">LIÊN HỆ</div>
           <div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">
             <a href="mailto:quanggooner1996@gmail.com">quanggooner1996@gmail.com</a>
           </div>
@@ -767,41 +372,35 @@
           </div>
         </div>
 
-        <!-- Navigation Links -->
         <div>
-          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">ĐIỀU HƯỚNG NHANH</div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">TRANG</div>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="about.html">Về tôi (About)</a>
-            <a href="projects.html">Dự án chọn lọc</a>
-            <a href="contact.html">Liên hệ &amp; Báo giá</a>
-            <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">Tải CV tiếng Việt</a>
-            <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener">Download CV English</a>
+            <a href="about.html">Về tôi</a>
+            <a href="projects.html">Dự án</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="assets/docs/Quang's CV.pdf" target="_blank" rel="noopener">CV tiếng Việt</a>
+            <a href="assets/docs/Quang's CV English.pdf" target="_blank" rel="noopener">CV English</a>
           </div>
         </div>
 
-        <!-- External Profiles -->
         <div>
-          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">HỒ SƠ NĂNG LỰC</div>
+          <div style="font-size: 12px; color: var(--text-light-subtle); margin-bottom: 12px;">NƠI KHÁC</div>
           <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px;">
-            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance Portfolio ↗</a>
-            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub (14 Repositories) ↗</a>
-            <a href="https://goi-v2.vercel.app" target="_blank" rel="noopener">Dự án GÓI Packaging ↗</a>
+            <a href="https://www.behance.net/quanglee1996" target="_blank" rel="noopener">Behance ↗</a>
+            <a href="https://github.com/quang507" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
       </div>
 
-      <!-- Giant Brand Mark -->
-      <a href="#top" class="footer-giant-brand-link" title="Cuộn lên đầu trang" aria-label="Cuộn lên đầu trang"><div class="footer-giant-brand">Quang®</div></a>
+      <a href="#top" class="footer-giant-brand-link" title="Lên đầu trang" aria-label="Lên đầu trang"><div class="footer-giant-brand">Quang®</div></a>
 
-      <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
-        <div>© 2026 Lê Bá Duy Quang. All rights reserved.</div>
+        <div>© 2026 Lê Bá Duy Quang</div>
         <div>TP. Hồ Chí Minh, Việt Nam · GMT+7</div>
       </div>
     </div>
   </footer>
 
-  <!-- Astra Interactive Engine JS -->
-  <script src="assets/astra.js?v=2.9"></script>
+  <script src="assets/astra.js?v=3.3"></script>
 </body>
 </html>
