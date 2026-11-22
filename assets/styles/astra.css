@@ -2518,3 +2518,19 @@ a, button, [role="button"], .contact-pill, .menu-trigger-btn, .menu-close-btn, .
     gap: 16px;
   }
 }
+
+/* ===== Tools popover (+14) ===== */
+.tools-stack-block { position: relative; }
+.tool-badge-more { cursor: pointer; user-select: none; }
+.tool-badge-more:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
+.tools-popover {
+  position: absolute; left: 0; top: 100%; margin-top: 12px; z-index: 50;
+  width: min(360px, 90vw); padding: 16px 18px; background: #fff; color: #111;
+  border: 1px solid rgba(0,0,0,.1); border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,.16);
+  opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.tools-popover.open { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.tools-popover-title { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+.tools-popover-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tools-popover-tags span { font-size: 12px; padding: 5px 10px; border-radius: 999px; background: #f1f0ee; white-space: nowrap; }
